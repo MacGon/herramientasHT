@@ -1,0 +1,124 @@
+<resources>
+
+    <!-- TODO: Nombre de la aplicación -->
+    <string name="app_name">Dashboard_MH</string>
+
+
+    <!-- TODO: Textos para el ToolBar Menu -->
+    <string name="msg_toolbar_ayuda">Ayuda</string>
+    <string name="msg_toolbar_notificaciones">Notificaciones</string>
+    <!-- TODO: Fin para textos para el ToolBar Menu -->
+
+
+    <!-- TODO: Textos para el Login -->
+    <string name="msg_title_login">Bienvenido</string>
+    <string name="msg_subtitle_login">Por favor ingrese su usuario\ny contraseña</string>
+    <string name="msg_hint_user_login">Usuario</string>
+    <string name="msg_hint_password_login">Contraseña</string>
+    <string name="msg_button_login">Acceder</string>
+    <string name="msg_ayuda_login">¡Tengo un problema ayuda!</string>
+    <!-- TODO: Fin para textos para el Login -->
+
+
+    <!-- TODO: Textos para el Drawer Menu -->
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="msg_drawer_menu_title">Hola Jesús</string>
+    <string name="msg_drawer_menu_subtitle">Nivel Oro</string>
+    <string name="msg_drawer_menu_mis_pendientes">Mis pendientes</string>
+    <string name="msg_drawer_menu_region">Mi región</string>
+    <string name="msg_drawer_menu_home">Inicio</string>
+    <string name="msg_drawer_menu_inventario">Inventario</string>
+    <string name="msg_drawer_menu_formatos">Formatos</string>
+    <string name="msg_drawer_menu_expedientes">Expedientes</string>
+    <string name="msg_drawer_menu_facturas">Facturas</string>
+    <string name="msg_drawer_menu_asigar_herramienta">Asignar herramienta</string>
+    <string name="msg_drawer_menu_cobrar_herramienta">Cobrar Herramienta</string>
+    <string name="msg_drawer_menu_comunicados">Comunicados</string>
+    <string name="msg_drawer_menu_capacitaciones">Capacitaciones</string>
+    <string name="msg_drawer_menu_envios">Envíos</string>
+    <string name="msg_drawer_menu_ayuda">Ayuda</string>
+    <string name="msg_drawer_menu_cerrar_sesion">Cerrar sesión</string>
+    <!-- TODO: Fin para Textos para el Drawer Menu -->
+
+
+    <!-- TODO: Textos para el Home o DashBoard -->
+    <string name="msg_dash_board_header_title">JH Nivel Oro</string>
+    <string name="msg_dash_board_header_subtitle">Meta del Negocio</string>
+    <string name="msg_dash_board_button">Mis resultados</string>
+    <!-- TODO: CardView && GridView -->
+    <string name="msg_dashboard_herramientas_title">Herramientas</string>
+    <string name="msg_dashboard_cobrar_herramienta_title">Cobrar\nHerramienta</string>
+    <string name="msg_dashboard_asignar_herramienta_title">Asignar\nherramienta</string>
+    <string name="msg_dashboard_levantar_inventario_title">Levantar\ninventario</string>
+    <string name="msg_dashboard_dar_de_baja_title">Dar de baja</string>
+    <string name="msg_dashboard_integrar_expediente_title">Integrar expediente</string>
+    <!-- TODO: Fin para textos del Home o DashBoard -->
+
+
+    <!-- TODO: Textos para el SearchView -->
+    <string name="msg_search_view_respuesta">Escribe tu búsqueda aquí</string>
+    <!-- TODO: Fin para textos para el SearchView -->
+
+
+    <!-- TODO: Textos para el C4 Ayuda -->
+    <string name="msg_title_c4_ayuda">C4 Ayuda</string>
+    <string name="msg_subtitle_c4_ayuda">¡Llamar al C4\ntengo un problema!</string>
+    <string name="msg_leer_mas_c4">Leer más...</string>
+    <!-- TODO: Fin de textos para el C4 Ayuda -->
+
+
+    <!-- TODO: Textos para Notificaciones -->
+    <string name="msg_title_notificaciones">Notificaciones</string>
+    <string name="msg_leer_mas_notificaciones">Leer más...</string>
+    <!-- TODO: Fin de textos para Notificaciones -->
+
+
+    <!-- TODO: Textos para Resultados -->
+    <string name="msg_title_results">Hello blank Results</string>
+    <!-- TODO: Fin de textos para Resultados -->
+
+
+    <!-- TODO: Textos para Cobrar herramienta -->
+    <string name="msg_title_charge_tool">Bienvenido al Sistema\nde cobro de Herramientas\na Empleados</string>
+    <string name="msg_subtitle_charge_tool">Verifica que todos los datos que te aparezcan son correctos</string>
+    <string name="msg_button_charge_tool">Consultar</string>
+    <string name="msg_ayuda_charge_tool">¡Algo anda mal, ayuda!</string>
+    <!-- TODO: Fin de textos para Cobrar herramienta  -->
+
+
+    <!-- TODO: Textos para Asignación de herramienta -->
+    <string name="msg_hint_empleado">Número de empleado</string>
+    <string name="msg_button_asignar">Asignar</string>
+    <string name="msg_add_tool">Xiaomi Note 7</string>
+    <!-- TODO: Fin de textos para Asignación de herramienta  -->
+
+
+    <!-- TODO: Textos para Levantar inventario -->
+    <string name="msg_title_lift_inventory">Hello blank Lift Inventory</string>
+    <!-- TODO: Fin de textos para Levantar inventario -->
+
+
+    <!-- TODO: Textos para Dar de baja herramienta -->
+    <string name="msg_title_lift_unsubscribe_tool">Hello blank Unsubscribe Tool</string>
+    <!-- TODO: Fin de textos para Dar de baja herramienta  -->
+
+
+    <!-- TODO: Textos para Integrar expediente -->
+    <string name="msg_title_integrate_file">Hello blank Integrate File</string>
+    <!-- TODO: Fin de textos para Integrar expediente  -->
+
+
+    <!-- TODO: Textos para Resultados -->
+    <string name="msg_results_header_title">JH Nivel Oro</string>
+    <string name="msg_cardview_meta_mensual_title">Mi meta MENSUAL</string>
+    <string name="msg_cardview_desempeño_mensual_title">Mi desempeño MENSUAL</string>
+    <string name="msg_progress_circle_one_title">Habilitaciones</string>
+    <string name="msg_progress_circle_two_title">Inventario</string>
+    <string name="msg_progress_circle_one_result">65%</string>
+    <string name="msg_progress_circle_two_result">15%</string>
+    <string name="msg_cardview_habilitaciones_mensual_title">Habilitaciones 15/04/20</string>
+    <!-- TODO: Fin de textos para Resultados  -->
+
+
+</resources>

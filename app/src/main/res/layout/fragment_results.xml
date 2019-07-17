@@ -1,0 +1,319 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+<androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/containerResults"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:context=".ResultsFragment">
+
+    <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivCupResults"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:src="@drawable/ic_trophy"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+    <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvTitleResults"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            style="@style/TitleResultsStyle"
+            app:layout_constraintTop_toBottomOf="@+id/ivCupResults"
+            app:layout_constraintEnd_toEndOf="@+id/ivStarFourResults"
+            app:layout_constraintStart_toStartOf="@+id/ivStarTwoResults"/>
+
+    <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivStarOneResults"
+            android:layout_width="31dp"
+            android:layout_height="31dp"
+            android:src="@drawable/ic_star"
+            android:layout_marginEnd="8dp"
+            android:layout_marginTop="12dp"
+            app:layout_constraintEnd_toStartOf="@+id/ivStarTwoResults"
+            app:layout_constraintTop_toBottomOf="@+id/tvTitleResults"/>
+
+    <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivStarTwoResults"
+            android:src="@drawable/ic_star"
+            android:layout_width="31dp"
+            android:layout_height="31dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginTop="12dp"
+            app:layout_constraintEnd_toStartOf="@+id/ivStarThreeResults"
+            app:layout_constraintTop_toBottomOf="@+id/tvTitleResults"/>
+
+    <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivStarThreeResults"
+            android:layout_width="31dp"
+            android:layout_height="31dp"
+            android:src="@drawable/ic_star"
+            android:layout_marginTop="12dp"
+            android:tint="@color/colorGray"
+            android:layout_marginStart="8dp"
+            app:layout_constraintTop_toBottomOf="@+id/tvTitleResults"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+    <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivStarFourResults"
+            android:layout_width="31dp"
+            android:layout_height="31dp"
+            android:src="@drawable/ic_star"
+            android:tint="@color/colorGray"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="12dp"
+            app:layout_constraintStart_toEndOf="@+id/ivStarThreeResults"
+            app:layout_constraintTop_toBottomOf="@+id/tvTitleResults"/>
+
+    <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivStarFiveResults"
+            android:layout_width="31dp"
+            android:layout_height="31dp"
+            android:src="@drawable/ic_star"
+            android:tint="@color/colorGray"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="12dp"
+            app:layout_constraintStart_toEndOf="@+id/ivStarFourResults"
+            app:layout_constraintTop_toBottomOf="@+id/tvTitleResults"/>
+
+    <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cvProgressBar"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:layout_marginStart="12dp"
+            android:layout_marginEnd="12dp"
+            android:layout_marginTop="10dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ivStarThreeResults"
+            app:layout_constraintHorizontal_bias="0.0">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvTitleProgressBarHorizontal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginTop="4dp"
+                    style="@style/CarViewResultsHorizontalStyle"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.034" />
+
+            <androidx.core.widget.ContentLoadingProgressBar
+                    android:id="@+id/progressBarHorizontalResults"
+                    android:layout_width="265dp"
+                    android:layout_height="25dp"
+                    android:indeterminate="false"
+                    android:progress="75"
+                    android:minHeight="70dp"
+                    android:minWidth="200dp"
+                    android:theme="@style/ProgressBarStyle"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginStart="8dp"
+                    style="@style/ProgressBarStyle"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvTitleProgressBarHorizontal"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cvProgresBarCircle"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="12dp"
+            android:layout_marginEnd="12dp"
+            android:layout_marginTop="15dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cvProgressBar"
+            app:layout_constraintHorizontal_bias="0.0">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvDesempeñoMensual"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginTop="4dp"
+                    style="@style/CarViewResultsCircleStyle"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.034"/>
+
+            <androidx.core.widget.ContentLoadingProgressBar
+                    android:id="@+id/pbCircleOne"
+                    android:theme="@style/ProgressCircleResultStyle"
+                    android:layout_width="134dp"
+                    android:layout_height="127dp"
+                    android:indeterminate="false"
+                    android:progressDrawable="@drawable/shape_circular_front_progress_bar"
+                    android:background="@drawable/shape_circular_background_progress_bar"
+                    android:minHeight="50dp"
+                    android:minWidth="200dp"
+                    android:max="100"
+                    android:progress="65"
+                    android:layout_marginStart="44dp"
+                    android:layout_marginTop="24dp"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvDesempeñoMensual"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvPorcentajeOne"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="22sp"
+                    android:text="@string/msg_progress_circle_one_result"
+                    style="@style/TitleProgressCircleResultStyle"
+                    app:layout_constraintTop_toTopOf="@+id/pbCircleOne"
+                    app:layout_constraintBottom_toBottomOf="@+id/pbCircleOne"
+                    app:layout_constraintStart_toStartOf="@+id/pbCircleOne"
+                    app:layout_constraintEnd_toEndOf="@+id/pbCircleOne"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvPorcentajeTwo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="22sp"
+                    android:text="@string/msg_progress_circle_two_result"
+                    style="@style/TitleProgressCircleResultStyle"
+                    app:layout_constraintTop_toTopOf="@+id/pbCircleTwo"
+                    app:layout_constraintStart_toStartOf="@+id/pbCircleTwo"
+                    app:layout_constraintEnd_toEndOf="@+id/pbCircleTwo"
+                    app:layout_constraintBottom_toBottomOf="@+id/pbCircleTwo"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvProgressBarCircleOne"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/msg_progress_circle_one_title"
+                    android:textSize="16sp"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginBottom="16dp"
+                    android:layout_marginStart="53dp"
+                    style="@style/TitleProgressCircleResultStyle"
+                    app:layout_constraintTop_toBottomOf="@+id/pbCircleOne"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvProgressBarCircleTwo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="@string/msg_progress_circle_two_title"
+                    android:textSize="16sp"
+                    android:layout_marginBottom="16dp"
+                    android:layout_marginEnd="60dp"
+                    style="@style/TitleProgressCircleResultStyle"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/pbCircleTwo"
+                    app:layout_constraintBottom_toBottomOf="parent"/>
+
+            <androidx.core.widget.ContentLoadingProgressBar
+                    android:id="@+id/pbCircleTwo"
+                    android:theme="@style/ProgressBarStyle"
+                    android:layout_width="134dp"
+                    android:layout_height="127dp"
+                    android:indeterminate="false"
+                    android:progressDrawable="@drawable/shape_circular_front_progress_bar"
+                    android:background="@drawable/shape_circular_background_progress_bar"
+                    android:minHeight="50dp"
+                    android:minWidth="200dp"
+                    android:max="100"
+                    android:progress="15"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="24dp"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvDesempeñoMensual"
+                    app:layout_constraintStart_toEndOf="@+id/pbCircleOne"
+                    app:layout_constraintHorizontal_bias="0.525"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cvProgressBarTwo"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:layout_marginStart="12dp"
+            android:layout_marginEnd="12dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="15dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cvProgresBarCircle"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintBottom_toBottomOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/msg_cardview_habilitaciones_mensual_title"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginTop="4dp"
+                    android:id="@+id/tvHabilitaciones"
+                    style="@style/CarViewResultsCircleStyle"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.034" />
+
+            <androidx.core.widget.ContentLoadingProgressBar
+                    android:id="@+id/progressBarResultsHabilitaciones"
+                    android:layout_width="265dp"
+                    android:layout_height="25dp"
+                    android:indeterminate="false"
+                    android:progress="50"
+                    android:minHeight="70dp"
+                    android:minWidth="200dp"
+                    android:theme="@style/ProgressBarStyle"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginTop="12dp"
+                    style="@style/ProgressBarStyle"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvHabilitaciones"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

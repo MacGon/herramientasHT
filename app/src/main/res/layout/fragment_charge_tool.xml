@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ChargeToolFragment">
+
+    <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvTitleChargeTool"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginTop="92dp"
+            android:layout_marginStart="8dp"
+            style="@style/TitleChargeToolStyle"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"/>
+
+    <androidx.appcompat.widget.SearchView
+            android:id="@+id/svChargeTool"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/shape_searchview_chargetool"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="36dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintTop_toBottomOf="@+id/tvTitleChargeTool">
+
+    </androidx.appcompat.widget.SearchView>
+
+    <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvSubTitleChargeTool"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginTop="32dp"
+            style="@style/SubTitleChargeToolStyle"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/svChargeTool"
+            app:layout_constraintHorizontal_bias="0.0"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnConsultaChargeTool"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:focusable="true"
+            android:clickable="true"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:layout_marginEnd="16dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="36dp"
+            style="@style/ButtonChargeToolStyle"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvSubTitleChargeTool"
+            app:layout_constraintHorizontal_bias="0.0"/>
+
+    <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvAyudaChargeTool"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="80dp"
+            android:layout_marginTop="36dp"
+            style="@style/TitleAyudaChargeToolStyle"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btnConsultaChargeTool"/>
+
+    <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivAyudaChargeTool"
+            android:layout_width="41dp"
+            android:layout_height="41dp"
+            android:src="@drawable/ic_exclamation"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="28dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/tvAyudaChargeTool"
+            app:layout_constraintTop_toBottomOf="@+id/btnConsultaChargeTool"
+            app:layout_constraintHorizontal_bias="0.066"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

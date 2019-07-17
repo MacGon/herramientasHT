@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.drawerlayout.widget.DrawerLayout
+        android:id="@+id/drawer_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fitsSystemWindows="true"
+            android:backgroundTint="#EEB042"
+            tools:context=".MainActivity"
+            tools:openDrawer="start">
+
+        <include
+                android:id="@+id/appBarMain"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                layout="@layout/app_bar_main"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"/>
+
+        <com.google.android.material.circularreveal.CircularRevealFrameLayout
+                android:id="@+id/frameContainer"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/appBarMain"
+                app:layout_constraintBottom_toTopOf="@+id/nav_view"/>
+
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+                android:id="@+id/nav_view"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:fitsSystemWindows="true"
+                android:background="?android:attr/windowBackground"
+                app:layout_behavior="@string/hide_bottom_view_on_scroll_behavior"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:menu="@menu/navigation_menu"
+                app:itemIconSize="40dp"
+                app:itemIconTint="@color/button_efect_navigation_menu"
+                app:layout_constraintHorizontal_bias="0.0"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <com.google.android.material.navigation.NavigationView
+            android:id="@+id/nav_view_MH"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="start"
+            android:fitsSystemWindows="true"
+            app:headerLayout="@layout/drawer_header_menu"
+            app:menu="@menu/drawer_menu"
+            app:itemTextColor="@color/button_efect_navigation_menu"
+            app:itemTextAppearance="@style/MenuNavigationView"
+            app:itemIconTint="@color/button_efect_navigation_menu"
+            tools:ignore="MissingConstraints"/>
+
+</androidx.drawerlayout.widget.DrawerLayout>
+

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<menu
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        tools:showIn="navigation_view">
+
+    <group
+            android:id="@+id/nav_top"
+            android:checkableBehavior="single">
+
+        <item
+                android:id="@+id/itemMisPendientes"
+                android:icon="@drawable/ic_calendar"
+                android:title="@string/msg_drawer_menu_mis_pendientes"/>
+        <item
+                android:id="@+id/itemRegion"
+                android:icon="@drawable/ic_placeholder"
+                android:title="@string/msg_drawer_menu_region"/>
+    </group>
+
+    <group
+            android:id="@+id/nav_bottom"
+            android:checkableBehavior="single">
+
+        <item
+                android:id="@+id/itemHome"
+                android:icon="@drawable/ic_home"
+                android:title="@string/msg_drawer_menu_home"/>
+        <item
+                android:id="@+id/itemInventario"
+                android:icon="@drawable/ic_storage"
+                android:title="@string/msg_drawer_menu_inventario"/>
+        <item
+                android:id="@+id/itemFormatos"
+                android:icon="@drawable/ic_list"
+                android:title="@string/msg_drawer_menu_formatos"/>
+        <item
+                android:id="@+id/itemExpedientes"
+                android:icon="@drawable/ic_checklist"
+                android:title="@string/msg_drawer_menu_expedientes"/>
+        <item
+                android:id="@+id/itemFacturas"
+                android:icon="@drawable/ic_bill"
+                android:title="@string/msg_drawer_menu_facturas"/>
+        <item
+                android:id="@+id/itemAsignarHerramienta"
+                android:icon="@drawable/ic_exchange"
+                android:title="@string/msg_drawer_menu_asigar_herramienta"/>
+        <item
+                android:id="@+id/itemCobrarHerramienta"
+                android:icon="@drawable/ic_hand"
+                android:title="@string/msg_drawer_menu_cobrar_herramienta"/>
+        <item
+                android:id="@+id/itemComunicados"
+                android:icon="@drawable/ic_speech_bubble"
+                android:title="@string/msg_drawer_menu_comunicados"/>
+        <item
+                android:id="@+id/itemCapacitaciones"
+                android:icon="@drawable/ic_work"
+                android:title="@string/msg_drawer_menu_capacitaciones"/>
+        <item
+                android:id="@+id/itemEnvios"
+                android:icon="@drawable/ic_product"
+                android:title="@string/msg_drawer_menu_envios"/>
+        <item
+                android:id="@+id/itemAyuda"
+                android:icon="@drawable/ic_call_service"
+                android:title="@string/msg_drawer_menu_ayuda"/>
+        <item
+                android:id="@+id/itemCerrarSesion"
+                android:icon="@drawable/ic_power"
+                android:title="@string/msg_drawer_menu_cerrar_sesion"/>
+    </group>
+
+</menu>

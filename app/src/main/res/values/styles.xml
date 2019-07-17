@@ -1,0 +1,275 @@
+<resources>
+
+
+    <!-- TODO: Estilos para la aplicación (Base) -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@android:color/white</item>
+        <item name="colorPrimaryDark">@android:color/white</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:windowLightStatusBar">true</item>
+    </style>
+    <!-- TODO: Fin de estilo para la aplicación (Base) -->
+
+
+    <!-- TODO: Estilos para el SplashScreen -->
+    <style name="SplashStyle" parent="AppTheme.NoActionBar">
+    </style>
+    <!-- TODO: Fin de estilos para el SplashScreen -->
+
+
+    <!-- TODO: Estilos para el Login -->
+    <style name="TitleLoginStyle">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/colorGray</item>
+        <item name="android:textSize">32sp</item>
+        <item name="android:text">@string/msg_title_login</item>
+    </style>
+    <style name="SubTitleLoginStyle">
+        <item name="android:textColor">@color/colorGray</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:text">@string/msg_subtitle_login</item>
+    </style>
+    <style name="UserLoginStyle">
+        <item name="android:textColor">@color/colorGray</item>
+        <item name="android:hint">@string/msg_hint_user_login</item>
+    </style>
+    <style name="UserPasswordStyle">
+        <item name="android:textColor">@color/colorGray</item>
+        <item name="android:hint">@string/msg_hint_password_login</item>
+    </style>
+    <style name="ButtonLoginStyle">
+        <item name="android:textColor">@color/colorWhite</item>
+        <item name="android:background">@drawable/shape_button_rectangle</item>
+        <item name="android:text">@string/msg_button_login</item>
+        <item name="android:textSize">17sp</item>
+    </style>
+    <style name="HelpLoginStyle">
+        <item name="android:textColor">@color/colorGray</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:text">@string/msg_ayuda_login</item>
+    </style>
+    <!-- TODO: Fin de estilos para el Login -->
+
+
+    <!-- TODO: Estilos para componentes del Home o DashBoard-->
+    <style name="DashBoardStyle">
+        <item name="android:text">@string/msg_dash_board_header_subtitle</item>
+        <item name="android:textColor">@color/colorGray</item>
+        <item name="android:textSize">19sp</item>
+    </style>
+    <style name="ProgressBarStyle" parent="@style/Widget.AppCompat.ProgressBar.Horizontal">
+        <item name="colorControlActivated">@color/colorGreen</item>
+        <item name="android:progressDrawable">@drawable/shape_progress_bar</item>
+        <item name="android:minWidth">200dp</item>
+    </style>
+    <style name="ButtonDashBoardStyle">
+        <item name="android:textColor">@color/colorWhite</item>
+        <item name="android:background">@drawable/shape_button_rectangle</item>
+        <item name="android:text">@string/msg_dash_board_button</item>
+        <item name="android:textSize">17sp</item>
+    </style>
+    <style name="GridTitleStyle">
+        <item name="android:textColor">@color/colorGray</item>
+        <item name="android:background">@android:color/white</item>
+        <item name="android:text">@string/msg_dashboard_herramientas_title</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">22sp</item>
+        <item name="android:padding">8dp</item>
+    </style>
+    <style name="GridViewStyle">
+        <item name="android:textAlignment">center</item>
+        <item name="android:textColor">@color/colorGray</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+    <style name="GridViewImageStyle">
+        <item name="android:layout_width">33dp</item>
+        <item name="android:layout_height">33dp</item>
+    </style>
+    <!-- TODO: Fin de estilos para el Home o DashBoard -->
+
+
+    <!-- TODO: Estilo para la primera actividad-->
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+    <!-- TODO: Fin de estilo para la primera actividad-->
+
+
+    <!-- TODO: Estilo para la segunda actividad-->
+    <style name="AppThemeTwoActivity" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="colorPrimary">@android:color/white</item>
+        <item name="colorPrimaryDark">@android:color/white</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:label">msg_title_c4_ayuda</item>
+    </style>
+    <!-- TODO: Fin de estilo para la segunda actividad-->
+
+
+    <!-- TODO: Estilo para la tercera actividad-->
+    <style name="AppThemeThreeActivity" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="colorPrimary">@android:color/white</item>
+        <item name="colorPrimaryDark">@android:color/white</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:label">@string/msg_title_notificaciones</item>
+    </style>
+    <!-- TODO: Fin de estilo para la tercera actividad-->
+
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar">
+        <item name="colorControlNormal">@color/colorGray</item>
+    </style>
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light"/>
+    <style name="MenuNavigationView" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:textSize">16dp</item>
+    </style>
+
+
+    <!-- TODO: Estilos para componentes del SearchView -->
+    <style name="SearchViewStyle" parent="Widget.AppCompat.SearchView">
+        <item name="searchHintIcon">@null</item>
+        <item name="queryHint">@string/msg_search_view_respuesta</item>
+    </style>
+    <!-- TODO: Fin de estilos para componentes del SearchView -->
+
+
+    <!-- TODO: Estilos para componentes del C4Ayuda -->
+    <style name="C4ViewStyle" parent="Widget.AppCompat.SearchView">
+        <item name="android:text">@string/msg_subtitle_c4_ayuda</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:textColor">@color/colorGray</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+    <style name="C4ListStyle" parent="Widget.AppCompat.SearchView">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/colorGray</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:padding">20sp</item>
+    </style>
+    <style name="C4LeerMasStyle">
+        <item name="android:textColor">@color/colorOrange</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:text">@string/msg_leer_mas_c4</item>
+    </style>
+    <!-- TODO: Fin de estilos para componentes del C4Ayuda -->
+
+
+    <!-- TODO: Estilos para componentes del Drawer Header Menu -->
+    <style name="TitleDrawerHeaderStyle">
+        <item name="android:text">@string/msg_drawer_menu_title</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:textColor">@color/colorWhite</item>
+        <item name="android:textSize">21sp</item>
+        <item name="android:paddingTop">1dp</item>
+    </style>
+    <style name="SubTitleDrawerHeaderStyle">
+        <item name="android:text">@string/msg_drawer_menu_subtitle</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:textColor">@color/colorWhite</item>
+        <item name="android:textSize">21sp</item>
+    </style>
+    <!-- TODO: Fin de estilos para componentes del Drawer Header Menu -->
+
+
+    <!-- TODO: Estilos para componentes de Notificaciones -->
+    <style name="NotificacionesListStyle" parent="Widget.AppCompat.SearchView">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/colorGray</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:padding">20sp</item>
+    </style>
+    <style name="NotificacionesLeerMasStyle">
+        <item name="android:textColor">@color/colorOrange</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:text">@string/msg_leer_mas_notificaciones</item>
+    </style>
+    <!-- TODO: Fin de estilos para componentes de Notificaciones -->
+
+
+    <!-- TODO: Estilos para componentes de Cobro de herramienta -->
+    <style name="TitleChargeToolStyle">
+        <item name="android:textColor">@color/colorOrange</item>
+        <item name="android:textSize">28sp</item>
+        <item name="android:text">@string/msg_title_charge_tool</item>
+    </style>
+    <style name="SubTitleChargeToolStyle">
+        <item name="android:textColor">@color/colorGray</item>
+        <item name="android:textSize">19sp</item>
+        <item name="android:text">@string/msg_subtitle_charge_tool</item>
+    </style>
+    <style name="ButtonChargeToolStyle">
+        <item name="android:textColor">@color/colorWhite</item>
+        <item name="android:background">@drawable/shape_button_rectangle</item>
+        <item name="android:text">@string/msg_button_charge_tool</item>
+        <item name="android:textSize">17sp</item>
+    </style>
+    <style name="TitleAyudaChargeToolStyle">
+        <item name="android:textColor">@color/colorGray</item>
+        <item name="android:text">@string/msg_ayuda_charge_tool</item>
+        <item name="android:textSize">20sp</item>
+    </style>
+    <!-- TODO: Fin de estilos para componentes de Cobro de herramienta -->
+
+
+    <!-- TODO: Estilos para componentes de Resultados-->
+    <style name="TitleResultsStyle">
+        <item name="android:textColor">@color/colorGray</item>
+        <item name="android:textSize">19sp</item>
+        <item name="android:text">@string/msg_results_header_title</item>
+    </style>
+    <style name="CarViewResultsHorizontalStyle">
+        <item name="android:textColor">@android:color/darker_gray</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:text">@string/msg_cardview_desempeño_mensual_title</item>
+    </style>
+    <style name="CarViewResultsCircleStyle">
+        <item name="android:textColor">@android:color/darker_gray</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:text">@string/msg_cardview_desempeño_mensual_title</item>
+    </style>
+    <style name="ProgressCircleResultStyle" parent="Widget.AppCompat.SearchView">
+        <item name="android:progressTint">@color/colorOrange</item>
+        <item name="android:progressBackgroundTint">@color/colorGray</item>
+    </style>
+    <style name="ProgressBarResultStyle" parent="Widget.AppCompat.SearchView">
+        <item name="android:progressTint">@color/colorGreen</item>
+        <item name="android:progressBackgroundTint">@color/colorGray</item>
+    </style>
+    <style name="TitleProgressCircleResultStyle" >
+        <item name="android:textColor">@android:color/black</item>
+        <item name="android:textSize">19sp</item>
+    </style>
+    <!-- TODO: Fin de estilos para componentes de Resultados -->
+
+
+    <!-- TODO: Estilos para Asignación, Baja, Levantar inventario e Integrar Expediente -->
+    <style name="EditTextEmpleadoStyle">
+        <item name="android:hint">@string/msg_hint_empleado</item>
+        <item name="android:maxLength">5</item>
+        <item name="android:padding">5dip</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:textColor">@color/colorGray</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:inputType">textNoSuggestions</item>
+    </style>
+    <style name="ButtonTooldStyle">
+        <item name="android:textColor">@color/colorWhite</item>
+        <item name="android:background">@drawable/shape_button_rectangle</item>
+        <item name="android:text">@string/msg_button_asignar</item>
+        <item name="android:textSize">17sp</item>
+    </style>
+    <style name="EditTextToolStyle">
+        <item name="android:text">@string/msg_add_tool</item>
+        <item name="android:textColor">@color/colorGray</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+    <!-- TODO: Estilos para Asignación, Baja, Levantar inventario e Integrar Expediente-->
+
+
+</resources>
