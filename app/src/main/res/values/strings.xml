@@ -120,5 +120,11 @@
     <string name="msg_cardview_habilitaciones_mensual_title">Habilitaciones 15/04/20</string>
     <!-- TODO: Fin de textos para Resultados  -->
 
-
+    <!--  Titulo para la carta de asignación -->
+    <string name="title_carta_asign">Firma de común acuerdo</string>
+    <string name="msg_carta_asign">Con esta firma dejo constatado que estoy de acuerdo y confirmo que todas
+        las herramientas que se me entregaron están en óptimas condiciones y me comprometo mantenerlas
+        en estado óptimo para mi trabajo. Confirmo que me notificaron de las sanciones a las que soy
+        sujeto por todo daño y prejuicio que yo provoque a dichas herramientas.</string>
+    <string name="msg_btn_aceptar">Estoy de acuerdo</string>
 </resources>

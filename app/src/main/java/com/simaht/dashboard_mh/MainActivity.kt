@@ -3,6 +3,7 @@ package com.simaht.dashboard_mh
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.DisplayMetrics
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.FrameLayout
@@ -13,16 +14,17 @@ import androidx.drawerlayout.widget.DrawerLayout
 import com.example.dashboard_mh.R
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.navigation.NavigationView
+import com.simaht.asignacion.cartaAsignacion.PaintView
 import com.simaht.camara.view.FunCamaraView
 import kotlinx.android.synthetic.main.activity_main.*
 
 
-class MainActivity: AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener,DashBoardFragment.resultInterface, DashBoardFragment.chargeToolInterface, DashBoardFragment.assignToolInterface, DashBoardFragment.liftInventoryInterface, DashBoardFragment.unsubscribeTool, DashBoardFragment.integrateFile {
+class MainActivity: AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener,DashBoardFragment.resultInterface, DashBoardFragment.chargeToolInterface, DashBoardFragment.assignToolInterface, DashBoardFragment.liftInventoryInterface, DashBoardFragment.unsubscribeTool, DashBoardFragment.integrateFile, AssignToolFragment.cartaAsignacion {
 
 
     lateinit var container: FrameLayout
     val fm = supportFragmentManager
-
+    lateinit private var paintView: PaintView
     private val onNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
 
 
@@ -94,8 +96,8 @@ class MainActivity: AppCompatActivity(), NavigationView.OnNavigationItemSelected
        )
        drawerLayout.addDrawerListener(toggle)
        toggle.syncState()
-
         navViewTwo.setNavigationItemSelectedListener(this)
+
 
     }
 
@@ -224,5 +226,13 @@ class MainActivity: AppCompatActivity(), NavigationView.OnNavigationItemSelected
         transactionIntegrateFile.replace(container.id,fragmentIntegrateFile)
         transactionIntegrateFile.commit()
     }
+
+    override fun showCartaAsignacion() {
+        val fragmentCartaAsignacion = CartaFragment()
+        val transactionCartaAsignacion = fm.beginTransaction();
+        transactionCartaAsignacion.replace(container.id, fragmentCartaAsignacion)
+        transactionCartaAsignacion.commit()
+    }
+
 }
 

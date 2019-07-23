@@ -90,9 +90,9 @@
             android:clickable="true"
             android:foreground="?android:attr/selectableItemBackground"
             style="@style/ButtonTooldStyle"
-            android:layout_marginBottom="12dp"
+            android:layout_marginBottom="96dp"
             app:layout_constraintBottom_toBottomOf="@id/vBackgroundAssignTool"
             app:layout_constraintEnd_toEndOf="@+id/etTool"
-            app:layout_constraintStart_toStartOf="@+id/etTool"/>
+            app:layout_constraintStart_toStartOf="@+id/etTool" app:layout_constraintHorizontal_bias="0.0"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

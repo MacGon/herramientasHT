@@ -12,6 +12,8 @@ import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
 import androidx.appcompat.app.AppCompatActivity
 import android.widget.*
+import androidx.appcompat.app.AlertDialog
+import androidx.appcompat.widget.AppCompatButton
 import androidx.appcompat.widget.AppCompatSpinner
 import androidx.core.content.ContextCompat.getSystemService
 import com.example.dashboard_mh.R
@@ -23,12 +25,14 @@ class AssignToolFragment : Fragment(), AdapterView.OnItemSelectedListener {
     private val actions = arrayOf("Asignar herramienta", "Levantar inventario", "Dar de baja herramienta", "Expediente digital")
     private var spinner:Spinner? = null
     private var textviewMsg:TextView? = null
+    private var button: AppCompatButton? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflar el layout para el fragmento
+
         return inflater.inflate(R.layout.fragment_assign_tool, container, false)
     }
     
@@ -58,7 +62,25 @@ class AssignToolFragment : Fragment(), AdapterView.OnItemSelectedListener {
             aa.setDropDownViewResource(R.layout.spinner_item_empty)
             // Se ajusta el adaptador a nuestro Spinner
             spinner!!.adapter = aa
+
+            val integrateCartaAsignacion: cartaAsignacion = activity as MainActivity
+
+            btnAssignTool.setOnClickListener{
+                //integrateCartaAsignacion.showCartaAsignacion()
+                AlertDialog.Builder(view.context)
+                    //.setTitle("Firma de común acuerdo")
+                    .setView(R.layout.fragment_firma)
+                    /*.setMessage("Con esta firma dejo constatado que estoy de acuerdo y confirmo que todas " +
+                            "las herramientas que se me entregaron están en óptimas condiciones y me comprometo mantenerlas" +
+                            "en estado óptimo para mi trabajo. Confirmo que me notificaron de las sanciones a las que soy " +
+                            "sujeto por todo daño y prejuicio que yo provoque a dichas herramientas.")*/
+                    /*.setPositiveButton("Estoy de acuerdo", null)*/
+                    .show()
+
+            }
+
         }
+
 
     override fun onItemSelected(arg0: AdapterView<*>, arg1: View, position: Int, id: Long) {
        actions[position]
@@ -72,5 +94,11 @@ class AssignToolFragment : Fragment(), AdapterView.OnItemSelectedListener {
     private fun hideKeyboard(view: View) {
         val inputMethodManager = activity!!.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
         inputMethodManager.hideSoftInputFromWindow(view.windowToken, 0)
+    }
+
+
+
+    interface cartaAsignacion{
+        fun showCartaAsignacion()
     }
 }
