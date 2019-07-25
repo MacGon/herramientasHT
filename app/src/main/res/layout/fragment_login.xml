@@ -1,0 +1,73 @@
+<androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context="com.simaht.dashboard_mh.LoginFragment">
+
+    <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvTitleLogin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            style="@style/TitleLoginStyle"
+            tools:text="@string/msg_title_login"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+    <androidx.core.widget.ContentLoadingProgressBar
+            android:id="@+id/progress"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:visibility="gone"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            style="?android:attr/progressBarStyle"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/etPasswordLogin"
+            app:layout_constraintTop_toBottomOf="@+id/tvTitleLogin"/>
+
+    <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/etPasswordLogin"
+            android:layout_width="295dp"
+            android:layout_height="56dp"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp"
+            android:background="@drawable/shape_text_edit_create_pass"
+            android:inputType="textPassword"
+            android:ellipsize="start"
+            android:drawableStart="@drawable/ic_locked"
+            android:drawablePadding="16dp"
+            android:maxLength="8"
+            android:layout_marginTop="30dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            style="@style/UserPasswordStyle"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvTitleLogin"
+            app:layout_constraintBottom_toBottomOf="parent"
+            tools:ignore="RtlSymmetry"/>
+
+    <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvForgetPass"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="end"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginTop="24dp"
+            style="@style/ForgetLoginStyle"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintTop_toBottomOf="@+id/etPasswordLogin"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

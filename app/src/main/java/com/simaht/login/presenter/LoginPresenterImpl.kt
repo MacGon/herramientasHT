@@ -1,26 +1,66 @@
-package com.baz.simaht.login.presenter
-import com.baz.simaht.model.LogInInteractor
-import com.simaht.login.presenter.LoginView
+package com.simaht.login.presenter
 
-class LoginPresenterImpl(var loginView: LoginView?, val logInInteractor: LogInInteractor):
+import android.annotation.SuppressLint
+import android.graphics.Color
+import android.view.View
+import android.widget.TextView
+import com.baz.simaht.model.LogInInteractor
+import com.example.dashboard_mh.R
+import com.google.android.material.snackbar.Snackbar
+
+
+
+class LoginPresenterImpl(var loginView: LoginView?, val logInInteractor: LogInInteractor) :
     LogInInteractor.OnLoginFinishedListener {
 
-    fun validateCredentials(username: String, password: String) {
+    override fun setItemFragment(paso:Int) {
+        when (paso) {
+           //0 -> loginView?.showWelcomeFragment()
+           //1 -> loginView?.showQRFragment()
+           //2 -> loginView?.openCamera()
+           //3 -> loginView?.showNameFragment()
+           //4 -> loginView?.showCreateFragment()
+           //5 -> loginView?.showSuccessFragment()
+           //6-> loginView?.showLoginFragment()
+           7 -> loginView?.loginCheck()
+            else -> {
+                loginView?.loginCheck()
+            }
+        }
+    }
+
+    override fun onButtonClick() {
+        paso++
+        setItemFragment(paso)
+    }
+
+    private var paso: Int = 0
+
+    init {
+        paso = 0
+    }
+
+    fun showSnackbar(view: View, message: String, duration: Int) {
+        Snackbar.make(view, message, duration).show()
+        //snackbar.setActionTextColor(Color.BLUE)
+        //val snackbarView = snackbar.view
+        //snackbarView.setBackgroundColor(Color.LTGRAY)
+        //val textView = snackbarView.findViewById<TextView>(R.string.pressbackagain)
+        //val textView = snackbarView.findViewById<TextView>(R.string.pressbackagain)
+        //textView.setTextColor(Color.BLUE)
+        //textView.textSize = 28f
+        //snackbar.show()
+    }
+
+
+
+    fun validateCredentials(password: String) {
         loginView?.showProgress()
-        logInInteractor.login(username, password, this)
+        logInInteractor.login(password, this)
     }
 
     fun onDestroy() {
         loginView = null
-    }
-
-    override fun onUsernameError() {
-        //Llama a la función [block] especificada
-        // con el valor `this` como su receptor y devuelve el valor` this`.
-        loginView?.apply {
-            setUsernameError()
-            hideProgress()
-        }
     }
 
     override fun onPasswordError() {
@@ -35,7 +75,7 @@ class LoginPresenterImpl(var loginView: LoginView?, val logInInteractor: LogInIn
         loginView?.navigateToHome()
     }
 
-
-
-
+    override fun onBackPressed() {
+        if (paso > 0) paso--
+    }
 }

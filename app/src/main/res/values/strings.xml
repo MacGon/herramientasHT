@@ -11,13 +11,32 @@
 
 
     <!-- TODO: Textos para el Login -->
-    <string name="msg_title_login">Bienvenido</string>
-    <string name="msg_subtitle_login">Por favor ingrese su usuario\ny contraseña</string>
+    <string name="msg_title_login">¡Bienvenido %s!</string>
+    <string name="msg_subtitle_login">Por favor ingrese su contraseña</string>
     <string name="msg_hint_user_login">Usuario</string>
-    <string name="msg_hint_password_login">Contraseña</string>
-    <string name="msg_button_login">Acceder</string>
-    <string name="msg_ayuda_login">¡Tengo un problema ayuda!</string>
+    <string name="msg_hint_password_login">Ingresa tu contraseña</string>
+    <string name="msg_button_login">Siguiente</string>
+    <string name="msg_forget_login">
+        <u>Olvide mi contraseña</u>
+    </string>
     <!-- TODO: Fin para textos para el Login -->
+
+
+    <!-- TODO: Textos para el Enrolamiento -->
+    <string name="msg_title_enrolamiento">¡Hola!</string>
+    <string name="msg_subtitle_enrolamiento">Este es tu nueva aplicación\npensada y diseñada para ti,\npara facilitar
+        tus labores\nde tu día a día
+    </string>
+    <string name="msg_title_qr_enrolamiento">Para poder iniciar es\nnecesario ingresar el\ncódigo QR que te
+        fue\nasignado por e-mail
+    </string>
+    <string name="msg_title_name_enrolamiento">¡Bienvenido \n%s!</string>
+    <string name="msg_subtitle_create_pass_enrolamiento">Es necesario que ingreses\nuna nueva contraseña</string>
+    <string name="msg_title_name_create_pass_enrolamiento">¡Bienvenido %s!</string>
+    <string name="msg_hint_create_password">Escribe tu nueva contraseña</string>
+    <string name="msg_hint_repeat_password">Confirma tu contraseña</string>
+    <string name="msg_title_success_pass_enrolamiento">Registro exitoso</string>
+    <!-- TODO: Fin para textos para el Enrolamiento -->
 
 
     <!-- TODO: Textos para el Drawer Menu -->
@@ -118,13 +137,10 @@
     <string name="msg_progress_circle_one_result">65%</string>
     <string name="msg_progress_circle_two_result">15%</string>
     <string name="msg_cardview_habilitaciones_mensual_title">Habilitaciones 15/04/20</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="pressbackagain">Presiona de nuevo atrás para salir</string>
     <!-- TODO: Fin de textos para Resultados  -->
 
-    <!--  Titulo para la carta de asignación -->
-    <string name="title_carta_asign">Firma de común acuerdo</string>
-    <string name="msg_carta_asign">Con esta firma dejo constatado que estoy de acuerdo y confirmo que todas
-        las herramientas que se me entregaron están en óptimas condiciones y me comprometo mantenerlas
-        en estado óptimo para mi trabajo. Confirmo que me notificaron de las sanciones a las que soy
-        sujeto por todo daño y prejuicio que yo provoque a dichas herramientas.</string>
-    <string name="msg_btn_aceptar">Estoy de acuerdo</string>
 </resources>

@@ -6,7 +6,7 @@
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@android:color/white</item>
         <item name="colorPrimaryDark">@android:color/white</item>
-        <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorAccent">@color/colorWhite</item>
         <item name="android:windowLightStatusBar">true</item>
     </style>
     <!-- TODO: Fin de estilo para la aplicación (Base) -->
@@ -18,36 +18,125 @@
     <!-- TODO: Fin de estilos para el SplashScreen -->
 
 
+    <!-- TODO: Estilos para Enrolamiento -->
+    <style name="TitleEnrolamientoStyle">
+        <item name="android:fontFamily">@font/montserrat_regular</item>
+        <item name="android:textColor">@color/colorWhite</item>
+        <item name="android:textSize">34sp</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:lineSpacingExtra">9sp</item>
+        <item name="android:text">@string/msg_title_enrolamiento</item>
+    </style>
+    <style name="SubTitleEnrolamientoStyle">
+        <item name="android:fontFamily">@font/montserrat_bold</item>
+        <item name="android:textColor">@color/colorWhite</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:lineSpacingExtra">5sp</item>
+        <item name="android:text">@string/msg_subtitle_enrolamiento</item>
+    </style>
+    <style name="TitleQREnrolamientoStyle">
+        <item name="android:fontFamily">@font/montserrat_bold</item>
+        <item name="android:textColor">@color/colorWhite</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:lineSpacingExtra">5sp</item>
+        <item name="android:text">@string/msg_title_qr_enrolamiento</item>
+    </style>
+    <style name="NameEnrolamientoStyle">
+        <item name="android:fontFamily">@font/montserrat_bold</item>
+        <item name="android:textColor">@color/colorWhite</item>
+        <item name="android:textSize">36sp</item>
+        <item name="android:lineSpacingExtra">11sp</item>
+    </style>
+    <style name="TitleCreatePassStyle">
+        <item name="android:fontFamily">@font/montserrat_regular</item>
+        <item name="android:textColor">@color/colorWhite</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:lineSpacingExtra">5sp</item>
+    </style>
+    <style name="SubTitleCreatePassStyle">
+        <item name="android:fontFamily">@font/montserrat_bold</item>
+        <item name="android:textColor">@color/colorWhite</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:lineSpacingExtra">5sp</item>
+        <item name="android:text">@string/msg_subtitle_create_pass_enrolamiento</item>
+    </style>
+    <style name="CreatePasswordStyle">
+        <item name="android:fontFamily">@font/roboto_regular</item>
+        <item name="android:textColor">#80000000</item>
+        <item name="android:textColorHint">#80000000</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textSize">17sp</item>
+        <item name="android:lineSpacingExtra">2sp</item>
+        <item name="android:hint">@string/msg_hint_create_password</item>
+    </style>
+    <style name="RepeatPasswordStyle">
+        <item name="android:fontFamily">@font/roboto_regular</item>
+        <item name="android:textColor">#80000000</item>
+        <item name="android:textColorHint">#80000000</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textSize">17sp</item>
+        <item name="android:lineSpacingExtra">2sp</item>
+        <item name="android:hint">@string/msg_hint_repeat_password</item>
+    </style>
+    <style name="TitleSuccessPassStyle">
+        <item name="android:fontFamily">@font/montserrat_bold</item>
+        <item name="android:textColor">@color/colorWhite</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:lineSpacingExtra">5sp</item>
+        <item name="android:text">@string/msg_title_success_pass_enrolamiento</item>
+    </style>
+    <!-- TODO: Fin de estilos para el Enrolamiento -->
+
+
     <!-- TODO: Estilos para el Login -->
     <style name="TitleLoginStyle">
-        <item name="android:textStyle">bold</item>
-        <item name="android:textColor">@color/colorGray</item>
-        <item name="android:textSize">32sp</item>
-        <item name="android:text">@string/msg_title_login</item>
+        <item name="android:fontFamily">@font/montserrat_regular</item>
+        <item name="android:textColor">@color/colorWhite</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:lineSpacingExtra">5sp</item>
     </style>
-    <style name="SubTitleLoginStyle">
-        <item name="android:textColor">@color/colorGray</item>
-        <item name="android:textSize">18sp</item>
-        <item name="android:text">@string/msg_subtitle_login</item>
-    </style>
+
     <style name="UserLoginStyle">
         <item name="android:textColor">@color/colorGray</item>
         <item name="android:hint">@string/msg_hint_user_login</item>
     </style>
     <style name="UserPasswordStyle">
-        <item name="android:textColor">@color/colorGray</item>
+        <item name="android:fontFamily">@font/roboto_regular</item>
+        <item name="android:textColor">#80000000</item>
+        <item name="android:textColorHint">#80000000</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textSize">17sp</item>
+        <item name="android:lineSpacingExtra">2sp</item>
         <item name="android:hint">@string/msg_hint_password_login</item>
     </style>
     <style name="ButtonLoginStyle">
+        <item name="android:fontFamily">@font/montserrat_bold</item>
         <item name="android:textColor">@color/colorWhite</item>
-        <item name="android:background">@drawable/shape_button_rectangle</item>
+        <item name="android:lineSpacingExtra">4sp</item>
+        <item name="android:background">@drawable/shape_button_rectangle_login</item>
         <item name="android:text">@string/msg_button_login</item>
-        <item name="android:textSize">17sp</item>
+        <item name="android:textSize">14sp</item>
     </style>
     <style name="HelpLoginStyle">
         <item name="android:textColor">@color/colorGray</item>
         <item name="android:textSize">18sp</item>
-        <item name="android:text">@string/msg_ayuda_login</item>
+        <item name="android:text">@string/msg_forget_login</item>
+    </style>
+    <style name="ForgetLoginStyle">
+        <item name="android:fontFamily">@font/roboto_regular</item>
+        <item name="android:textColor">@color/colorWhite</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:lineSpacingExtra">6sp</item>
+        <item name="android:text">@string/msg_forget_login</item>
+    </style>
+    <style name="LoginStyle" parent="AppTheme.NoActionBar">
     </style>
     <!-- TODO: Fin de estilos para el Login -->
 
@@ -270,6 +359,14 @@
         <item name="android:textSize">18sp</item>
     </style>
     <!-- TODO: Estilos para Asignación, Baja, Levantar inventario e Integrar Expediente-->
+
+    <!--  Titulo para la carta de asignación -->
+    <string name="title_carta_asign">Firma de común acuerdo</string>
+    <string name="msg_carta_asign">Con esta firma dejo constatado que estoy de acuerdo y confirmo que todas
+        las herramientas que se me entregaron están en óptimas condiciones y me comprometo mantenerlas
+        en estado óptimo para mi trabajo. Confirmo que me notificaron de las sanciones a las que soy
+        sujeto por todo daño y prejuicio que yo provoque a dichas herramientas.</string>
+    <string name="msg_btn_aceptar">Estoy de acuerdo</string>
 
 
 </resources>

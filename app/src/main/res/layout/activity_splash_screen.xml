@@ -4,12 +4,12 @@
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".SplashScreenActivity">
+        tools:context="com.simaht.dashboard_mh.SplashScreenActivity">
 
     <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivNameApp"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:src="@drawable/screen_splash"
             android:scaleType="centerInside"
             android:background="@drawable/screen_splash"/>
 

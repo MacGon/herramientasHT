@@ -3,7 +3,7 @@ package com.baz.simaht.injection.component
 import com.baz.simaht.base.BaseView
 import com.baz.simaht.injection.module.ContextModule
 import com.baz.simaht.injection.module.NetworkModule
-import com.baz.simaht.login.presenter.LoginPresenterImpl
+import com.simaht.login.presenter.LoginPresenterImpl
 import dagger.BindsInstance
 import dagger.Component
 import javax.inject.Singleton

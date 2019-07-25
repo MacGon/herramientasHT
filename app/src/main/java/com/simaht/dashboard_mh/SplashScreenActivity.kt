@@ -9,7 +9,6 @@ import android.view.View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
 import com.example.dashboard_mh.R
 import com.simaht.login.presenter.LoginActivity
 
-
 class SplashScreenActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {

@@ -29,7 +29,7 @@ class DashBoardFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        (activity as AppCompatActivity).supportActionBar!!.setTitle((Html.fromHtml("<font color=\"#6A6A6A\">" + "" + "</font>")))
+        (activity as AppCompatActivity).supportActionBar!!.title = (Html.fromHtml("<font color=\"#6A6A6A\">" + "" + "</font>"))
 
         val resultInteface: resultInterface = activity as MainActivity
         btnResultados.setOnClickListener {
