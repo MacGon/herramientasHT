@@ -13,8 +13,8 @@ import androidx.drawerlayout.widget.DrawerLayout
 import com.example.dashboard_mh.R
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.navigation.NavigationView
+import com.simaht.asignacion.cartaAsignacion.PaintView
 import com.simaht.camara.view.FunCamaraView
-import com.simaht.cartaAsignacion.PaintView
 import kotlinx.android.synthetic.main.activity_main.*
 
 
