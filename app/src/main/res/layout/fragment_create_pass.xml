@@ -4,7 +4,7 @@
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        tools:context="com.simaht.dashboard_mh.CreatePassFragment">
+        tools:context="com.simaht.modules.dashboard_mh.CreatePassFragment">
 
     <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tvTitleEnrollCreatePass"

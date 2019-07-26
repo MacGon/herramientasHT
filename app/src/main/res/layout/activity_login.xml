@@ -8,7 +8,7 @@
         android:scaleType="centerInside"
         android:background="@drawable/screen_enroll"
         android:id="@+id/clBackground"
-        tools:context="com.simaht.login.presenter.LoginActivity">
+        tools:context="com.simaht.modules.login.view.LoginActivity">
 
     <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/ivBackground"

@@ -5,7 +5,7 @@
         android:layout_width="match_parent"
         android:layout_gravity="center"
         android:layout_height="wrap_content"
-        tools:context="com.simaht.dashboard_mh.WelcomeFragment">
+        tools:context="com.simaht.modules.dashboard_mh.WelcomeFragment">
 
     <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tvTitleWelcome"

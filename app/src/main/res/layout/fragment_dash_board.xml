@@ -1,315 +1,316 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-            xmlns:app="http://schemas.android.com/apk/res-auto"
-            xmlns:tools="http://schemas.android.com/tools"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
 
     <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            tools:context=".DashBoardFragment">
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:context=".DashBoardFragment">
 
         <androidx.appcompat.widget.AppCompatImageView
-                android:id="@+id/ivCup"
-                android:layout_width="120dp"
-                android:layout_height="120dp"
-                android:src="@drawable/ic_trophy"
-                android:layout_marginTop="16dp"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"/>
+            android:id="@+id/ivCup"
+            android:layout_width="103dp"
+            android:layout_height="69dp"
+            android:src="@drawable/ic_trophy"
+            android:layout_marginTop="16dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
 
         <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/tvTitleDashBoard"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                style="@style/DashBoardStyle"
-                app:layout_constraintTop_toBottomOf="@+id/ivCup"
-                app:layout_constraintEnd_toEndOf="@+id/ivStarFour"
-                app:layout_constraintStart_toStartOf="@+id/ivStarTwo"/>
+            android:id="@+id/tvTitleDashBoard"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            style="@style/DashBoardStyle"
+            app:layout_constraintTop_toBottomOf="@+id/ivCup"
+            app:layout_constraintEnd_toEndOf="@+id/ivStarFour"
+            app:layout_constraintStart_toStartOf="@+id/ivStarTwo"/>
 
         <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/tvSubTitleDashBoard"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                style="@style/DashBoardStyle"
-                app:layout_constraintStart_toStartOf="@+id/pbHorizontal"
-                app:layout_constraintTop_toBottomOf="@+id/ivStarThree"/>
+            android:id="@+id/tvSubTitleDashBoard"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            style="@style/DashBoardStyle"
+            app:layout_constraintStart_toStartOf="@+id/pbHorizontal"
+            app:layout_constraintTop_toBottomOf="@+id/ivStarThree"/>
 
         <androidx.core.widget.ContentLoadingProgressBar
-                android:id="@+id/pbHorizontal"
-                android:layout_width="265dp"
-                android:layout_height="25dp"
-                android:indeterminate="false"
-                android:progress="5"
-                android:minHeight="50dp"
-                android:minWidth="200dp"
-                android:layout_marginEnd="8dp"
-                android:layout_marginStart="8dp"
-                android:theme="@style/ProgressBarStyle"
-                style="@style/ProgressBarStyle"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tvSubTitleDashBoard"/>
+            android:id="@+id/pbHorizontal"
+            android:layout_width="265dp"
+            android:layout_height="25dp"
+            android:indeterminate="false"
+            android:progress="5"
+            android:minHeight="50dp"
+            android:minWidth="200dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:theme="@style/ProgressBarStyle"
+            style="@style/ProgressBarStyle"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvSubTitleDashBoard"/>
 
         <androidx.appcompat.widget.AppCompatImageView
-                android:id="@+id/ivStarOne"
-                android:layout_width="31dp"
-                android:layout_height="31dp"
-                android:src="@drawable/ic_star"
-                android:layout_marginEnd="8dp"
-                android:layout_marginTop="12dp"
-                app:layout_constraintEnd_toStartOf="@+id/ivStarTwo"
-                app:layout_constraintTop_toBottomOf="@+id/tvTitleDashBoard"/>
+            android:id="@+id/ivStarOne"
+            android:layout_width="31dp"
+            android:layout_height="31dp"
+            android:src="@drawable/ic_star"
+            android:layout_marginEnd="8dp"
+            android:layout_marginTop="12dp"
+            app:layout_constraintEnd_toStartOf="@+id/ivStarTwo"
+            app:layout_constraintTop_toBottomOf="@+id/tvTitleDashBoard"/>
 
         <androidx.appcompat.widget.AppCompatImageView
-                android:id="@+id/ivStarTwo"
-                android:src="@drawable/ic_star"
-                android:layout_width="31dp"
-                android:layout_height="31dp"
-                android:layout_marginEnd="8dp"
-                android:layout_marginTop="12dp"
-                app:layout_constraintEnd_toStartOf="@+id/ivStarThree"
-                app:layout_constraintTop_toBottomOf="@+id/tvTitleDashBoard"/>
+            android:id="@+id/ivStarTwo"
+            android:src="@drawable/ic_star"
+            android:layout_width="31dp"
+            android:layout_height="31dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginTop="12dp"
+            app:layout_constraintEnd_toStartOf="@+id/ivStarThree"
+            app:layout_constraintTop_toBottomOf="@+id/tvTitleDashBoard"/>
 
         <androidx.appcompat.widget.AppCompatImageView
-                android:id="@+id/ivStarThree"
-                android:layout_width="31dp"
-                android:layout_height="31dp"
-                android:src="@drawable/ic_star"
-                android:layout_marginTop="12dp"
-                android:layout_marginStart="8dp"
-                app:layout_constraintTop_toBottomOf="@+id/tvTitleDashBoard"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"/>
+            android:id="@+id/ivStarThree"
+            android:layout_width="31dp"
+            android:layout_height="31dp"
+            android:src="@drawable/ic_star"
+            android:layout_marginTop="12dp"
+            android:layout_marginStart="8dp"
+            app:layout_constraintTop_toBottomOf="@+id/tvTitleDashBoard"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"/>
 
         <androidx.appcompat.widget.AppCompatImageView
-                android:id="@+id/ivStarFour"
-                android:layout_width="31dp"
-                android:layout_height="31dp"
-                android:src="@drawable/ic_star"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="12dp"
-                app:layout_constraintStart_toEndOf="@+id/ivStarThree"
-                app:layout_constraintTop_toBottomOf="@+id/tvTitleDashBoard"/>
+            android:id="@+id/ivStarFour"
+            android:layout_width="31dp"
+            android:layout_height="31dp"
+            android:src="@drawable/ic_star"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="12dp"
+            app:layout_constraintStart_toEndOf="@+id/ivStarThree"
+            app:layout_constraintTop_toBottomOf="@+id/tvTitleDashBoard"/>
 
         <androidx.appcompat.widget.AppCompatImageView
-                android:id="@+id/ivStarFive"
-                android:layout_width="31dp"
-                android:layout_height="31dp"
-                android:src="@drawable/ic_star"
-                android:tint="@color/colorGray"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="12dp"
-                app:layout_constraintStart_toEndOf="@+id/ivStarFour"
-                app:layout_constraintTop_toBottomOf="@+id/tvTitleDashBoard"/>
+            android:id="@+id/ivStarFive"
+            android:layout_width="31dp"
+            android:layout_height="31dp"
+            android:src="@drawable/ic_star"
+            android:tint="@color/colorGray"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="12dp"
+            app:layout_constraintStart_toEndOf="@+id/ivStarFour"
+            app:layout_constraintTop_toBottomOf="@+id/tvTitleDashBoard"/>
 
         <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/btnResultados"
-                android:layout_width="0dp"
-                android:layout_height="50dp"
-                android:focusable="true"
-                android:clickable="true"
-                android:layout_marginTop="15dp"
-                android:foreground="?android:attr/selectableItemBackground"
-                style="@style/ButtonDashBoardStyle"
-                app:layout_constraintStart_toStartOf="@+id/pbHorizontal"
-                app:layout_constraintEnd_toEndOf="@+id/pbHorizontal"
-                app:layout_constraintTop_toBottomOf="@+id/pbHorizontal"/>
+            android:id="@+id/btnResultados"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:focusable="true"
+            android:clickable="true"
+            android:layout_marginTop="8dp"
+            android:foreground="?android:attr/selectableItemBackground"
+            style="@style/ButtonDashBoardStyle"
+            app:layout_constraintStart_toStartOf="@+id/pbHorizontal"
+            app:layout_constraintEnd_toEndOf="@+id/pbHorizontal"
+            app:layout_constraintTop_toBottomOf="@+id/pbHorizontal" app:layout_constraintHorizontal_bias="0.0"/>
 
         <View
-                android:id="@+id/cvBackground"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_marginBottom="0dp"
-                android:layout_marginStart="0dp"
-                android:layout_marginEnd="0dp"
-                android:layout_marginTop="20dp"
-                android:background="@drawable/shape_grid_background"
-                app:layout_constraintTop_toBottomOf="@+id/btnResultados"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent">
+            android:id="@+id/cvBackground"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginBottom="0dp"
+            android:layout_marginStart="0dp"
+            android:layout_marginEnd="0dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/shape_grid_background"
+            app:layout_constraintTop_toBottomOf="@+id/btnResultados"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
         </View>
 
         <androidx.cardview.widget.CardView
-                android:id="@+id/cvContainer"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="0dp"
-                android:layout_marginStart="20dp"
-                android:layout_marginEnd="20dp"
-                android:layout_marginTop="30dp"
-                app:cardCornerRadius="16dp"
-                app:cardBackgroundColor="@color/colorLightGray"
-                app:layout_constraintTop_toTopOf="@+id/cvBackground"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent">
+            android:id="@+id/cvContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="0dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginTop="20dp"
+            app:cardCornerRadius="16dp"
+            app:cardBackgroundColor="@color/colorLightGray"
+            app:layout_constraintTop_toTopOf="@+id/cvBackground"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
 
             <androidx.constraintlayout.widget.ConstraintLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
                 <androidx.appcompat.widget.AppCompatTextView
-                        android:id="@+id/tvSeccionGridTitle"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:textAlignment="center"
-                        style="@style/GridTitleStyle"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"/>
+                    android:id="@+id/tvSeccionGridTitle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:textAlignment="center"
+                    style="@style/GridTitleStyle"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"/>
 
                 <com.google.android.material.circularreveal.CircularRevealGridLayout
-                        android:id="@+id/cvContainerGrid"
-                        android:columnCount="2"
-                        android:rowCount="3"
-                        android:layout_marginTop="1dp"
-                        android:alignmentMode="alignMargins"
-                        android:columnOrderPreserved="false"
-                        android:layout_width="match_parent"
+                    android:id="@+id/cvContainerGrid"
+                    android:columnCount="2"
+                    android:rowCount="3"
+                    android:layout_marginTop="1dp"
+                    android:alignmentMode="alignMargins"
+                    android:columnOrderPreserved="false"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@id/tvSeccionGridTitle"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent">
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/cvOne"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:foreground="?android:attr/selectableItemBackground"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        app:layout_constraintTop_toBottomOf="@id/tvSeccionGridTitle"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent">
-
-                    <androidx.cardview.widget.CardView
-                            android:id="@+id/cvOne"
-                            android:clickable="true"
-                            android:focusable="true"
-                            android:foreground="?android:attr/selectableItemBackground"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_columnWeight="1"
-                            android:layout_rowWeight="1"
-                            android:layout_marginBottom="1dp"
-                            android:layout_marginEnd="0.5dp">
+                        android:layout_columnWeight="1"
+                        android:layout_rowWeight="1"
+                        android:layout_marginBottom="1dp"
+                        android:layout_marginEnd="0.5dp">
 
                         <androidx.appcompat.widget.LinearLayoutCompat
-                                android:layout_gravity="center_horizontal|center_vertical"
-                                android:layout_margin="16dp"
-                                android:orientation="vertical"
-                                android:layout_width="wrap_content"
-                                android:layout_height="74dp">
+                            android:layout_gravity="center_horizontal|center_vertical"
+                            android:layout_margin="16dp"
+                            android:orientation="vertical"
+                            android:layout_width="wrap_content"
+                            android:layout_height="74dp">
 
                             <androidx.appcompat.widget.AppCompatImageView
-                                    android:layout_gravity="center"
-                                    android:tint="@color/colorOrange"
-                                    android:src="@drawable/ic_hand"
-                                    style="@style/GridViewImageStyle"/>
+                                android:layout_gravity="center"
+                                android:tint="@color/colorOrange"
+                                android:src="@drawable/ic_hand"
+                                style="@style/GridViewImageStyle"/>
 
                             <androidx.appcompat.widget.AppCompatTextView
-                                    android:text="@string/msg_dashboard_cobrar_herramienta_title"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    style="@style/GridViewStyle"/>
+                                android:text="@string/msg_dashboard_cobrar_herramienta_title"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                style="@style/GridViewStyle"/>
 
                         </androidx.appcompat.widget.LinearLayoutCompat>
 
                     </androidx.cardview.widget.CardView>
 
                     <androidx.cardview.widget.CardView
-                            android:id="@+id/cvTwo"
-                            android:foreground="?android:attr/selectableItemBackground"
-                            android:clickable="true"
-                            android:focusable="true"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_columnWeight="1"
-                            android:layout_rowWeight="1"
-                            android:layout_marginBottom="1dp"
-                            android:layout_marginStart="0.5dp">
+                        android:id="@+id/cvTwo"
+                        android:foreground="?android:attr/selectableItemBackground"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_columnWeight="1"
+                        android:layout_rowWeight="1"
+                        android:layout_marginBottom="1dp"
+                        android:layout_marginStart="0.5dp">
 
                         <androidx.appcompat.widget.LinearLayoutCompat
-                                android:layout_gravity="center_horizontal|center_vertical"
-                                android:layout_margin="16dp"
-                                android:orientation="vertical"
-                                android:layout_width="wrap_content"
-                                android:layout_height="74dp">
+                            android:layout_gravity="center_horizontal|center_vertical"
+                            android:layout_margin="16dp"
+                            android:orientation="vertical"
+                            android:layout_width="wrap_content"
+                            android:layout_height="74dp">
 
                             <androidx.appcompat.widget.AppCompatImageView
-                                    android:layout_gravity="center"
-                                    android:tint="@color/colorOrange"
-                                    android:src="@drawable/ic_exchange"
-                                    style="@style/GridViewImageStyle"/>
+                                android:layout_gravity="center"
+                                android:tint="@color/colorOrange"
+                                android:src="@drawable/ic_exchange"
+                                style="@style/GridViewImageStyle"/>
 
                             <androidx.appcompat.widget.AppCompatTextView
-                                    android:text="@string/msg_dashboard_asignar_herramienta_title"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    style="@style/GridViewStyle"/>
+                                android:text="@string/msg_dashboard_asignar_herramienta_title"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                style="@style/GridViewStyle"/>
 
                         </androidx.appcompat.widget.LinearLayoutCompat>
 
                     </androidx.cardview.widget.CardView>
 
                     <androidx.cardview.widget.CardView
-                            android:id="@+id/cvThree"
-                            android:clickable="true"
-                            android:focusable="true"
-                            android:foreground="?android:attr/selectableItemBackground"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_columnWeight="1"
-                            android:layout_rowWeight="1"
-                            android:layout_marginEnd="0.5dp">
+                        android:id="@+id/cvThree"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:foreground="?android:attr/selectableItemBackground"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_columnWeight="1"
+                        android:layout_rowWeight="1"
+                        android:layout_marginEnd="0.5dp">
 
                         <androidx.appcompat.widget.LinearLayoutCompat
-                                android:layout_gravity="center_horizontal|center_vertical"
-                                android:layout_margin="16dp"
-                                android:orientation="vertical"
-                                android:layout_width="wrap_content"
-                                android:layout_height="74dp">
+                            android:layout_gravity="center_horizontal|center_vertical"
+                            android:layout_margin="16dp"
+                            android:orientation="vertical"
+                            android:layout_width="wrap_content"
+                            android:layout_height="74dp">
 
                             <androidx.appcompat.widget.AppCompatImageView
-                                    android:layout_gravity="center"
-                                    android:tint="@color/colorOrange"
-                                    android:src="@drawable/ic_list"
-                                    style="@style/GridViewImageStyle"/>
+                                android:layout_gravity="center"
+                                android:tint="@color/colorOrange"
+                                android:src="@drawable/ic_list"
+                                style="@style/GridViewImageStyle"/>
 
                             <androidx.appcompat.widget.AppCompatTextView
-                                    android:text="@string/msg_dashboard_levantar_inventario_title"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    style="@style/GridViewStyle"/>
+                                android:text="@string/msg_dashboard_levantar_inventario_title"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                style="@style/GridViewStyle"/>
 
                         </androidx.appcompat.widget.LinearLayoutCompat>
 
                     </androidx.cardview.widget.CardView>
 
                     <androidx.cardview.widget.CardView
-                            android:id="@+id/cvFour"
-                            android:clickable="true"
-                            android:focusable="true"
-                            android:foreground="?android:attr/selectableItemBackground"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_columnWeight="1"
-                            android:layout_rowWeight="1"
-                            android:layout_marginStart="0.5dp">
+                        android:id="@+id/cvFour"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:foreground="?android:attr/selectableItemBackground"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_columnWeight="1"
+                        android:layout_rowWeight="1"
+                        android:layout_marginStart="0.5dp">
 
                         <androidx.appcompat.widget.LinearLayoutCompat
-                                android:layout_gravity="center_horizontal|center_vertical"
-                                android:layout_margin="16dp"
-                                android:orientation="vertical"
-                                android:layout_width="wrap_content"
-                                android:layout_height="74dp">
+                            android:layout_gravity="center_horizontal|center_vertical"
+                            android:layout_margin="16dp"
+                            android:orientation="vertical"
+                            android:layout_width="wrap_content"
+                            android:layout_height="74dp">
 
                             <androidx.appcompat.widget.AppCompatImageView
-                                    android:layout_gravity="center"
-                                    android:tint="@color/colorOrange"
-                                    android:src="@drawable/ic_down"
-                                    style="@style/GridViewImageStyle"/>
+                                android:layout_gravity="center"
+                                android:tint="@color/colorOrange"
+                                android:src="@drawable/ic_down"
+                                style="@style/GridViewImageStyle"/>
 
                             <androidx.appcompat.widget.AppCompatTextView
-                                    android:text="@string/msg_dashboard_dar_de_baja_title"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    style="@style/GridViewStyle"/>
+                                android:text="@string/msg_dashboard_dar_de_baja_title"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                style="@style/GridViewStyle"/>
 
                         </androidx.appcompat.widget.LinearLayoutCompat>
 
@@ -322,60 +323,60 @@
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
-                android:id="@+id/cvFive"
-                android:clickable="true"
-                android:focusable="true"
-                android:foreground="?android:attr/selectableItemBackground"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_columnWeight="1"
-                android:layout_rowWeight="1"
-                android:layout_marginTop="16dp"
-                android:layout_marginBottom="20dp"
-                app:cardCornerRadius="8dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/cvContainer"
-                app:layout_constraintStart_toStartOf="@+id/cvContainer"
-                app:layout_constraintEnd_toEndOf="@+id/cvContainer">
+            android:id="@+id/cvFive"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            app:cardCornerRadius="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cvContainer"
+            app:layout_constraintStart_toStartOf="@+id/cvContainer"
+            app:layout_constraintEnd_toEndOf="@+id/cvContainer">
 
             <androidx.constraintlayout.widget.ConstraintLayout
-                    android:layout_gravity="center_horizontal|center_vertical"
-                    android:orientation="horizontal"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                android:layout_gravity="center_horizontal|center_vertical"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
                 <androidx.appcompat.widget.AppCompatImageView
-                        android:tint="@color/colorOrange"
-                        android:src="@drawable/ic_checklist"
-                        android:layout_marginBottom="8dp"
-                        android:layout_marginTop="8dp"
-                        style="@style/GridViewImageStyle"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintEnd_toStartOf="@+id/guideline"
-                        app:layout_constraintHorizontal_bias="0.862"
-                        app:layout_constraintVertical_bias="0.571"/>
+                    android:tint="@color/colorOrange"
+                    android:src="@drawable/ic_checklist"
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginTop="8dp"
+                    style="@style/GridViewImageStyle"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/guideline"
+                    app:layout_constraintHorizontal_bias="0.862"
+                    app:layout_constraintVertical_bias="0.571"/>
 
                 <androidx.appcompat.widget.AppCompatTextView
-                        android:text="@string/msg_dashboard_integrar_expediente_title"
-                        android:layout_width="0dp"
-                        android:paddingTop="16dp"
-                        android:paddingBottom="16dp"
-                        android:layout_height="wrap_content"
-                        android:textAlignment="textStart"
-                        style="@style/GridViewStyle"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="@+id/guideline"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintBottom_toBottomOf="parent"/>
+                    android:text="@string/msg_dashboard_integrar_expediente_title"
+                    android:layout_width="0dp"
+                    android:paddingTop="16dp"
+                    android:paddingBottom="16dp"
+                    android:layout_height="wrap_content"
+                    android:textAlignment="textStart"
+                    style="@style/GridViewStyle"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/guideline"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"/>
 
                 <androidx.constraintlayout.widget.Guideline
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/guideline"
-                        android:orientation="vertical"
-                        app:layout_constraintGuide_percent="0.4"/>
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/guideline"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.4"/>
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -384,4 +385,6 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </ScrollView>
+
+
 
