@@ -1,6 +1,8 @@
 package com.simaht.modules.login.presenter
 
 import android.view.View
+import android.widget.Toast
+import com.baz.simaht.login.extensions.postDelayed
 import com.baz.simaht.model.LogInInteractor
 import com.google.android.material.snackbar.Snackbar
 import com.simaht.modules.login.view.LoginView
@@ -24,6 +26,28 @@ class LoginPresenterImpl(var loginView: LoginView?, val logInInteractor: LogInIn
             }
         }
     }
+
+    fun validateCredentials(password: String ) {
+        loginView?.showProgress()
+        //Inicio de sesión simulado.Creando un manejador para retrasar la respuesta un par de segundos
+        when {
+            /* 1 */ password.isEmpty() -> onPasswordError()
+
+            /* 2 */ password != "Continua" -> postDelayed(1800) {
+            loginView?.messageError()
+            loginView?.hideProgress()
+        }
+            /* 3 */ password == "Continua" -> postDelayed(1800) {
+            onSuccess()
+        }
+        }
+    }
+
+
+    //fun validateCredentials(password: String){
+    //    loginView?.showProgress()
+    //    loginView?.validateLogin(password, this)
+    //}
 
     override fun onButtonClick() {
         paso++
@@ -50,10 +74,10 @@ class LoginPresenterImpl(var loginView: LoginView?, val logInInteractor: LogInIn
 
 
 
-    fun validateCredentials(password: String) {
-        loginView?.showProgress()
-        logInInteractor.login(password, this)
-    }
+    //fun validateCredentials(password: String) {
+    //    loginView?.showProgress()
+    //    logInInteractor.login(password, this)
+    //}
 
     fun onDestroy() {
         loginView = null

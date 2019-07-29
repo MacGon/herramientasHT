@@ -1,5 +1,7 @@
 package com.simaht.modules.login.view
 
+import com.baz.simaht.model.LogInInteractor
+
 interface LoginView {
 
     fun showProgress()
@@ -17,6 +19,6 @@ interface LoginView {
     //fun showSuccessFragment()
     //fun showLoginFragment()
     fun loginCheck()
-
+    fun messageError()
 }
 
