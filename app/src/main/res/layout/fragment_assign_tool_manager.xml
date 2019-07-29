@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorWhite"
+        tools:context="com.simaht.dashboard_mh.AssignTool.view.AssignToolManagerFragment">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/ivProfileImageAT"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_marginTop="24dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintDimensionRatio="1:1"
+            tools:src="@tools:sample/avatars"/>
+
+    <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etEmployeeNumberAT"
+            style="@style/EditTextEmpleadoStyle2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/shape_textedit_person_tool"
+            app:layout_constraintTop_toBottomOf="@id/ivProfileImageAT"
+            app:layout_constraintEnd_toEndOf="@id/ivProfileImageAT"
+            app:layout_constraintStart_toStartOf="@id/ivProfileImageAT"/>
+
+    <androidx.appcompat.widget.AppCompatSpinner
+            android:id="@+id/spAssignmentType"
+            android:layout_width="0dp"
+            android:layout_height="35dp"
+            android:background="@drawable/shape_textedit_action_tool"
+            android:layout_marginTop="8dp"
+            app:layout_constraintStart_toStartOf="@id/etEmployeeNumberAT"
+            app:layout_constraintEnd_toEndOf="@id/etEmployeeNumberAT"
+            app:layout_constraintTop_toBottomOf="@id/etEmployeeNumberAT"
+            app:layout_constraintHorizontal_bias="0.0"/>
+
+    <View
+            android:id="@+id/vBackgroundAssignTool"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/shape_grid_background"
+            app:layout_constraintTop_toBottomOf="@id/spAssignmentType"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fbAddTool"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top|end"
+            android:layout_margin="@dimen/fab_margin"
+            android:tint="@color/colorGreen"
+            app:srcCompat="@drawable/ic_sign_to_add_2"
+            app:layout_anchorGravity="end|center"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/vBackgroundAssignTool"/>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fbAddToolHide"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top|end"
+            android:layout_margin="@dimen/fab_margin"
+            android:visibility="invisible"
+            app:layout_anchorGravity="end|center"
+            app:layout_constraintTop_toTopOf="@id/vBackgroundAssignTool"
+            android:layout_marginStart="8dp"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+    <FrameLayout
+            android:id="@+id/contentAT"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            android:background="@drawable/shape_grid_background"
+            app:layout_constraintEnd_toStartOf="@id/fbAddTool"
+            app:layout_constraintStart_toEndOf="@id/fbAddToolHide"
+            app:layout_constraintTop_toTopOf="@id/fbAddTool"
+            app:layout_constraintBottom_toTopOf="@id/btnAssignTool"
+            android:layout_marginStart="8dp">
+
+        <include
+            layout="@layout/fragment_assign_tool_child"/>
+
+    </FrameLayout>
+
+    <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnAssignTool"
+            style="@style/ButtonTooldStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:focusable="true"
+            android:clickable="true"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="@id/contentAT"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintEnd_toEndOf="@id/contentAT"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

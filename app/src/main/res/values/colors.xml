@@ -9,4 +9,7 @@
     <color name="colorGreen">#1DC256</color>
     <color name="colorLightGray">#E4E4E4</color>
     <color name="colorRed">#FFC1272D</color>
+
+    <color name="FullyTransparent">#00FFFFFF</color>
+    <color name="transparentGray">#80BDB6B6</color>
 </resources>
