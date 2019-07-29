@@ -57,6 +57,14 @@ captures/
 .idea / scopes / scope_settings.xml
 .idea / vcs.xml
 .idea / workspace.xml
+
+#.idea/workspace.xml - remove # and delete .idea if it better suit your needs.
+.gradle
+build/
+.navigation
+captures/
+output.json
+
 # Comment next line if keeping position of elements in Navigation Editor is relevant for you
 .idea/navEditor.xml
 
