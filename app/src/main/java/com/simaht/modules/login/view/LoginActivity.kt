@@ -3,18 +3,42 @@ package com.simaht.modules.login.view
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.FrameLayout
+import android.widget.Toast
 import com.baz.simaht.base.BaseActivity
+import com.baz.simaht.login.extensions.postDelayed
 import com.baz.simaht.model.LogInInteractor
 import com.example.dashboard_mh.R
 import com.simaht.modules.login.presenter.LoginPresenterImpl
 import com.simaht.modules.dashboard_mh.LoginFragment
 import com.simaht.modules.dashboard_mh.MainActivity
+import com.simaht.modules.dashboard_mh.SplashScreenActivity
 import kotlinx.android.synthetic.main.activity_login.*
 import kotlinx.android.synthetic.main.fragment_login.*
 
-class LoginActivity : BaseActivity(), LoginView {
+open class LoginActivity : BaseActivity(), LoginView {
+
+    override fun messageError() {
+        Toast.makeText(this, "Contraseña incorrecta", Toast.LENGTH_SHORT).show()
+    }
+
+   //override fun validateLogin(password: String, listener: LogInInteractor.OnLoginFinishedListener) {
+
+   //    //Inicio de sesión simulado.Creando un manejador para retrasar la respuesta un par de segundos
+   //    when {
+   //        /* 1 */ password.isEmpty() -> listener.onPasswordError()
+
+   //        /* 2 */ password != "Continua" -> postDelayed(1800) {
+   //            Toast.makeText(this, "Contraseña incorrecta", Toast.LENGTH_SHORT).show()
+   //             hideProgress()}
+
+   //        /* 3 */ password == "Continua" -> postDelayed(1800) {
+   //            listener.onSuccess()
+   //        }
+   //    }
+   //}
 
     private val keyTipo: String = "KEY_TYPE"
     private val KEY_DATA: String = "DATA"
@@ -111,6 +135,9 @@ class LoginActivity : BaseActivity(), LoginView {
         }
 
     override fun onResume() {
+        //setContentView(R.layout.activity_login)
+        //container = findViewById(R.id.frameContainerLogin)
+        //showLoginFragment()
         super.onResume()
         if (flagScaner == true) {
             flagScaner = false
@@ -137,6 +164,7 @@ class LoginActivity : BaseActivity(), LoginView {
 
         btnAccederLogin.setOnClickListener {
             //presenter.onButtonClick()
+            hideKeyboardEvent(etPasswordLogin)
             validateCredentials()
             etPasswordLogin.text?.clear()
 
@@ -200,5 +228,10 @@ class LoginActivity : BaseActivity(), LoginView {
        Handler().postDelayed({
            doubleBackPressed = false
        }, 2000)*/
+    //}
+
+    //override fun onPause() {
+    //    setContentView(R.layout.activity_splash_screen)
+    //    super.onPause()
     //}
 }
