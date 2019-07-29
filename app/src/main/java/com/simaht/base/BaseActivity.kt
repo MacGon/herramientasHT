@@ -1,11 +1,9 @@
-package com.baz.simaht.base
+package com.simaht.base
 
 import android.app.Activity
 import android.os.Bundle
 import android.text.InputType
 import android.view.View
-import android.view.Window
-import android.view.WindowManager
 import android.view.inputmethod.InputMethodManager
 import android.widget.EditText
 import androidx.annotation.LayoutRes
@@ -24,7 +22,6 @@ abstract class BaseActivity : AppCompatActivity(){
         initView(savedInstanceState)
         versionName()
     }
-
 
     @LayoutRes
     abstract fun setLayout():Int
