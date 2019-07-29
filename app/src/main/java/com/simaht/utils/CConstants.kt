@@ -1,6 +1,6 @@
 package com.baz.simaht.utils
 
-class CoConstants {
+class CConstants {
 
     //ambientes
     enum class AMBIENTE {

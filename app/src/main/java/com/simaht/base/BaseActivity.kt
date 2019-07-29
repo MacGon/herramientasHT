@@ -11,6 +11,8 @@ import android.widget.EditText
 import androidx.annotation.LayoutRes
 import androidx.appcompat.app.AppCompatActivity
 import com.example.dashboard_mh.R
+import com.simaht.utils.getVersion
+import com.simaht.utils.getVersionCode
 import kotlinx.android.synthetic.main.activity_login.*
 
 abstract class BaseActivity : AppCompatActivity(){
@@ -20,6 +22,7 @@ abstract class BaseActivity : AppCompatActivity(){
         hideStatusBarNavigationBar()
         setContentView(setLayout())
         initView(savedInstanceState)
+        versionName()
     }
 
 
@@ -57,6 +60,10 @@ abstract class BaseActivity : AppCompatActivity(){
 
     fun keyboardType(editText: EditText) {
         editText.inputType = InputType.TYPE_CLASS_TEXT
+    }
+
+    fun versionName(){
+        tvVersionCode.text= getVersion(this)
     }
 
 
