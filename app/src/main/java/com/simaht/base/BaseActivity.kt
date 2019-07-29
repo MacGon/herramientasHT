@@ -1,17 +1,13 @@
-package com.baz.simaht.base
+package com.simaht.base
 
 import android.app.Activity
 import android.os.Bundle
 import android.text.InputType
 import android.view.View
-import android.view.Window
-import android.view.WindowManager
 import android.view.inputmethod.InputMethodManager
 import android.widget.EditText
 import androidx.annotation.LayoutRes
 import androidx.appcompat.app.AppCompatActivity
-import com.example.dashboard_mh.R
-import kotlinx.android.synthetic.main.activity_login.*
 
 abstract class BaseActivity : AppCompatActivity(){
 
@@ -21,7 +17,6 @@ abstract class BaseActivity : AppCompatActivity(){
         setContentView(setLayout())
         initView(savedInstanceState)
     }
-
 
     @LayoutRes
     abstract fun setLayout():Int

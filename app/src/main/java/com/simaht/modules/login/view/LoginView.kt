@@ -1,7 +1,5 @@
 package com.simaht.modules.login.view
 
-import com.baz.simaht.model.LogInInteractor
-
 interface LoginView {
 
     fun showProgress()
@@ -11,13 +9,13 @@ interface LoginView {
     fun setWelcomeMessage(message:String)
 
     //Carga de pantallas para Enrolamiento
-    //fun showWelcomeFragment()
-    //fun showQRFragment()
-    //fun openCamera()
-    //fun showNameFragment()
-    //fun showCreateFragment()
-    //fun showSuccessFragment()
-    //fun showLoginFragment()
+    fun showWelcomeFragment()
+    fun showQRFragment()
+    fun openCamera()
+    fun showNameFragment()
+    fun showCreateFragment()
+    fun showSuccessFragment()
+    fun showLoginFragment()
     fun loginCheck()
     fun messageError()
 }

@@ -20,6 +20,7 @@ import com.google.android.material.snackbar.Snackbar
 import com.simaht.modules.asignacion.cartaAsignacion.PaintView
 import com.simaht.modules.camara.view.FunCamaraView
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.fragment_login.*
 
 
 class MainActivity: AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener, DashBoardFragment.resultInterface, DashBoardFragment.chargeToolInterface, DashBoardFragment.assignToolInterface, DashBoardFragment.liftInventoryInterface, DashBoardFragment.unsubscribeTool, DashBoardFragment.integrateFile, AssignToolFragment.cartaAsignacion {
