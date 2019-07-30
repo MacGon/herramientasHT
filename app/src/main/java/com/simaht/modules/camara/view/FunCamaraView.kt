@@ -9,8 +9,11 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.viewpager.widget.ViewPager
+import com.baz.simaht.login.extensions.postDelayed
+import com.example.dashboard_mh.BuildConfig
 import com.example.dashboard_mh.R
 import com.google.android.material.tabs.TabLayout
+import com.simaht.dashboard_mh.AssignTool.Tool
 import com.simaht.modules.camara.contract.ContractInterface
 import com.simaht.modules.camara.presenter.FunCamaraPresenter
 import com.simaht.modules.dashboard_mh.MainActivity
@@ -57,6 +60,15 @@ class FunCamaraView: AppCompatActivity(), ContractInterface.View {
             }
         })*/
         //TabLayout.TabLayoutOnPageChangeListener(tabLayoutCamara)
+
+
+
+        if (BuildConfig.DEBUG) {
+            postDelayed(2000) {
+                finalizarEscaneo()
+            }
+        }
+
     }
 
     /*fun escanearCodigo(view: View){
@@ -64,7 +76,7 @@ class FunCamaraView: AppCompatActivity(), ContractInterface.View {
     }*/
 
     override fun mostrarResultado(codigo: String) {
-        println("Codigo: " + codigo)
+        //println("Codigo: " + codigo)
         //val intent = Intent(this, MainActivity::class.java)
         //intent.putExtra("resultadoCodigo", codigo)
         //startActivity(intent)
@@ -72,7 +84,7 @@ class FunCamaraView: AppCompatActivity(), ContractInterface.View {
     }
 
     override fun mostrarCamara(scannerView: ZXingScannerView) {
-        println("Mostrando camara")
+        //println("Mostrando camara")
         if((ContextCompat.checkSelfPermission(this, android.Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED)){
             ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.CAMERA), 101)
         }
@@ -85,15 +97,17 @@ class FunCamaraView: AppCompatActivity(), ContractInterface.View {
 
     override fun finalizarEscaneo() {
         //setContentView(R.layout.activity_main)
-        val intent = Intent(this, MainActivity::class.java)
-        startActivity(intent)
+        //val intent = Intent(this, MainActivity::class.java)
+        //startActivity(intent)
+        this.finish()
         //onBackPressed()
 
     }
 
     override fun onBackPressed() {
-        val intent = Intent(this, MainActivity::class.java)
-        startActivity(intent)
+        //val intent = Intent(this, MainActivity::class.java)
+        //startActivity(intent)
+        this.finish()
     }
 
 }
