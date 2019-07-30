@@ -40,6 +40,7 @@ class AssignToolFragment : Fragment(), AdapterView.OnItemSelectedListener {
         super.onViewCreated(view, savedInstanceState)
 
 
+
         //Cambiar el tipo de teclado
         etEmployeeNumber.inputType = InputType.TYPE_CLASS_NUMBER
         //Oculta el teclado al hacer tap fuera del textEdit

@@ -1,7 +1,7 @@
 package com.simaht.dashboard_mh.AssignTool
 
 class Tool(var name : String,
-           var fe : String,
+           var brand : String,
            var activedOn : String,
            var seguro : Int,
            var serialNumber: Int,

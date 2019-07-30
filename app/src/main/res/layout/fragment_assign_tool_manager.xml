@@ -19,16 +19,15 @@
             tools:src="@tools:sample/avatars"/>
 
     <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/etEmployeeNumberAT"
-            style="@style/EditTextEmpleadoStyle2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="16dp"
-            android:background="@drawable/shape_textedit_person_tool"
-            app:layout_constraintTop_toBottomOf="@id/ivProfileImageAT"
-            app:layout_constraintEnd_toEndOf="@id/ivProfileImageAT"
-            app:layout_constraintStart_toStartOf="@id/ivProfileImageAT"/>
+        android:id="@+id/etEmployeeNumberAT"
+        style="@style/EditTextEmpleadoStyle2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/shape_textedit_person_tool"
+        app:layout_constraintEnd_toStartOf="@id/fbAddToolAT"
+        app:layout_constraintStart_toEndOf="@id/fbAddToolHide"
+        app:layout_constraintTop_toBottomOf="@id/ivProfileImageAT" />
 
     <androidx.appcompat.widget.AppCompatSpinner
             android:id="@+id/spAssignmentType"
@@ -53,7 +52,7 @@
             app:layout_constraintBottom_toBottomOf="parent"/>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/fbAddTool"
+            android:id="@+id/fbAddToolAT"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="top|end"
@@ -83,9 +82,9 @@
             android:layout_marginEnd="8dp"
             android:layout_marginBottom="8dp"
             android:background="@drawable/shape_grid_background"
-            app:layout_constraintEnd_toStartOf="@id/fbAddTool"
+            app:layout_constraintEnd_toStartOf="@id/fbAddToolAT"
             app:layout_constraintStart_toEndOf="@id/fbAddToolHide"
-            app:layout_constraintTop_toTopOf="@id/fbAddTool"
+            app:layout_constraintTop_toTopOf="@id/fbAddToolAT"
             app:layout_constraintBottom_toTopOf="@id/btnAssignTool"
             android:layout_marginStart="8dp">
 
@@ -103,9 +102,21 @@
             android:clickable="true"
             android:foreground="?android:attr/selectableItemBackground"
             android:layout_marginBottom="8dp"
+            android:visibility="gone"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="@id/contentAT"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintEnd_toEndOf="@id/contentAT"/>
+    <View
+        android:id="@+id/viewTopBttn"
+        android:layout_width= "0dp"
+        android:layout_height="0dp"
+        android:background="@color/transparentGray"
+        android:elevation="2dp"
+        app:layout_constraintTop_toTopOf="@id/btnAssignTool"
+        app:layout_constraintEnd_toEndOf="@id/btnAssignTool"
+        app:layout_constraintStart_toStartOf="@id/btnAssignTool"
+        app:layout_constraintBottom_toBottomOf="@id/btnAssignTool"/>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

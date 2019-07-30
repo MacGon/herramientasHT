@@ -10,11 +10,12 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
+import com.baz.simaht.login.extensions.replaceFragment
 import com.example.dashboard_mh.R
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.navigation.NavigationView
+import com.simaht.dashboard_mh.AssignTool.view.AssignToolManagerFragment
 import com.simaht.modules.asignacion.cartaAsignacion.PaintView
-import com.simaht.modules.camara.view.FunCamaraView
 import kotlinx.android.synthetic.main.activity_main.*
 
 
@@ -52,9 +53,7 @@ class MainActivity: AppCompatActivity(), NavigationView.OnNavigationItemSelected
                 val transactionCamara = fm.beginTransaction()
                 transactionCamara.replace(container.id, fragmentCamara)
                 transactionCamara.commit()*/
-                val intent = Intent(this@MainActivity, FunCamaraView::class.java)
-                startActivity(intent)
-
+                replaceFragment(AssignToolManagerFragment.getInstance(true), container.id)
                 return@OnNavigationItemSelectedListener true
             }
             R.id.navigation_busqueda -> {
@@ -199,10 +198,11 @@ class MainActivity: AppCompatActivity(), NavigationView.OnNavigationItemSelected
     }
 
     override fun showAssignToolFragment() {
-        val fragmentAssignTool = AssignToolFragment()
-        val transactionAssignTool = fm.beginTransaction()
-        transactionAssignTool.replace(container.id,fragmentAssignTool)
-        transactionAssignTool.commit()
+        replaceFragment(AssignToolManagerFragment.getInstance(false), container.id)
+//        val fragmentAssignTool = AssignToolFragment()
+//        val transactionAssignTool = fm.beginTransaction()
+//        transactionAssignTool.replace(container.id,fragmentAssignTool)
+//        transactionAssignTool.commit()
     }
 
     override fun showLiftInventoryFragment() {

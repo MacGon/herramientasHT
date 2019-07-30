@@ -2,13 +2,13 @@ package com.simaht.dashboard_mh.AssignTool.view
 
 
 import android.os.Bundle
-import android.transition.TransitionManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.baz.simaht.utils.CoConstants.ASSIGN
+import com.baz.simaht.utils.CoConstants.ASSIGN.COMFIRMATION
 import com.example.dashboard_mh.R
 import com.simaht.dashboard_mh.AssignTool.Tool
 import com.simaht.dashboard_mh.AssignTool.contracts.AssignToolChildContractI
@@ -26,13 +26,13 @@ class AssignToolChildFragment : Fragment(), AssignToolChildContractI.View {
 
     companion object {
         private lateinit var fragment: AssignToolChildFragment
-        fun newInstance(): AssignToolChildFragment {
+        private lateinit var onCreatedOk: (Boolean) -> Unit
+        fun getInstance(callBAck: (Boolean) -> Unit): AssignToolChildFragment {
             fragment = AssignToolChildFragment()
-
+            onCreatedOk = callBAck
             return fragment
         }
 
-        fun getInstance() = fragment
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -43,6 +43,8 @@ class AssignToolChildFragment : Fragment(), AssignToolChildContractI.View {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+
+
         rvContentAssignTool.layoutManager = LinearLayoutManager(activity)
 
         assignToolAdapter = AssignToolAdapter(arrayListOf(), ASSIGN.ASSIGMENT)
@@ -52,12 +54,23 @@ class AssignToolChildFragment : Fragment(), AssignToolChildContractI.View {
 //                Tool("Heramienta 2","Moto Italika 220", "TODAY", 421, 21423, "$$2624",true,"www.myITALIK.com")),
 //            ASSIGN.ASSIGMENT)
         rvContentAssignTool.adapter = assignToolAdapter
+
+        onCreatedOk(true)
     }
 
     fun addNewTool(newTool: Tool) {
         assignToolAdapter.addNuewTool(newTool)
-        TransitionManager.beginDelayedTransition(rvContentAssignTool)
+        //TransitionManager.beginDelayedTransition(rvContentAssignTool)
     }
 
+    fun addNewTools(toolsFound: ArrayList<Tool>) {
+        assignToolAdapter.onView = COMFIRMATION
+        assignToolAdapter.addNToolsFound(toolsFound)
+        //TransitionManager.beginDelayedTransition(rvContentAssignTool)
+    }
+
+    //fun getElementsComfirmerd() = assignToolAdapter.getItemsConfirmd()
+
+    fun haveElements() = assignToolAdapter.itemCount > 0
 
 }
