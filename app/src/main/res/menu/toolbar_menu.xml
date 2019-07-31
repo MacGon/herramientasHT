@@ -12,7 +12,8 @@
     <item android:id="@+id/action_notifications"
           android:title="@string/msg_toolbar_notificaciones"
           android:orderInCategory="100"
-          android:icon="@drawable/ic_notification_bell"
+          android:icon="@drawable/ic_bell_notifications"
           app:showAsAction="always"/>
+
 
 </menu>

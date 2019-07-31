@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
 import android.widget.FrameLayout
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
@@ -101,6 +102,10 @@ class MainActivity: AppCompatActivity(), NavigationView.OnNavigationItemSelected
         drawerLayout.addDrawerListener(toggle)
         toggle.syncState()
         navViewTwo.setNavigationItemSelectedListener(this)
+//////////////Revisar BaseActivity
+        window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_HIDE_NAVIGATION;
+        val decorView = window.decorView
+        decorView.systemUiVisibility = (View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION )
 
 
     }
