@@ -10,10 +10,10 @@
           app:showAsAction="ifRoom"/>
 
     <item android:id="@+id/action_notifications"
-          android:title="@string/msg_toolbar_notificaciones"
-          android:orderInCategory="100"
-          android:icon="@drawable/ic_bell_notifications"
-          app:showAsAction="always"/>
+    android:title="@string/msg_toolbar_notificaciones"
+    android:orderInCategory="200"
+    android:icon="@drawable/ic_bell_notifications"
+    app:showAsAction="always"/>
 
 
 </menu>
