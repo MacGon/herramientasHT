@@ -175,6 +175,14 @@
         <item name="android:layout_width">33dp</item>
         <item name="android:layout_height">33dp</item>
     </style>
+    <style name="montserrat_regular_dashboard">
+        <item name="android:fontFamily">@font/montserrat_regular</item>
+        <item name="android:textColor">@color/colorGrayMontserrat</item>
+        <item name="android:textSize">17sp</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:lineSpacingExtra">3.4sp</item>
+        <item name="android:text">@string/msg_title_enrolamiento</item>
+    </style>
     <!-- TODO: Fin de estilos para el Home o DashBoard -->
 
 

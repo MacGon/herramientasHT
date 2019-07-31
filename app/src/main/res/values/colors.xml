@@ -9,4 +9,6 @@
     <color name="colorGreen">#1DC256</color>
     <color name="colorLightGray">#E4E4E4</color>
     <color name="colorRed">#FFC1272D</color>
+    <color name="colorGrayMontserrat">#6d6e6e</color>
+
 </resources>

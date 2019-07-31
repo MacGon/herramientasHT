@@ -145,6 +145,7 @@
                 <!--app:layout_constraintTop_toBottomOf="@+id/pbHorizontal" />-->
 
             <androidx.appcompat.widget.AppCompatTextView
+                style="@style/montserrat_regular_dashboard"
                 android:id="@+id/btnResultados"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -152,7 +153,6 @@
                 android:layout_marginBottom="8dp"
                 android:clickable="true"
                 android:focusable="true"
-                android:textColor="@color/colorGray"
                 android:text="@string/msg_dash_board_button"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="@+id/pbHorizontal"
@@ -203,14 +203,12 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <androidx.appcompat.widget.AppCompatTextView
+                style="@style/montserrat_regular_dashboard"
                 android:id="@+id/appCompatTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginEnd="8dp"
-                android:gravity="center"
-                android:textSize="17sp"
-                android:textAppearance="@font/montserrat_regular"
                 android:text="@string/msg_dashboard_cobrar_herramienta_title"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -259,14 +257,12 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <androidx.appcompat.widget.AppCompatTextView
+                style="@style/montserrat_regular_dashboard"
                 android:id="@+id/appCompatTextView2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginEnd="8dp"
-                android:gravity="center"
-                android:textSize="17sp"
-                android:textAppearance="@font/montserrat_regular"
                 android:text="@string/msg_dashboard_asignar_herramienta_title"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -315,13 +311,12 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <androidx.appcompat.widget.AppCompatTextView
+                style="@style/montserrat_regular_dashboard"
                 android:id="@+id/appCompatTextView3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginEnd="8dp"
-                android:textSize="17sp"
-                android:textAppearance="@font/montserrat_regular"
                 android:text="@string/msg_dashboard_levantar_inventario_title"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -373,14 +368,13 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <androidx.appcompat.widget.AppCompatTextView
+                style="@style/montserrat_regular_dashboard"
+
                 android:id="@+id/appCompatTextView4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginEnd="8dp"
-                android:gravity="center"
-                android:textSize="17sp"
-                android:textAppearance="@font/montserrat_regular"
                 android:text="@string/msg_dashboard_integrar_expediente"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
