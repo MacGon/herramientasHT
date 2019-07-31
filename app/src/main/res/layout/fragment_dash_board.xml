@@ -2,6 +2,7 @@
 
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -165,8 +166,8 @@
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cvOne"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_width="180dp"
+        android:layout_height="155dp"
         android:layout_marginTop="8dp"
         android:clickable="true"
         android:focusable="true"
@@ -183,15 +184,15 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_margin="16dp"
             android:orientation="vertical">
 
             <androidx.appcompat.widget.AppCompatImageView
-                android:layout_width="0dp"
-                android:layout_height="0dp"
+                android:id="@+id/appCompatImageView"
+                android:layout_width="74dp"
+                android:layout_height="65dp"
                 android:layout_gravity="center"
                 android:layout_marginStart="8dp"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="10dp"
                 android:layout_marginEnd="8dp"
                 android:layout_marginBottom="8dp"
                 android:src="@drawable/ic_cobrar_herramienta"
@@ -203,16 +204,16 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <androidx.appcompat.widget.AppCompatTextView
-                style="@style/montserrat_regular_dashboard"
                 android:id="@+id/appCompatTextView"
+                style="@style/montserrat_regular_dashboard"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="4dp"
                 android:text="@string/msg_dashboard_cobrar_herramienta_title"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent" />
+                app:layout_constraintEnd_toEndOf="@+id/appCompatImageView"
+                app:layout_constraintHorizontal_bias="0.485"
+                app:layout_constraintStart_toStartOf="@+id/appCompatImageView" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -220,8 +221,8 @@
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cvTwo"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_width="180dp"
+        android:layout_height="155dp"
         android:layout_marginTop="8dp"
         android:clickable="true"
         android:focusable="true"
@@ -238,12 +239,12 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_margin="16dp"
             android:orientation="vertical">
 
             <androidx.appcompat.widget.AppCompatImageView
-                android:layout_width="0dp"
-                android:layout_height="0dp"
+                android:id="@+id/appCompatImageView2"
+                android:layout_width="74dp"
+                android:layout_height="67dp"
                 android:layout_gravity="center"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
@@ -257,16 +258,15 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <androidx.appcompat.widget.AppCompatTextView
-                style="@style/montserrat_regular_dashboard"
                 android:id="@+id/appCompatTextView2"
+                style="@style/montserrat_regular_dashboard"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="4dp"
                 android:text="@string/msg_dashboard_asignar_herramienta_title"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent" />
+                app:layout_constraintEnd_toEndOf="@+id/appCompatImageView2"
+                app:layout_constraintStart_toStartOf="@+id/appCompatImageView2" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -274,8 +274,8 @@
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cvThree"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_width="180dp"
+        android:layout_height="155dp"
         android:layout_marginTop="8dp"
         android:layout_marginBottom="8dp"
         android:clickable="true"
@@ -293,12 +293,12 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_margin="16dp"
             android:orientation="vertical">
 
             <androidx.appcompat.widget.AppCompatImageView
-                android:layout_width="54dp"
-                android:layout_height="73dp"
+                android:id="@+id/appCompatImageView3"
+                android:layout_width="53.3dp"
+                android:layout_height="72.5dp"
                 android:layout_gravity="center"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
@@ -311,16 +311,15 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <androidx.appcompat.widget.AppCompatTextView
-                style="@style/montserrat_regular_dashboard"
                 android:id="@+id/appCompatTextView3"
+                style="@style/montserrat_regular_dashboard"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="4dp"
                 android:text="@string/msg_dashboard_levantar_inventario_title"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent" />
+                app:layout_constraintEnd_toEndOf="@+id/appCompatImageView3"
+                app:layout_constraintStart_toStartOf="@+id/appCompatImageView3" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -328,8 +327,8 @@
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cvFour"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_width="180dp"
+        android:layout_height="155dp"
         android:layout_marginTop="8dp"
         android:layout_marginBottom="8dp"
         android:background="@color/colorRed"
@@ -349,12 +348,12 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_margin="16dp"
             android:orientation="vertical">
 
             <androidx.appcompat.widget.AppCompatImageView
-                android:layout_width="0dp"
-                android:layout_height="0dp"
+                android:id="@+id/appCompatImageView4"
+                android:layout_width="69dp"
+                android:layout_height="71dp"
                 android:layout_gravity="center"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
@@ -368,17 +367,17 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <androidx.appcompat.widget.AppCompatTextView
-                style="@style/montserrat_regular_dashboard"
-
                 android:id="@+id/appCompatTextView4"
+
+                style="@style/montserrat_regular_dashboard"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
                 android:layout_marginEnd="8dp"
+                android:layout_marginBottom="4dp"
                 android:text="@string/msg_dashboard_integrar_expediente"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent" />
+                app:layout_constraintEnd_toEndOf="@+id/appCompatImageView4"
+                app:layout_constraintStart_toStartOf="@+id/appCompatImageView4" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

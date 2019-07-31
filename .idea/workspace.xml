@@ -21,9 +21,9 @@
       <change beforePath="$PROJECT_DIR$/.gradle/5.1.1/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.1.1/javaCompile/taskHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/ic_cobrar_herramienta.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/ic_cobrar_herramienta.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_dash_board.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_dash_board.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/colors.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/colors.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/styles.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/styles.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -49,8 +49,33 @@
         <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_dash_board.xml">
           <provider editor-type-id="android-designer2" />
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="495">
-              <caret line="312" column="12" selection-start-line="312" selection-start-column="12" selection-end-line="312" selection-end-column="12" />
+            <state relative-caret-position="345">
+              <caret line="330" column="4" selection-start-line="330" selection-start-column="4" selection-end-line="330" selection-end-column="4" />
+              <folding>
+                <element signature="e#7573#7604#0" expanded="true" />
+                <element signature="e#10158#10206#0" expanded="true" />
+                <element signature="e#12691#12740#0" expanded="true" />
+                <element signature="e#15050#15099#0" expanded="true" />
+                <element signature="e#17635#17678#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="360">
+              <caret line="70" column="79" selection-start-line="70" selection-start-column="79" selection-end-line="70" selection-end-column="79" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/ic_cobrar_herramienta.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret column="26" selection-start-column="26" selection-end-column="26" />
             </state>
           </provider>
         </entry>
@@ -78,7 +103,7 @@
         <entry file="file://$PROJECT_DIR$/app/src/main/res/values/colors.xml">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="198">
-              <caret line="11" column="36" selection-start-line="11" selection-start-column="17" selection-end-line="11" selection-end-column="36" />
+              <caret line="13" column="12" selection-start-line="13" selection-start-column="12" selection-end-line="13" selection-end-column="12" />
             </state>
           </provider>
         </entry>
@@ -105,6 +130,9 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/simaht/modules/login/model/LogInInteractor.kt" />
         <option value="$PROJECT_DIR$/app/src/main/res/values/colors.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/values/styles.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/drawable/ic_cobrar_herramienta.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/simaht/modules/dashboard_mh/DashBoardFragment.kt" />
+        <option value="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_dash_board.xml" />
       </list>
     </option>
@@ -157,6 +185,15 @@
               <item name="com" type="cbb59c9e:AndroidPsiDirectoryNode" />
               <item name="simaht" type="462c0819:PsiDirectoryNode" />
               <item name="modules" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="simaht" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
+              <item name="com" type="cbb59c9e:AndroidPsiDirectoryNode" />
+              <item name="simaht" type="462c0819:PsiDirectoryNode" />
+              <item name="modules" type="462c0819:PsiDirectoryNode" />
+              <item name="dashboard_mh" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="simaht" type="1abcf292:AndroidViewProjectNode" />
@@ -289,7 +326,6 @@
       <window_info id="Designer" order="6" />
       <window_info id="Resources Explorer" order="7" />
       <window_info id="Capture Tool" order="8" />
-      <window_info anchor="bottom" id="Find" />
       <window_info anchor="bottom" id="Run" order="0" />
       <window_info anchor="bottom" id="Logcat" order="1" />
       <window_info anchor="bottom" id="TODO" order="2" />
@@ -299,12 +335,13 @@
       <window_info anchor="bottom" id="Version Control" order="6" />
       <window_info anchor="bottom" id="Build" order="7" visible="true" weight="0.19197081" />
       <window_info anchor="bottom" id="Android Profiler" order="8" />
-      <window_info active="true" anchor="right" id="Preview" visible="true" weight="0.329602" />
+      <window_info anchor="bottom" id="Find" order="9" />
       <window_info anchor="right" id="Device File Explorer" order="0" side_tool="true" />
       <window_info anchor="right" id="Capture Analysis" order="1" />
       <window_info anchor="right" id="Gradle" order="2" />
       <window_info anchor="right" id="Theme Preview" order="3" />
       <window_info anchor="right" id="Palette&#9;" order="4" />
+      <window_info active="true" anchor="right" id="Preview" order="5" visible="true" weight="0.329602" />
     </layout>
   </component>
   <component name="editorHistoryManager">
@@ -434,7 +471,7 @@
     <entry file="file://$PROJECT_DIR$/app/src/main/res/values/colors.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="198">
-          <caret line="11" column="36" selection-start-line="11" selection-start-column="17" selection-end-line="11" selection-end-column="36" />
+          <caret line="13" column="12" selection-start-line="13" selection-start-column="12" selection-end-line="13" selection-end-column="12" />
         </state>
       </provider>
     </entry>
@@ -453,11 +490,39 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/ic_cobrar_herramienta.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="26" selection-start-column="26" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/simaht/modules/dashboard_mh/DashBoardFragment.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="22" column="28" lean-forward="true" selection-start-line="22" selection-start-column="28" selection-end-line="22" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="70" column="79" selection-start-line="70" selection-start-column="79" selection-end-line="70" selection-end-column="79" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_dash_board.xml">
       <provider editor-type-id="android-designer2" />
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="495">
-          <caret line="312" column="12" selection-start-line="312" selection-start-column="12" selection-end-line="312" selection-end-column="12" />
+        <state relative-caret-position="345">
+          <caret line="330" column="4" selection-start-line="330" selection-start-column="4" selection-end-line="330" selection-end-column="4" />
+          <folding>
+            <element signature="e#7573#7604#0" expanded="true" />
+            <element signature="e#10158#10206#0" expanded="true" />
+            <element signature="e#12691#12740#0" expanded="true" />
+            <element signature="e#15050#15099#0" expanded="true" />
+            <element signature="e#17635#17678#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

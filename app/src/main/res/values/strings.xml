@@ -68,7 +68,7 @@
     <!-- TODO: CardView && GridView -->
     <string name="msg_dashboard_herramientas_title">Herramientas</string>
     <string name="msg_dashboard_cobrar_herramienta_title">Cobrar\nHerramienta</string>
-    <string name="msg_dashboard_asignar_herramienta_title">Asignar\nherramienta</string>
+    <string name="msg_dashboard_asignar_herramienta_title">Asignar o\nreasignar</string>
     <string name="msg_dashboard_levantar_inventario_title">Levantar\ninventario</string>
     <string name="msg_dashboard_dar_de_baja_title">Dar de baja</string>
     <string name="msg_dashboard_integrar_expediente">Integrar\nexpediente</string>
