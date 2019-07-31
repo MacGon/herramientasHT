@@ -71,6 +71,7 @@
     <string name="msg_dashboard_asignar_herramienta_title">Asignar\nherramienta</string>
     <string name="msg_dashboard_levantar_inventario_title">Levantar\ninventario</string>
     <string name="msg_dashboard_dar_de_baja_title">Dar de baja</string>
+    <string name="msg_dashboard_integrar_expediente">Integrar\nexpediente</string>
     <string name="msg_dashboard_integrar_expediente_title">Integrar expediente</string>
     <!-- TODO: Fin para textos del Home o DashBoard -->
 

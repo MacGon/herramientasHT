@@ -56,10 +56,10 @@ class DashBoardFragment : Fragment() {
             unsubscribeToolInterface.showUnsubscribeToolFragment()
         }
 
-        val integrateFileInterface: integrateFile = activity as MainActivity
-        cvFive.setOnClickListener {
-            integrateFileInterface.showIntegrateFileFragment()
-        }
+//        val integrateFileInterface: integrateFile = activity as MainActivity
+//        cvFive.setOnClickListener {
+//            integrateFileInterface.showIntegrateFileFragment()
+//        }
     }
 
     interface resultInterface {

@@ -3,6 +3,7 @@
         android:id="@+id/drawer_container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@color/colorWhite"
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools">
@@ -36,8 +37,8 @@
 
         <com.google.android.material.bottomnavigation.BottomNavigationView
                 android:id="@+id/nav_view"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
                 android:layout_gravity="start"
                 android:fitsSystemWindows="true"
                 android:background="?android:attr/windowBackground"

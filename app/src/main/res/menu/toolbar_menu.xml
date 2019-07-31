@@ -6,7 +6,7 @@
     <item android:id="@+id/action_help"
           android:title="@string/msg_toolbar_ayuda"
           android:orderInCategory="100"
-          android:icon="@drawable/ic_warning"
+          android:icon="@drawable/ic_c4"
           app:showAsAction="ifRoom"/>
 
     <item android:id="@+id/action_notifications"

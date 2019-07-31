@@ -2,6 +2,7 @@ package com.simaht.modules.dashboard_mh
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.FrameLayout
@@ -16,6 +17,8 @@ import com.google.android.material.navigation.NavigationView
 import com.simaht.modules.asignacion.cartaAsignacion.PaintView
 import com.simaht.modules.camara.view.FunCamaraView
 import kotlinx.android.synthetic.main.activity_main.*
+import androidx.core.content.ContextCompat
+import android.view.WindowManager
 
 
 class MainActivity: AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener, DashBoardFragment.resultInterface, DashBoardFragment.chargeToolInterface, DashBoardFragment.assignToolInterface, DashBoardFragment.liftInventoryInterface, DashBoardFragment.unsubscribeTool, DashBoardFragment.integrateFile, AssignToolFragment.cartaAsignacion {
@@ -77,6 +80,8 @@ class MainActivity: AppCompatActivity(), NavigationView.OnNavigationItemSelected
         //Frame DashBoard
         container = findViewById(R.id.frameContainer)
 
+        val window = getWindow()
+        window.setStatusBarColor(ContextCompat.getColor(this@MainActivity, R.color.colorAccent))
 
         nav_view.setOnNavigationItemSelectedListener(onNavigationItemSelectedListener)
         nav_view.selectedItemId = R.id.navigation_home
