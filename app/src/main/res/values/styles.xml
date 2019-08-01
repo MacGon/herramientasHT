@@ -183,6 +183,14 @@
         <item name="android:lineSpacingExtra">3.4sp</item>
         <item name="android:text">@string/msg_title_enrolamiento</item>
     </style>
+    <style name="TitleDashboardMeta">
+        <item name="android:fontFamily">@font/montserrat_bold</item>
+        <item name="android:textColor">@color/colorGrayMontserrat</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:lineSpacingExtra">5sp</item>
+        <item name="android:text">@string/msg_title_qr_enrolamiento</item>
+    </style>
     <!-- TODO: Fin de estilos para el Home o DashBoard -->
 
 

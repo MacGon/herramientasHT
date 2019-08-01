@@ -41,7 +41,7 @@ abstract class BaseActivity : AppCompatActivity(){
         * SYSTEM_UI_FLAG_FULLSCREEN - El StatusBar cambia a negro y no se muestra ningun componente alguno dentro de el y el NavigationBar se muestra
         * */
 
-        window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_HIDE_NAVIGATION;
+        window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
         val decorView = window.decorView
         decorView.systemUiVisibility = (View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION )
     }

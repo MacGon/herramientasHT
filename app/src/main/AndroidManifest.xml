@@ -7,20 +7,20 @@
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
 
     <application
-            android:allowBackup="true"
-            android:hardwareAccelerated="true"
-            android:icon="@mipmap/ic_launcher"
-            android:roundIcon="@mipmap/ic_launcher_round"
-            android:supportsRtl="true"
-            android:theme="@style/AppTheme">
+        android:allowBackup="true"
+        android:hardwareAccelerated="true"
+        android:icon="@mipmap/ic_launcher"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
         <activity android:name="com.simaht.modules.test_camera.view.TestCamera">
         </activity>
         <!-- TODO: Activity del SPLASHSCREN -->
         <activity
                 android:name="com.simaht.modules.dashboard_mh.SplashScreenActivity"
-                android:label="@string/app_name"
-                android:noHistory="true"
-                android:theme="@style/SplashStyle">
+             android:label="@string/app_name"
+             android:noHistory="true"
+             android:theme="@style/SplashStyle">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
@@ -28,8 +28,8 @@
             </intent-filter>
         </activity>
         <activity
-                android:name="com.simaht.modules.login.view.LoginActivity"
-                android:theme="@style/LoginStyle">
+            android:name="com.simaht.modules.login.view.LoginActivity"
+            android:theme="@style/LoginStyle">
         </activity> <!-- TODO: Activity del MAINACTIVITY principal -->
         <activity
                 android:name="com.simaht.modules.dashboard_mh.MainActivity"
@@ -37,13 +37,13 @@
                 android:theme="@style/AppTheme.NoActionBar">
         </activity> <!-- TODO: Activity de NOTIFICACIONES -->
         <activity
-                android:name="com.simaht.modules.dashboard_mh.Notifications"
-                android:label="@string/msg_title_notificaciones">
+            android:name="com.simaht.modules.dashboard_mh.Notifications"
+            android:label="@string/msg_title_notificaciones">
         </activity> <!-- TODO: Activity del C4 AYUDA -->
         <activity
-                android:name="com.simaht.modules.dashboard_mh.C4Help"
-                android:label="@string/msg_title_c4_ayuda"
-                android:theme="@style/AppThemeThreeActivity">
+            android:name="com.simaht.modules.dashboard_mh.C4Help"
+            android:label="@string/msg_title_c4_ayuda"
+            android:theme="@style/AppThemeThreeActivity">
         </activity>
         <activity android:name="com.simaht.modules.camara.view.FunCamaraView"/>
     </application>

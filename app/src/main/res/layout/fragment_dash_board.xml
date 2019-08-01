@@ -8,11 +8,12 @@
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cvItemMenu"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_width="392dp"
+        android:layout_height="320dp"
         android:layout_marginStart="9dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="9dp"
-        android:layout_marginBottom="48dp"
+        android:layout_marginBottom="28dp"
         app:cardCornerRadius="8dp"
         app:cardElevation="8dp"
         app:cardPreventCornerOverlap="true"
@@ -20,7 +21,8 @@
         app:layout_constraintBottom_toTopOf="@+id/cvTwo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -149,9 +151,9 @@
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/btnResultados"
-                style="@style/montserrat_regular_dashboard"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                style="@style/TitleDashboardMeta"
+                android:layout_width="212dp"
+                android:layout_height="26dp"
                 android:layout_marginTop="8dp"
                 android:layout_marginBottom="8dp"
                 android:clickable="true"
@@ -446,7 +448,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.48" />
+        app:layout_constraintGuide_percent="0.5" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 
