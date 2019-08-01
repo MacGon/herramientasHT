@@ -8,6 +8,7 @@ import com.simaht.network.remote.services.IAccount
 import com.simaht.network.remote.services.IAssigment
 import okhttp3.MediaType
 import okhttp3.OkHttpClient
+import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -15,6 +16,10 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 
+
+/**
+ * This class must be implemented inside a singeton or use like an abstraction layer inside DAGGER
+ */
 class RestAPI {
 
     companion object {
@@ -52,17 +57,17 @@ class RestAPI {
      */
     fun retrofitBuilder() : Retrofit {
         val clientBuilder = OkHttpClient.Builder()
-        //val logginInterceptor = HttpLoggingInterceptor()
-        //l
+        val logginInterceptor = HttpLoggingInterceptor()
+        logginInterceptor.level = if(BuildConfig.DEBUG) HttpLoggingInterceptor.Level.BODY else HttpLoggingInterceptor.Level.NONE
 
         clientBuilder.connectTimeout(CONNECT_TIMEOUT_MILLIS, TimeUnit.MILLISECONDS)
         clientBuilder.readTimeout(READ_TIMEOUT_MILLIS, TimeUnit.MILLISECONDS)
-        //clientBuilder.addInterceptor { logg }
+        clientBuilder.addInterceptor(logginInterceptor)
 
         return Retrofit.Builder()
                 .baseUrl(BuildConfig.URL_BASE)
                 .addConverterFactory(GsonConverterFactory.create(gson))
-                //.addCallAdapterFactory(RxJava2CallAdapterFactory.create()) //  implementation 'com.jakewharton.rxbinding3:rxbinding-material:3.0.0-alpha2'
+                //.addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .client(clientBuilder.build())
                 .build()
     }
@@ -85,16 +90,20 @@ class RestAPI {
      */
     fun readNewTool(callResult: (List<ModelTest>) -> Unit) {
 
-        //val call: Call<Response<List<ModelTest>>> = iAssigment.setNewRegister("0821086558", 4)
-        val call: Call<List<ModelTest>> = iAssigment.setNewRegister("0821086558", 4).apply {
+        //val call: Call<Response<List<ModelTest>>> = iAssigment.setNewRegister("0821086558", 4)  /* .apply is a function to replace the enquee */
+        iAssigment.setNewRegister("0821086558", 4).apply {
             enqueue(object: Callback<List<ModelTest>> {
 
                 override fun onResponse(call: Call<List<ModelTest>>?, response: Response<List<ModelTest>>?) {
                     Log.i("TEST",response.let { it?.body().toString() })
-                    callResult(response!!.body()) //THIS IS MY CALLABLE ANSWER
+                    if (response != null && response.code() == 200) { // response different of null and server responce ok (200)
+                        response.body()?.let { callResult(it) }
+                    } //THIS IS MY CALLABLE ANSWER
                 }
                 override fun onFailure(call: Call<List<ModelTest>>?, t: Throwable?) {
                     //return a wrong answer
+                    //return a message o somethin empty
+                    callResult(emptyList()) //it's a empty list, -not null!-
                 }
 
             })

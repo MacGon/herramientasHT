@@ -1,9 +1,5 @@
 <resources>
 
-    <!-- TODO: Nombre de la aplicación -->
-    <string name="app_name">Dashboard_MH</string>
-
-
     <!-- TODO: Textos para el ToolBar Menu -->
     <string name="msg_toolbar_ayuda">Ayuda</string>
     <string name="msg_toolbar_notificaciones">Notificaciones</string>
