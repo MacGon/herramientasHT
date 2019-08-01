@@ -1,4 +1,4 @@
-package com.simaht.network.remote
+package com.simaht.network.data
 
 import com.google.gson.annotations.SerializedName
 

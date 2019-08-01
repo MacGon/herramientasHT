@@ -4,6 +4,7 @@ import android.util.Log
 import com.example.dashboard_mh.BuildConfig
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
+import com.simaht.network.data.ModelTest
 import com.simaht.network.remote.services.IAccount
 import com.simaht.network.remote.services.IAssigment
 import okhttp3.MediaType
@@ -50,6 +51,8 @@ class RestAPI {
 
         iAccount = retrorfit.create(IAccount::class.java)
         iAssigment = retrorfit.create(IAssigment::class.java)
+
+        //Add new Interface
     }
 
     /**
