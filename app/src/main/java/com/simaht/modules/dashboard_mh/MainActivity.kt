@@ -103,11 +103,10 @@ class MainActivity: AppCompatActivity(), NavigationView.OnNavigationItemSelected
         toggle.syncState()
         navViewTwo.setNavigationItemSelectedListener(this)
 //////////////Revisar BaseActivity
-        window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_HIDE_NAVIGATION;
+        window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
         val decorView = window.decorView
-        decorView.systemUiVisibility = (View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION )
-
-
+        decorView.systemUiVisibility = (View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION or View.SYSTEM_UI_FLAG_HIDE_NAVIGATION)
+///////////
     }
 
     override fun onBackPressed() {
