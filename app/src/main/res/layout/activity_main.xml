@@ -38,7 +38,7 @@
         <com.google.android.material.bottomnavigation.BottomNavigationView
             android:id="@+id/nav_view"
             android:layout_width="411dp"
-            android:layout_height="68dp"
+            android:layout_height="48dp"
             android:layout_gravity="start"
             android:background="?android:attr/windowBackground"
             android:fitsSystemWindows="true"
