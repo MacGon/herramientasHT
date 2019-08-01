@@ -3,11 +3,13 @@ package com.simaht.base
 import android.app.Activity
 import android.os.Bundle
 import android.text.InputType
+import android.view.KeyEvent
 import android.view.View
 import android.view.inputmethod.InputMethodManager
 import android.widget.EditText
 import androidx.annotation.LayoutRes
 import androidx.appcompat.app.AppCompatActivity
+import kotlinx.android.synthetic.main.fragment_create_pass.*
 
 abstract class BaseActivity : AppCompatActivity(){
 
