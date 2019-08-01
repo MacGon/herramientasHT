@@ -6,7 +6,6 @@ import android.os.Handler
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.FrameLayout
-import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
@@ -17,10 +16,8 @@ import com.example.dashboard_mh.R
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.navigation.NavigationView
 import com.google.android.material.snackbar.Snackbar
-import com.simaht.modules.asignacion.cartaAsignacion.PaintView
 import com.simaht.modules.camara.view.FunCamaraView
 import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.android.synthetic.main.fragment_login.*
 
 
 class MainActivity: AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener, DashBoardFragment.resultInterface, DashBoardFragment.chargeToolInterface, DashBoardFragment.assignToolInterface, DashBoardFragment.liftInventoryInterface, DashBoardFragment.unsubscribeTool, DashBoardFragment.integrateFile, AssignToolFragment.cartaAsignacion {
@@ -28,7 +25,6 @@ class MainActivity: AppCompatActivity(), NavigationView.OnNavigationItemSelected
 
     lateinit var container: FrameLayout
     val fm = supportFragmentManager
-    lateinit private var paintView: PaintView
     private var doubleBackPressed: Boolean = false
     private val onNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
 

@@ -3,7 +3,13 @@ package com.simaht.modules.login.model
 class LogInInteractor {
 
     interface OnLoginFinishedListener {
-        fun onPasswordError()
+        fun onPasswordErrorCreatePass()
+        fun onPasswordErrorRepeat()
+        fun onPasswordErrorLogin()
+        fun validatePasswordPolicy1(pwd: String): Boolean
+        fun validatePasswordPolicy2(pwd: String): Boolean
+        fun validatePasswordPolicy3(pwd: String): Boolean
+        fun passwordCorrecto()
         fun onSuccess()
         fun onButtonClick()
         fun onBackPressed()

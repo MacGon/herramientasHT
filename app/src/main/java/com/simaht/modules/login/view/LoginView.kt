@@ -4,7 +4,16 @@ interface LoginView {
 
     fun showProgress()
     fun hideProgress()
-    fun setPasswordError()
+
+    fun setPasswordCreatePass()
+    fun setRepeatPass()
+
+    fun setPasswordErrorLogin()
+    fun enabledEtRepeatTrue()
+    fun enabledEtRepeatFalse()
+    fun clearEditText()
+    fun encryptionPass()
+
     fun navigateToHome()
     fun setWelcomeMessage(message:String)
 
@@ -14,9 +23,18 @@ interface LoginView {
     fun openCamera()
     fun showNameFragment()
     fun showCreateFragment()
+    fun createPassCheck()
+    fun validationPassCheck()
     fun showSuccessFragment()
     fun showLoginFragment()
     fun loginCheck()
     fun messageError()
+    fun messageErrorCreatePass()
+    fun messageErrorLetter()
+    fun messageErrorBank()
+    fun messageErrorSal()
+    fun messageErrorPolicy1()
+    fun messageErrorPolicy2()
+    fun confirmPass()
 }
 
