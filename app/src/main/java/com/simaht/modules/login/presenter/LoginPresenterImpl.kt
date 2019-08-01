@@ -97,7 +97,7 @@ class LoginPresenterImpl(var loginView: LoginView?, val logInInteractor: LogInIn
         }
             /* 3 */ password == "Continua" -> postDelayed(1800) {
             onSuccess()
-        }
+        } 
         }
     }
 
