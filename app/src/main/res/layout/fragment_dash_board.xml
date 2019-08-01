@@ -151,9 +151,9 @@
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/btnResultados"
-                style="@style/montserrat_regular_dashboard"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                style="@style/TitleDashboardMeta"
+                android:layout_width="212dp"
+                android:layout_height="26dp"
                 android:layout_marginTop="8dp"
                 android:layout_marginBottom="8dp"
                 android:clickable="true"

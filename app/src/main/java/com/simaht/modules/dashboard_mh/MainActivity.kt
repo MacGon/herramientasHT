@@ -105,8 +105,6 @@ class MainActivity: AppCompatActivity(), NavigationView.OnNavigationItemSelected
         toggle.syncState()
         navViewTwo.setNavigationItemSelectedListener(this)
 //////////////Revisar BaseActivity
-         //window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
-
         window.decorView.apply {
             // Hide both the navigation bar and the status bar.
             // SYSTEM_UI_FLAG_FULLSCREEN is only available on Android 4.1 and higher, but as
@@ -114,7 +112,6 @@ class MainActivity: AppCompatActivity(), NavigationView.OnNavigationItemSelected
             // hide the navigation bar.
             systemUiVisibility = View.SYSTEM_UI_FLAG_HIDE_NAVIGATION or View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
         }
-
 ///////////
     }
 
