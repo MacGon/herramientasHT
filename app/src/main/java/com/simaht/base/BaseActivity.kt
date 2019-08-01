@@ -1,4 +1,4 @@
-package com.baz.simaht.base
+package com.simaht.base
 
 import android.app.Activity
 import android.os.Bundle
@@ -17,7 +17,6 @@ abstract class BaseActivity : AppCompatActivity(){
         setContentView(setLayout())
         initView(savedInstanceState)
     }
-
 
     @LayoutRes
     abstract fun setLayout():Int

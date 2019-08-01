@@ -36,6 +36,8 @@
     <string name="msg_hint_create_password">Escribe tu nueva contraseña</string>
     <string name="msg_hint_repeat_password">Confirma tu contraseña</string>
     <string name="msg_title_success_pass_enrolamiento">Registro exitoso</string>
+    <string name="msg_error_create_pass">Por favor ingrese una nueva contraseña para poder avanzar</string>
+    <string name="msg_error_repeat_pass">Por favor ingrese de nuevo su contraseña</string>
     <!-- TODO: Fin para textos para el Enrolamiento -->
 
 
