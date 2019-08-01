@@ -10,12 +10,14 @@
         android:id="@+id/cvItemMenu"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginEnd="10dp"
+        android:layout_marginStart="9dp"
+        android:layout_marginEnd="9dp"
+        android:layout_marginBottom="48dp"
         app:cardCornerRadius="8dp"
         app:cardElevation="8dp"
         app:cardPreventCornerOverlap="true"
         app:cardUseCompatPadding="true"
+        app:layout_constraintBottom_toTopOf="@+id/cvTwo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -130,24 +132,24 @@
             <!--app:layout_constraintTop_toBottomOf="@+id/tvTitleDashBoard" />-->
 
             <!--<androidx.appcompat.widget.AppCompatButton-->
-                <!--android:id="@+id/btnResultados"-->
-                <!--style="@style/ButtonDashBoardStyle"-->
-                <!--android:layout_width="0dp"-->
-                <!--android:layout_height="50dp"-->
-                <!--android:layout_marginTop="8dp"-->
-                <!--android:layout_marginBottom="8dp"-->
-                <!--android:clickable="true"-->
-                <!--android:focusable="true"-->
-                <!--android:foreground="?android:attr/selectableItemBackground"-->
-                <!--app:layout_constraintBottom_toBottomOf="parent"-->
-                <!--app:layout_constraintEnd_toEndOf="@+id/pbHorizontal"-->
-                <!--app:layout_constraintHorizontal_bias="0.0"-->
-                <!--app:layout_constraintStart_toStartOf="@+id/pbHorizontal"-->
-                <!--app:layout_constraintTop_toBottomOf="@+id/pbHorizontal" />-->
+            <!--android:id="@+id/btnResultados"-->
+            <!--style="@style/ButtonDashBoardStyle"-->
+            <!--android:layout_width="0dp"-->
+            <!--android:layout_height="50dp"-->
+            <!--android:layout_marginTop="8dp"-->
+            <!--android:layout_marginBottom="8dp"-->
+            <!--android:clickable="true"-->
+            <!--android:focusable="true"-->
+            <!--android:foreground="?android:attr/selectableItemBackground"-->
+            <!--app:layout_constraintBottom_toBottomOf="parent"-->
+            <!--app:layout_constraintEnd_toEndOf="@+id/pbHorizontal"-->
+            <!--app:layout_constraintHorizontal_bias="0.0"-->
+            <!--app:layout_constraintStart_toStartOf="@+id/pbHorizontal"-->
+            <!--app:layout_constraintTop_toBottomOf="@+id/pbHorizontal" />-->
 
             <androidx.appcompat.widget.AppCompatTextView
-                style="@style/montserrat_regular_dashboard"
                 android:id="@+id/btnResultados"
+                style="@style/montserrat_regular_dashboard"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
@@ -170,16 +172,14 @@
         android:layout_height="155dp"
         android:layout_marginHorizontal="8dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="48dp"
         android:clickable="true"
         android:focusable="true"
         android:foreground="?android:attr/selectableItemBackground"
         app:cardCornerRadius="8dp"
         app:cardElevation="3dp"
         app:cardUseCompatPadding="true"
-        app:layout_constraintDimensionRatio="w,1:1"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/cvItemMenu">
+        app:layout_constraintBottom_toBottomOf="@+id/cvTwo"
+        app:layout_constraintStart_toStartOf="parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -223,17 +223,16 @@
         android:id="@+id/cvTwo"
         android:layout_width="180dp"
         android:layout_height="155dp"
-        android:layout_marginTop="48dp"
         android:layout_marginEnd="16dp"
+        android:layout_marginBottom="8dp"
         android:clickable="true"
         android:focusable="true"
         android:foreground="?android:attr/selectableItemBackground"
         app:cardCornerRadius="8dp"
         app:cardElevation="3dp"
         app:cardUseCompatPadding="true"
-        app:layout_constraintDimensionRatio="w,1:1"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/cvItemMenu">
+        app:layout_constraintBottom_toTopOf="@+id/cvFour"
+        app:layout_constraintEnd_toEndOf="parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -277,16 +276,15 @@
         android:layout_height="155dp"
         android:layout_marginHorizontal="8dp"
         android:layout_marginStart="16dp"
-        android:layout_marginBottom="44dp"
         android:clickable="true"
         android:focusable="true"
         android:foreground="?android:attr/selectableItemBackground"
         app:cardCornerRadius="8dp"
         app:cardElevation="3dp"
         app:cardUseCompatPadding="true"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintDimensionRatio="w,1:1"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintBottom_toBottomOf="@+id/cvFour"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/cvFour">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -299,14 +297,12 @@
                 android:layout_height="72.5dp"
                 android:layout_gravity="center"
                 android:layout_marginStart="8dp"
-                android:layout_marginTop="8dp"
                 android:layout_marginBottom="8dp"
                 android:src="@drawable/ic_levantar_inventario"
                 android:tint="@color/colorOrange"
                 app:layout_constraintBottom_toTopOf="@+id/appCompatTextView3"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintStart_toStartOf="parent" />
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/appCompatTextView3"
@@ -328,7 +324,7 @@
         android:layout_width="180dp"
         android:layout_height="155dp"
         android:layout_marginEnd="16dp"
-        android:layout_marginBottom="44dp"
+        android:layout_marginBottom="40dp"
         android:background="@color/colorRed"
         android:clickable="true"
         android:focusable="true"
@@ -338,7 +334,6 @@
         app:cardElevation="3dp"
         app:cardUseCompatPadding="true"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintDimensionRatio="w,1:1"
         app:layout_constraintEnd_toEndOf="parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
