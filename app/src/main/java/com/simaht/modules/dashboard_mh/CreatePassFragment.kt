@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.dashboard_mh.R
+import com.simaht.modules.login.view.LoginView
 import kotlinx.android.synthetic.main.fragment_create_pass.*
 
 
@@ -24,5 +25,7 @@ class CreatePassFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         tvTitleEnrollCreatePass.text = String.format(resources.getString(R.string.msg_title_name_create_pass_enrolamiento), "Orlando")
+        (activity as LoginView).nextStepKeyboardCreate()
     }
+
 }

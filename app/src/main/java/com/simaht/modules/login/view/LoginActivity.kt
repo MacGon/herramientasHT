@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
+import android.view.KeyEvent
 import android.view.View
 import android.widget.FrameLayout
 import android.widget.Toast
@@ -16,6 +17,9 @@ import com.simaht.modules.test_camera.view.TestCamera
 import kotlinx.android.synthetic.main.activity_login.*
 import kotlinx.android.synthetic.main.fragment_create_pass.*
 import kotlinx.android.synthetic.main.fragment_login.*
+import java.security.MessageDigest
+import java.security.NoSuchAlgorithmException
+
 
 open class LoginActivity : BaseActivity(), LoginView {
 
@@ -24,7 +28,7 @@ open class LoginActivity : BaseActivity(), LoginView {
     private val codeScanner: Int = 1
     private var flagScaner: Boolean = false
 
-    override fun confirmPass() {
+    override fun errorPass() {
         hideKeyboardEvent(etRepeatPass)
         etRepeatPass.text?.clear()
         Toast.makeText(this, "Las contraseñas no coinciden", Toast.LENGTH_SHORT).show()
@@ -156,7 +160,6 @@ open class LoginActivity : BaseActivity(), LoginView {
 
     override fun validationPassCheck() {
         validateCredentialsRepeatPass()
-        //setValidationPass()
     }
 
     override fun onResume() {
@@ -219,8 +222,28 @@ open class LoginActivity : BaseActivity(), LoginView {
         etRepeatPass.text?.clear()
     }
 
-    override fun encryptionPass() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    override fun encryptionPass(s: String): String {
+        val MD5 = "MD5"
+        try {
+            // Sea crea el MD5 hash
+            val digest = MessageDigest
+                .getInstance(MD5)
+            digest.update(s.toByteArray())
+            val messageDigest = digest.digest()
+
+            // Se crea la cadena Hexadecimal
+            val hexString = StringBuilder()
+            for (aMessageDigest in messageDigest) {
+                var h = Integer.toHexString(0xFF and aMessageDigest.toInt())
+                while (h.length < 2)
+                    h = "0$h"
+                hexString.append(h)
+            }
+            return hexString.toString()
+        } catch (e: NoSuchAlgorithmException) {
+            e.printStackTrace()
+        }
+        return ""
     }
 
     override fun onDestroy() {
@@ -257,10 +280,38 @@ open class LoginActivity : BaseActivity(), LoginView {
 
     }
 
+    override fun nextStepKeyboardCreate(){
+        etCreatePass.setOnKeyListener(View.OnKeyListener { v, keyCode, event ->
+            if (event.action == KeyEvent.ACTION_DOWN && keyCode == KeyEvent.KEYCODE_ENTER) {
+                presenter.onButtonClick()
+                return@OnKeyListener true
+            }
+            false
+        })
+
+        etRepeatPass.setOnKeyListener(View.OnKeyListener { v, keyCode, event ->
+            if (event.action == KeyEvent.ACTION_DOWN && keyCode == KeyEvent.KEYCODE_ENTER) {
+                presenter.onButtonClick()
+                return@OnKeyListener true
+            }
+            false
+        })
+    }
+
+    override fun nextStepKeyboardLogin() {
+        etPasswordLogin.setOnKeyListener(View.OnKeyListener { v, keyCode, event ->
+            if (event.action == KeyEvent.ACTION_DOWN && keyCode == KeyEvent.KEYCODE_ENTER) {
+                presenter.onButtonClick()
+                return@OnKeyListener true
+            }
+            false
+        })
+    }
+
+
     @SuppressLint("ResourceType")
     override fun onBackPressed() {
         presenter.onBackPressed()
         super.onBackPressed()
     }
-
 }

@@ -71,13 +71,15 @@ class LoginPresenterImpl(var loginView: LoginView?, val logInInteractor: LogInIn
                 paso--
             }
             password != repeat -> {
-                loginView?.confirmPass()
+                loginView?.errorPass()
                 paso --
             }
             password == repeat -> {
                 println("ENTRAMOS PERRO")
                 onButtonClick()
                 loginView?.clearEditText()
+                println("TEXTO PLANO: $repeat ")
+                println("HASH: ${loginView?.encryptionPass(repeat)}")
             }
         }
         if (password.isEmpty() && repeat.isEmpty()){
