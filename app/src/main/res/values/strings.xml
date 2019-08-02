@@ -105,11 +105,15 @@
     <!-- TODO: Fin de textos para Cobrar herramienta  -->
 
 
-    <!-- TODO: Textos para Asignación de herramienta -->
+    <!-- Asignación de herramienta -->
     <string name="msg_hint_empleado">Número de empleado</string>
     <string name="msg_button_asignar">Asignar</string>
+    <string name="msg_button_agregar">Agregar herramienta</string>
     <string name="msg_add_tool">Xiaomi Note 7</string>
-    <!-- TODO: Fin de textos para Asignación de herramienta  -->
+    <string name="msg_empty_employee">¡No has agregado un número de empleado!</string>
+
+
+    <!-- Fin  -->
 
 
     <!-- TODO: Textos para Levantar inventario -->
@@ -141,5 +145,8 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="pressbackagain">Presiona de nuevo atrás para salir</string>
     <!-- TODO: Fin de textos para Resultados  -->
+
+    <!-- GENERAL MESSAGES -->
+    <string name="msg_confirm">Confirmar</string>
 
 </resources>

@@ -8,4 +8,13 @@ class CoConstants {
         TEST,
         SIMULATE
     }
+
+    //-------------Tools Assignation -------------
+    enum class ASSIGN {
+        ASSIGMENT,
+        COMFIRMATION
+    }
+    companion object {
+        val COME_FROM_CAMERA = "COMEFROMCAMERA"
+    }
 }

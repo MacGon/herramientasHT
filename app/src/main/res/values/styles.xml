@@ -360,6 +360,26 @@
         <item name="android:text">@string/msg_button_asignar</item>
         <item name="android:textSize">17sp</item>
     </style>
+
+    <style name="ButtonCoorned">
+        <item name="android:textColor">@color/colorWhite</item>
+        <item name="android:background">@drawable/shape_button_rectangle</item>
+        <item name="android:text">@string/msg_button_asignar</item>
+        <item name="android:textSize">17sp</item>
+    </style>
+
+    <style name="EditTextEmpleadoStyle2">
+        <item name="android:hint">@string/msg_hint_empleado</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:textColor">@color/colorGray</item>
+        <item name="android:padding">5dip</item>
+        <item name="android:textSize">@dimen/text_header_size</item>
+        <item name="android:maxLength">5</item>
+        <item name="android:paddingStart">8dp</item>
+        <item name="android:paddingEnd">8dp</item>
+        <item name="android:inputType">textNoSuggestions</item>
+    </style>
+
     <style name="EditTextToolStyle">
         <item name="android:text">@string/msg_add_tool</item>
         <item name="android:textColor">@color/colorGray</item>

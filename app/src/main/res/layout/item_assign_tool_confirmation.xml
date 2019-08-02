@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:id="@+id/clItemAssignTool"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:clickable="true"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <!--<LinearLayout-->
+        <!--android:id="@+id/viewBackground"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:background="@color/colorOrange"-->
+        <!--android:orientation="horizontal"-->
+        <!--android:visibility="gone"-->
+        <!--app:layout_constraintBottom_toBottomOf="parent"-->
+        <!--app:layout_constraintEnd_toEndOf="parent"-->
+        <!--app:layout_constraintStart_toStartOf="parent"-->
+        <!--app:layout_constraintTop_toTopOf="parent"-->
+        <!--tools:visibility="visible">-->
+
+        <!--<TextView-->
+            <!--android:layout_width="30dp"-->
+            <!--android:layout_height="65dp"-->
+            <!--android:layout_gravity="start"-->
+            <!--android:layout_weight="1"-->
+            <!--android:gravity="center_vertical"-->
+            <!--android:drawableStart="@drawable/ic_done"-->
+            <!--android:drawableTint="@color/colorWhite"-->
+            <!--android:padding="12dp">-->
+
+        <!--</TextView>-->
+
+        <!--<View-->
+            <!--android:layout_width="365dp"-->
+            <!--android:layout_height="65dp"-->
+            <!--android:layout_weight="1"-->
+            <!--android:background="@color/orange_vanish"-->
+            <!--android:gravity="center"-->
+            <!--android:padding="12dp"-->
+            <!--android:textColor="@android:color/white" />-->
+
+    <!--</LinearLayout>-->
+
+    <TextView
+        android:id="@+id/viewSelectec1"
+        android:layout_width="30dp"
+        android:layout_height="65dp"
+        android:layout_weight="1"
+        android:background="@color/colorOrange"
+        android:drawableStart="@drawable/ic_done"
+        android:drawableTint="@color/colorWhite"
+        android:gravity="center_vertical"
+        android:padding="4dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/viewSelectec2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:visibility="visible">
+
+    </TextView>
+
+    <View
+        android:id="@+id/viewSelectec2"
+        android:layout_width="0dp"
+        android:layout_height="65dp"
+        android:background="@color/orange_vanish"
+        android:gravity="center"
+        android:textColor="@android:color/white"
+        android:visibility="gone"
+        app:layout_constraintStart_toEndOf="@id/viewSelectec1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:visibility="visible"/>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvToolMainName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="35dp"
+        android:layout_marginTop="10dp"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="PAX" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvToolSerianlNumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toEndOf="@id/tvToolMainName"
+        app:layout_constraintTop_toTopOf="@+id/tvToolMainName"
+        tools:text="(1234569244)" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvToolStatus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:fontFamily="@font/montserrat_bold"
+        android:textColor="@color/grass"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/tvToolMainName"
+        tools:text="Disponible" />
+
+    <ImageView
+        android:id="@+id/ivToolOptions"
+        android:layout_width="wrap_content"
+        android:layout_height="65dp"
+        android:layout_marginEnd="28dp"
+        android:tint="@color/battleship_grey"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_more_options"
+        android:contentDescription="@null"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
