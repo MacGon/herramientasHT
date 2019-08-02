@@ -109,6 +109,7 @@
     <string name="msg_hint_empleado">Número de empleado</string>
     <string name="msg_button_asignar">Asignar</string>
     <string name="msg_add_tool">Xiaomi Note 7</string>
+    <string name="msg_button_add_tool">Agregar herramienta</string>
     <!-- TODO: Fin de textos para Asignación de herramienta  -->
 
 
