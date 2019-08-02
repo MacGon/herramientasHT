@@ -103,6 +103,16 @@ class MainActivity: AppCompatActivity(), NavigationView.OnNavigationItemSelected
         toggle.syncState()
         navViewTwo.setNavigationItemSelectedListener(this)
         /////////Revisar BaseActivity
+        hideBottomBar()
+            ////////
+    }
+
+    override fun onResume() {
+        super.onResume()
+        hideBottomBar()
+    }
+
+    fun hideBottomBar(){
         window.decorView.apply {
             // Hide both the navigation bar and the status bar.
             // SYSTEM_UI_FLAG_FULLSCREEN is only available on Android 4.1 and higher, but as
@@ -110,28 +120,7 @@ class MainActivity: AppCompatActivity(), NavigationView.OnNavigationItemSelected
             // hide the navigation bar.
             systemUiVisibility = View.SYSTEM_UI_FLAG_HIDE_NAVIGATION or View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
         }
-            ////////
     }
-
-    override fun onBackPressed() {
-        val drawerLayout: DrawerLayout = findViewById(R.id.drawer_container)
-        if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
-            drawerLayout.closeDrawer(GravityCompat.START)
-        } else if (doubleBackPressed){
-            super.onBackPressed()
-            return
-        }
-        this.doubleBackPressed = true
-        val view = findViewById<ConstraintLayout>(R.id.container)
-        val message = getString(R.string.pressbackagain)
-        val duration = Snackbar.LENGTH_SHORT
-        Snackbar.make(view, message, duration).show()
-        //Toast.makeText(this,R.string.pressbackagain, Toast.LENGTH_SHORT).show()
-        Handler().postDelayed({
-            doubleBackPressed = false
-        }, 2000)
-    }
-
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         // Inflate the menu; this adds items to the action bar if it is present.
         menuInflater.inflate(R.menu.toolbar_menu, menu)
