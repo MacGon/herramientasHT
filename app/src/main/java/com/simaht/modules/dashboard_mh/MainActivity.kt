@@ -94,8 +94,6 @@ class MainActivity: AppCompatActivity(), NavigationView.OnNavigationItemSelected
         val toolbar: Toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
 
-
-
         val drawerLayout: DrawerLayout = findViewById(R.id.drawer_container)
         val navViewTwo: NavigationView = findViewById(R.id.nav_view_MH)
         val toggle = ActionBarDrawerToggle(
@@ -104,7 +102,7 @@ class MainActivity: AppCompatActivity(), NavigationView.OnNavigationItemSelected
         drawerLayout.addDrawerListener(toggle)
         toggle.syncState()
         navViewTwo.setNavigationItemSelectedListener(this)
-//////////////Revisar BaseActivity
+        /////////Revisar BaseActivity
         window.decorView.apply {
             // Hide both the navigation bar and the status bar.
             // SYSTEM_UI_FLAG_FULLSCREEN is only available on Android 4.1 and higher, but as
@@ -112,7 +110,7 @@ class MainActivity: AppCompatActivity(), NavigationView.OnNavigationItemSelected
             // hide the navigation bar.
             systemUiVisibility = View.SYSTEM_UI_FLAG_HIDE_NAVIGATION or View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
         }
-///////////
+            ////////
     }
 
     override fun onBackPressed() {
