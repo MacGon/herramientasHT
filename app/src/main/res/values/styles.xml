@@ -397,4 +397,22 @@
     <string name="msg_btn_aceptar">Estoy de acuerdo</string>
 
 
+    <style name="ButtonAsignTool">
+        <item name="android:textColor">@color/colorGray</item>
+        <item name="android:background">@drawable/shape_button_assign_tool</item>
+        <item name="android:textSize">17sp</item>
+    </style>
+
+    <style name="ButtonComfirmToolDisable">
+        <item name="android:textColor">@color/colorGray</item>
+        <item name="android:background">@drawable/btn_rect_border_line</item>
+        <item name="android:textSize">17sp</item>
+    </style>
+
+    <style name="ButtonComfirmToolAvailable">
+        <item name="android:textColor">@color/colorOrange</item>
+        <item name="android:background">@drawable/shape_button_comfirm_tool</item>
+        <item name="android:textSize">17sp</item>
+    </style>
+
 </resources>

@@ -122,7 +122,7 @@ class AssignToolManagerFragment : Fragment(), AssignToolContractI.View, AddChild
     override fun onLongClickListener(itemSelected: Boolean) {
         if (itemSelected) {
             btnAssignTools.isEnabled = true
-            btnAssignTools.background = resources.getDrawable(R.drawable.btn_rect_border_line_available)
+            btnAssignTools.setTextAppearance(context, R.style.ButtonComfirmToolAvailable)
         }
     }
 

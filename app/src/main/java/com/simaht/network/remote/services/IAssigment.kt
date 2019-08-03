@@ -1,7 +1,7 @@
 package com.simaht.network.remote.services
 
-import com.simaht.network.data.ModelTest
 import retrofit2.Call
+import com.simaht.network.data.ModelTest
 import retrofit2.http.GET
 import retrofit2.http.Path
 import retrofit2.http.Body
