@@ -142,4 +142,8 @@
     <string name="pressbackagain">Presiona de nuevo atrás para salir</string>
     <!-- TODO: Fin de textos para Resultados  -->
 
+    <!--TODO: Textos para escanear codigo QR asignacion -->
+    <string name="msg_title_asignacion_camara">Escanea la herramienta</string>
+    <!--TODO: Fin de testos para escanear código QR asignación -->
+
 </resources>

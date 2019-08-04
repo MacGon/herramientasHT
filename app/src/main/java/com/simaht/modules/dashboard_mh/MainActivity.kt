@@ -23,7 +23,6 @@ import kotlinx.android.synthetic.main.activity_main.*
 import androidx.core.content.ContextCompat
 import android.view.WindowManager
 
-
 class MainActivity: AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener, DashBoardFragment.resultInterface, DashBoardFragment.chargeToolInterface, DashBoardFragment.assignToolInterface, DashBoardFragment.liftInventoryInterface, DashBoardFragment.unsubscribeTool, DashBoardFragment.integrateFile, AssignToolFragment.cartaAsignacion {
 
 
@@ -231,10 +230,14 @@ class MainActivity: AppCompatActivity(), NavigationView.OnNavigationItemSelected
     }
 
     override fun showLiftInventoryFragment() {
-        val fragmentLiftInventory = LiftInventoryFragment()
-        val transactionLiftInventory = fm.beginTransaction()
-        transactionLiftInventory.replace(container.id,fragmentLiftInventory)
-        transactionLiftInventory.commit()
+//        val fragmentLiftInventory = LiftInventoryFragment()
+//        val transactionLiftInventory = fm.beginTransaction()
+//        transactionLiftInventory.replace(container.id,fragmentLiftInventory)
+//        transactionLiftInventory.commit()
+        val fragmentCamaraAsign = CamaraAsignFragment()
+        val transactionCamaraAsign = fm.beginTransaction()
+        transactionCamaraAsign.replace(container.id, fragmentCamaraAsign)
+        transactionCamaraAsign.commit()
     }
 
     override fun showUnsubscribeToolFragment() {
