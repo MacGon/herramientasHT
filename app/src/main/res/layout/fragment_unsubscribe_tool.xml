@@ -19,33 +19,5 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/appCompatButton"
-        style="@style/ButtonAsignTool"
-        android:text="@string/msg_button_add_tool"
-        android:textSize="17sp"
-        android:textAllCaps="false"
-        android:layout_width="295dp"
-        android:layout_height="57dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="276dp"
-        android:layout_marginEnd="8dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/appCompatTextView5"/>
-
-
-    <androidx.appcompat.widget.AppCompatButton
-        style="@style/ButtonAsignTool"
-        android:layout_width="295dp"
-        android:layout_height="57dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="64dp"
-        android:layout_marginEnd="8dp"
-        android:text="@string/msg_button_asignar"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/appCompatButton"/>
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

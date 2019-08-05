@@ -418,12 +418,6 @@
         <item name="android:text">@string/msg_button_asignar</item>
     </style>
 
-    <style name="ButtonAsignTool">
-        <item name="android:textColor">@color/colorGray</item>
-        <item name="android:background">@drawable/shape_button_assign_tool</item>
-        <item name="android:textSize">17sp</item>
-    </style>
-
     <style name="ButtonComfirmToolDisable">
         <item name="android:textColor">@color/colorGray</item>
         <item name="android:background">@drawable/btn_rect_border_line</item>
