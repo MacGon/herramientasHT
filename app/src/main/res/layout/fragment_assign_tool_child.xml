@@ -1,0 +1,77 @@
+<androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorWhite"
+        tools:context="com.simaht.dashboard_mh.AssignTool.view.AssignToolChildFragment">
+
+    <!--<androidx.cardview.widget.CardView-->
+            <!--android:id="@+id/cvItemDescription"-->
+            <!--android:layout_width="0dp"-->
+            <!--android:layout_height="0dp"-->
+            <!--android:clickable="true"-->
+            <!--android:background="@color/colorWhite"-->
+            <!--android:visibility="visible"-->
+            <!--app:cardUseCompatPadding="true"-->
+            <!--app:cardCornerRadius="8dp"-->
+            <!--app:cardElevation="3dp"-->
+            <!--app:layout_constraintEnd_toEndOf="@id/rvContentAssignTool"-->
+            <!--app:layout_constraintStart_toStartOf="@id/rvContentAssignTool"-->
+            <!--app:layout_constraintBottom_toBottomOf="parent"-->
+            <!--app:layout_constraintTop_toTopOf="@id/rvContentAssignTool"-->
+            <!--android:layout_marginBottom="8dp">-->
+
+    <!--</androidx.cardview.widget.CardView>-->
+
+    <!--<androidx.recyclerview.widget.RecyclerView-->
+        <!--android:id="@+id/rvContentAssignTool"-->
+        <!--android:layout_width="0dp"-->
+        <!--android:layout_height="0dp"-->
+        <!--android:layout_margin="3dp"-->
+        <!--android:layout_marginBottom="8dp"-->
+        <!--app:layout_constraintBottom_toBottomOf="parent"-->
+        <!--app:layout_constraintEnd_toEndOf="parent"-->
+        <!--app:layout_constraintStart_toStartOf="parent"-->
+        <!--app:layout_constraintTop_toTopOf="parent"-->
+        <!--tools:listitem="@layout/item_assign_tool_confirmation" />-->
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvContentAssignTool"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_margin="3dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toTopOf="@id/assignNewTool"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:listitem="@layout/item_assign_tool_confirmation" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/assignNewTool"
+        android:layout_width="295dp"
+        android:layout_height="57dp"
+        style="@style/ButtonAsignTool"
+        android:textAllCaps="false"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="276dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="19dp"
+        android:paddingStart="12dp"
+        android:paddingEnd="12dp"
+        android:drawableStart="@drawable/ic_sign_to_add_2"
+        android:drawableTint="@color/colorAccent"
+        android:elevation="5dp"
+        android:fontFamily="@font/montserrat_regular"
+        android:foreground="?android:attr/selectableItemBackground"
+        android:text="@string/msg_button_agregar"
+        android:textColor="@color/battleship_grey"
+        android:textSize="17sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

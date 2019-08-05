@@ -11,4 +11,15 @@
     <color name="colorRed">#FFC1272D</color>
     <color name="colorGrayMontserrat">#6d6e6e</color>
 
+    <color name="viewfinder_border">#EEB042</color>
+    <color name="colorBordeCarta">#C0C0C0</color>
+
+    <color name="FullyTransparent">#00FFFFFF</color>
+    <color name="transparentGray">#80BDB6B6</color>
+
+    <color name="battleship_grey">#75787b</color>
+    <color name="grass">#43b02a</color>
+    <color name="orange">#efa140</color>
+    <color name="orange_vanish">#ffe8b4</color>
+
 </resources>
