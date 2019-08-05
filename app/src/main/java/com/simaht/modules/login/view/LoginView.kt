@@ -30,13 +30,12 @@ interface LoginView {
     fun showSuccessFragment()
     fun showLoginFragment()
     fun loginCheck()
-    fun messageError()
-    fun messageErrorCreatePass()
     fun messageErrorLetter()
     fun messageErrorBank()
     fun messageErrorSal()
     fun messageErrorPolicy1()
     fun messageErrorPolicy2()
     fun errorPass()
+    fun onMessageError(error:String)
 }
 

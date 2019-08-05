@@ -9,6 +9,8 @@ import android.view.View
 import android.widget.FrameLayout
 import android.widget.Toast
 import com.example.dashboard_mh.R
+import com.google.gson.Gson
+import com.google.gson.JsonObject
 import com.simaht.base.BaseActivity
 import com.simaht.modules.dashboard_mh.*
 import com.simaht.modules.login.model.LogInInteractor
@@ -17,16 +19,22 @@ import com.simaht.modules.test_camera.view.TestCamera
 import kotlinx.android.synthetic.main.activity_login.*
 import kotlinx.android.synthetic.main.fragment_create_pass.*
 import kotlinx.android.synthetic.main.fragment_login.*
+import java.lang.Exception
 import java.security.MessageDigest
 import java.security.NoSuchAlgorithmException
 
-
-open class LoginActivity : BaseActivity(), LoginView {
+open class LoginActivity: BaseActivity(), LoginView {
 
     private val keyTipo: String = "KEY_TYPE"
     private val KEY_DATA: String = "DATA"
     private val codeScanner: Int = 1
     private var flagScaner: Boolean = false
+    private lateinit var presentertwo: TestCamera
+    private lateinit var gson: Gson
+
+    override fun onMessageError(error: String) {
+        Toast.makeText(this, error, Toast.LENGTH_SHORT).show()
+    }
 
     override fun errorPass() {
         hideKeyboardEvent(etRepeatPass)
@@ -58,19 +66,10 @@ open class LoginActivity : BaseActivity(), LoginView {
         Toast.makeText(this, "Tu contraseña no debe contener la palabra Banco", Toast.LENGTH_SHORT).show()
     }
 
-    override fun messageErrorCreatePass() {
-        Toast.makeText(this, "Tu contraseña debe contener 8 caracteres", Toast.LENGTH_SHORT).show()
-    }
-
     override fun messageErrorLetter() {
         hideKeyboardEvent(etCreatePass)
         etCreatePass.text?.clear()
         Toast.makeText(this, "Tu contraseña no debe contener la palabra Azteca", Toast.LENGTH_SHORT).show()
-    }
-
-
-    override fun messageError() {
-        Toast.makeText(this, "Contraseña incorrecta", Toast.LENGTH_SHORT).show()
     }
 
     @SuppressLint("SetTextI18n")
@@ -101,8 +100,16 @@ open class LoginActivity : BaseActivity(), LoginView {
         if (requestCode == codeScanner) {
             if (resultCode == Activity.RESULT_OK) {
                 val code: String = data?.extras!!.getString(KEY_DATA, "")
-                flagScaner = true
-
+                try {
+                    val obj: JsonObject = gson.fromJson(code, JsonObject::class.java)
+                    presenter.getUserInfo(obj.get("numSerie").asString,obj.get("numEmpleado").asString)
+                    flagScaner = true
+                } catch (e:Exception) {
+                    flagScaner = false
+                    onMessageError("Error al obtener informacion del servicio")
+                    presenter.onBackPressed()
+                }
+                println("HOLAAAAA $code")
             } else {
                 presenter.onBackPressed()
             }
@@ -183,6 +190,7 @@ open class LoginActivity : BaseActivity(), LoginView {
     override fun initView(savedInstanceState: Bundle?) {
         container = findViewById(R.id.frameContainerLogin)
         presenter = LoginPresenterImpl(this, LogInInteractor())
+        gson = Gson()
 
         btnAccederLogin.setOnClickListener {
             presenter.onButtonClick()
@@ -307,7 +315,6 @@ open class LoginActivity : BaseActivity(), LoginView {
             false
         })
     }
-
 
     @SuppressLint("ResourceType")
     override fun onBackPressed() {
