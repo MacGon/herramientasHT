@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.dashboard_mh.R
+import com.simaht.modules.login.view.LoginView
 import kotlinx.android.synthetic.main.fragment_login.*
 
 class LoginFragment : Fragment() {
@@ -23,5 +24,6 @@ class LoginFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         tvTitleLogin.text = String.format(resources.getString(R.string.msg_title_login), "Orlando")
+        (activity as LoginView).nextStepKeyboardLogin()
     }
 }

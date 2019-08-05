@@ -7,7 +7,7 @@ import com.simaht.dashboard_mh.AssignTool.Tool
 import com.simaht.dashboard_mh.AssignTool.contracts.AssignToolContractI
 import com.simaht.utils.SelectableItem
 
-class AssignToolPresenter(val view: AssignToolContractI.View): AssignToolContractI.Presenter {
+class AssignToolPresenter(val view: AssignToolContractI.View) : AssignToolContractI.Presenter {
 
 
     override fun setEmployeeNumber() {
@@ -19,8 +19,8 @@ class AssignToolPresenter(val view: AssignToolContractI.View): AssignToolContrac
         if (BuildConfig.DEBUG) {
             postDelayed(2000) {
                 view.putEmployeeData("$employeeNumber - Test Employee")
-                view.putToolsFound(arrayListOf(SelectableItem(Tool("PAX Test","PAX 4000", "TODAY", 124, 4213, "$$36",false,"www.myBill.com")),
-                        SelectableItem(Tool("Italika Test","Moto Italika 220", "TODAY", 421, 21423, "$$2624",true,"www.myITALIK.com"))))
+                view.putToolsFound(arrayListOf(SelectableItem(Tool("PAX Test", "PAX 4000", "TODAY", 124, 4213, "$$36", false, "www.myBill.com")),
+                        SelectableItem(Tool("Italika Test", "Moto Italika 220", "TODAY", 421, 21423, "$$2624", true, "www.myITALIK.com"))))
             }
         } else {
             //TODO Implement the service response
@@ -41,7 +41,6 @@ class AssignToolPresenter(val view: AssignToolContractI.View): AssignToolContrac
     }
 
     override fun openScanner() {
-        //TODO("open Scanner to read QR")
         view.readQR()
     }
 

@@ -59,10 +59,10 @@ class AssignToolChildFragment : Fragment(), AssignToolChildContractI.View {
             }
         }
         //FIXME( this Adapter is an example to set the information inside recyclerview, implements the Adapter with information downloaded from internet)
+        //TODO (Unassigned all tools remove the asignation botton available..
         rvContentAssignTool.adapter = assignToolAdapter
 
         assignNewTool.setOnClickListener {
-            Log.e("TAG", "--- mierdaaaaaaaaa")
             childCommunication.onClickListen()
         }
 

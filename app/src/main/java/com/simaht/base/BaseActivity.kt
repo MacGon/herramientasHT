@@ -9,7 +9,7 @@ import android.widget.EditText
 import androidx.annotation.LayoutRes
 import androidx.appcompat.app.AppCompatActivity
 
-abstract class BaseActivity : AppCompatActivity(){
+abstract class BaseActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -19,10 +19,11 @@ abstract class BaseActivity : AppCompatActivity(){
     }
 
     @LayoutRes
-    abstract fun setLayout():Int
+    abstract fun setLayout(): Int
+
     abstract fun initView(savedInstanceState: Bundle?)
 
-    fun hideStatusBarNavigationBar(){
+    fun hideStatusBarNavigationBar() {
 
         //Toma como fondo la referencia del activity actual que en este caso es el SplashScreen STATUSBAR
         //window.setFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS, WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS)
@@ -39,9 +40,9 @@ abstract class BaseActivity : AppCompatActivity(){
         * SYSTEM_UI_FLAG_FULLSCREEN - El StatusBar cambia a negro y no se muestra ningun componente alguno dentro de el y el NavigationBar se muestra
         * */
 
-        window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_HIDE_NAVIGATION;
+        window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
         val decorView = window.decorView
-        decorView.systemUiVisibility = (View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION )
+        decorView.systemUiVisibility = (View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION)
     }
 
     //Metodo para ocultar teclado haciendo TAP en cualquier parte del activity
@@ -54,5 +55,15 @@ abstract class BaseActivity : AppCompatActivity(){
         editText.inputType = InputType.TYPE_CLASS_TEXT
     }
 
+    override fun onBackPressed() {
+        when {
+            supportFragmentManager.backStackEntryCount > 0 -> {
+                supportFragmentManager.popBackStack()
+            }
+            else -> {
+                super.onBackPressed()
+            }
+        }
+    }
 
 }

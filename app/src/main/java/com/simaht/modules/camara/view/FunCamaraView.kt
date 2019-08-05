@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.viewpager.widget.ViewPager
+import com.baz.simaht.login.extensions.postDelayed
 import com.example.dashboard_mh.R
 import com.google.android.material.tabs.TabLayout
 import com.simaht.modules.camara.contract.ContractInterface
@@ -57,6 +58,9 @@ class FunCamaraView: AppCompatActivity(), ContractInterface.View {
             }
         })*/
         //TabLayout.TabLayoutOnPageChangeListener(tabLayoutCamara)
+        postDelayed(2000) {
+            this.finish()
+        }
     }
 
     /*fun escanearCodigo(view: View){

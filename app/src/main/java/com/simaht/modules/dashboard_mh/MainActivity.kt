@@ -2,7 +2,7 @@ package com.simaht.modules.dashboard_mh
 
 import android.content.Intent
 import android.os.Bundle
-import android.os.Handler
+import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
@@ -10,23 +10,21 @@ import android.widget.FrameLayout
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
-import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContextCompat
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
-import com.example.dashboard_mh.R
+import androidx.fragment.app.Fragment
+import com.baz.simaht.login.extensions.addFragment
 import com.baz.simaht.login.extensions.replaceFragment
+import com.example.dashboard_mh.R
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.navigation.NavigationView
-import com.google.android.material.snackbar.Snackbar
 import com.simaht.dashboard_mh.AssignTool.view.AssignToolManagerFragment
-import com.simaht.modules.camara.view.FunCamaraView
-import com.simaht.modules.asignacion.cartaAsignacion.PaintView
 import kotlinx.android.synthetic.main.activity_main.*
 
-
-class MainActivity: AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener, DashBoardFragment.resultInterface, DashBoardFragment.chargeToolInterface, DashBoardFragment.assignToolInterface, DashBoardFragment.liftInventoryInterface, DashBoardFragment.unsubscribeTool, DashBoardFragment.integrateFile, AssignToolFragment.cartaAsignacion {
-
+class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener, DashBoardFragment.resultInterface,
+        DashBoardFragment.chargeToolInterface, DashBoardFragment.assignToolInterface, DashBoardFragment.liftInventoryInterface,
+        DashBoardFragment.unsubscribeTool, DashBoardFragment.integrateFile, AssignToolFragment.cartaAsignacion {
 
     lateinit var container: FrameLayout
     val fm = supportFragmentManager
@@ -39,7 +37,7 @@ class MainActivity: AppCompatActivity(), NavigationView.OnNavigationItemSelected
 
                 val fragmentDashBoard = DashBoardFragment()
                 val transactionDashBoard = fm.beginTransaction()
-                transactionDashBoard.replace(container.id,fragmentDashBoard)
+                transactionDashBoard.replace(container.id, fragmentDashBoard)
                 transactionDashBoard.commit()
 
                 return@OnNavigationItemSelectedListener true
@@ -94,40 +92,43 @@ class MainActivity: AppCompatActivity(), NavigationView.OnNavigationItemSelected
         setSupportActionBar(toolbar)
 
 
-
         val drawerLayout: DrawerLayout = findViewById(R.id.drawer_container)
         val navViewTwo: NavigationView = findViewById(R.id.nav_view_MH)
         val toggle = ActionBarDrawerToggle(
-            this, drawerLayout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close
+                this, drawerLayout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close
         )
         drawerLayout.addDrawerListener(toggle)
         toggle.syncState()
         navViewTwo.setNavigationItemSelectedListener(this)
 //////////////Revisar BaseActivity
-        window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
-        val decorView = window.decorView
-        decorView.systemUiVisibility = (View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION or View.SYSTEM_UI_FLAG_HIDE_NAVIGATION)
+        window.decorView.apply {
+            // Hide both the navigation bar and the status bar.
+            // SYSTEM_UI_FLAG_FULLSCREEN is only available on Android 4.1 and higher, but as
+            // a general rule, you should design your app to hide the status bar whenever you
+            // hide the navigation bar.
+            systemUiVisibility = View.SYSTEM_UI_FLAG_HIDE_NAVIGATION or View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
+        }
 ///////////
     }
 
-    override fun onBackPressed() {
-        val drawerLayout: DrawerLayout = findViewById(R.id.drawer_container)
-        if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
-            drawerLayout.closeDrawer(GravityCompat.START)
-        } else if (doubleBackPressed){
-            super.onBackPressed()
-            return
-        }
-        this.doubleBackPressed = true
-        val view = findViewById<ConstraintLayout>(R.id.container)
-        val message = getString(R.string.pressbackagain)
-        val duration = Snackbar.LENGTH_SHORT
-        Snackbar.make(view, message, duration).show()
-        //Toast.makeText(this,R.string.pressbackagain, Toast.LENGTH_SHORT).show()
-        Handler().postDelayed({
-            doubleBackPressed = false
-        }, 2000)
-    }
+//    override fun onBackPressed() {
+//        val drawerLayout: DrawerLayout = findViewById(R.id.drawer_container)
+//        if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
+//            drawerLayout.closeDrawer(GravityCompat.START)
+//        } else if (doubleBackPressed){
+//            super.onBackPressed()
+//            return
+//        }
+//        this.doubleBackPressed = true
+//        val view = findViewById<ConstraintLayout>(R.id.container)
+//        val message = getString(R.string.pressbackagain) //FIXME
+//        val duration = Snackbar.LENGTH_SHORT
+//        Snackbar.make(view, message, duration).show()
+//        //Toast.makeText(this,R.string.pressbackagain, Toast.LENGTH_SHORT).show()
+//        Handler().postDelayed({
+//            doubleBackPressed = false
+//        }, 2000)
+//    }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -207,19 +208,19 @@ class MainActivity: AppCompatActivity(), NavigationView.OnNavigationItemSelected
     override fun showResultsFragment() {
         val fragmentResults = ResultsFragment()
         val transactionResults = fm.beginTransaction()
-        transactionResults.replace(container.id,fragmentResults)
+        transactionResults.replace(container.id, fragmentResults)
         transactionResults.commit()
     }
 
     override fun showChargeToolFragment() {
         val fragmentChargeTool = ChargeToolFragment()
         val transactionChargeTool = fm.beginTransaction()
-        transactionChargeTool.replace(container.id,fragmentChargeTool)
+        transactionChargeTool.replace(container.id, fragmentChargeTool)
         transactionChargeTool.commit()
     }
 
     override fun showAssignToolFragment() {
-        replaceFragment(AssignToolManagerFragment.getInstance(false), container.id)
+        addFragment(AssignToolManagerFragment.getInstance(false), container.id, "AssignToolFlow")
     }
 
     override fun showLiftInventoryFragment() {
@@ -232,14 +233,14 @@ class MainActivity: AppCompatActivity(), NavigationView.OnNavigationItemSelected
     override fun showUnsubscribeToolFragment() {
         val fragmentUnsubscribeTool = UnsubscribeToolFragment()
         val transactionUnsubscribeTool = fm.beginTransaction()
-        transactionUnsubscribeTool.replace(container.id,fragmentUnsubscribeTool)
+        transactionUnsubscribeTool.replace(container.id, fragmentUnsubscribeTool)
         transactionUnsubscribeTool.commit()
     }
 
     override fun showIntegrateFileFragment() {
         val fragmentIntegrateFile = IntegrateFileFragment()
         val transactionIntegrateFile = fm.beginTransaction()
-        transactionIntegrateFile.replace(container.id,fragmentIntegrateFile)
+        transactionIntegrateFile.replace(container.id, fragmentIntegrateFile)
         transactionIntegrateFile.commit()
     }
 
@@ -248,6 +249,30 @@ class MainActivity: AppCompatActivity(), NavigationView.OnNavigationItemSelected
         val transactionCartaAsignacion = fm.beginTransaction();
         transactionCartaAsignacion.replace(container.id, fragmentCartaAsignacion)
         transactionCartaAsignacion.commit()
+    }
+
+    override fun onBackPressed() {
+        when {
+            supportFragmentManager.backStackEntryCount > 0 -> {
+                supportFragmentManager.popBackStack()
+                Log.d("TAG", "Main activity hide backstack-*-*-*-*-*-*-")
+            }
+            else -> {
+                Log.d("TAG", "Main activity 0 backstack hide backstack-------")
+                super.onBackPressed()
+            }
+        }
+    }
+
+    fun addToBackStack(fragment: Fragment, backStackTAG: String? = null) {
+        if (!backStackTAG.isNullOrEmpty())
+            addFragment(fragment, container.id, backStackTAG)
+        else
+            addFragment(fragment, container.id)
+    }
+
+    fun addToBackStack(fragment: Fragment) {
+        addToBackStack(fragment, null)
     }
 }
 

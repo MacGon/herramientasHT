@@ -1,7 +1,7 @@
 <resources>
 
 
-    <!-- TODO: Estilos para la aplicación (Base) -->
+    <!--  Estilos para la aplicación (Base) -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@android:color/white</item>
@@ -9,16 +9,16 @@
         <item name="colorAccent">@color/colorWhite</item>
         <item name="android:windowLightStatusBar">true</item>
     </style>
-    <!-- TODO: Fin de estilo para la aplicación (Base) -->
+    <!--  Fin de estilo para la aplicación (Base) -->
 
 
-    <!-- TODO: Estilos para el SplashScreen -->
+    <!--  Estilos para el SplashScreen -->
     <style name="SplashStyle" parent="AppTheme.NoActionBar">
     </style>
-    <!-- TODO: Fin de estilos para el SplashScreen -->
+    <!--  Fin de estilos para el SplashScreen -->
 
 
-    <!-- TODO: Estilos para Enrolamiento -->
+    <!--  Estilos para Enrolamiento -->
     <style name="TitleEnrolamientoStyle">
         <item name="android:fontFamily">@font/montserrat_regular</item>
         <item name="android:textColor">@color/colorWhite</item>
@@ -69,7 +69,7 @@
         <item name="android:textColor">#80000000</item>
         <item name="android:textColorHint">#80000000</item>
         <item name="android:textStyle">normal</item>
-        <item name="android:textSize">17sp</item>
+        <item name="android:textSize">17.5sp</item>
         <item name="android:lineSpacingExtra">2sp</item>
         <item name="android:hint">@string/msg_hint_create_password</item>
     </style>
@@ -78,7 +78,7 @@
         <item name="android:textColor">#80000000</item>
         <item name="android:textColorHint">#80000000</item>
         <item name="android:textStyle">normal</item>
-        <item name="android:textSize">17sp</item>
+        <item name="android:textSize">17.5sp</item>
         <item name="android:lineSpacingExtra">2sp</item>
         <item name="android:hint">@string/msg_hint_repeat_password</item>
     </style>
@@ -90,10 +90,10 @@
         <item name="android:lineSpacingExtra">5sp</item>
         <item name="android:text">@string/msg_title_success_pass_enrolamiento</item>
     </style>
-    <!-- TODO: Fin de estilos para el Enrolamiento -->
+    <!--  Fin de estilos para el Enrolamiento -->
 
 
-    <!-- TODO: Estilos para el Login -->
+    <!--  Estilos para el Login -->
     <style name="TitleLoginStyle">
         <item name="android:fontFamily">@font/montserrat_regular</item>
         <item name="android:textColor">@color/colorWhite</item>
@@ -138,10 +138,10 @@
     </style>
     <style name="LoginStyle" parent="AppTheme.NoActionBar">
     </style>
-    <!-- TODO: Fin de estilos para el Login -->
+    <!--  Fin de estilos para el Login -->
 
 
-    <!-- TODO: Estilos para componentes del Home o DashBoard-->
+    <!--  Estilos para componentes del Home o DashBoard-->
     <style name="DashBoardStyle">
         <item name="android:text">@string/msg_dash_board_header_subtitle</item>
         <item name="android:textColor">@color/colorGray</item>
@@ -183,18 +183,26 @@
         <item name="android:lineSpacingExtra">3.4sp</item>
         <item name="android:text">@string/msg_title_enrolamiento</item>
     </style>
-    <!-- TODO: Fin de estilos para el Home o DashBoard -->
+    <style name="TitleDashboardMeta">
+        <item name="android:fontFamily">@font/montserrat_bold</item>
+        <item name="android:textColor">@color/colorGrayMontserrat</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:lineSpacingExtra">5sp</item>
+        <item name="android:text">@string/msg_title_qr_enrolamiento</item>
+    </style>
+    <!--  Fin de estilos para el Home o DashBoard -->
 
 
-    <!-- TODO: Estilo para la primera actividad-->
+    <!--  Estilo para la primera actividad-->
     <style name="AppTheme.NoActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
     </style>
-    <!-- TODO: Fin de estilo para la primera actividad-->
+    <!--  Fin de estilo para la primera actividad-->
 
 
-    <!-- TODO: Estilo para la segunda actividad-->
+    <!--  Estilo para la segunda actividad-->
     <style name="AppThemeTwoActivity" parent="Theme.AppCompat.Light.DarkActionBar">
         <item name="colorPrimary">@android:color/white</item>
         <item name="colorPrimaryDark">@android:color/white</item>
@@ -202,10 +210,10 @@
         <item name="android:windowLightStatusBar">true</item>
         <item name="android:label">msg_title_c4_ayuda</item>
     </style>
-    <!-- TODO: Fin de estilo para la segunda actividad-->
+    <!--  Fin de estilo para la segunda actividad-->
 
 
-    <!-- TODO: Estilo para la tercera actividad-->
+    <!--  Estilo para la tercera actividad-->
     <style name="AppThemeThreeActivity" parent="Theme.AppCompat.Light.DarkActionBar">
         <item name="colorPrimary">@android:color/white</item>
         <item name="colorPrimaryDark">@android:color/white</item>
@@ -213,7 +221,7 @@
         <item name="android:windowLightStatusBar">true</item>
         <item name="android:label">@string/msg_title_notificaciones</item>
     </style>
-    <!-- TODO: Fin de estilo para la tercera actividad-->
+    <!--  Fin de estilo para la tercera actividad-->
 
 
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar">
@@ -225,15 +233,15 @@
     </style>
 
 
-    <!-- TODO: Estilos para componentes del SearchView -->
+    <!--  Estilos para componentes del SearchView -->
     <style name="SearchViewStyle" parent="Widget.AppCompat.SearchView">
         <item name="searchHintIcon">@null</item>
         <item name="queryHint">@string/msg_search_view_respuesta</item>
     </style>
-    <!-- TODO: Fin de estilos para componentes del SearchView -->
+    <!--  Fin de estilos para componentes del SearchView -->
 
 
-    <!-- TODO: Estilos para componentes del C4Ayuda -->
+    <!--  Estilos para componentes del C4Ayuda -->
     <style name="C4ViewStyle" parent="Widget.AppCompat.SearchView">
         <item name="android:text">@string/msg_subtitle_c4_ayuda</item>
         <item name="android:textStyle">bold</item>
@@ -252,10 +260,10 @@
         <item name="android:textSize">16sp</item>
         <item name="android:text">@string/msg_leer_mas_c4</item>
     </style>
-    <!-- TODO: Fin de estilos para componentes del C4Ayuda -->
+    <!--  Fin de estilos para componentes del C4Ayuda -->
 
 
-    <!-- TODO: Estilos para componentes del Drawer Header Menu -->
+    <!--  Estilos para componentes del Drawer Header Menu -->
     <style name="TitleDrawerHeaderStyle">
         <item name="android:text">@string/msg_drawer_menu_title</item>
         <item name="android:textStyle">bold</item>
@@ -270,10 +278,10 @@
         <item name="android:textColor">@color/colorWhite</item>
         <item name="android:textSize">21sp</item>
     </style>
-    <!-- TODO: Fin de estilos para componentes del Drawer Header Menu -->
+    <!--  Fin de estilos para componentes del Drawer Header Menu -->
 
 
-    <!-- TODO: Estilos para componentes de Notificaciones -->
+    <!--  Estilos para componentes de Notificaciones -->
     <style name="NotificacionesListStyle" parent="Widget.AppCompat.SearchView">
         <item name="android:textStyle">bold</item>
         <item name="android:textColor">@color/colorGray</item>
@@ -285,10 +293,10 @@
         <item name="android:textSize">16sp</item>
         <item name="android:text">@string/msg_leer_mas_notificaciones</item>
     </style>
-    <!-- TODO: Fin de estilos para componentes de Notificaciones -->
+    <!--  Fin de estilos para componentes de Notificaciones -->
 
 
-    <!-- TODO: Estilos para componentes de Cobro de herramienta -->
+    <!--  Estilos para componentes de Cobro de herramienta -->
     <style name="TitleChargeToolStyle">
         <item name="android:textColor">@color/colorOrange</item>
         <item name="android:textSize">28sp</item>
@@ -310,10 +318,10 @@
         <item name="android:text">@string/msg_ayuda_charge_tool</item>
         <item name="android:textSize">20sp</item>
     </style>
-    <!-- TODO: Fin de estilos para componentes de Cobro de herramienta -->
+    <!--  Fin de estilos para componentes de Cobro de herramienta -->
 
 
-    <!-- TODO: Estilos para componentes de Resultados-->
+    <!--  Estilos para componentes de Resultados-->
     <style name="TitleResultsStyle">
         <item name="android:textColor">@color/colorGray</item>
         <item name="android:textSize">19sp</item>
@@ -341,10 +349,10 @@
         <item name="android:textColor">@android:color/black</item>
         <item name="android:textSize">19sp</item>
     </style>
-    <!-- TODO: Fin de estilos para componentes de Resultados -->
+    <!--  Fin de estilos para componentes de Resultados -->
 
 
-    <!-- TODO: Estilos para Asignación, Baja, Levantar inventario e Integrar Expediente -->
+    <!--  Estilos para Asignación, Baja, Levantar inventario e Integrar Expediente -->
     <style name="EditTextEmpleadoStyle">
         <item name="android:hint">@string/msg_hint_empleado</item>
         <item name="android:maxLength">5</item>
@@ -386,7 +394,7 @@
         <item name="android:textAlignment">center</item>
         <item name="android:textSize">18sp</item>
     </style>
-    <!-- TODO: Estilos para Asignación, Baja, Levantar inventario e Integrar Expediente-->
+    <!--  Estilos para Asignación, Baja, Levantar inventario e Integrar Expediente-->
 
     <!--  Titulo para la carta de asignación -->
     <string name="title_carta_asign">Firma de común acuerdo</string>

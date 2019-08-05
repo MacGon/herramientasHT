@@ -12,7 +12,9 @@ interface LoginView {
     fun enabledEtRepeatTrue()
     fun enabledEtRepeatFalse()
     fun clearEditText()
-    fun encryptionPass()
+    fun encryptionPass(s: String): String
+    fun nextStepKeyboardCreate()
+    fun nextStepKeyboardLogin()
 
     fun navigateToHome()
     fun setWelcomeMessage(message:String)
@@ -35,6 +37,6 @@ interface LoginView {
     fun messageErrorSal()
     fun messageErrorPolicy1()
     fun messageErrorPolicy2()
-    fun confirmPass()
+    fun errorPass()
 }
 

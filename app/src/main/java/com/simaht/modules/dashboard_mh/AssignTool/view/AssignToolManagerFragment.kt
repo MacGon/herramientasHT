@@ -1,7 +1,6 @@
 package com.simaht.dashboard_mh.AssignTool.view
 
 import android.annotation.SuppressLint
-import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -12,11 +11,14 @@ import androidx.fragment.app.Fragment
 import com.baz.simaht.login.extensions.addChildFragment
 import com.baz.simaht.utils.CoConstants.Companion.COME_FROM_CAMERA
 import com.example.dashboard_mh.R
+import com.google.zxing.Result
 import com.simaht.dashboard_mh.AssignTool.Tool
 import com.simaht.dashboard_mh.AssignTool.contracts.AssignToolContractI
 import com.simaht.dashboard_mh.AssignTool.presenter.AssignToolPresenter
-import com.simaht.modules.camara.view.FunCamaraView
 import com.simaht.modules.dashboard_mh.AssignTool.view.AddChildCommunication
+import com.simaht.modules.dashboard_mh.MainActivity
+import com.simaht.modules.dashboard_mh.scanner.IScanner
+import com.simaht.modules.dashboard_mh.scanner.ScannerFragment
 import com.simaht.utils.SelectableItem
 import kotlinx.android.synthetic.main.fragment_assign_tool_manager.*
 
@@ -25,7 +27,8 @@ import kotlinx.android.synthetic.main.fragment_assign_tool_manager.*
  * A simple [Fragment] subclass.
  *
  */
-class AssignToolManagerFragment : Fragment(), AssignToolContractI.View, AddChildCommunication {
+class AssignToolManagerFragment : Fragment(), AssignToolContractI.View, AddChildCommunication, IScanner {
+
 
     private lateinit var presenter: AssignToolContractI.Presenter
     private var fromCamera: Boolean = false
@@ -105,10 +108,9 @@ class AssignToolManagerFragment : Fragment(), AssignToolContractI.View, AddChild
     }
 
     override fun readQR() {
-        val intent = Intent(activity, FunCamaraView::class.java)
-        startActivity(intent)
-        val scannedTool = Tool("Italika Test", "PAX 4000", "TODAY", 124, 4213, "$$36", true, "www.myBill.com")
-        presenter.addScanedElement(scannedTool)
+        //val intent = Intent(activity, FunCamaraView::class.java)
+        //startActivity(intent)
+        (activity as MainActivity).addToBackStack(ScannerFragment.newIntance(this), "FragmentScanner")
     }
 
     override fun enableAssignationBtn(enable: Boolean) {
@@ -124,6 +126,11 @@ class AssignToolManagerFragment : Fragment(), AssignToolContractI.View, AddChild
             btnAssignTools.isEnabled = true
             btnAssignTools.setTextAppearance(context, R.style.ButtonComfirmToolAvailable)
         }
+    }
+
+    override fun returnValue(rawResult: Result?) {
+        val scannedTool = Tool("Italika Test", "PAX 4000", "TODAY", 124, 4213, "$$36", true, "www.myBill.com")
+        presenter.addScanedElement(scannedTool)
     }
 
     fun setOnclickListeners() {
