@@ -14,5 +14,9 @@ class LogInInteractor {
         fun onButtonClick()
         fun onBackPressed()
         fun setItemFragment(paso:Int)
+
+        fun getUserInfo(serialNum:String,enployeeNum:String)
+        fun registerUser(password:String)
+        fun logIn(password:String)
     }
 }

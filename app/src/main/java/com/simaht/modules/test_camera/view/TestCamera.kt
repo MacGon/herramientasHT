@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.example.dashboard_mh.R
+import com.simaht.modules.login.presenter.LoginPresenterImpl
 import com.simaht.modules.test_camera.contract.ContractInterfaceTest
 import com.simaht.modules.test_camera.presenter.testCameraPresenter
 import me.dm7.barcodescanner.zxing.ZXingScannerView
@@ -26,13 +27,13 @@ class TestCamera : AppCompatActivity(), ContractInterfaceTest.View {
     }
 
     override fun mostrarResultado(codigo: String) {
-        println("Codigo: $codigo")
-        Toast.makeText(this, codigo, Toast.LENGTH_LONG).show()
+        println("Codigo: ${codigo.replace("&#34;", "\"")}")
+        //Toast.makeText(this, codigo, Toast.LENGTH_LONG).show()
     }
 
     override fun mostrarCamara(scannerView: ZXingScannerView) {
         println("Mostrando camara")
-        if((ContextCompat.checkSelfPermission(this, android.Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED)){
+        if((ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED)){
             ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.CAMERA), 101)
         }
         setContentView(scannerView)
@@ -40,7 +41,7 @@ class TestCamera : AppCompatActivity(), ContractInterfaceTest.View {
 
     override fun finalizarEscaneo(codigo:String) {
         val bundle = Bundle()
-        bundle.putString(KEY_DATA, codigo)
+        bundle.putString(KEY_DATA, codigo.replace("&#34;", "\""))
         intent.putExtras(bundle)
         setResult(Activity.RESULT_OK, intent)
         this.finish()
