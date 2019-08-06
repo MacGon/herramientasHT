@@ -8,6 +8,7 @@ import com.simaht.modules.login.view.LoginView
 import com.simaht.network.data.LoginRequestModel
 import com.simaht.network.data.LoginResponseModel
 import com.simaht.network.remote.RestAPI
+import com.simaht.utils.JsonFile
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.Disposable
 import io.reactivex.schedulers.Schedulers
@@ -17,6 +18,7 @@ class LoginPresenterImpl(var loginView: LoginView?, val logInInteractor: LogInIn
 
     private val TAG: String = "LoginPresenterImpl"
     private lateinit var gson: Gson
+
 
     override fun setItemFragment(paso: Int) {
         when (paso) {
@@ -57,6 +59,10 @@ class LoginPresenterImpl(var loginView: LoginView?, val logInInteractor: LogInIn
         }
             /* 5 */ password.toUpperCase().contains("SALINAS") -> {
             loginView?.messageErrorSal()
+            paso--
+        }
+            /* 6 */ password.contains(" ") -> {
+            loginView?.messageErrorSpace()
             paso--
         }
             //    /* 6 */ validatePasswordPolicy1(password) -> {
@@ -171,7 +177,7 @@ class LoginPresenterImpl(var loginView: LoginView?, val logInInteractor: LogInIn
         setItemFragment(paso)
     }
 
-    fun onQrError() {
+    fun onServiceError() {
         paso--
         setItemFragment(paso)
     }
@@ -179,7 +185,18 @@ class LoginPresenterImpl(var loginView: LoginView?, val logInInteractor: LogInIn
     private var paso: Int = 0
 
     init {
-        paso = 0
+        if (JsonFile.existeArchivo(Employee.FILENAME)) {
+            val employee = Employee()
+            if (employee.registerFinished) {
+                paso = 8
+            } else {
+                paso = 3
+            }
+        } else {
+            paso = 0
+        }
+        setItemFragment(paso)
+
     }
 
     fun onDestroy() {
@@ -216,29 +233,35 @@ class LoginPresenterImpl(var loginView: LoginView?, val logInInteractor: LogInIn
 
     override fun getUserInfo(serialNum: String, employeeNum: String) {
         val api = RestAPI()
-        val disposable : Disposable = api.enrollment(serialNum, employeeNum).subscribeOn(Schedulers.io())
+        val disposable: Disposable = api.enrollment(serialNum, employeeNum).subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe({ response ->
-                Log.e(TAG, response.message)
+                Log.e(TAG, response.message!!)
                 if (response.code != 200) {
+                    onServiceError()
                     loginView?.onMessageError("Error: ${response.message}")
-                    onQrError()
                 } else {
-
+                    val employee = Employee()
+                    employee.empID = employeeNum
+                    employee.empNombre = response.info?.name
+                    employee.update()
+                    onButtonClick()
                 }
             }, { error ->
-                Log.e(TAG, error.message)
+                onServiceError()
+                Log.e(TAG, "Error: " + error.message)
                 loginView?.onMessageError("Error: ${error.message}")
             })
     }
 
     override fun logIn(password: String) {
         val api = RestAPI()
-        val request = LoginRequestModel("149766", loginView?.encryptionPass(password))
-        val disposable : Disposable = api.login(request).subscribeOn(Schedulers.io())
+        val employee = Employee()
+        val request = LoginRequestModel(employee.empID, loginView?.encryptionPass(password))
+        val disposable: Disposable = api.login(request).subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe({ response ->
-                Log.e(TAG, response.message)
+                Log.e(TAG, response.message!!)
                 if (response.code != 200) {
                     loginView?.onMessageError("Error: ${response.message}")
                     loginView?.hideProgress()
@@ -246,33 +269,38 @@ class LoginPresenterImpl(var loginView: LoginView?, val logInInteractor: LogInIn
                     onSuccess()
                 }
             }, { error ->
-                Log.e(TAG, error.message)
+                onServiceError()
+                Log.e(TAG, "Error: " + error.message)
                 loginView?.onMessageError("Error: ${error.message}")
-                loginView?.hideProgress()
             })
     }
 
     override fun registerUser(password: String) {
         val api = RestAPI()
-        val request = LoginRequestModel("149766", loginView?.encryptionPass(password))
-        val disposable : Disposable = api.registerUser(request).subscribeOn(Schedulers.io())
+        val employee = Employee()
+        val request = LoginRequestModel(employee.empID, loginView?.encryptionPass(password))
+        val disposable: Disposable = api.registerUser(request).subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe({ response ->
                 if (response.code != 200) {
                     loginView?.onMessageError("Error: ${response.message}")
-                    loginView?.hideProgress()
+                    paso--
                 } else {
                     onRegisterSuccessfull()
                 }
             }, { error ->
-                Log.e(TAG, error.message)
+                onServiceError()
+                Log.e(TAG, "Error: " + error.message)
                 loginView?.onMessageError("Error: ${error.message}")
-                loginView?.hideProgress()
-
             })
     }
 
     fun onRegisterSuccessfull() {
+
+        var employee = Employee()
+        employee.registerFinished = true
+        employee.update()
+
         onButtonClick()
         loginView?.clearEditText()
     }

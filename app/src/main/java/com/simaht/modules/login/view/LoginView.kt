@@ -37,5 +37,6 @@ interface LoginView {
     fun messageErrorPolicy2()
     fun errorPass()
     fun onMessageError(error:String)
+    fun messageErrorSpace()
 }
 

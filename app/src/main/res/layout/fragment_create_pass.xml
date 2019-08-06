@@ -7,31 +7,16 @@
         tools:context="com.simaht.modules.dashboard_mh.CreatePassFragment">
 
     <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/tvTitleEnrollCreatePass"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center_horizontal"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginStart="8dp"
-            style="@style/TitleCreatePassStyle"
-            tools:text="@string/msg_title_login"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"/>
-
-    <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tvSubtitleEnrollCreatePass"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
             android:layout_marginStart="8dp"
             android:layout_marginEnd="8dp"
-            android:layout_marginTop="24dp"
             style="@style/SubTitleCreatePassStyle"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvTitleEnrollCreatePass"/>
+            android:layout_marginTop="30dp" app:layout_constraintTop_toTopOf="parent"/>
 
     <androidx.appcompat.widget.AppCompatEditText
             android:id="@+id/etCreatePass"
@@ -46,9 +31,9 @@
             android:drawablePadding="16dp"
             android:maxLength="8"
             android:layout_marginEnd="8dp"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="60dp"
             android:layout_marginStart="8dp"
-            android:digits="ABCDEFGHIJKLMNÑOPQRSTUVWXYZabcdefghijklmnñopqrstuvwxyz1234567890"
+            android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ 1234567890"
             android:textCursorDrawable="@drawable/cursor_color"
             style="@style/CreatePasswordStyle"
             app:layout_constraintTop_toBottomOf="@+id/tvSubtitleEnrollCreatePass"
@@ -71,8 +56,8 @@
             android:layout_marginEnd="8dp"
             android:layout_marginTop="25dp"
             android:layout_marginStart="8dp"
-            android:enabled="true"
-            android:digits="ABCDEFGHIJKLMNÑOPQRSTUVWXYZabcdefghijklmnñopqrstuvwxyz1234567890"
+            android:enabled="false"
+            android:digits="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890"
             android:textCursorDrawable="@drawable/cursor_color"
             style="@style/RepeatPasswordStyle"
             app:layout_constraintTop_toBottomOf="@+id/etCreatePass"
