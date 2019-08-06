@@ -7,36 +7,6 @@
         android:background="@color/colorWhite"
         tools:context="com.simaht.dashboard_mh.AssignTool.view.AssignToolChildFragment">
 
-    <!--<androidx.cardview.widget.CardView-->
-            <!--android:id="@+id/cvItemDescription"-->
-            <!--android:layout_width="0dp"-->
-            <!--android:layout_height="0dp"-->
-            <!--android:clickable="true"-->
-            <!--android:background="@color/colorWhite"-->
-            <!--android:visibility="visible"-->
-            <!--app:cardUseCompatPadding="true"-->
-            <!--app:cardCornerRadius="8dp"-->
-            <!--app:cardElevation="3dp"-->
-            <!--app:layout_constraintEnd_toEndOf="@id/rvContentAssignTool"-->
-            <!--app:layout_constraintStart_toStartOf="@id/rvContentAssignTool"-->
-            <!--app:layout_constraintBottom_toBottomOf="parent"-->
-            <!--app:layout_constraintTop_toTopOf="@id/rvContentAssignTool"-->
-            <!--android:layout_marginBottom="8dp">-->
-
-    <!--</androidx.cardview.widget.CardView>-->
-
-    <!--<androidx.recyclerview.widget.RecyclerView-->
-        <!--android:id="@+id/rvContentAssignTool"-->
-        <!--android:layout_width="0dp"-->
-        <!--android:layout_height="0dp"-->
-        <!--android:layout_margin="3dp"-->
-        <!--android:layout_marginBottom="8dp"-->
-        <!--app:layout_constraintBottom_toBottomOf="parent"-->
-        <!--app:layout_constraintEnd_toEndOf="parent"-->
-        <!--app:layout_constraintStart_toStartOf="parent"-->
-        <!--app:layout_constraintTop_toTopOf="parent"-->
-        <!--tools:listitem="@layout/item_assign_tool_confirmation" />-->
-
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvContentAssignTool"
         android:layout_width="0dp"
