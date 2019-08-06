@@ -14,6 +14,7 @@ import com.google.gson.JsonObject
 import com.simaht.base.BaseActivity
 import com.simaht.modules.dashboard_mh.*
 import com.simaht.modules.login.model.LogInInteractor
+import com.simaht.modules.login.presenter.Employee
 import com.simaht.modules.login.presenter.LoginPresenterImpl
 import com.simaht.modules.test_camera.view.TestCamera
 import kotlinx.android.synthetic.main.activity_login.*
@@ -28,9 +29,16 @@ open class LoginActivity: BaseActivity(), LoginView {
     private val keyTipo: String = "KEY_TYPE"
     private val KEY_DATA: String = "DATA"
     private val codeScanner: Int = 1
+    private val codeSuccess: Int = 200
     private var flagScaner: Boolean = false
     private lateinit var presentertwo: TestCamera
     private lateinit var gson: Gson
+
+    override fun messageErrorSpace() {
+        hideKeyboardEvent(etCreatePass)
+        etCreatePass.text?.clear()
+        Toast.makeText(this, "Tu contraseña contiene espacios", Toast.LENGTH_SHORT).show()
+    }
 
     override fun onMessageError(error: String) {
         Toast.makeText(this, error, Toast.LENGTH_SHORT).show()
@@ -100,6 +108,7 @@ open class LoginActivity: BaseActivity(), LoginView {
         if (requestCode == codeScanner) {
             if (resultCode == Activity.RESULT_OK) {
                 val code: String = data?.extras!!.getString(KEY_DATA, "")
+                println("HOLAAAAA $code")
                 try {
                     val obj: JsonObject = gson.fromJson(code, JsonObject::class.java)
                     presenter.getUserInfo(obj.get("numSerie").asString,obj.get("numEmpleado").asString)
@@ -109,7 +118,6 @@ open class LoginActivity: BaseActivity(), LoginView {
                     onMessageError("Error al obtener informacion del servicio")
                     presenter.onBackPressed()
                 }
-                println("HOLAAAAA $code")
             } else {
                 presenter.onBackPressed()
             }
@@ -119,10 +127,10 @@ open class LoginActivity: BaseActivity(), LoginView {
     @SuppressLint("SetTextI18n")
     override fun showNameFragment() {
         btnAccederLogin.text = "Siguiente"
+        clearStack()
         val fragmentName = NameFragment()
         val transactionName = fm.beginTransaction()
         transactionName.replace(container.id, fragmentName)
-        transactionName.addToBackStack(null)
         transactionName.commit()
     }
 
@@ -139,21 +147,21 @@ open class LoginActivity: BaseActivity(), LoginView {
     @SuppressLint("SetTextI18n")
     override fun showSuccessFragment() {
         btnAccederLogin.text = "Aceptar"
+        clearStack()
         val fragmentSuccess = SucessFragment()
         val transactionSuccess = fm.beginTransaction()
         transactionSuccess.replace(container.id, fragmentSuccess)
-        transactionSuccess.addToBackStack(null)
         transactionSuccess.commit()
     }
 
     @SuppressLint("SetTextI18n")
     override fun showLoginFragment() {
         btnAccederLogin.text = "Ingresar"
+        clearStack()
         clBackground.setOnClickListener { hideKeyboardEvent(etPasswordLogin) }
         val fragmentLogin = LoginFragment()
         val transactionLogin = fm.beginTransaction()
         transactionLogin.replace(container.id, fragmentLogin)
-        transactionLogin.addToBackStack(null)
         transactionLogin.commit()
     }
 
@@ -171,10 +179,10 @@ open class LoginActivity: BaseActivity(), LoginView {
 
     override fun onResume() {
         super.onResume()
-        if (flagScaner) {
-            flagScaner = false
-            presenter.onButtonClick()
-        }
+       //if (flagScaner) {
+       //    flagScaner = false
+       //    presenter.onButtonClick()
+       //}
     }
 
     private lateinit var presenter: LoginPresenterImpl
@@ -196,12 +204,12 @@ open class LoginActivity: BaseActivity(), LoginView {
             presenter.onButtonClick()
         }
 
-        if (intent.extras != null) {
-            val fragmentType: Int? = intent?.getIntExtra(keyTipo, -1)
-            if (fragmentType != null) presenter.setItemFragment(fragmentType)
-        } else {
-            presenter.setItemFragment(0)
-        }
+        //if (intent.extras != null) {
+        //    val fragmentType: Int? = intent?.getIntExtra(keyTipo, -1)
+        //    if (fragmentType != null) presenter.setItemFragment(fragmentType)
+        //} else {
+        //    presenter.setItemFragment(0)
+        //}
     }
 
     private fun validateCredentialCreatePass() {
