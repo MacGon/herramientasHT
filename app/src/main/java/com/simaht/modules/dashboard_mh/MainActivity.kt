@@ -14,6 +14,7 @@ import androidx.core.content.ContextCompat
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.Fragment
+import com.baz.continuidadoperativaletterassignment.almenu.view.ui.ALetterActivity
 import com.baz.simaht.login.extensions.addFragment
 import com.baz.simaht.login.extensions.replaceFragment
 import com.example.dashboard_mh.R
@@ -227,7 +228,8 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     }
 
     override fun showAssignToolFragment() {
-        addFragment(AssignToolManagerFragment.getInstance(false), container.id, "AssignToolFlow")
+        startActivity(Intent(this, ALetterActivity::class.java))
+        //addFragment(AssignToolManagerFragment.getInstance(false), container.id, "AssignToolFlow")
     }
 
     override fun showLiftInventoryFragment() {
@@ -253,7 +255,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
     override fun showCartaAsignacion() {
         val fragmentCartaAsignacion = CartaFragment()
-        val transactionCartaAsignacion = fm.beginTransaction();
+        val transactionCartaAsignacion = fm.beginTransaction()
         transactionCartaAsignacion.replace(container.id, fragmentCartaAsignacion)
         transactionCartaAsignacion.commit()
     }

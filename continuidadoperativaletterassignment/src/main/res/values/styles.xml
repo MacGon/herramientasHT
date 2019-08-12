@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--  Estilo Carta asignación-->
+    <style name="TitleAssingLetterStyle">
+        <item name="android:fontFamily">@font/montserrat_regular</item>
+        <item name="android:textColor">@color/Mango</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:lineSpacingExtra">3.2sp</item>
+        <item name="android:text">@string/title_assignment</item>
+    </style>
+
+    <style name="TitleAsignatureAcceptedStyle">
+        <item name="android:fontFamily">@font/montserrat_regular</item>
+        <item name="android:textColor">@color/Mango</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:lineSpacingExtra">3.2sp</item>
+        <item name="android:text">@string/title_assignment</item>
+    </style>
+
+    <style name="TitleSuccessfullAcceptedStyle">
+        <item name="android:fontFamily">@font/montserrat_bold</item>
+        <item name="android:textColor">@color/Mango</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:text">@string/letter_successfull_description</item>
+    </style>
+
+    <style name="DescriptionAssingLetterStyle">
+        <item name="android:fontFamily">@font/montserrat_regular</item>
+        <item name="android:textColor">@color/battleship_grey</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:lineSpacingExtra">6.2sp</item>
+        <item name="android:text">@string/description_assignment</item>
+    </style>
+
+    <style name="DescriptionAsignatureAcceptedStyle">
+        <item name="android:fontFamily">@font/montserrat_regular</item>
+        <item name="android:textColor">@color/battleship_grey</item>
+        <item name="android:textSize">13sp</item>
+        <item name="android:lineSpacingExtra">6.2sp</item>
+        <item name="android:text">@string/description_asignature_accepted</item>
+    </style>
+
+    <style name="btnComfirmTool">
+        <item name="android:textColor">@color/colorWhite</item>
+        <item name="android:background">@drawable/shape_button_confirm_terms</item>
+        <item name="android:textSize">17sp</item>
+    </style>
+
+    <style name="btnDeletePaint">
+        <item name="android:textColor">@color/Mango</item>
+        <item name="android:background">@drawable/shape_button_delete_paint</item>
+        <item name="android:textSize">17sp</item>
+    </style>
+</resources>

@@ -1,0 +1,71 @@
+<resources>
+    <string name="title_letter">ContinuidadOperativaLetterAssignment</string>
+    <string name="letter_successfull_description">Registro exitoso</string>
+
+    <string name="title_assignment">
+        <![CDATA[
+        <b>3 / 4 Asignación - </b> Términos y disposiciones de la asignación de herramientas (extracto)
+        ]]>
+    </string>
+    <string name="title_asignature_accepted">
+        <![CDATA[
+        <b>3 / 4 Firma - </b> Solicita la firma del GCR para aceptar la  nueva asignación de herramientas
+        ]]>
+    </string>
+    <string name="description_asignature_accepted">
+        <![CDATA[
+            Con esta firma yo, <b> Mario Fernando
+            Galindo Escamilla  </b> acepto los términos y disposiciones, así como la recepción de herramientas en buen estado
+        ]]>
+    </string>
+    <string name="description_assignment">
+        <![CDATA[
+            <b>Primera.- Depósito y Conservación.- </b><br/>
+               Se &nbsp;&nbsp; obliga &nbsp;&nbsp;&nbsp;hacia &nbsp;&nbsp;el&nbsp;&nbsp;Banco a recibir&nbsp;&nbsp;&nbsp;el Equipo y guardarlo para restituirlo en&nbsp;&nbsp;el momento en que el Banco se lo requiera en forma&nbsp;&nbsp;verbal&nbsp;&nbsp;&nbsp;&nbsp;y/o&nbsp;&nbsp;&nbsp;&nbsp;escrita,&nbsp;&nbsp;sin&nbsp;&nbsp;&nbsp;&nbsp;que el empleado tenga derecho a exigir a&nbsp;&nbsp;&nbsp;&nbsp;el Banco&nbsp;&nbsp;&nbsp;&nbsp;retribución&nbsp;&nbsp;&nbsp;&nbsp;por el depósito&nbsp;&nbsp;del Equipo, de conformidad a lo establecido en el articulo 31 del Código del Trabajo.
+                <br/><br/>
+
+                <b> Segunda.- Destino y Modificaciones.- </b><br/>
+                Se obliga a Destinar el Equipo únicamente para cumplir con los servicios&nbsp;&nbsp;&nbsp;&nbsp;y&nbsp;&nbsp;&nbsp;&nbsp;fines de las
+                actividades que el Banco&nbsp;&nbsp;le indique&nbsp;de acuerdo a su puesto, ya que los mismos son propiedad del Banco. Asimismo, no podrá
+                modificar o alterar en forma alguna las condiciones del Equipo, sin autorización previa y por escrito del Banco.
+
+               <br/><br/>
+               <b> Tercera.- Cesión del Equipo.- </b><br/>
+                El uso del Equipo no podrá ser cedido, negociado u otorgarse en garantía so pena de pago de daños y perjuicios o en el momento en que el Banco requiera su entrega.
+               <br/><br/>
+
+               <b>Cuarta.- Daños al Equipo.- </b><br/>
+               Responder por cualquier daño causado al Equipo, por lo que en caso de que ocurra, se obliga a realizar las reparaciones necesarias, cubriendo por su cuenta y recursos propios, cualquier gasto que en su caso se genere derivado de tales reparaciones mismas que se realizarán en el lugar indicado por el Banco.
+               <br/><br/>
+
+               <b>Quinta.- Acciones en caso de Robo.-</b><br/>
+                Notificar de inmediato a el Banco el robo del Equipo, así como presentar y ratificar por escrito a detalle ante las autoridades judiciales y administrativas la denuncia correspondiente.
+                <br/><br/>En caso de no cumplir lo indicado en el párrafo que antecede, por negligencia o por culpa, se obliga a cubrir el valor del Equipo, al precio que determine el Banco, tomando en consideración el valor comercial del Equipo al momento en que ocurra el robo o siniestro.
+               <br/><br/>
+
+                <b>Sexta.- Conocimiento de Políticas.-</b><br/>
+                Leer íntegramente las Políticas y Procesos aplicables al activo fijo en cuanto a su uso y
+                cumplimiento y enterado de ello se obliga a su estricto cumplimiento.<br/><br/>
+
+
+               <b>Séptima.- Compensación.- </b><br/>
+                En caso de no entregar el Equipo cuando el Banco se lo requiera, el empleado instruye en forma
+                irrevocable a el Banco para que valor del Equipo se compense con la cuenta bancaria que tenga vinculada con el Banco, o bien,
+                contra el importe a que tenga derecho por concepto de Liquidación o Finiquito, hasta donde alcance. En caso de existir algún
+                remanente, el Socio se obliga a pagar en forma inmediata el saldo remanente a satisfacción del Banco.<br/><br/>
+
+                <b>Octava.- Conductas Ilícitas.- </b><br/>
+                En caso de incumplir con las obligaciones antes indicadas, incurrirá en una de las conductas ilícitas que establece el artículo 207 del Código Penal. <br/><br/>
+
+                <b>Novena.- Domicilio Convencional.- </b><br/>
+                Para el Cumplimiento o requerimiento judicial de las obligaciones contraídas en el presente documento señala como domicilio convencional el último registrado en RH."
+
+            ]]>
+    </string>
+    <string name="aceptar">Aceptar</string>
+    <string name="title_home">Home</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+</resources>
