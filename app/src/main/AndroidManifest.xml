@@ -10,10 +10,6 @@
 
 
     <application
-        <activity android:name="com.simaht.modules.dashboard_mh.tools.DetailActivity"
-            android:theme="@style/AppTheme.NoActionBar"
-            android:screenOrientation="portrait"></activity>
-        <activity android:name="com.simaht.modules.test_camera.view.TestCamera" /> <!-- Activity del SPLASHSCREN -->
             android:name="com.simaht.SIMAHTApplication"
             android:allowBackup="true"
             android:hardwareAccelerated="true"
@@ -32,6 +28,9 @@
                 android:theme="@style/SplashStyle">
 
         </activity>
+        <activity android:name="com.simaht.modules.dashboard_mh.tools.DetailActivity"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:screenOrientation="portrait"></activity>
         <activity
                 android:name="com.simaht.modules.login.view.LoginActivity"
                 android:theme="@style/LoginStyle">
