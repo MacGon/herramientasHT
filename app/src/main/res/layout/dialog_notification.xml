@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/shape_dialog">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/ivImageAlert"
+        android:layout_width="88dp"
+        android:layout_height="88dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:src="@android:drawable/ic_dialog_alert"
+        android:tint="@color/available"
+        android:visibility="gone"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:visibility="visible"/>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvNormalDialog"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:drawableTint="@color/available"
+        android:fontFamily="@font/montserrat_regular"
+        android:textSize="16sp"
+        android:gravity="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ivImageAlert"
+        android:text="@string/msg_employee_with_tools" />
+        <!--android:drawableTop="@android:drawable/ic_dialog_alert"-->
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/appCompatTextView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnDialogCancel"
+        style="@style/ButtonDialogBack"
+        android:layout_width="0dp"
+        android:layout_height="57dp"
+        android:layout_marginStart="22dp"
+        android:layout_marginTop="60dp"
+        android:layout_marginEnd="6dp"
+        android:layout_marginBottom="30dp"
+        android:foreground="?android:attr/selectableItemBackground"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:shadowRadius="5.0"
+        android:text="@string/msg_return_back"
+        android:textAllCaps="false"
+        android:visibility="visible"
+        android:textSize="17sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/btnDialogOK"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvNormalDialog"
+        tools:visibility="visible" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnDialogOK"
+        style="@style/ButtonDialogComfirm"
+        android:layout_width="0dp"
+        android:layout_height="57dp"
+        android:layout_marginStart="6dp"
+        android:layout_marginTop="60dp"
+        android:layout_marginEnd="22dp"
+        android:layout_marginBottom="30dp"
+        android:fontFamily="@font/montserrat_regular"
+        android:foreground="?android:attr/selectableItemBackground"
+        android:shadowRadius="5.0"
+        android:text="@string/msg_continue"
+        android:textAllCaps="false"
+        android:textColor="@color/colorWhite"
+        android:textSize="17sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/btnDialogCancel"
+        app:layout_constraintTop_toBottomOf="@+id/tvNormalDialog"
+        app:layout_goneMarginStart="16dp" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingTop="16dp"
+    android:paddingBottom="16dp">
+
+    <TextView
+        android:id="@+id/employeeName"
+        style="@style/TextAppearance.AppCompat"
+        android:layout_width="330dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="8dp"
+        android:maxLines="1"
+        android:fontFamily="@font/montserrat_regular"
+        android:textSize="@dimen/text_header_size"
+        android:textColor="@color/textColor"
+        tools:text="Mario Fernandez Galindo Estrada Romeo de los Santos cabral" />
+
+    <TextView
+        android:id="@+id/employeeAbstract"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/employeeName"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:maxLines="1"
+        android:textColor="@color/textColor"
+        android:textSize="@dimen/text_topic_size"
+        android:layout_marginStart="40dp"
+        tools:text="12345 - GCC" />
+
+    <ImageView
+        android:id="@+id/ivFilterTool"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:tint="@color/available"
+        android:layout_marginEnd="28dp"
+        android:layout_marginTop="20dp"
+        android:src="@drawable/ic_filter_option"
+        android:layout_alignParentEnd="true" />
+
+</RelativeLayout>

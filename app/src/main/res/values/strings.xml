@@ -63,7 +63,7 @@
     <!-- CardView && GridView -->
     <string name="msg_dashboard_herramientas_title">Herramientas</string>
     <string name="msg_dashboard_cobrar_herramienta_title">Cobrar\nHerramienta</string>
-    <string name="msg_dashboard_asignar_herramienta_title">Asignar o\nreasignar</string>
+    <string name="msg_dashboard_asignar_herramienta_title">Trasnferencia de\nherramientas</string>
     <string name="msg_dashboard_levantar_inventario_title">Levantar\ninventario</string>
     <string name="msg_dashboard_dar_de_baja_title">Dar de baja</string>
     <string name="msg_dashboard_integrar_expediente">Integrar\nexpediente</string>
@@ -71,9 +71,12 @@
     <!-- Fin para textos del Home o DashBoard -->
 
 
-    <!-- Textos para el SearchView -->
+    <!-- SearchView -->
     <string name="msg_search_view_respuesta">Escribe tu búsqueda aquí</string>
-    <!-- Fin para textos para el SearchView -->
+    <string name="msg_step_search_employee">Escribe el nombre o el número del socio  para consultar sus herramientas asignadas</string>
+    <string name="msg_search_employee">Socio</string>
+    <string name="msg_employee_with_tools">El socio actualmente ya cuenta con herramientas operativas necesitas gestionarlas para continuar</string>
+    <!-- Fin SearchView -->
 
 
     <!-- Textos para el C4 Ayuda -->
@@ -102,12 +105,27 @@
     <!-- Fin de textos para Cobrar herramienta  -->
 
 
-    <!-- Asignación de herramienta -->
+    <!-- Transferencia de Herramientas-->
+    <string name="title_tools_flow">Transferencia de Herramientas</string>
     <string name="msg_hint_empleado">Número de empleado</string>
     <string name="msg_button_asignar">Asignar</string>
     <string name="msg_button_agregar">Agregar herramienta</string>
     <string name="msg_add_tool">Xiaomi Note 7</string>
     <string name="msg_empty_employee">¡No has agregado un número de empleado!</string>
+    <string name="msg_assigment_instruction">Selecciona o escanea otra herramienta para elegir una acción</string>
+    <string name="msg_gestion_tool">Gestiona las herramientas operativas del GCR</string>
+    <string name="msg_assigned_tools">Herramientas asignadas</string>
+    <string name="msg_new_employee">Nuevo Empleado</string>
+    <string name="msg_custody_tool">Estas recibiendo las herramientas de %s, con ello aceptas que recibes funcionando y en buenas condiciones las herramientas con todos sus accesorios</string>
+    <string name="msg_success_custody">Custodia exitosa</string>
+    <string name="msg_operational">Operativa</string>
+
+    <!-- TOOLS ACTION -->
+    <string name="msg_custody">Custodia</string>
+    <string name="msg_damage_charge">Cobro por daño</string>
+    <string name="msg_incident">Incidente</string>
+    <string name="msg_factory_defect">Defecto fábrica</string>
+    <string name="msg_end_of_useful_life">Fin de vida útil</string>
 
     <!-- Fin  -->
 
@@ -147,5 +165,9 @@
 
     <!-- GENERAL MESSAGES -->
     <string name="msg_confirm">Confirmar</string>
+    <string name="msg_continue">Continuar</string>
+    <string name="msg_return_back">Regresar</string>
+    <string name="msg_ok">Aceptar</string>
+    <string name="msg_search">Buscar</string>
 
 </resources>

@@ -2,6 +2,7 @@ package com.baz.simaht.login.extensions
 
 import android.os.Handler
 import android.util.Log
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
@@ -77,4 +78,13 @@ fun Fragment.replaceChildFragment(fragment: Fragment, idContent: Int, backStackT
         replace(idContent, fragment)
         backStackTAG?.let { addToBackStack(it) }
     }
+}
+
+/**
+ * Extension function to allows send a Toast message in any Fragment in an easy way.
+ *
+ * @param msg conatains the string message to show in the context
+ */
+fun Fragment.toast(msg: String) {
+    Toast.makeText(context, msg, Toast.LENGTH_SHORT).show()
 }

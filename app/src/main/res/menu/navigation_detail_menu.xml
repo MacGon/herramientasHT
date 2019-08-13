@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/navigationSearchDetail"
+        android:icon="@drawable/ic_sub_menu"
+        app:showAsAction="ifRoom"
+        android:title="@null" />
+
+    <item
+        android:id="@+id/navigationHomeDetail"
+        android:icon="@drawable/ic_go_home"
+        app:showAsAction="ifRoom"
+        android:title="@null" />
+
+    <item
+        android:id="@+id/navigationBackDetail"
+        android:icon="@drawable/ic_btn_back"
+        app:showAsAction="ifRoom"
+        android:title="@null" />
+</menu>

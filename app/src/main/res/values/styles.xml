@@ -406,21 +406,47 @@
 
 
     <style name="ButtonAsignTool">
-        <item name="android:textColor">@color/colorGray</item>
+        <item name="android:textColor">@color/unavailable</item>
         <item name="android:background">@drawable/shape_button_assign_tool</item>
         <item name="android:textSize">17sp</item>
     </style>
 
     <style name="ButtonComfirmToolDisable">
-        <item name="android:textColor">@color/colorGray</item>
+        <item name="android:textColor">@color/unavailable</item>
         <item name="android:background">@drawable/btn_rect_border_line</item>
         <item name="android:textSize">17sp</item>
     </style>
 
     <style name="ButtonComfirmToolAvailable">
-        <item name="android:textColor">@color/colorOrange</item>
+        <item name="android:textColor">@color/available</item>
         <item name="android:background">@drawable/shape_button_comfirm_tool</item>
         <item name="android:textSize">17sp</item>
+    </style>
+
+    <style name="ButtonContinue">
+        <item name="android:textColor">@color/colorWhite</item>
+        <item name="android:background">@color/available</item>
+        <item name="android:textSize">17sp</item>
+    </style>
+
+    <!-- General Dialog Interfaz -->
+    <style name="DialogStyle" parent="Base.Theme.AppCompat.Light.Dialog">
+        <item name="android:windowBackground">@android:color/transparent</item>
+    </style>
+
+    <style name="ButtonDialogComfirm" parent="TextAppearance.AppCompat.Widget.Button.Colored">
+        <item name="android:fontFamily">@font/montserrat_regular</item>
+        <item name="android:background">@drawable/shape_dialog_button</item>
+        <item name="android:backgroundTint">@color/available</item>
+        <item name="android:textSize">17sp</item>
+    </style>
+
+    <style name="ButtonDialogBack" parent="TextAppearance.AppCompat.Widget.Button.Colored">
+        <item name="android:textColor">@color/available</item>
+        <item name="android:fontFamily">@font/montserrat_regular</item>
+        <item name="android:background">@drawable/shape_dialog_button</item>
+        <item name="android:textSize">17sp</item>
+
     </style>
 
 </resources>

@@ -46,10 +46,10 @@
         android:id="@+id/tvToolMainName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="35dp"
+        android:layout_marginStart="20dp"
         android:layout_marginTop="10dp"
         android:textSize="18sp"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/viewSelectec1"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="PAX" />
 
@@ -67,6 +67,7 @@
         android:id="@+id/tvToolStatus"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+
         android:layout_marginBottom="8dp"
         android:fontFamily="@font/montserrat_bold"
         android:textColor="@color/grass"
