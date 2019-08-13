@@ -78,6 +78,7 @@ class AssignToolManagerFragment2 : Fragment(), AssignToolContractI.View, AddChil
 
         childFragment = AssignToolChildFragment2.getInstance({
             if (it && fromCamera) {
+                (activity as DetailActivity).nav_view.visibility = View.GONE
                 presenter.openScanner()
             }
         }, this)
@@ -327,10 +328,11 @@ class AssignToolManagerFragment2 : Fragment(), AssignToolContractI.View, AddChil
 
                 DONE -> {
                     clProcesFinshed.visibility = View.VISIBLE
+                    currentStep = FINISH
 
                 }
                 FINISH -> {
-                    //(activity as DetailActivity).proceesDone()
+                    (activity as DetailActivity).proceesDone()
                 }
 
             }
@@ -404,7 +406,7 @@ class AssignToolManagerFragment2 : Fragment(), AssignToolContractI.View, AddChil
                 svEmployeeNumber.visibility = View.GONE
                 containerAssignation.visibility = View.VISIBLE
                 btnAddTool.visibility = View.GONE
-                currentStep = FINISH
+
                 //activity?.finish()
             }
         }
