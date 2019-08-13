@@ -4,12 +4,15 @@ import android.os.Bundle
 import android.text.Html
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
+import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
 
 import com.baz.continuidadoperativaletterassignment.R
 import com.baz.continuidadoperativaletterassignment.almenu.view.ui.ALetterActivity
+import kotlinx.android.synthetic.main.activity_coletter.*
 import kotlinx.android.synthetic.main.fragment_asignature_accepted.*
+import kotlinx.android.synthetic.main.fragment_asignature_accepted.view.*
 
 class ALAsignatureAcceptedFragment : Fragment() {
 
@@ -35,10 +38,11 @@ class ALAsignatureAcceptedFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        val title:String = getString(R.string.title_asignature_accepted)
+
+        val title: String = getString(R.string.title_asignature_accepted)
         val descriptionAsignature: String = getString(R.string.description_asignature_accepted)
-        tvTitleLetterAsignature.setText(Html.fromHtml(title,1))
-        tvDescriptionAsignatureAccepted.setText(Html.fromHtml(descriptionAsignature,2))
+        tvTitleLetterAsignature.setText(Html.fromHtml(title, 1))
+        tvDescriptionAsignatureAccepted.setText(Html.fromHtml(descriptionAsignature, 2))
         super.onViewCreated(view, savedInstanceState)
 
         val showSuccessfulAsignmentFragment: showSuccessfulAsignmentFragment = activity as ALetterActivity
@@ -47,12 +51,32 @@ class ALAsignatureAcceptedFragment : Fragment() {
             showSuccessfulAsignmentFragment.showSuccessfullAsignment()
         }
 
-        btnDeleteImage.setOnClickListener { firmaView.clear()  }
+        btnDeletePaint.setOnClickListener {
+            btnDeletePaint.isEnabled = false
+            btnSuccefullAsignature.isEnabled = false
+            firmaView.clear()
+        }
+
+        firmaView.setOnTouchListener { view : View, motionEvent: MotionEvent ->
+
+            val x: Float = motionEvent!!.x
+            val y: Float = motionEvent.y
+
+            btnDeletePaint.isEnabled = true
+            btnSuccefullAsignature.isEnabled = true
+
+            when(motionEvent!!.action){
+                MotionEvent.ACTION_DOWN -> {firmaView.touchStar(x, y); view.invalidate()}
+                MotionEvent.ACTION_MOVE -> {firmaView.touchMove(x, y); view.invalidate()}
+                MotionEvent.ACTION_UP -> {firmaView.touchUp(); view.invalidate()}
+            }
+
+            true
+        }
     }
 
     interface showSuccessfulAsignmentFragment {
         fun showSuccessfullAsignment()
     }
-
 
 }
