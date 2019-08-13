@@ -79,7 +79,7 @@
         app:layout_constraintHorizontal_bias="0.906"/>
 
     <androidx.appcompat.widget.AppCompatButton
-            style="@style/btnDisablePaint"
+            style="@style/btnDisablePaint" 
             android:text="Borrar"
             android:id="@+id/btnDeletePaint"
             android:background="@drawable/selector_btn_function"
