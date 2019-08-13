@@ -1,8 +1,8 @@
 package com.simaht.modules.login.presenter
 
+import android.content.Context
 import android.util.Log
 import com.google.gson.Gson
-import com.google.gson.JsonObject
 import com.simaht.modules.login.model.LogInInteractor
 import com.simaht.modules.login.view.LoginView
 import com.simaht.network.data.LoginRequestModel
@@ -18,7 +18,7 @@ class LoginPresenterImpl(var loginView: LoginView?, val logInInteractor: LogInIn
 
     private val TAG: String = "LoginPresenterImpl"
     private lateinit var gson: Gson
-
+    private lateinit var context: Context
 
     override fun setItemFragment(paso: Int) {
         when (paso) {
@@ -40,31 +40,75 @@ class LoginPresenterImpl(var loginView: LoginView?, val logInInteractor: LogInIn
 
     fun validateCredentialsCreatePass(password: String) {
         val esOk = true
+        val passwordNumber = "^(?=.*[0-9]).{8,}$"
+        val passwordLowerCase = "^(?=.*[a-z]).{8,}$"
+        val passwordUpperCase = "(?=.*[A-Z]).{8,}$"
+        //val passwordSpecialCharacter = "^(?=.*[@#$%^&+=]).{8,}$"
+        val passwordMatcherNumber = Regex(passwordNumber)
+        val passwordMatcherLowerCase = Regex(passwordLowerCase)
+        val passwordMatcherUpperCase = Regex(passwordUpperCase)
+        //val passwordCharacterSpecial= Regex(passwordSpecialCharacter)
+
         when (esOk) {
+
             /* 1 */ password.isEmpty() -> {
             onPasswordErrorCreatePass()
+            loginView?.errorTextInputLayoutCreatePass()
+            loginView?.enabledEtRepeatFalse()
             paso--
         }
             /* 2 */ password.length in 1..7 -> {
             loginView?.onMessageError("Tu contraseña debe contener 8 caracteres")
+            loginView?.errorTextInputLayoutCreatePass()
+            loginView?.enabledEtRepeatFalse()
             paso--
         }
             /* 3 */ password.toUpperCase().contains("AZTECA") -> {
             loginView?.messageErrorLetter()
+            loginView?.errorTextInputLayoutCreatePass()
+            loginView?.enabledEtRepeatFalse()
             paso--
         }
             /* 4 */ password.toUpperCase().contains("BANCO") -> {
             loginView?.messageErrorBank()
+            loginView?.errorTextInputLayoutCreatePass()
+            loginView?.enabledEtRepeatFalse()
             paso--
         }
             /* 5 */ password.toUpperCase().contains("SALINAS") -> {
             loginView?.messageErrorSal()
+            loginView?.errorTextInputLayoutCreatePass()
+            loginView?.enabledEtRepeatFalse()
             paso--
         }
             /* 6 */ password.contains(" ") -> {
             loginView?.messageErrorSpace()
+            loginView?.errorTextInputLayoutCreatePass()
+            loginView?.enabledEtRepeatFalse()
             paso--
         }
+
+            /* 7 */ !password.matches(passwordMatcherNumber) -> {
+            loginView?.onMessageError("Tu contraseña debe contener al menos un número")
+            loginView?.errorTextInputLayoutCreatePass()
+            loginView?.enabledEtRepeatFalse()
+            paso--
+        }
+
+            /* 8 */ !password.matches(passwordMatcherLowerCase) -> {
+            loginView?.onMessageError("Tu contraseña debe contener al menos una letra minúscula")
+            loginView?.errorTextInputLayoutCreatePass()
+            loginView?.enabledEtRepeatFalse()
+            paso--
+        }
+
+            /* 9 */ !password.matches(passwordMatcherUpperCase) -> {
+            loginView?.onMessageError("Tu contraseña debe contener al menos una letra mayúscula")
+            loginView?.errorTextInputLayoutCreatePass()
+            loginView?.enabledEtRepeatFalse()
+            paso--
+        }
+
             //    /* 6 */ validatePasswordPolicy1(password) -> {
             //    loginView?.messageErrorPolicy1()
             //    paso--
@@ -87,10 +131,12 @@ class LoginPresenterImpl(var loginView: LoginView?, val logInInteractor: LogInIn
         when {
             repeat.isEmpty() -> {
                 onPasswordErrorRepeat()
+                loginView?.errorTextInputLayoutRepeatPass()
                 paso--
             }
             password != repeat -> {
                 loginView?.errorPass()
+                loginView?.errorTextInputLayoutRepeatPass()
                 paso--
             }
             password == repeat -> {
@@ -101,16 +147,28 @@ class LoginPresenterImpl(var loginView: LoginView?, val logInInteractor: LogInIn
         }
         if (password.isEmpty() && repeat.isEmpty()) {
             loginView?.enabledEtRepeatFalse()
+            loginView?.errorTextInputLayoutCreatePass()
+            loginView?.errorTextInputLayoutRepeatPass()
             validateCredentialsCreatePass(password)
         }
     }
 
     fun validateCredentialsLogin(password: String) {
-        loginView?.showProgress()
         when {
-            /* 1 */ password.isEmpty() -> onPasswordErrorLogin()
+            /* 1 */ password.isEmpty() -> {
+            onPasswordErrorLogin()
+            loginView?.errorTextInputLayoutLogin()
+            paso--
         }
-        logIn(password)
+            /* 2 */ password.length in 1..7 -> {
+            loginView?.messageErrorLogin()
+            loginView?.errorTextInputLayoutLogin()
+            paso--
+        }
+            else -> {
+                logIn(password)
+            }
+        }
     }
 
     /* Valida que una contraseña no puede tener más de 2 dígitos repetidos juntos, es decir: 12358963, abcholaj */
@@ -218,13 +276,12 @@ class LoginPresenterImpl(var loginView: LoginView?, val logInInteractor: LogInIn
     override fun onPasswordErrorLogin() {
         loginView?.apply {
             setPasswordErrorLogin()
-            hideProgress()
         }
     }
 
     override fun onSuccess() {
-        loginView?.hideProgress()
         loginView?.navigateToHome()
+        loginView?.progressDialogHide()
     }
 
     override fun onBackPressed() {
@@ -232,6 +289,7 @@ class LoginPresenterImpl(var loginView: LoginView?, val logInInteractor: LogInIn
     }
 
     override fun getUserInfo(serialNum: String, employeeNum: String) {
+        loginView?.progressDialogShow()
         val api = RestAPI()
         val disposable: Disposable = api.enrollment(serialNum, employeeNum).subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
@@ -240,21 +298,26 @@ class LoginPresenterImpl(var loginView: LoginView?, val logInInteractor: LogInIn
                 if (response.code != 200) {
                     onServiceError()
                     loginView?.onMessageError("Error: ${response.message}")
+                    loginView?.progressDialogHide()
                 } else {
                     val employee = Employee()
                     employee.empID = employeeNum
                     employee.empNombre = response.info?.name
                     employee.update()
                     onButtonClick()
+                    loginView?.progressDialogHide()
                 }
             }, { error ->
                 onServiceError()
-                Log.e(TAG, "Error: " + error.message)
-                loginView?.onMessageError("Error: ${error.message}")
+                Log.e(TAG, "Error del servidor: " + error.message)
+                loginView?.onMessageError("Error del servidor: ${error.message}")
+                loginView?.progressDialogHide()
             })
     }
 
     override fun logIn(password: String) {
+        loginView?.progressDialogShow()
+        loginView?.enabledButtonFalse()
         val api = RestAPI()
         val employee = Employee()
         val request = LoginRequestModel(employee.empID, loginView?.encryptionPass(password))
@@ -263,19 +326,25 @@ class LoginPresenterImpl(var loginView: LoginView?, val logInInteractor: LogInIn
             .subscribe({ response ->
                 Log.e(TAG, response.message!!)
                 if (response.code != 200) {
-                    loginView?.onMessageError("Error: ${response.message}")
-                    loginView?.hideProgress()
+                    Log.e(TAG, "Error de contraseña: ${response.message}")
+                    loginView?.onMessageError("Contraseña incorrecta")
+                    loginView?.errorTextInputLayoutLogin()
+                    loginView?.progressDialogHide()
                 } else {
                     onSuccess()
                 }
             }, { error ->
                 onServiceError()
-                Log.e(TAG, "Error: " + error.message)
-                loginView?.onMessageError("Error: ${error.message}")
+                Log.e(TAG, "Error del servidor: " + error.message)
+                loginView?.onMessageError("Error del servidor: ${error.message}")
+                loginView?.progressDialogHide()
+                loginView?.enabledButtonTrue()
             })
     }
 
     override fun registerUser(password: String) {
+        loginView?.progressDialogShow()
+        loginView?.enabledButtonFalse()
         val api = RestAPI()
         val employee = Employee()
         val request = LoginRequestModel(employee.empID, loginView?.encryptionPass(password))
@@ -284,25 +353,27 @@ class LoginPresenterImpl(var loginView: LoginView?, val logInInteractor: LogInIn
             .subscribe({ response ->
                 if (response.code != 200) {
                     loginView?.onMessageError("Error: ${response.message}")
-                    paso--
+                    loginView?.progressDialogHide()
                 } else {
                     onRegisterSuccessfull()
                 }
             }, { error ->
                 onServiceError()
-                Log.e(TAG, "Error: " + error.message)
-                loginView?.onMessageError("Error: ${error.message}")
+                Log.e(TAG, "Error del servidor: " + error.message)
+                loginView?.onMessageError("Error del servidor: ${error.message}")
+                loginView?.progressDialogHide()
+                loginView?.enabledButtonTrue()
             })
     }
 
     fun onRegisterSuccessfull() {
-
-        var employee = Employee()
+        val employee = Employee()
         employee.registerFinished = true
         employee.update()
 
         onButtonClick()
         loginView?.clearEditText()
+        loginView?.progressDialogHide()
     }
 
     fun respuesta(r: LoginResponseModel) {

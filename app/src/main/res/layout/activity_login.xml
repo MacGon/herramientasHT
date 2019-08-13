@@ -14,7 +14,6 @@
             android:id="@+id/ivBackground"
             android:layout_width="217dp"
             android:layout_height="64dp"
-            android:src="@drawable/componente_103_1"
             android:layout_marginEnd="79.2dp"
             android:layout_marginStart="79.5dp"
             app:layout_constraintEnd_toEndOf="parent"

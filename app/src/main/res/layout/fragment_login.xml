@@ -20,41 +20,39 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"/>
 
-    <androidx.core.widget.ContentLoadingProgressBar
-            android:id="@+id/progress"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            android:visibility="gone"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            style="?android:attr/progressBarStyle"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintBottom_toTopOf="@+id/etPasswordLogin"
-            app:layout_constraintTop_toBottomOf="@+id/tvTitleLogin"/>
-
-    <androidx.appcompat.widget.AppCompatEditText
-            android:id="@+id/etPasswordLogin"
-            android:layout_width="295dp"
-            android:layout_height="56dp"
-            android:paddingStart="12dp"
-            android:paddingEnd="12dp"
-            android:background="@drawable/shape_text_edit_create_pass"
-            android:inputType="textPassword"
-            android:ellipsize="start"
-            android:drawableStart="@drawable/ic_locked"
-            android:drawablePadding="16dp"
-            android:maxLength="8"
-            android:layout_marginStart="8dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginBottom="8dp"
-            style="@style/UserPasswordStyle"
+    <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tilPasswordLogin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+            android:gravity="center"
+            app:boxStrokeColor="@color/colorWhite"
+            app:boxBackgroundColor="@color/colorWhite"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
-            tools:ignore="RtlSymmetry" android:layout_marginTop="8dp"
             app:layout_constraintTop_toBottomOf="@+id/tvTitleLogin"
-            app:layout_constraintVertical_bias="0.389"/>
+            app:layout_constraintVertical_bias="0.389">
+
+        <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/etPasswordLogin"
+                android:layout_width="295dp"
+                android:layout_height="56dp"
+                android:paddingStart="12dp"
+                android:paddingEnd="22dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="8dp"
+                android:layout_marginTop="16dp"
+                android:inputType="textPassword"
+                android:ellipsize="start"
+                android:textCursorDrawable="@drawable/cursor_color"
+                android:drawableStart="@drawable/ic_locked"
+                android:drawablePadding="16dp"
+                android:maxLength="8"
+                style="@style/UserPasswordStyle"/>
+
+    </com.google.android.material.textfield.TextInputLayout>
 
     <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tvForgetPass"
@@ -68,6 +66,6 @@
             style="@style/ForgetLoginStyle"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/etPasswordLogin"/>
+            app:layout_constraintTop_toBottomOf="@+id/tilPasswordLogin"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
