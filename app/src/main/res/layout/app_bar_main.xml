@@ -6,7 +6,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/colorAccent"
-        tools:context=".MainActivity">
+        tools:context="com.simaht.modules.dashboard_mh.tools.DetailActivity">
 
     <com.google.android.material.appbar.AppBarLayout
             android:layout_height="wrap_content"

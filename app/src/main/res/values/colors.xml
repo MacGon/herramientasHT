@@ -11,15 +11,32 @@
     <color name="colorRed">#FFC1272D</color>
     <color name="colorGrayMontserrat">#6d6e6e</color>
 
+
     <color name="viewfinder_border">#EEB042</color>
     <color name="colorBordeCarta">#C0C0C0</color>
 
     <color name="FullyTransparent">#00FFFFFF</color>
+    <color name="gunmetal">#53565a</color>
     <color name="transparentGray">#80BDB6B6</color>
+    <color name="transparentWhite">#CCE6DCDC</color>
 
+    <color name="not_available">#e8e8e8</color>
+    <color name="blocked">#d2d1d1</color>
     <color name="battleship_grey">#75787b</color>
+    <color name="textColor">#040506</color>
+
+    <color name="unavailable">#e8e8e8</color>
+    <color name="available">#efa140</color>
+
+
+    <color name="newEmployee">#3fc2d8</color>
     <color name="grass">#43b02a</color>
-    <color name="orange">#efa140</color>
-    <color name="orange_vanish">#ffe8b4</color>
+    <color name="orange_vanish">#fcf7ec</color>
+
+    <color name="custudy">#006341</color>
+    <color name="damage_charge">#f15a24</color>
+    <color name="incident">#af272f</color>
+    <color name="factory_defect">#6c69ff</color>
+    <color name="end_of_useful_life">#662d91</color>
 
 </resources>

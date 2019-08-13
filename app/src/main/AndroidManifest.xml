@@ -10,6 +10,10 @@
 
 
     <application
+        <activity android:name="com.simaht.modules.dashboard_mh.tools.DetailActivity"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:screenOrientation="portrait"></activity>
+        <activity android:name="com.simaht.modules.test_camera.view.TestCamera" /> <!-- Activity del SPLASHSCREN -->
             android:name="com.simaht.SIMAHTApplication"
             android:allowBackup="true"
             android:hardwareAccelerated="true"
@@ -49,11 +53,10 @@
                 android:label="@string/msg_title_notificaciones">
         </activity> <!-- TODO: Activity del C4 AYUDA -->
         <activity
-                android:name="com.simaht.modules.dashboard_mh.C4Help"
-                android:label="@string/msg_title_c4_ayuda"
-                android:theme="@style/AppThemeThreeActivity">
-        </activity>
-        <activity android:name="com.simaht.modules.camara.view.FunCamaraView"/>
+            android:name="com.simaht.modules.dashboard_mh.C4Help"
+            android:label="@string/msg_title_c4_ayuda"
+            android:theme="@style/AppThemeThreeActivity"></activity>
+        <activity android:name="com.simaht.modules.camara.view.FunCamaraView" />
     </application>
 
 </manifest>

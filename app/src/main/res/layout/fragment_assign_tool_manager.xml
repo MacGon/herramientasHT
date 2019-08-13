@@ -29,9 +29,7 @@
         app:layout_constraintBottom_toTopOf="@id/btnAssignTools"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvProgressLabel">
-
-    </FrameLayout>
+        app:layout_constraintTop_toBottomOf="@id/tvProgressLabel"/>
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btnAssignTools"

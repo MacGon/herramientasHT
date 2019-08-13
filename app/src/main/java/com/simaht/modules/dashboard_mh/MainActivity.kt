@@ -21,6 +21,7 @@ import com.example.dashboard_mh.R
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.navigation.NavigationView
 import com.simaht.dashboard_mh.AssignTool.view.AssignToolManagerFragment
+import com.simaht.modules.dashboard_mh.tools.DetailActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener, DashBoardFragment.resultInterface,
@@ -228,8 +229,8 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     }
 
     override fun showAssignToolFragment() {
-        startActivity(Intent(this, ALetterActivity::class.java))
         //addFragment(AssignToolManagerFragment.getInstance(false), container.id, "AssignToolFlow")
+        startActivity(Intent(this@MainActivity, DetailActivity::class.java))
     }
 
     override fun showLiftInventoryFragment() {
