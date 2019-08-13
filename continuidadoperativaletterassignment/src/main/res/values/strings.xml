@@ -4,12 +4,12 @@
 
     <string name="title_assignment">
         <![CDATA[
-        <b>3 / 4 Asignación - </b> Términos y disposiciones de la asignación de herramientas (extracto)
+        <b>Asignación - </b> Términos y disposiciones de la asignación de herramientas (extracto)
         ]]>
     </string>
     <string name="title_asignature_accepted">
         <![CDATA[
-        <b>3 / 4 Firma - </b> Solicita la firma del GCR para aceptar la  nueva asignación de herramientas
+        <b>Firma - </b> Solicita &nbsp;&nbsp;&nbsp;la&nbsp;&nbsp;&nbsp; firma del&nbsp;&nbsp;&nbsp; GCR para aceptar la  nueva asignación de herramientas
         ]]>
     </string>
     <string name="description_asignature_accepted">
