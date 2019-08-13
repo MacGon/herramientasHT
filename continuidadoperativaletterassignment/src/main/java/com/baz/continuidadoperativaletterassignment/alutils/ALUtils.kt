@@ -1,4 +1,4 @@
-package com.baz.continuidadoperativaletterassignment.alcommon
+package com.baz.continuidadoperativaletterassignment.alutils
 
 import android.view.View
 import android.view.Window

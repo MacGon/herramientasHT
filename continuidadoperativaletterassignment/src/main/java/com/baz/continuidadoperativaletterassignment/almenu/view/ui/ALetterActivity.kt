@@ -5,7 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import com.baz.continuidadoperativaletterassignment.R
-import com.baz.continuidadoperativaletterassignment.alcommon.hideBottomBar
+import com.baz.continuidadoperativaletterassignment.alutils.hideBottomBar
 import com.baz.continuidadoperativaletterassignment.almenu.interfaces.IALetterPresenter
 import com.baz.continuidadoperativaletterassignment.almenu.presenter.ALetterPresenter
 import com.baz.continuidadoperativaletterassignment.almenu.interfaces.IALetterView
