@@ -30,10 +30,6 @@ class DetailActivity : AppCompatActivity() {
         //nav_view.selectedItemId = R.id.navigation_home
         //val toolbar: Toolbar = findViewById(R.id.toolbar)
         //setSupportActionBar(toolbar)
-        window.decorView.apply {
-            systemUiVisibility = View.SYSTEM_UI_FLAG_HIDE_NAVIGATION or View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
-        }
-
 
         replaceFragment(AssignToolManagerFragment2.getInstance(true), detailContainer.id, "AddTools")
     }
@@ -64,6 +60,13 @@ class DetailActivity : AppCompatActivity() {
             else -> {
                 super.onBackPressed()
             }
+        }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        window.decorView.apply {
+            systemUiVisibility = View.SYSTEM_UI_FLAG_HIDE_NAVIGATION or View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
         }
     }
 
