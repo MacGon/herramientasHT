@@ -36,7 +36,7 @@ class JsonFile {
 
         fun leerArchivo(nombreArchivo: String): String {
             val path = PATH + nombreArchivo
-            var cadena = "" 
+            var cadena = ""
             val br: BufferedReader
             try {
                 br = BufferedReader(FileReader(path))
