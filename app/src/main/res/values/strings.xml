@@ -8,9 +8,10 @@
 
     <!-- Textos para el Login -->
     <string name="msg_title_login">¡Bienvenido %s!</string>
-    <string name="msg_subtitle_login">Por favor ingrese su contraseña</string>
+    <string name="msg_subtitle_login">Por favor ingrese tu contraseña</string>
+    <string name="msg_clear"> a </string>
     <string name="msg_hint_user_login">Usuario</string>
-    <string name="msg_hint_password_login">Ingresa tu contraseña</string>
+    <string name="msg_hint_password_login">Contraseña</string>
     <string name="msg_button_login">Siguiente</string>
     <string name="msg_forget_login">
         <u>Olvide mi contraseña</u>
@@ -169,5 +170,6 @@
     <string name="msg_return_back">Regresar</string>
     <string name="msg_ok">Aceptar</string>
     <string name="msg_search">Buscar</string>
+    <string name="msg_loading_server">Espera un momento\nProcesando información</string>
 
 </resources>

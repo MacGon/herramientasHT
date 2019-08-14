@@ -3,9 +3,15 @@ package com.simaht.modules.login.view
 import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.Intent
+import android.content.res.ColorStateList
 import android.os.Bundle
+import android.text.Editable
+import android.text.Html
+import android.text.InputFilter
+import android.text.TextWatcher
 import android.view.KeyEvent
 import android.view.View
+import android.widget.EditText
 import android.widget.FrameLayout
 import android.widget.Toast
 import com.example.dashboard_mh.R
@@ -17,6 +23,7 @@ import com.simaht.modules.login.model.LogInInteractor
 import com.simaht.modules.login.presenter.Employee
 import com.simaht.modules.login.presenter.LoginPresenterImpl
 import com.simaht.modules.test_camera.view.TestCamera
+import com.simaht.utils.Utils
 import kotlinx.android.synthetic.main.activity_login.*
 import kotlinx.android.synthetic.main.fragment_create_pass.*
 import kotlinx.android.synthetic.main.fragment_login.*
@@ -34,10 +41,16 @@ open class LoginActivity: BaseActivity(), LoginView {
     private lateinit var presentertwo: TestCamera
     private lateinit var gson: Gson
 
+    override fun messageErrorLogin() {
+        hideKeyboardEvent(etPasswordLogin)
+        etPasswordLogin.text?.clear()
+        Toast.makeText(this, "Completa los 8 caracteres de tu contreseña", Toast.LENGTH_SHORT).show()
+    }
+
     override fun messageErrorSpace() {
         hideKeyboardEvent(etCreatePass)
         etCreatePass.text?.clear()
-        Toast.makeText(this, "Tu contraseña contiene espacios", Toast.LENGTH_SHORT).show()
+        Toast.makeText(this, "Tu contraseña no debe contener espacios", Toast.LENGTH_SHORT).show()
     }
 
     override fun onMessageError(error: String) {
@@ -115,7 +128,7 @@ open class LoginActivity: BaseActivity(), LoginView {
                     flagScaner = true
                 } catch (e:Exception) {
                     flagScaner = false
-                    onMessageError("Error al obtener informacion del servicio")
+                    onMessageError("Error al obtener información del servicio")
                     presenter.onBackPressed()
                 }
             } else {
@@ -140,7 +153,6 @@ open class LoginActivity: BaseActivity(), LoginView {
         val fragmentCreate = CreatePassFragment()
         val transactionCreate = fm.beginTransaction()
         transactionCreate.replace(container.id, fragmentCreate)
-        transactionCreate.addToBackStack(null)
         transactionCreate.commit()
     }
 
@@ -158,7 +170,9 @@ open class LoginActivity: BaseActivity(), LoginView {
     override fun showLoginFragment() {
         btnAccederLogin.text = "Ingresar"
         clearStack()
-        clBackground.setOnClickListener { hideKeyboardEvent(etPasswordLogin) }
+        clBackground.setOnClickListener {
+            hideKeyboardEvent(etPasswordLogin)
+        }
         val fragmentLogin = LoginFragment()
         val transactionLogin = fm.beginTransaction()
         transactionLogin.replace(container.id, fragmentLogin)
@@ -210,6 +224,7 @@ open class LoginActivity: BaseActivity(), LoginView {
         //} else {
         //    presenter.setItemFragment(0)
         //}
+
     }
 
     private fun validateCredentialCreatePass() {
@@ -267,17 +282,10 @@ open class LoginActivity: BaseActivity(), LoginView {
         super.onDestroy()
     }
 
-    override fun showProgress() {
-        progress.visibility = View.VISIBLE
-
-    }
-
-    override fun hideProgress() {
-        progress.visibility = View.GONE
-    }
-
     override fun setPasswordCreatePass() {
         etCreatePass.error = getString(R.string.msg_error_create_pass)
+        etRepeatPass.text?.clear()
+
     }
 
     override fun setRepeatPass() {
@@ -285,6 +293,7 @@ open class LoginActivity: BaseActivity(), LoginView {
     }
 
     override fun setPasswordErrorLogin() {
+        //tilPasswordLogin.error = " "
         etPasswordLogin.error = getString(R.string.msg_subtitle_login)
     }
 
@@ -322,6 +331,39 @@ open class LoginActivity: BaseActivity(), LoginView {
             }
             false
         })
+    }
+
+    override fun progressDialogShow() {
+        Utils.progressDialogShow(this)
+        //val drawable = getDrawable(resources, R.drawable.shape_progress_bar_circle_loading, null)
+        //Utils.progressDialog.setIndeterminateDrawable(drawable)
+    }
+
+    override fun progressDialogHide() {
+        Utils.progressDialogDismiss()
+    }
+
+    override fun enabledButtonFalse() {
+        btnAccederLogin.isEnabled = false
+    }
+
+    override fun enabledButtonTrue() {
+        btnAccederLogin.isEnabled = true
+    }
+
+    override fun errorTextInputLayoutLogin() {
+        hideKeyboardEvent(etPasswordLogin)
+        tilPasswordLogin.boxStrokeColor = resources.getColor(android.R.color.holo_red_light)
+    }
+
+    override fun errorTextInputLayoutCreatePass() {
+        hideKeyboardEvent(etCreatePass)
+        tilCreatePassword.boxStrokeColor = resources.getColor(android.R.color.holo_red_light)
+    }
+
+    override fun errorTextInputLayoutRepeatPass() {
+        hideKeyboardEvent(etRepeatPass)
+        tilRepeatPassword.boxStrokeColor = resources.getColor(android.R.color.holo_red_light)
     }
 
     @SuppressLint("ResourceType")

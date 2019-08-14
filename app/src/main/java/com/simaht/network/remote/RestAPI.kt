@@ -34,8 +34,8 @@ class RestAPI {
         fun getInstance() = instance
     }
 
-    private val CONNECT_TIMEOUT_MILLIS = 35000L
-    private val READ_TIMEOUT_MILLIS = 35000L
+    private val CONNECT_TIMEOUT_MILLIS = 10000L
+    private val READ_TIMEOUT_MILLIS = 10000L
     private val JSON = MediaType.parse("application/json; charset=utf-8")
     private var retrorfit: Retrofit
     private val gson: Gson
@@ -59,7 +59,7 @@ class RestAPI {
         iAccount = retrorfit.create(IAccount::class.java)
         iAssigment = retrorfit.create(IAssigment::class.java)
 
-        retrorfit = retrofitBuilder("http://10.50.109.13:8080/WSHDTMoviles/")
+        retrorfit = retrofitBuilder("http://10.50.109.13:8080/WSNPCobranzHDT/")
         iLogin = retrorfit.create(LoginEndPoint::class.java)
 
         //Add new Interface
