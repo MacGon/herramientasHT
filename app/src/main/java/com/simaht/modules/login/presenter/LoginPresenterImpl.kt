@@ -282,6 +282,7 @@ class LoginPresenterImpl(var loginView: LoginView?, val logInInteractor: LogInIn
     override fun onSuccess() {
         loginView?.navigateToHome()
         loginView?.progressDialogHide()
+        loginView?.enabledButtonTrue()
     }
 
     override fun onBackPressed() {
@@ -326,9 +327,11 @@ class LoginPresenterImpl(var loginView: LoginView?, val logInInteractor: LogInIn
             .subscribe({ response ->
                 Log.e(TAG, response.message!!)
                 if (response.code != 200) {
+                    onServiceError()
                     Log.e(TAG, "Error de contraseña: ${response.message}")
                     loginView?.onMessageError("Contraseña incorrecta")
                     loginView?.errorTextInputLayoutLogin()
+                    loginView?.enabledButtonTrue()
                     loginView?.progressDialogHide()
                 } else {
                     onSuccess()
@@ -352,8 +355,11 @@ class LoginPresenterImpl(var loginView: LoginView?, val logInInteractor: LogInIn
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe({ response ->
                 if (response.code != 200) {
+                    onServiceError()
                     loginView?.onMessageError("Error: ${response.message}")
+                    loginView?.clearEditText()
                     loginView?.progressDialogHide()
+                    loginView?.enabledButtonTrue()
                 } else {
                     onRegisterSuccessfull()
                 }
@@ -370,6 +376,7 @@ class LoginPresenterImpl(var loginView: LoginView?, val logInInteractor: LogInIn
         val employee = Employee()
         employee.registerFinished = true
         employee.update()
+        loginView?.enabledButtonTrue()
 
         onButtonClick()
         loginView?.clearEditText()
