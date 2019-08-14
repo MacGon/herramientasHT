@@ -297,9 +297,9 @@ class LoginPresenterImpl(var loginView: LoginView?, val logInInteractor: LogInIn
             .subscribe({ response ->
                 Log.e(TAG, response.message!!)
                 if (response.code != 200) {
-                    onServiceError()
                     loginView?.onMessageError("Error: ${response.message}")
                     loginView?.progressDialogHide()
+                    paso--
                 } else {
                     val employee = Employee()
                     employee.empID = employeeNum
@@ -309,10 +309,10 @@ class LoginPresenterImpl(var loginView: LoginView?, val logInInteractor: LogInIn
                     loginView?.progressDialogHide()
                 }
             }, { error ->
-                onServiceError()
                 Log.e(TAG, "Error del servidor: " + error.message)
                 loginView?.onMessageError("Error del servidor: ${error.message}")
                 loginView?.progressDialogHide()
+                paso--
             })
     }
 
@@ -327,7 +327,6 @@ class LoginPresenterImpl(var loginView: LoginView?, val logInInteractor: LogInIn
             .subscribe({ response ->
                 Log.e(TAG, response.message!!)
                 if (response.code != 200) {
-                    onServiceError()
                     Log.e(TAG, "Error de contraseña: ${response.message}")
                     loginView?.onMessageError("Contraseña incorrecta")
                     loginView?.errorTextInputLayoutLogin()
@@ -337,7 +336,6 @@ class LoginPresenterImpl(var loginView: LoginView?, val logInInteractor: LogInIn
                     onSuccess()
                 }
             }, { error ->
-                onServiceError()
                 Log.e(TAG, "Error del servidor: " + error.message)
                 loginView?.onMessageError("Error del servidor: ${error.message}")
                 loginView?.progressDialogHide()
@@ -355,20 +353,21 @@ class LoginPresenterImpl(var loginView: LoginView?, val logInInteractor: LogInIn
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe({ response ->
                 if (response.code != 200) {
-                    onServiceError()
                     loginView?.onMessageError("Error: ${response.message}")
-                    loginView?.clearEditText()
                     loginView?.progressDialogHide()
                     loginView?.enabledButtonTrue()
+                    loginView?.clearEditText()
+                    paso = 4
                 } else {
                     onRegisterSuccessfull()
                 }
             }, { error ->
-                onServiceError()
                 Log.e(TAG, "Error del servidor: " + error.message)
                 loginView?.onMessageError("Error del servidor: ${error.message}")
                 loginView?.progressDialogHide()
                 loginView?.enabledButtonTrue()
+                loginView?.clearEditText()
+                paso = 4
             })
     }
 
