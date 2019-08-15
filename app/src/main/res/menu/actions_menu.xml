@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/actionCustody"
+        android:icon="@drawable/ic_square"
+        android:iconTint="@color/custudy"
+        app:showAsAction="always"
+        android:title="@string/msg_custody" />
+
+    <item
+        android:id="@+id/actionDamageCharge"
+        android:icon="@drawable/ic_square"
+        android:iconTint="@color/damage_charge"
+        android:enabled="true"
+        app:showAsAction="ifRoom"
+        android:title="@string/msg_damage_charge" />
+
+    <item
+        android:id="@+id/actionIncident"
+        android:icon="@drawable/ic_square"
+        android:iconTint="@color/incident"
+        android:enabled="true"
+        app:showAsAction="collapseActionView"
+        android:title="@string/msg_incident" />
+
+    <item
+        android:id="@+id/actionFactoryDefect"
+        android:icon="@drawable/ic_square"
+        android:iconTint="@color/factory_defect"
+        android:enabled="true"
+        app:showAsAction="withText"
+        android:title="@string/msg_factory_defect" />
+
+    <item
+        android:id="@+id/actionEndOfUseFulLife"
+        android:icon="@drawable/ic_square"
+        android:iconTint="@color/end_of_useful_life"
+        android:enabled="true"
+        app:showAsAction="withText"
+        android:title="@string/msg_end_of_useful_life" />
+
+</menu>

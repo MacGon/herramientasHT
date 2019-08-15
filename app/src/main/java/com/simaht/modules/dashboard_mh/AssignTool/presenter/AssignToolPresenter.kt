@@ -17,11 +17,11 @@ class AssignToolPresenter(val view: AssignToolContractI.View) : AssignToolContra
     fun validateInformationExistent(employeeNumber: Int) {
         view.showLoader()
         if (BuildConfig.DEBUG) {
-            postDelayed(2000) {
+            //postDelayed(2000) {
                 view.putEmployeeData("$employeeNumber - Test Employee")
                 view.putToolsFound(arrayListOf(SelectableItem(Tool("PAX Test", "PAX 4000", "TODAY", 124, 4213, "$$36", false, "www.myBill.com")),
                         SelectableItem(Tool("Italika Test", "Moto Italika 220", "TODAY", 421, 21423, "$$2624", true, "www.myITALIK.com"))))
-            }
+            //}
         } else {
             //TODO Implement the service response
         }

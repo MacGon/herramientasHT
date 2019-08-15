@@ -9,8 +9,8 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.baz.simaht.utils.CoConstants
 import com.baz.simaht.utils.CoConstants.ASSIGN
-import com.baz.simaht.utils.CoConstants.ASSIGN.COMFIRMATION
 import com.example.dashboard_mh.R
 import com.simaht.dashboard_mh.AssignTool.Tool
 import com.simaht.dashboard_mh.AssignTool.contracts.AssignToolChildContractI
@@ -48,9 +48,9 @@ class AssignToolChildFragment : Fragment(), AssignToolChildContractI.View {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        rvContentAssignTool.layoutManager = LinearLayoutManager(activity)
+        rvContentTool.layoutManager = LinearLayoutManager(activity)
 
-        rvContentAssignTool.addItemDecoration(DividerItemDecoration(activity, DividerItemDecoration.VERTICAL))
+        rvContentTool.addItemDecoration(DividerItemDecoration(activity, DividerItemDecoration.VERTICAL))
 
         assignToolAdapter = AssignToolAdapter(arrayListOf(), ASSIGN.ASSIGMENT) {
             it?.let {
@@ -60,7 +60,7 @@ class AssignToolChildFragment : Fragment(), AssignToolChildContractI.View {
         }
         //FIXME( this Adapter is an example to set the information inside recyclerview, implements the Adapter with information downloaded from internet)
         //TODO (Unassigned all tools remove the asignation botton available..
-        rvContentAssignTool.adapter = assignToolAdapter
+        rvContentTool.adapter = assignToolAdapter
 
         assignNewTool.setOnClickListener {
             childCommunication.onClickListen()
@@ -75,7 +75,7 @@ class AssignToolChildFragment : Fragment(), AssignToolChildContractI.View {
     }
 
     fun addNewTools(toolsFound: ArrayList<SelectableItem<Tool>>) {
-        assignToolAdapter.onView = COMFIRMATION
+        assignToolAdapter.onView = CoConstants.ASSIGN.SET_ACTION
         assignToolAdapter.addNToolsFound(toolsFound)
         //TransitionManager.beginDelayedTransition(rvContentAssignTool)
     }

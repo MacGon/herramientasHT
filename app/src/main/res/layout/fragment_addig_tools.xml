@@ -1,0 +1,88 @@
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context="com.simaht.modules.dashboard_mh.tools.toollist.view.AddingToolsFragment">
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvInstructions"
+        android:layout_width="325dp"
+        android:layout_height="63dp"
+        android:layout_marginTop="8dp"
+        android:lineSpacingExtra="3.2sp"
+        android:textColor="@color/colorAccent"
+        android:textSize="16sp"
+        android:text="@string/msg_scann_instruction"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="@string/msg_scann_instruction" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvContentTool"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@id/linearLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvInstructions"
+        tools:listitem="@layout/item_assign_tool_confirmation" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="90dp"
+        android:background="@color/colorWhite"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/btnAddTool"
+        android:layout_width="0dp"
+        android:layout_height="57dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="16dp"
+        android:layout_marginEnd="6dp"
+        style="@style/ButtonComfirmToolDisable"
+        android:background="@drawable/shape_button_comfirm_tool"
+        android:enabled="false"
+        android:fontFamily="@font/montserrat_regular"
+        android:foreground="?android:attr/selectableItemBackground"
+        android:shadowRadius="5.0"
+        android:textAllCaps="false"
+        android:textSize="17sp"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        app:srcCompat="@drawable/ic_sign_to_add_2"
+        app:tint="@color/available"
+        app:layout_constraintTop_toTopOf="@id/btnContinue"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/btnContinue"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnContinue"
+        style="@style/ButtonComfirmToolDisable"
+        android:layout_width="0dp"
+        android:layout_height="57dp"
+        android:layout_marginStart="6dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/selector_tool_function"
+        android:enabled="false"
+        android:fontFamily="@font/montserrat_regular"
+        android:foreground="?android:attr/selectableItemBackground"
+        android:shadowRadius="5.0"
+        android:text="@string/msg_continue"
+        android:textColor="@color/blocked"
+        android:textAllCaps="false"
+        android:textSize="17sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/btnAddTool"
+        app:layout_goneMarginStart="16dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

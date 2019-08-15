@@ -9,10 +9,6 @@ import android.view.ViewGroup
 import com.example.dashboard_mh.R
 
 
-/**
- * A simple [Fragment] subclass.
- *
- */
 class SerachEmployeekFragment : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,

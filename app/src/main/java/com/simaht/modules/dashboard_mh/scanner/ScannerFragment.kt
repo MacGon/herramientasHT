@@ -55,13 +55,10 @@ class ScannerFragment: Fragment(), ZXingScannerView.ResultHandler {
     }
 
     override fun handleResult(rawResult: Result?) {
-        //println(rawResult!!.text)
         forResult.returnValue(rawResult)
-        //Toast.makeText(activity, rawResult?.text, Toast.LENGTH_LONG).show()
         //mScannerView.setResultHandler(this)
         //mScannerView.startCamera()
         //TODO put Result on his Context
-        activity.onBackPressed()
-
+        activity.supportFragmentManager.popBackStack()
     }
 }
