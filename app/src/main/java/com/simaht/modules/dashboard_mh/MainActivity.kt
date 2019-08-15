@@ -234,10 +234,12 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     }
 
     override fun showLiftInventoryFragment() {
-        val fragmentLiftInventory = LiftInventoryFragment()
+/*        val fragmentLiftInventory = LiftInventoryFragment()
         val transactionLiftInventory = fm.beginTransaction()
         transactionLiftInventory.replace(container.id,fragmentLiftInventory)
-        transactionLiftInventory.commit()
+        transactionLiftInventory.commit()*/
+
+        startActivity(Intent(this, ALetterActivity::class.java))
     }
 
     override fun showUnsubscribeToolFragment() {
