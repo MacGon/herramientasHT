@@ -4,8 +4,10 @@ import android.util.Log
 import com.example.dashboard_mh.BuildConfig
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
+import com.simaht.modules.model.BaseResponse
 import com.simaht.network.data.ModelTest
 import com.simaht.network.remote.services.IAccount
+import com.simaht.network.remote.services.ITools
 import com.simaht.network.remote.services.IAssigment
 import okhttp3.MediaType
 import okhttp3.OkHttpClient
@@ -37,20 +39,24 @@ class RestAPI {
     /***********************************
      * INTERFACE ENDPOINTS DECLARATION *
      ***********************************/
-    private var iAccount: IAccount
-    private var iAssigment: IAssigment
+    private val iAccount: IAccount
+    private val iAssigment: IAssigment
+
+    private val iTools : ITools
 
     init {
         this.gson = GsonBuilder()
                 .setDateFormat("yyyy-MM-dd'T'HH:mm:ssZ")
                 .create()
 
-        //instance = RestAPI()
+        instance = RestAPI()
 
         retrorfit = retrofitBuilder()
 
         iAccount = retrorfit.create(IAccount::class.java)
         iAssigment = retrorfit.create(IAssigment::class.java)
+
+        iTools = retrorfit.create(ITools::class.java)
 
         //Add new Interface
     }
@@ -113,5 +119,28 @@ class RestAPI {
         }
     }
 
+
+
+
+    /*************** Tools INQUIRY SERVICE ******************/
+
+    fun consultTools(employeeNum : Int, callResult: (BaseResponse) -> Unit) {
+        iTools.consultToolsByEmployee(employeeNum).apply {
+            enqueue(object : Callback<BaseResponse> {
+
+                override fun onResponse(call: Call<BaseResponse>, response: Response<BaseResponse>) {
+                    Log.i("TEST", response.let { it.body().toString() })
+                    if (response.code() == 200 && response.body()?.code == 200 ) {
+                        callResult(response.body()!!)
+                    }
+                }
+
+                override fun onFailure(call: Call<BaseResponse>, t: Throwable) {
+                    Log.e("REST_API", "an error has occurred at : ", t)
+                    //callResult(kkdkdkd)
+                }
+            })
+        }
+    }
 
 }

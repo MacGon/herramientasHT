@@ -1,4 +1,11 @@
 package com.simaht.modules.dashboard_mh.tools.employeefoundlast.presenter
 
-class EmployeeFoundPresenter {
+import com.simaht.modules.dashboard_mh.tools.employeefoundlast.contract.IEmployeeFoundContract
+
+class EmployeeFoundPresenter(val view : IEmployeeFoundContract.View): IEmployeeFoundContract.Presenter {
+
+    override fun searchTools() {
+
+    }
+
 }

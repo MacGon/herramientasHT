@@ -12,16 +12,17 @@ import android.view.inputmethod.InputMethodManager
 import androidx.fragment.app.Fragment
 import com.baz.simaht.login.extensions.addChildFragment
 import com.baz.simaht.login.extensions.toast
+import com.baz.simaht.utils.CoConstants
 import com.baz.simaht.utils.CoConstants.Companion.COME_FROM_CAMERA
 import com.baz.simaht.utils.CoConstants.STEP.*
 import com.example.dashboard_mh.R
 import com.google.zxing.Result
 import com.simaht.dashboard_mh.AssignTool.Tool
-import com.simaht.dashboard_mh.AssignTool.presenter.AssignToolPresenter2
+import com.simaht.modules.dashboard_mh.tools.employeefound.assignment.presenter.ToolTransferPresenter
 import com.simaht.modules.dashboard_mh.scanner.IScanner
 import com.simaht.modules.dashboard_mh.scanner.ScannerFragment
 import com.simaht.modules.dashboard_mh.tools.DetailActivity
-import com.simaht.modules.dashboard_mh.tools.employeefound.assignment.contracts.AssignToolContractI
+import com.simaht.modules.dashboard_mh.tools.employeefound.assignment.contracts.IToolTransferContract
 import com.simaht.utils.SelectableItem
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_detail.*
@@ -34,28 +35,45 @@ import kotlinx.android.synthetic.main.fragment_search_employee.*
  * A simple [Fragment] subclass.
  *
  */
-class AssignToolManagerFragment2 : Fragment(), AssignToolContractI.View, AddChildCommunication2, IScanner {
+class ToolTransferManagerFragment : Fragment(), IToolTransferContract.View, AddChildCommunication2, IScanner {
 
-    private lateinit var presenter: AssignToolContractI.Presenter
+    private lateinit var presenter: IToolTransferContract.Presenter
     private var fromCamera: Boolean = false
     private var assignTool: Boolean = true
     private lateinit var childFragment: AssignToolChildFragment2
     private var custodyFlow = false
     private var currentStep = ADDING_TOOL
-    //lateinit var dialog: AlertDialog
-    //lateinit var alert: AlertDialog.Builder
-    lateinit var viewAlert: View
-    lateinit var alertDialog: AlertDialog
-    lateinit var dialogView: View
+    private lateinit var alertDialog: AlertDialog
+    private lateinit var dialogView: View
 
     companion object {
-        fun getInstance(comeFromCamera: Boolean): AssignToolManagerFragment2 {
-            val fragment = AssignToolManagerFragment2()
+        private lateinit var fragmentTransfer: ToolTransferManagerFragment
+        fun newInstance(comeFromCamera: Boolean): ToolTransferManagerFragment {
+            fragmentTransfer = ToolTransferManagerFragment()
             val args = Bundle()
             args.putBoolean(COME_FROM_CAMERA, comeFromCamera)
-            fragment.arguments = args
-            return fragment
+            fragmentTransfer.arguments = args
+            return fragmentTransfer
         }
+
+        fun getInstance(): ToolTransferManagerFragment {
+            return fragmentTransfer
+        }
+    }
+
+    /**
+     * This interface must be implemented by activities that contain this
+     * fragmentTransfer to allow an interaction in this fragmentTransfer to be communicated
+     * to the activity and potentially other fragments contained in that
+     * activity.
+     *
+     *
+     * See the Android Training lesson [Communicating with Other Fragments]
+     * (http://developer.android.com/training/basics/fragments/communicating.html)
+     * for more information.
+     */
+    interface OnFragmentInteractionListener {
+        fun onFragmentInteraction()
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -63,13 +81,13 @@ class AssignToolManagerFragment2 : Fragment(), AssignToolContractI.View, AddChil
         if (arguments != null) {
             fromCamera = arguments?.getBoolean(COME_FROM_CAMERA) ?: false
         }
-        presenter = AssignToolPresenter2(this)
+        presenter = ToolTransferPresenter(this)
 
         (activity as DetailActivity).addTitle(resources.getString(R.string.title_tools_flow))
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        // Inflate the layout for this fragment
+        // Inflate the layout for this fragmentTransfer
         return inflater.inflate(R.layout.fragment_search_employee, container, false)
     }
 
@@ -89,6 +107,8 @@ class AssignToolManagerFragment2 : Fragment(), AssignToolContractI.View, AddChil
         //presenter.validateInformationExistent()
         setOnclickListeners()
 
+        presenter.changeStep(true)
+
         Picasso.get()
                 .load("//url.com.mx")
                 .placeholder(R.drawable.avatar_employee)
@@ -99,7 +119,7 @@ class AssignToolManagerFragment2 : Fragment(), AssignToolContractI.View, AddChil
 
     override fun onResume() {
         super.onResume()
-        showCurrentView()
+        //presenter.changeStep(true)
     }
 
     override fun showLoader() {
@@ -125,6 +145,11 @@ class AssignToolManagerFragment2 : Fragment(), AssignToolContractI.View, AddChil
 
     override fun addItemFound(toolFound: List<SelectableItem<Tool>>) {
         childFragment.addNewTools(toolFound)
+        if (childFragment.haveAnIpad()) {
+            prepareAlertDialog()
+            custodyFlow = true
+        }
+        //else
     }
 
     override fun showMessage(msgInt: Int?, msgStr: String?) {
@@ -149,6 +174,12 @@ class AssignToolManagerFragment2 : Fragment(), AssignToolContractI.View, AddChil
 
     }
 
+    override fun currentStep(step: CoConstants.STEP) {
+        currentStep = step
+        //presenter.currentStep()
+        //showCurrentView()
+    }
+
     override fun onClickListen() {
         Log.i("TAG", "OMG ..... ")
         presenter.openScanner()
@@ -167,27 +198,25 @@ class AssignToolManagerFragment2 : Fragment(), AssignToolContractI.View, AddChil
         custodyFlow = custody
     }
 
-    fun prepareAlertDialog() {
-
-
+    private fun prepareAlertDialog() {
         //viewAlert = activity!!.layoutInflater.inflate(R.layout.dialog_notification, null)
         //alert = AlertDialog.Builder(context)
         //.setView(viewAlert)
         //.setCancelable(false)
-
 
         val dialogBuilder = AlertDialog.Builder(activity)
         dialogView = layoutInflater.inflate(R.layout.dialog_notification, null)
 
         when (currentStep) {
             SEARCHING_EMPLOYEE -> {
-
             }
             CUSTODY -> {
                 dialogView.ivImageAlert.visibility = View.VISIBLE
                 dialogView.tvNormalDialog.text = String.format(resources.getString(R.string.msg_custody_tool), employeeName.text.toString())
-                currentStep = DONE
-                showCurrentView()
+                //currentStep = DONE
+                presenter.changeStep(true)
+                presenter.currentStep()
+                //showCurrentView()
             }
             EMPLOYEE_FOUND -> {
                 //TODO SOMETHING
@@ -198,15 +227,12 @@ class AssignToolManagerFragment2 : Fragment(), AssignToolContractI.View, AddChil
         }
 
         dialogBuilder.setView(dialogView)
-                .setCancelable(true)
+                .setCancelable(false)
         alertDialog = dialogBuilder.create()
         alertDialog.show()
 
-
         /*val builder = AlertDialog.Builder(context, R.style.DialogStyle)//Context is activity context
         viewAlert = activity!!.layoutInflater.inflate(R.layout.dialog_notification, null, false)*/
-
-
         /*
         builder.setView(viewAlert)
                 .setCancelable(false)
@@ -218,9 +244,6 @@ class AssignToolManagerFragment2 : Fragment(), AssignToolContractI.View, AddChil
         ConstraintLayout.LayoutParams(ConstraintLayout.LayoutParams.MATCH_PARENT,ConstraintLayout.LayoutParams.WRAP_CONTENT)
         viewAlert.layoutParams = lp
         builder.setView(viewAlert)
-
-
-
         dialog = builder.create()
         setDimentionsDialog()*/
         //dialog.show()
@@ -229,22 +252,29 @@ class AssignToolManagerFragment2 : Fragment(), AssignToolContractI.View, AddChil
             alertDialog.dismiss()
             if (currentStep == EMPLOYEE_FOUND) {
                 childFragment.selectAction()
+                childFragment.changeActionToDo(true) //fixme this is no acceptedhuyvvguyjyc
                 btnContinue.text = resources.getString(R.string.msg_ok)
-                currentStep = CUSTODY
-                showCurrentView()
+                //currentStep = CUSTODYç
+                //presenter.changeStep(true)
+                presenter.currentStep()
+                //showCurrentView()
             } else if(currentStep == CUSTODY) {
-                currentStep = DONE
-                showCurrentView()
+                //currentStep = DONE
+                presenter.changeStep(true)
+                presenter.currentStep()
+                //showCurrentView()
             }
         }
 
         dialogView.btnDialogCancel.setOnClickListener {
             alertDialog.dismiss()
             if (currentStep == EMPLOYEE_FOUND) {
-                currentStep = SEARCHING_EMPLOYEE
-                showCurrentView()
+                //currentStep = SEARCHING_EMPLOYEE
+                presenter.changeStep(false)
+                //showCurrentView()
             } else if( currentStep == DONE )
-                showCurrentView()
+                presenter.currentStep()
+                //showCurrentView()
         }
     }
 
@@ -255,15 +285,17 @@ class AssignToolManagerFragment2 : Fragment(), AssignToolContractI.View, AddChil
      * @param rawResult QR Object result
      */
     override fun returnValue(rawResult: Result?) {
+        btnContinue.isEnabled = true
         presenter.addScanedElement(presenter.addTool())
     }
 
-    fun setOnclickListeners() {
+    private fun setOnclickListeners() {
 
         svEmployeeNumber.setOnKeyListener(View.OnKeyListener { v, keyCode, event ->
             if (event.action == KeyEvent.ACTION_DOWN && keyCode == KeyEvent.KEYCODE_ENTER) {
                 //presenter.onButtonClick()
-                currentStep = EMPLOYEE_FOUND
+                //currentStep = EMPLOYEE_FOUND
+                presenter.changeStep(true)
                 //prepareAlertDialog()
                 //FIXME replace this text by the service responce
                 hideKeyboardEvent(svEmployeeNumber)
@@ -271,7 +303,8 @@ class AssignToolManagerFragment2 : Fragment(), AssignToolContractI.View, AddChil
                 employeeName.text = "Armando de los Santos"
                 //FIXME this is a fake tools addition
                 presenter.toolsFound()
-                showCurrentView()
+                presenter.currentStep()
+                //showCurrentView()
                 return@OnKeyListener true
             }
             false
@@ -285,8 +318,9 @@ class AssignToolManagerFragment2 : Fragment(), AssignToolContractI.View, AddChil
             when (currentStep) {
                 ADDING_TOOL -> {
                     if (childFragment.haveElements()) {
-                        currentStep = SEARCHING_EMPLOYEE
-                        showCurrentView()
+                        //currentStep = SEARCHING_EMPLOYEE
+                        //showCurrentView()
+                        presenter.changeStep(true)
                         //childFragment.validateContinue()
                     } else {
                         btnContinue.isEnabled = false
@@ -294,25 +328,26 @@ class AssignToolManagerFragment2 : Fragment(), AssignToolContractI.View, AddChil
                     }
                 }
                 SEARCHING_EMPLOYEE -> {
-                    currentStep = EMPLOYEE_FOUND
-                    prepareAlertDialog()
+                    //currentStep = EMPLOYEE_FOUND
+                    presenter.changeStep(true)
+                    //prepareAlertDialog()
                     //FIXME replace this text by the service responce
                     employeeAbstract.text = "4253 - JCR"
                     employeeName.text = "Armando de los Santos"
-
                     //FIXME this is a fake tools addition
                     presenter.toolsFound()
 
-
-
-                    showCurrentView()
+                    //showCurrentView()
                 }
                 EMPLOYEE_FOUND -> {
                     //prepareAlertDialog()
                     if (custodyFlow) {
-                        currentStep = CUSTODY
+                        //currentStep = CUSTODY
+                        presenter.changeStep(true)
+                        //FIXME new employee needs a different way
                     } else
-                        currentStep = NEW_EMPLOYEE
+                        presenter.changeStep(true, true)
+                        //currentStep = NEW_EMPLOYEE
 
                     tvInstructions.text = resources.getText(R.string.msg_gestion_tool)
                     //TODO ASET THE VIEW ON Actions TODO
@@ -320,19 +355,18 @@ class AssignToolManagerFragment2 : Fragment(), AssignToolContractI.View, AddChil
                 }
                 CUSTODY -> {
                     toast("CUSTODY SUCCESS **TEST**")
-                    prepareAlertDialog()
+                    //prepareAlertDialog()
                     childFragment.custodiateTools()
+                    presenter.changeStep(true)
                 }
                 NEW_EMPLOYEE -> {
                 }
 
                 DONE -> {
                     clProcesFinshed.visibility = View.VISIBLE
-                    currentStep = FINISH
+                    //currentStep = FINISH
+                    presenter.changeStep(true)
 
-                }
-                FINISH -> {
-                    (activity as DetailActivity).proceesDone()
                 }
 
             }
@@ -350,69 +384,105 @@ class AssignToolManagerFragment2 : Fragment(), AssignToolContractI.View, AddChil
                 btnContinue.isEnabled = !s.isEmpty()
             }
         })
-
-
     }
 
-    fun showCurrentView() {
+
+    /**
+     * Update the view components every time that current step change
+     */
+    /*private fun showCurrentView() {
         when (currentStep) {
             ADDING_TOOL -> {
-                rlEmployeeInfo.visibility = View.GONE
-                svEmployeeNumber.visibility = View.GONE
-                containerAssignation.visibility = View.VISIBLE
-                btnAddTool.visibility = View.VISIBLE
-                newEmployee.visibility = View.GONE
+
             }
             SEARCHING_EMPLOYEE -> {
-                btnContinue.isEnabled = false
-                rlEmployeeInfo.visibility = View.GONE
-                svEmployeeNumber.visibility = View.VISIBLE
-                containerAssignation.visibility = View.INVISIBLE
-                btnAddTool.visibility = View.GONE
-                newEmployee.visibility = View.GONE
-                btnContinue.text = resources.getString(R.string.msg_search)
 
             }
             EMPLOYEE_FOUND -> {
-                rlEmployeeInfo.visibility = View.VISIBLE
-                svEmployeeNumber.visibility = View.GONE
-                containerAssignation.visibility = View.VISIBLE
-                btnAddTool.visibility = View.GONE
-                //TODO validate new employee
-                newEmployee.visibility = View.VISIBLE
-                btnContinue.text = resources.getString(R.string.msg_continue) //Continuar
-
-                if (custodyFlow) {
-                    prepareAlertDialog()
-                }
 
             }
-            CUSTODY -> {
-                rlEmployeeInfo.visibility = View.VISIBLE
-                svEmployeeNumber.visibility = View.GONE
-                containerAssignation.visibility = View.VISIBLE
-                btnAddTool.visibility = View.GONE
+            CUSTODY -> { //TODO It could be named different
+
             }
             NEW_EMPLOYEE -> {
-                rlEmployeeInfo.visibility = View.VISIBLE
-                newEmployee.visibility = View.VISIBLE
-                svEmployeeNumber.visibility = View.GONE
-                containerAssignation.visibility = View.INVISIBLE
-                btnAddTool.visibility = View.GONE
-                showMessage(msgStr = "Aplicando Custodia")
+
             }
             DONE -> {
-                rlEmployeeInfo.visibility = View.VISIBLE
-                svEmployeeNumber.visibility = View.GONE
-                containerAssignation.visibility = View.VISIBLE
-                btnAddTool.visibility = View.GONE
 
                 //activity?.finish()
             }
         }
+    }*/
+
+    override fun showAddingToolView() {
+        rlEmployeeInfo.visibility = View.GONE
+        svEmployeeNumber.visibility = View.GONE
+        containerAssignation.visibility = View.VISIBLE
+        val text = resources.getQuantityString(R.plurals.msg_step_search_employee, 1)
+        tvInstructions.text = text
+        btnAddTool.visibility = View.VISIBLE
+        newEmployee.visibility = View.GONE
     }
 
-    fun hideKeyboardEvent(view: View) {
+    override fun showSearchingEmployeeView() {
+        //btnContinue.isEnabled = false
+        rlEmployeeInfo.visibility = View.GONE
+        svEmployeeNumber.visibility = View.VISIBLE
+        containerAssignation.visibility = View.INVISIBLE
+        btnAddTool.visibility = View.GONE
+        btnContinue.text = resources.getString(R.string.msg_search)
+        childFragment.removeToolsFound()
+    }
+
+    override fun showEmployeeFoundView() {
+        rlEmployeeInfo.visibility = View.VISIBLE
+        svEmployeeNumber.visibility = View.GONE
+        containerAssignation.visibility = View.VISIBLE
+        btnAddTool.visibility = View.GONE
+        //TODO validate new employee
+        //newEmployee.visibility = View.VISIBLE
+        btnContinue.text = resources.getString(R.string.msg_continue) //Continuar
+        childFragment.changeActionToDo(false)
+        //FIXME check actions to set in every tool
+        //btnContinue.isEnabled = false
+        clProcesFinshed.visibility = View.GONE
+
+        if (custodyFlow) {
+            //prepareAlertDialog()
+        }
+    }
+
+    override fun showActionsView() {
+        rlEmployeeInfo.visibility = View.VISIBLE
+        svEmployeeNumber.visibility = View.GONE
+        containerAssignation.visibility = View.VISIBLE
+        btnAddTool.visibility = View.GONE
+        clProcesFinshed.visibility = View.GONE
+    }
+
+    override fun showNewEmployeeView() {
+        rlEmployeeInfo.visibility = View.VISIBLE
+        newEmployee.visibility = View.VISIBLE
+        svEmployeeNumber.visibility = View.GONE
+        containerAssignation.visibility = View.INVISIBLE
+        btnAddTool.visibility = View.GONE
+        //TODO change by a resource and depends if it its a unic mesagge for all @{actions}
+        showMessage(msgStr = "Aplicando Custodia")
+    }
+
+    override fun showProcesDoneView() {
+        rlEmployeeInfo.visibility = View.VISIBLE
+        svEmployeeNumber.visibility = View.GONE
+        containerAssignation.visibility = View.VISIBLE
+        btnAddTool.visibility = View.GONE
+        clProcesFinshed.visibility = View.GONE
+    }
+
+    override fun finishProcess() {
+        (activity as DetailActivity).proceesDone()
+    }
+
+    private fun hideKeyboardEvent(view: View) {
         val inputMethodManager = activity?.getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager
         inputMethodManager.hideSoftInputFromWindow(view.windowToken, 0)
     }
@@ -437,6 +507,14 @@ class AssignToolManagerFragment2 : Fragment(), AssignToolContractI.View, AddChil
 
 
         alertDialog?.window?.attributes = lp
+    }
+
+    /**
+     * In this Case True is used to increase its step, False to decrease its step
+     *
+     */
+    fun goBack(){
+        presenter.changeStep(false) //False because back means return back \/ (decrease)
     }
 
 }

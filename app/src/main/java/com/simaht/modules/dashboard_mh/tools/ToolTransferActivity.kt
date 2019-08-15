@@ -91,6 +91,8 @@ class ToolTransferActivity : AppCompatActivity(), FragmentCommunication {
         if (supportFragmentManager.backStackEntryCount > 0) {
             counter--
             supportFragmentManager.popBackStack()
+            if (supportFragmentManager.backStackEntryCount == 0)
+                this.finish()
         }
     }
 

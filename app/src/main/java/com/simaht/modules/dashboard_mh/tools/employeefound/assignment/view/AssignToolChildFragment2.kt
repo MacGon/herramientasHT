@@ -10,7 +10,6 @@ import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.baz.simaht.utils.CoConstants
 import com.baz.simaht.utils.CoConstants.ASSIGN
-import com.baz.simaht.utils.CoConstants.ASSIGN.COMFIRMATION
 import com.example.dashboard_mh.R
 import com.simaht.dashboard_mh.AssignTool.Tool
 import com.simaht.modules.dashboard_mh.tools.employeefound.assignment.contracts.AssignToolChildContractI
@@ -48,8 +47,8 @@ class AssignToolChildFragment2 : Fragment(), AssignToolChildContractI.View {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        rvContentAssignTool.layoutManager = LinearLayoutManager(activity)
-        rvContentAssignTool.addItemDecoration(DividerItemDecoration(activity, DividerItemDecoration.VERTICAL))
+        rvContentTool.layoutManager = LinearLayoutManager(activity)
+        rvContentTool.addItemDecoration(DividerItemDecoration(activity, DividerItemDecoration.VERTICAL))
 
         assignToolAdapter = AssignToolAdapter(arrayListOf(), ASSIGN.ASSIGMENT, false) {
             if (it)
@@ -58,7 +57,7 @@ class AssignToolChildFragment2 : Fragment(), AssignToolChildContractI.View {
         }
         //FIXME( this Adapter is an example to set the information inside recyclerview, implements the Adapter with information downloaded from internet)
         //TODO (Unassigned all tools remove the asignation botton available..
-        rvContentAssignTool.adapter = assignToolAdapter
+        rvContentTool.adapter = assignToolAdapter
 
         assignNewTool.setOnClickListener {
             childCommunication.onClickListen()
@@ -73,8 +72,7 @@ class AssignToolChildFragment2 : Fragment(), AssignToolChildContractI.View {
     }
 
     fun addNewTools(toolsFound: List<SelectableItem<Tool>>) {
-        assignToolAdapter.onView = COMFIRMATION
-        assignToolAdapter.addNToolsFound(toolsFound)
+        assignToolAdapter.addToolsFound(toolsFound)
         //TransitionManager.beginDelayedTransition(rvContentAssignTool)
     }
 
@@ -86,6 +84,13 @@ class AssignToolChildFragment2 : Fragment(), AssignToolChildContractI.View {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
+    fun changeActionToDo(levelUp: Boolean) {
+        if(levelUp)
+            assignToolAdapter.chanveView(ASSIGN.SET_ACTION)
+        else
+            assignToolAdapter.chanveView(ASSIGN.ASSIGMENT)
+    }
+
     fun custodiateTools() {
         assignToolAdapter.applyCustudy()
     }
@@ -94,4 +99,9 @@ class AssignToolChildFragment2 : Fragment(), AssignToolChildContractI.View {
         assignToolAdapter.setAction(CoConstants.ACTIONS.CUSTODY)
     }
 
+    fun elements() = assignToolAdapter.itemCount
+
+    fun removeToolsFound(){
+        assignToolAdapter.removeTemporalTools()
+    }
 }

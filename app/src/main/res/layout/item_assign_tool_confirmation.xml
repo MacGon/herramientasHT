@@ -46,8 +46,9 @@
         android:id="@+id/tvToolMainName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
+        android:layout_marginStart="10dp"
         android:layout_marginTop="10dp"
+        app:layout_goneMarginStart="40dp"
         android:textSize="18sp"
         app:layout_constraintStart_toEndOf="@+id/viewSelectec1"
         app:layout_constraintTop_toTopOf="parent"
@@ -76,7 +77,7 @@
         tools:text="Disponible" />
 
     <ImageView
-        android:id="@+id/ivToolOptions"
+        android:id="@+id/ivToolMoreOptions"
         android:layout_width="wrap_content"
         android:layout_height="65dp"
         android:layout_marginEnd="28dp"

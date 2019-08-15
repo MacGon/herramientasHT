@@ -10,6 +10,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.dashboard_mh.R
 import com.simaht.dashboard_mh.AssignTool.Tool
 import com.simaht.modules.dashboard_mh.tools.FragmentCommunication
+import com.simaht.modules.dashboard_mh.tools.employeefoundlast.contract.IEmployeeFoundContract
+import com.simaht.modules.dashboard_mh.tools.employeefoundlast.presenter.EmployeeFoundPresenter
 import com.simaht.modules.dashboard_mh.tools.employeefoundlast.view.adapter.ToolListFoundAdapter
 import com.simaht.utils.SelectableItem
 import com.squareup.picasso.Picasso
@@ -18,7 +20,7 @@ import kotlinx.android.synthetic.main.fragment_employee_found.btnContinue
 import kotlinx.android.synthetic.main.fragment_employee_found.rvContentTool
 
 
-class EmployeeFoundFragment : Fragment() {
+class EmployeeFoundFragment : Fragment(), IEmployeeFoundContract.View {
 
     private val NEW_EMPLOYE = "IS_NEW_EMPLOYEE"
     private val TOOLS_FOUND = "TOOLS_FOUND"
@@ -27,6 +29,7 @@ class EmployeeFoundFragment : Fragment() {
     private lateinit var parentView : FragmentCommunication
     private lateinit var toolListFound : ArrayList<SelectableItem<Tool>>
     private lateinit var adapter : ToolListFoundAdapter
+    private lateinit var presenter : IEmployeeFoundContract.Presenter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,6 +37,9 @@ class EmployeeFoundFragment : Fragment() {
             newEmployee = it.getBoolean(NEW_EMPLOYE)
             toolsFound = it.getBoolean(TOOLS_FOUND)
         }
+
+        presenter = EmployeeFoundPresenter(this)
+
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
@@ -79,5 +85,9 @@ class EmployeeFoundFragment : Fragment() {
                         putBoolean(TOOLS_FOUND, toolsFound)
                     }
                 }
+    }
+
+    override fun putList() {
+
     }
 }

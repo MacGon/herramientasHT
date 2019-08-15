@@ -1,9 +1,10 @@
 package com.simaht.modules.dashboard_mh.tools.employeefound.assignment.contracts
 
+import com.baz.simaht.utils.CoConstants.STEP
 import com.simaht.dashboard_mh.AssignTool.Tool
 import com.simaht.utils.SelectableItem
 
-interface AssignToolContractI {
+interface IToolTransferContract {
 
     interface View{
         fun showLoader()
@@ -16,6 +17,16 @@ interface AssignToolContractI {
         fun addItemFound(toolFound: List<SelectableItem<Tool>>)
         fun showMessage(msgInt: Int? = null, msgStr: String? = null)
         fun enableAssignationBtn(enable: Boolean)
+        fun currentStep(step: STEP)
+
+        fun showAddingToolView()
+        fun showSearchingEmployeeView()
+        fun showEmployeeFoundView()
+        fun showActionsView()
+        fun showNewEmployeeView()
+        fun showProcesDoneView()
+        fun finishProcess()
+
     }
 
     interface Presenter{
@@ -26,6 +37,8 @@ interface AssignToolContractI {
         fun openScanner()
         fun assignTools()
         fun changeView()
+        fun currentStep(addToStack:Boolean? = null)
+        fun changeStep(levelUp: Boolean, isNewEmployee: Boolean? = null)
 
         //TODO FAKE functions
         fun addTool(): Tool
