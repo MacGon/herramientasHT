@@ -1,4 +1,4 @@
-package com.simaht.modules.dashboard_mh.tools.searchemployee
+package com.simaht.modules.dashboard_mh.tools.searchemployee.view
 
 import android.os.Bundle
 import android.text.Editable
@@ -39,8 +39,8 @@ class SearchEmployeeFragment : Fragment(), ISearchingEmployeeContract.View {
 
         svEmployeeNumber.setOnKeyListener(View.OnKeyListener { v, keyCode, event ->
             if (event.action == KeyEvent.ACTION_DOWN && keyCode == KeyEvent.KEYCODE_ENTER) {
-                parentView.hideKeyboardEvent(svEmployeeNumber)
 
+                parentView.hideKeyboardEvent(svEmployeeNumber)
                 presenter.getInfoEmployee(svEmployeeNumber.text.toString().toInt())
                 //employeeAbstract.text = "4253 - JCR"
                 //employeeName.text = "Armando de los Santos"
@@ -62,6 +62,7 @@ class SearchEmployeeFragment : Fragment(), ISearchingEmployeeContract.View {
         }
 
         btnContinue.setOnClickListener {
+            parentView.hideKeyboardEvent(svEmployeeNumber)
             presenter.getInfoEmployee(svEmployeeNumber.text.toString().toInt())
         }
     }

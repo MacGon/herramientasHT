@@ -17,12 +17,14 @@ import com.baz.simaht.utils.CoConstants.ACTIONS.*
 @SuppressLint("RestrictedApi")
 class FoundToolViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
-    fun bind(selecTool: SelectableItem<Tool>) {
+    fun bind(selecTool: SelectableItem<Tool>, haveAction: Boolean, position: Int , actionSelected: (Boolean, Int) -> Unit) {
         with(selecTool) {
             itemView.tvToolMainName.text = item.name
             itemView.tvToolSerianlNumber.text = item.serialNumber.toString()
 
-            if (item.status) {
+            if (action != null && haveAction) {
+                showActionToDo(this)
+            } else if (item.status) {
                 itemView.tvToolStatus.text = itemView.resources.getString(R.string.msg_operational)
                 itemView.tvToolStatus.setTextColor(itemView.resources.getColor(R.color.grass))
             } else {
@@ -40,18 +42,24 @@ class FoundToolViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
                         when (item?.itemId) {
                             R.id.actionCustody -> {
                                 selecTool.action = CUSTODY
+                                actionSelected(true, position)
                             }
                             R.id.actionDamageCharge -> {
                                 selecTool.action = DAMAGE_CHARGE
+                                //TODO aply another logic for the next ACTIONS
+                                actionSelected(true, position)
                             }
                             R.id.actionIncident -> {
                                 selecTool.action = INCIDENT
+                                actionSelected(true, position)
                             }
                             R.id.actionFactoryDefect -> {
                                 selecTool.action = FACTORY_DEFECT
+                                actionSelected(true, position)
                             }
                             R.id.actionEndOfUseFulLife -> {
                                 selecTool.action = END_OF_USEFUL_LIFE
+                                actionSelected(true, position)
                             }
                         }
                         return false

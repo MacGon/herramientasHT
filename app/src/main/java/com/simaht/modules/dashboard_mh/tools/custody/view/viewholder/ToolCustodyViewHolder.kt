@@ -1,4 +1,4 @@
-package com.simaht.modules.dashboard_mh.tools.custody.viewholder
+package com.simaht.modules.dashboard_mh.tools.custody.view.viewholder
 
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
@@ -17,33 +17,24 @@ import com.baz.simaht.utils.CoConstants
 class ToolCustodyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
     //TODO REfact
     @SuppressLint("RestrictedApi")
-    fun bind(selecTool: SelectableItem<Tool>, position: Int, onView: CoConstants.ASSIGN, haveAction: Boolean) {
+    fun bind(selecTool: SelectableItem<Tool>, position: Int, onView: CoConstants.ASSIGN, haveAction: Boolean, notifyItemSelected:(position: Int, element: Tool, selected: Boolean) -> Unit) {
         with(selecTool) {
             itemView.tvToolMainName.text = item.name
             itemView.tvToolSerianlNumber.text = item.serialNumber.toString()
 
             if (action != null && haveAction && onView == CoConstants.ASSIGN.SET_ACTION) {
                 showActionToDo(this)
-            } else {
-                if (item.status) {
-                    itemView.tvToolStatus.text = itemView.resources.getString(R.string.msg_operational)
-                    itemView.tvToolStatus.setTextColor(itemView.resources.getColor(R.color.grass))
-                } else {
-                    itemView.tvToolStatus.text = "Robada" //fixme define my status plox jajaja
-                    itemView.tvToolStatus.setTextColor(itemView.resources.getColor(R.color.colorRed))
-                }
             }
 
             itemView.ivToolMoreOptions.setOnClickListener {
-
                 val myContext = itemView.context
                 val menuBuilder = MenuBuilder(myContext)
-                MenuInflater(myContext).inflate(R.menu.actions_menu, menuBuilder)
+                MenuInflater(myContext).inflate(R.menu.actions_menu_option, menuBuilder)
                 menuBuilder.setCallback(object : Callback {
                     override fun onMenuItemSelected(menu: MenuBuilder?, item: MenuItem?): Boolean {
-
-                        //callBack(true)//    set enabled btn coninue filtering
-                        //notifyItemChanged(position)
+                        if (item?.itemId == R.id.optionDelete) {
+                            //TODO something
+                        }
                         return false
                     }
 
@@ -54,6 +45,19 @@ class ToolCustodyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) 
                 menuHelper.setForceShowIcon(true)
                 menuHelper.show()
             }
+
+            itemView.clItemAssignTool.setOnLongClickListener {
+                selected = !selected
+                if (selected)
+                    notifyItemSelected(position, item, selected)
+                else
+                    notifyItemSelected(position, item, selected)
+                true
+            }
+
+            itemView.viewSelectec1.visibility = if(selected) View.VISIBLE else View.GONE //Change the background when it's scrolling
+            itemView.viewSelectec2.visibility = if(selected) View.VISIBLE else View.GONE
+
         }
     }
 

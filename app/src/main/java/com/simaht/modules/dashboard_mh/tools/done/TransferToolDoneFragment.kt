@@ -21,7 +21,6 @@ class TransferToolDoneFragment : Fragment() {
         arguments?.let {
             finishOk = it.getBoolean(FINISH_OK)
         }
-        parentView.processDone()
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
@@ -34,6 +33,7 @@ class TransferToolDoneFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         btnContinue.setOnClickListener {
+            parentView.processDone()
             parentView.nextFragment()
         }
     }

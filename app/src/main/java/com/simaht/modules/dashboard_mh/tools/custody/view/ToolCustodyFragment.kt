@@ -1,72 +1,61 @@
-package com.simaht.modules.dashboard_mh.tools.employeefoundlast.view
+package com.simaht.modules.dashboard_mh.tools.custody.view
 
 import android.os.Bundle
+import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AlertDialog
-import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.dashboard_mh.R
 import com.simaht.dashboard_mh.AssignTool.Tool
 import com.simaht.modules.dashboard_mh.tools.FragmentCommunication
-import com.simaht.modules.dashboard_mh.tools.employeefoundlast.contract.IEmployeeFoundContract
-import com.simaht.modules.dashboard_mh.tools.employeefoundlast.presenter.EmployeeFoundPresenter
-import com.simaht.modules.dashboard_mh.tools.employeefoundlast.view.adapter.ToolListFoundAdapter
+import com.simaht.modules.dashboard_mh.tools.custody.contract.ICustodyContract
+import com.simaht.modules.dashboard_mh.tools.custody.presenter.ToolCustodyPresenter
+import com.simaht.modules.dashboard_mh.tools.custody.view.adapter.ToolCustodyAdapter
 import com.simaht.utils.SelectableItem
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.dialog_notification.view.*
 import kotlinx.android.synthetic.main.fragment_employee_found.*
 
+class ToolCustodyFragment : Fragment(), ICustodyContract.View {
 
-class EmployeeFoundFragment : Fragment(), IEmployeeFoundContract.View {
-
-    private val NEW_EMPLOYE = "IS_NEW_EMPLOYEE"
-    private val TOOLS_FOUND = "TOOLS_FOUND"
-    private var newEmployee: Boolean? = null
-    private var toolsFound: Boolean? = null
     private lateinit var parentView: FragmentCommunication
     private lateinit var toolListFound: ArrayList<SelectableItem<Tool>>
-    private lateinit var adapter: ToolListFoundAdapter
-    private lateinit var presenter: IEmployeeFoundContract.Presenter
+    private lateinit var adapter : ToolCustodyAdapter
+    private lateinit var presenter : ICustodyContract.Presenter
     private lateinit var alertDialog: AlertDialog
     private lateinit var dialogView: View
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        arguments?.let {
-            newEmployee = it.getBoolean(NEW_EMPLOYE)
-            toolsFound = it.getBoolean(TOOLS_FOUND)
-        }
-
-        presenter = EmployeeFoundPresenter(this)
-
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
-
-        //TODO We could create a Singleton Emlpoyee to use in every class without transfer all the object
-
+        // Inflate the layout for this fragment
+        presenter = ToolCustodyPresenter(this)
         return inflater.inflate(R.layout.fragment_employee_found, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        newEmployee?.let {
-            btnAddTool.isEnabled = it
-        }
-
         rvContentTool.layoutManager = LinearLayoutManager(activity)
         rvContentTool.addItemDecoration(DividerItemDecoration(activity, DividerItemDecoration.VERTICAL))
 
-        adapter = ToolListFoundAdapter(toolListFound, true) {
-            btnContinue.isEnabled = it
-        }
+        adapter = ToolCustodyAdapter(toolListFound) { item, selected ->
+            if (selected) {
+                presenter.addToolToCustody(item)
+            } else {
+                presenter.removeToolToCustody(item)
+            }
 
+            btnContinue.isEnabled = presenter.haveItemsToCustody()
+        }
         rvContentTool.adapter = adapter
+        presenter.employee()
 
         Picasso.get()
                 .load("//url.com.mx")
@@ -75,29 +64,21 @@ class EmployeeFoundFragment : Fragment(), IEmployeeFoundContract.View {
                 .into(employeeFace)
 
         btnContinue.setOnClickListener {
-            parentView.putScannedTools(adapter.listToCustody())
-            parentView.nextFragment()
+            notifyAction()
         }
-        presenter.employee()
-        presenter.searchTools()
 
     }
 
     companion object {
         @JvmStatic
-        fun newInstance(isNewEmployee: Boolean, toolsFound: Boolean, tools: ArrayList<SelectableItem<Tool>>, communication: FragmentCommunication) =
-                EmployeeFoundFragment().apply {
-                    toolListFound = tools
+        fun newInstance(custodyTools : ArrayList<SelectableItem<Tool>>, communication: FragmentCommunication) =
+                ToolCustodyFragment().apply {
+                    toolListFound = custodyTools
                     parentView = communication
-                    arguments = Bundle().apply {
-                        putBoolean(NEW_EMPLOYE, isNewEmployee)
-                        putBoolean(TOOLS_FOUND, toolsFound)
-                    }
+                    //arguments = Bundle().apply {
+                        //putString(ARG_PARAM1, param1)
+                    //}
                 }
-    }
-
-    override fun putList() {
-
     }
 
     override fun showLoader() {
@@ -105,7 +86,10 @@ class EmployeeFoundFragment : Fragment(), IEmployeeFoundContract.View {
     }
 
     override fun hideLoader() {
+    }
 
+    override fun custodyDone() {
+        parentView.nextFragment()
     }
 
     override fun setEmployee() {
@@ -115,23 +99,13 @@ class EmployeeFoundFragment : Fragment(), IEmployeeFoundContract.View {
 
     }
 
-    override fun addItemFound(toolsFound: List<SelectableItem<Tool>>) {
-        if (toolsFound.isNotEmpty()) {
-            adapter.addToolsFound(toolsFound)
-            notifyHaveTools()
-        }
-    }
 
-
-    private fun notifyHaveTools() {
+    private fun notifyAction() {
 
         val dialogBuilder = AlertDialog.Builder(activity!!)
         dialogView = layoutInflater.inflate(R.layout.dialog_notification, null)
-
-        //CUSTODY -> {
-        dialogView.ivImageAlert.visibility = View.GONE
-        dialogView.tvNormalDialog.text = String.format(resources.getString(R.string.msg_employee_with_tools))
-        //}
+        dialogView.ivImageAlert.visibility = View.VISIBLE
+        dialogView.tvNormalDialog.text = String.format(resources.getString(R.string.msg_custody_tool), employeeName.text.toString())
         dialogBuilder.setView(dialogView)
                 .setCancelable(false)
         alertDialog = dialogBuilder.create()
@@ -156,6 +130,7 @@ class EmployeeFoundFragment : Fragment(), IEmployeeFoundContract.View {
 
         dialogView.btnDialogOK.setOnClickListener {
             alertDialog.dismiss()
+            presenter.applyCustody()
         }
         dialogView.btnDialogCancel.setOnClickListener {
             alertDialog.dismiss()
@@ -164,7 +139,7 @@ class EmployeeFoundFragment : Fragment(), IEmployeeFoundContract.View {
     }
 
     private fun goBack() {
-        adapter.removeTemporalTools()
         parentView.removeFragment()
     }
+
 }

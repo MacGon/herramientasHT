@@ -3,20 +3,28 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/colorWhite"
     tools:context="com.simaht.modules.dashboard_mh.tools.toollist.view.AddingToolsFragment">
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/tvInstructions"
-        android:layout_width="325dp"
-        android:layout_height="63dp"
-        android:layout_marginTop="8dp"
+        android:layout_width="0dp"
+        android:layout_height="70dp"
         android:lineSpacingExtra="3.2sp"
         android:textColor="@color/colorAccent"
         android:textSize="16sp"
-        android:text="@string/msg_manage_tools_instrunction"
+        android:padding="12dp"
+        android:background="@color/colorWhite"
+        android:text="@string/msg_scann_instruction"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@color/transparentGray"
+        app:layout_constraintBottom_toBottomOf="@id/tvInstructions" />
 
     <RelativeLayout
         android:id="@+id/rlEmployeeInfo"
@@ -87,7 +95,7 @@
             android:layout_marginTop="20dp"
             android:textSize="19sp"
             android:textColor="@color/gunmetal"
-            android:layout_below="@id/employeeAbstract"
+            android:layout_below="@id/employeeFace"
             android:text="@string/msg_assigned_tools"/>
 
         <ImageView
@@ -100,9 +108,16 @@
             android:tint="@color/available"
             android:src="@drawable/ic_filter_option"
             android:layout_alignParentEnd="true"
-            android:layout_below="@id/employeeAbstract"/>
+            android:layout_below="@id/employeeFace"
+            android:contentDescription="@null"/>
 
     </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@color/transparentGray"
+        app:layout_constraintBottom_toTopOf="@id/rvContentTool" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvContentTool"

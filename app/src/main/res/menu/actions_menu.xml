@@ -6,6 +6,7 @@
         android:id="@+id/actionCustody"
         android:icon="@drawable/ic_square"
         android:iconTint="@color/custudy"
+        android:enabled="true"
         app:showAsAction="always"
         android:title="@string/msg_custody" />
 
@@ -13,7 +14,7 @@
         android:id="@+id/actionDamageCharge"
         android:icon="@drawable/ic_square"
         android:iconTint="@color/damage_charge"
-        android:enabled="true"
+        android:enabled="false"
         app:showAsAction="ifRoom"
         android:title="@string/msg_damage_charge" />
 
@@ -21,7 +22,7 @@
         android:id="@+id/actionIncident"
         android:icon="@drawable/ic_square"
         android:iconTint="@color/incident"
-        android:enabled="true"
+        android:enabled="false"
         app:showAsAction="collapseActionView"
         android:title="@string/msg_incident" />
 
@@ -29,7 +30,7 @@
         android:id="@+id/actionFactoryDefect"
         android:icon="@drawable/ic_square"
         android:iconTint="@color/factory_defect"
-        android:enabled="true"
+        android:enabled="false"
         app:showAsAction="withText"
         android:title="@string/msg_factory_defect" />
 
@@ -37,7 +38,7 @@
         android:id="@+id/actionEndOfUseFulLife"
         android:icon="@drawable/ic_square"
         android:iconTint="@color/end_of_useful_life"
-        android:enabled="true"
+        android:enabled="false"
         app:showAsAction="withText"
         android:title="@string/msg_end_of_useful_life" />
 

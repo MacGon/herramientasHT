@@ -17,9 +17,10 @@ import com.baz.simaht.utils.CoConstants.Companion.SEARCHING_EMPLOYEE
 import com.example.dashboard_mh.R
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.simaht.dashboard_mh.AssignTool.Tool
+import com.simaht.modules.dashboard_mh.tools.custody.view.ToolCustodyFragment
 import com.simaht.modules.dashboard_mh.tools.done.TransferToolDoneFragment
 import com.simaht.modules.dashboard_mh.tools.employeefoundlast.view.EmployeeFoundFragment
-import com.simaht.modules.dashboard_mh.tools.searchemployee.SearchEmployeeFragment
+import com.simaht.modules.dashboard_mh.tools.searchemployee.view.SearchEmployeeFragment
 import com.simaht.modules.dashboard_mh.tools.toollist.view.AddingToolsFragment
 import com.simaht.utils.SelectableItem
 import kotlinx.android.synthetic.main.activity_tool_transfer.*
@@ -28,7 +29,9 @@ import kotlinx.android.synthetic.main.app_bar_main.*
 class ToolTransferActivity : AppCompatActivity(), FragmentCommunication {
 
     private var counter: Int = 0
-    private lateinit var tools: ArrayList<SelectableItem<Tool>>
+    private lateinit var toolsFound: ArrayList<SelectableItem<Tool>>
+    private lateinit var toolsToCustody: ArrayList<SelectableItem<Tool>>
+    private var firstTools: Boolean = true
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -39,6 +42,8 @@ class ToolTransferActivity : AppCompatActivity(), FragmentCommunication {
         window.setStatusBarColor(ContextCompat.getColor(this@ToolTransferActivity, R.color.colorAccent))
 
         nextFragment()
+
+        setTitle(R.string.title_tools_flow)
     }
 
     private fun listenerMeu() = BottomNavigationView.OnNavigationItemSelectedListener { item ->
@@ -88,20 +93,20 @@ class ToolTransferActivity : AppCompatActivity(), FragmentCommunication {
 
 
     private fun goBack() {
+
+        if (supportFragmentManager.fragments.last() is TransferToolDoneFragment)
+            processDone()
+
         if (supportFragmentManager.backStackEntryCount > 0) {
             counter--
             supportFragmentManager.popBackStack()
-            if (supportFragmentManager.backStackEntryCount == 0)
-                this.finish()
+            if (counter == 0)
+                processDone()
+
+            if(counter == 3)
+                firstTools = false
         }
     }
-
-    fun proceesDone() {
-        supportFragmentManager.popBackStack()
-        //TODO add contract fragment
-        this@ToolTransferActivity.finish() //FlowCompleted 100%
-    }
-
 
     override fun addFragment(fragment: Fragment, fragmentTAG: String?) {
         addToBackStack(fragment, fragmentTAG)
@@ -111,7 +116,7 @@ class ToolTransferActivity : AppCompatActivity(), FragmentCommunication {
         goBack()
     }
 
-    override fun nextFragment(newEmpl: Boolean?, toolsFound: Boolean?) {
+    override fun nextFragment(newEmpl: Boolean?, haveToolsFound: Boolean?) {
         counter++
         when (counter) {
             1 -> {
@@ -121,18 +126,15 @@ class ToolTransferActivity : AppCompatActivity(), FragmentCommunication {
                 addToBackStack(SearchEmployeeFragment.newInstance(this), SEARCHING_EMPLOYEE)
             }
             3 -> {
-                addToBackStack(EmployeeFoundFragment.newInstance(newEmpl ?: false, toolsFound ?: false, tools, this), EMPLOYEE_FOUND)
+                addToBackStack(EmployeeFoundFragment.newInstance(newEmpl ?: false, haveToolsFound ?: false, toolsFound, this), EMPLOYEE_FOUND)
             }
             4 -> {
-                addToBackStack(SearchEmployeeFragment.newInstance(this), ADDING_ACTIONS)
+                addToBackStack(ToolCustodyFragment.newInstance( toolsToCustody,this), ADDING_ACTIONS)
             }
             5 -> {
                 addToBackStack(TransferToolDoneFragment.newInstance(true,this), PROCESS_DONE)
             }
-            else -> {
-                if((R.id.navigationBackDetail as MenuItem).isEnabled)
-                    this.finish()
-            }
+            else -> { }
         }
 
     }
@@ -142,12 +144,16 @@ class ToolTransferActivity : AppCompatActivity(), FragmentCommunication {
     }
 
     override fun processDone() {
-        (R.id.navigationBackDetail as MenuItem).isEnabled = false
-        //DOTO Finish IT
+        this@ToolTransferActivity.finish()
     }
 
     override fun putScannedTools(tools: ArrayList<SelectableItem<Tool>>) {
-        this.tools = tools
+        if (firstTools) {
+            this.toolsFound = tools
+            firstTools = false
+        } else {
+            this.toolsToCustody = tools
+        }
     }
 
 }
