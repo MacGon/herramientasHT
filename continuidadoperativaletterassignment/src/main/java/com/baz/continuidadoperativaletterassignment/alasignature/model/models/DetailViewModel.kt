@@ -1,4 +1,4 @@
-package com.baz.continuidadoperativaletterassignment.almenu.model.models
+package com.baz.continuidadoperativaletterassignment.alasignature.model.models
 
 import com.google.gson.Gson
 

@@ -10,12 +10,38 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="753809c4-6b26-409c-95ea-7df5a0aeedd7" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/continuidadoperativaletterassignment/src/main/java/com/baz/continuidadoperativaletterassignment/alasignature/interface/IAsignatureContractPresenter.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/continuidadoperativaletterassignment/src/main/java/com/baz/continuidadoperativaletterassignment/alasignature/interface/IAsignatureContractView.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/continuidadoperativaletterassignment/src/main/java/com/baz/continuidadoperativaletterassignment/alasignature/presenter/ALAsignaturePresenter.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.1.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.1.1/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.1.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.1.1/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.1.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.1.1/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.1.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.1.1/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.1.1/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.1.1/fileHashes/resourceHashesCache.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.1.1/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.1.1/javaCompile/classAnalysis.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.1.1/javaCompile/jarAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.1.1/javaCompile/jarAnalysis.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.1.1/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.1.1/javaCompile/javaCompile.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.1.1/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.1.1/javaCompile/taskHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/continuidadoperativaletterassignment/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/continuidadoperativaletterassignment/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/continuidadoperativaletterassignment/src/main/java/com/baz/continuidadoperativaletterassignment/almenu/interfaces/IALetterPresenter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/continuidadoperativaletterassignment/src/main/java/com/baz/continuidadoperativaletterassignment/almenu/interface/IALetterPresenter.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/continuidadoperativaletterassignment/src/main/java/com/baz/continuidadoperativaletterassignment/almenu/interfaces/IALetterView.kt" beforeDir="false" afterPath="$PROJECT_DIR$/continuidadoperativaletterassignment/src/main/java/com/baz/continuidadoperativaletterassignment/almenu/interface/IALetterView.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/continuidadoperativaletterassignment/src/main/java/com/baz/continuidadoperativaletterassignment/almenu/model/api/ApiServiceInterfaceAL.kt" beforeDir="false" afterPath="$PROJECT_DIR$/continuidadoperativaletterassignment/src/main/java/com/baz/continuidadoperativaletterassignment/alasignature/model/api/ApiServiceInterfaceAL.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/continuidadoperativaletterassignment/src/main/java/com/baz/continuidadoperativaletterassignment/almenu/model/models/AssignationToolLA.kt" beforeDir="false" afterPath="$PROJECT_DIR$/continuidadoperativaletterassignment/src/main/java/com/baz/continuidadoperativaletterassignment/alasignature/model/models/AssignationToolLA.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/continuidadoperativaletterassignment/src/main/java/com/baz/continuidadoperativaletterassignment/almenu/model/models/DetailViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/continuidadoperativaletterassignment/src/main/java/com/baz/continuidadoperativaletterassignment/alasignature/model/models/DetailViewModel.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/continuidadoperativaletterassignment/src/main/java/com/baz/continuidadoperativaletterassignment/almenu/model/services/ALHttpService.kt" beforeDir="false" afterPath="$PROJECT_DIR$/continuidadoperativaletterassignment/src/main/java/com/baz/continuidadoperativaletterassignment/alasignature/model/services/ALHttpService.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/continuidadoperativaletterassignment/src/main/java/com/baz/continuidadoperativaletterassignment/almenu/presenter/ALetterPresenter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/continuidadoperativaletterassignment/src/main/java/com/baz/continuidadoperativaletterassignment/almenu/presenter/ALetterPresenter.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/continuidadoperativaletterassignment/src/main/java/com/baz/continuidadoperativaletterassignment/almenu/view/ui/ALetterActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/continuidadoperativaletterassignment/src/main/java/com/baz/continuidadoperativaletterassignment/almenu/view/ui/ALetterActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/continuidadoperativaletterassignment/src/main/java/com/baz/continuidadoperativaletterassignment/almenu/view/ui/fragments/ALAsignatureAcceptedFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/continuidadoperativaletterassignment/src/main/java/com/baz/continuidadoperativaletterassignment/alasignature/view/ui/fragments/ALAsignatureAcceptedFragment.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/continuidadoperativaletterassignment/src/main/java/com/baz/continuidadoperativaletterassignment/almenu/view/ui/fragments/ALContractFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/continuidadoperativaletterassignment/src/main/java/com/baz/continuidadoperativaletterassignment/alasignature/view/ui/fragments/ALContractFragment.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/continuidadoperativaletterassignment/src/main/java/com/baz/continuidadoperativaletterassignment/almenu/view/ui/fragments/ALLetterAsignmentSuccessful.kt" beforeDir="false" afterPath="$PROJECT_DIR$/continuidadoperativaletterassignment/src/main/java/com/baz/continuidadoperativaletterassignment/alasignature/view/ui/fragments/ALLetterAsignmentSuccessful.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/continuidadoperativaletterassignment/src/main/java/com/baz/continuidadoperativaletterassignment/alutils/PaintView.kt" beforeDir="false" afterPath="$PROJECT_DIR$/continuidadoperativaletterassignment/src/main/java/com/baz/continuidadoperativaletterassignment/alutils/PaintView.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/continuidadoperativaletterassignment/src/main/res/layout/fragment_alletter_asignament_successfull.xml" beforeDir="false" afterPath="$PROJECT_DIR$/continuidadoperativaletterassignment/src/main/res/layout/fragment_alletter_asignament_successfull.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/continuidadoperativaletterassignment/src/main/res/layout/fragment_asignature_accepted.xml" beforeDir="false" afterPath="$PROJECT_DIR$/continuidadoperativaletterassignment/src/main/res/layout/fragment_asignature_accepted.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/continuidadoperativaletterassignment/src/main/res/layout/fragment_contract.xml" beforeDir="false" afterPath="$PROJECT_DIR$/continuidadoperativaletterassignment/src/main/res/layout/fragment_contract.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -47,82 +73,23 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/simaht/utils/JsonFile.kt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-469">
-              <caret line="8" column="6" selection-start-line="8" selection-start-column="6" selection-end-line="8" selection-end-column="6" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/simaht/utils/Extensions.kt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-721" />
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/simaht/utils/Utils.kt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="89">
-              <caret line="11" column="11" selection-start-line="11" selection-start-column="11" selection-end-line="11" selection-end-column="11" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/simaht/network/data/ModelTest.kt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="72">
-              <caret line="4" column="6" selection-start-line="4" selection-start-column="6" selection-end-line="4" selection-end-column="6" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/simaht/network/data/LoginResponseModel.kt">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/simaht/network/data/LoginRequestModel.kt">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/simaht/network/model/LogginEntity.kt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="144">
-              <caret line="8" column="11" selection-start-line="8" selection-start-column="11" selection-end-line="8" selection-end-column="11" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/simaht/network/remote/services/IAccount.kt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="36">
-              <caret line="2" column="10" selection-start-line="2" selection-start-column="10" selection-end-line="2" selection-end-column="10" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/simaht/network/remote/services/IAssigment.kt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="288">
-              <caret line="21" column="17" selection-start-line="21" selection-start-column="17" selection-end-line="21" selection-end-column="17" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/simaht/network/remote/RestAPI.kt">
+        <entry file="file://$PROJECT_DIR$/continuidadoperativaletterassignment/src/main/java/com/baz/continuidadoperativaletterassignment/alasignature/presenter/ALAsignaturePresenter.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="417">
-              <caret line="115" column="19" selection-start-line="115" selection-start-column="19" selection-end-line="115" selection-end-column="19" />
+            <state relative-caret-position="360">
+              <caret line="20" column="28" lean-forward="true" selection-start-line="20" selection-start-column="28" selection-end-line="20" selection-end-column="28" />
+              <folding>
+                <element signature="e#77#627#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/simaht/modules/login/presenter/LoginPresenterImpl.kt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="297">
+              <caret line="295" column="13" selection-start-line="295" selection-start-column="13" selection-end-line="295" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -133,14 +100,13 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="resourceFile" />
+        <option value="Kotlin Interface" />
+        <option value="Kotlin Class" />
       </list>
     </option>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>ButtonTooldStyle</find>
-      <find>tool</find>
-      <find>mont</find>
       <find>ButtonAsignTool</find>
       <find>tools</find>
       <find>presiona de nuevo</find>
@@ -168,6 +134,9 @@
       <find>Allet</find>
       <find>letter</find>
       <find>emp</find>
+      <find>observeOn</find>
+      <find>AndroidSchedulers</find>
+      <find>reactivex</find>
     </findStrings>
     <dirStrings>
       <dir>$PROJECT_DIR$/app</dir>
@@ -180,9 +149,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/src/main/java/com/simaht/dashboard_mh/MainActivity.kt" />
-        <option value="$PROJECT_DIR$/gradle.properties" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/simaht/modules/login/view/LoginActivity.kt" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/simaht/modules/login/model/LogInInteractor.kt" />
         <option value="$PROJECT_DIR$/app/src/main/res/drawable/ic_cobrar_herramienta.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/simaht/modules/dashboard_mh/DashBoardFragment.kt" />
@@ -203,11 +169,9 @@
         <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_unsubscribe_tool.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/menu/navigation_menu.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" />
-        <option value="$PROJECT_DIR$/continuidadoperativaletterassignment/build.gradle" />
         <option value="$PROJECT_DIR$/app/build.gradle" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/simaht/modules/dashboard_mh/MainActivity.kt" />
         <option value="$PROJECT_DIR$/app/src/main/res/values/colors.xml" />
-        <option value="$PROJECT_DIR$/continuidadoperativaletterassignment/src/main/res/layout/fragment_alletter_asignament_successfull.xml" />
         <option value="$PROJECT_DIR$/continuidadoperativaletterassignment/src/main/java/com/baz/continuidadoperativaletterassignment/almenu/view/ui/ALetterActivity.kt" />
         <option value="$PROJECT_DIR$/app/src/main/res/values/styles.xml" />
         <option value="$PROJECT_DIR$/continuidadoperativaletterassignment/src/main/res/layout/activity_coletter.xml" />
@@ -225,13 +189,23 @@
         <option value="$PROJECT_DIR$/continuidadoperativaletterassignment/src/main/res/layout/fragment_asignature_accepted.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/simaht/modules/dashboard_mh/tools/DetailActivity.kt" />
         <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
+        <option value="$PROJECT_DIR$/continuidadoperativaletterassignment/src/main/java/com/baz/continuidadoperativaletterassignment/almenu/interfaces/AsignmentContract.kt" />
+        <option value="$PROJECT_DIR$/continuidadoperativaletterassignment/src/main/java/com/baz/continuidadoperativaletterassignment/almenu/interfaces/IAsignmentContractView.kt" />
+        <option value="$PROJECT_DIR$/continuidadoperativaletterassignment/src/main/java/com/baz/continuidadoperativaletterassignment/alasignature/view/ui/fragments/ALContractFragment.kt" />
+        <option value="$PROJECT_DIR$/continuidadoperativaletterassignment/src/main/java/com/baz/continuidadoperativaletterassignment/alasignature/interface/IAsignmentContractView.kt" />
+        <option value="$PROJECT_DIR$/continuidadoperativaletterassignment/src/main/java/com/baz/continuidadoperativaletterassignment/alasignature/interface/IAsignatureContractView.kt" />
+        <option value="$PROJECT_DIR$/continuidadoperativaletterassignment/src/main/java/com/baz/continuidadoperativaletterassignment/alasignature/view/ui/fragments/ALAsignatureAcceptedFragment.kt" />
+        <option value="$PROJECT_DIR$/continuidadoperativaletterassignment/src/main/java/com/baz/continuidadoperativaletterassignment/alasignature/interface/IAsignatureContractPresenter.kt" />
+        <option value="$PROJECT_DIR$/continuidadoperativaletterassignment/src/main/java/com/baz/continuidadoperativaletterassignment/alasignature/model/api/ApiServiceInterfaceAL.kt" />
+        <option value="$PROJECT_DIR$/continuidadoperativaletterassignment/src/main/res/layout/fragment_alletter_asignament_successfull.xml" />
+        <option value="$PROJECT_DIR$/continuidadoperativaletterassignment/build.gradle" />
+        <option value="$PROJECT_DIR$/continuidadoperativaletterassignment/src/main/java/com/baz/continuidadoperativaletterassignment/alasignature/presenter/ALAsignaturePresenter.kt" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="y" value="23" />
-    <option name="width" value="2560" />
-    <option name="height" value="1337" />
+  <component name="ProjectFrameBounds" extendedState="6" fullScreen="true">
+    <option name="width" value="1461" />
+    <option name="height" value="1440" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -240,120 +214,58 @@
     </navigator>
     <panes>
       <pane id="Scope" />
-      <pane id="ProjectPane" />
+      <pane id="PackagesPane" />
       <pane id="AndroidView">
         <subPane>
           <expand>
             <path>
               <item name="simaht" type="1abcf292:AndroidViewProjectNode" />
-              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="continuidadoperativaletterassignment" type="feadf853:AndroidModuleNode" />
             </path>
             <path>
               <item name="simaht" type="1abcf292:AndroidViewProjectNode" />
-              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="continuidadoperativaletterassignment" type="feadf853:AndroidModuleNode" />
               <item name="java" type="edd41e36:AndroidSourceTypeNode" />
             </path>
             <path>
               <item name="simaht" type="1abcf292:AndroidViewProjectNode" />
-              <item name="app" type="feadf853:AndroidModuleNode" />
-              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
-              <item name="com" type="cbb59c9e:AndroidPsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="simaht" type="1abcf292:AndroidViewProjectNode" />
-              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="continuidadoperativaletterassignment" type="feadf853:AndroidModuleNode" />
               <item name="java" type="edd41e36:AndroidSourceTypeNode" />
               <item name="com" type="cbb59c9e:AndroidPsiDirectoryNode" />
-              <item name="simaht" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="simaht" type="1abcf292:AndroidViewProjectNode" />
-              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="continuidadoperativaletterassignment" type="feadf853:AndroidModuleNode" />
               <item name="java" type="edd41e36:AndroidSourceTypeNode" />
               <item name="com" type="cbb59c9e:AndroidPsiDirectoryNode" />
-              <item name="simaht" type="462c0819:PsiDirectoryNode" />
-              <item name="modules" type="462c0819:PsiDirectoryNode" />
+              <item name="baz" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="simaht" type="1abcf292:AndroidViewProjectNode" />
-              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="continuidadoperativaletterassignment" type="feadf853:AndroidModuleNode" />
               <item name="java" type="edd41e36:AndroidSourceTypeNode" />
               <item name="com" type="cbb59c9e:AndroidPsiDirectoryNode" />
-              <item name="simaht" type="462c0819:PsiDirectoryNode" />
-              <item name="modules" type="462c0819:PsiDirectoryNode" />
-              <item name="login" type="462c0819:PsiDirectoryNode" />
+              <item name="baz" type="462c0819:PsiDirectoryNode" />
+              <item name="continuidadoperativaletterassignment" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="simaht" type="1abcf292:AndroidViewProjectNode" />
-              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="continuidadoperativaletterassignment" type="feadf853:AndroidModuleNode" />
               <item name="java" type="edd41e36:AndroidSourceTypeNode" />
               <item name="com" type="cbb59c9e:AndroidPsiDirectoryNode" />
-              <item name="simaht" type="462c0819:PsiDirectoryNode" />
-              <item name="modules" type="462c0819:PsiDirectoryNode" />
-              <item name="login" type="462c0819:PsiDirectoryNode" />
-              <item name="view" type="462c0819:PsiDirectoryNode" />
+              <item name="baz" type="462c0819:PsiDirectoryNode" />
+              <item name="continuidadoperativaletterassignment" type="462c0819:PsiDirectoryNode" />
+              <item name="alasignature" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="simaht" type="1abcf292:AndroidViewProjectNode" />
-              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="continuidadoperativaletterassignment" type="feadf853:AndroidModuleNode" />
               <item name="java" type="edd41e36:AndroidSourceTypeNode" />
               <item name="com" type="cbb59c9e:AndroidPsiDirectoryNode" />
-              <item name="simaht" type="462c0819:PsiDirectoryNode" />
-              <item name="network" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="simaht" type="1abcf292:AndroidViewProjectNode" />
-              <item name="app" type="feadf853:AndroidModuleNode" />
-              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
-              <item name="com" type="cbb59c9e:AndroidPsiDirectoryNode" />
-              <item name="simaht" type="462c0819:PsiDirectoryNode" />
-              <item name="network" type="462c0819:PsiDirectoryNode" />
-              <item name="data" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="simaht" type="1abcf292:AndroidViewProjectNode" />
-              <item name="app" type="feadf853:AndroidModuleNode" />
-              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
-              <item name="com" type="cbb59c9e:AndroidPsiDirectoryNode" />
-              <item name="simaht" type="462c0819:PsiDirectoryNode" />
-              <item name="network" type="462c0819:PsiDirectoryNode" />
-              <item name="model" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="simaht" type="1abcf292:AndroidViewProjectNode" />
-              <item name="app" type="feadf853:AndroidModuleNode" />
-              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
-              <item name="com" type="cbb59c9e:AndroidPsiDirectoryNode" />
-              <item name="simaht" type="462c0819:PsiDirectoryNode" />
-              <item name="network" type="462c0819:PsiDirectoryNode" />
-              <item name="remote" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="simaht" type="1abcf292:AndroidViewProjectNode" />
-              <item name="app" type="feadf853:AndroidModuleNode" />
-              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
-              <item name="com" type="cbb59c9e:AndroidPsiDirectoryNode" />
-              <item name="simaht" type="462c0819:PsiDirectoryNode" />
-              <item name="network" type="462c0819:PsiDirectoryNode" />
-              <item name="remote" type="462c0819:PsiDirectoryNode" />
-              <item name="services" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="simaht" type="1abcf292:AndroidViewProjectNode" />
-              <item name="app" type="feadf853:AndroidModuleNode" />
-              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
-              <item name="com" type="cbb59c9e:AndroidPsiDirectoryNode" />
-              <item name="simaht" type="462c0819:PsiDirectoryNode" />
-              <item name="network" type="462c0819:PsiDirectoryNode" />
-              <item name="session" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="simaht" type="1abcf292:AndroidViewProjectNode" />
-              <item name="app" type="feadf853:AndroidModuleNode" />
-              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
-              <item name="com" type="cbb59c9e:AndroidPsiDirectoryNode" />
-              <item name="simaht" type="462c0819:PsiDirectoryNode" />
-              <item name="utils" type="462c0819:PsiDirectoryNode" />
+              <item name="baz" type="462c0819:PsiDirectoryNode" />
+              <item name="continuidadoperativaletterassignment" type="462c0819:PsiDirectoryNode" />
+              <item name="alasignature" type="462c0819:PsiDirectoryNode" />
+              <item name="presenter" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="simaht" type="1abcf292:AndroidViewProjectNode" />
@@ -363,7 +275,43 @@
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="simaht" type="b2602c69:ProjectViewProjectNode" />
+              <item name="simaht" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+            </path>
+            <path>
+              <item name="simaht" type="b2602c69:ProjectViewProjectNode" />
+              <item name="simaht" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+            </path>
+            <path>
+              <item name="simaht" type="b2602c69:ProjectViewProjectNode" />
+              <item name="simaht" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="simaht" type="b2602c69:ProjectViewProjectNode" />
+              <item name="simaht" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="simaht" type="b2602c69:ProjectViewProjectNode" />
+              <item name="simaht" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="res" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -372,6 +320,7 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveKotlinTopLevelDeclarationsDialog.RECENTS_KEY">
+      <recent name="com.baz.continuidadoperativaletterassignment.alasignature.interfaces" />
       <recent name="com.simaht.network.data" />
       <recent name="com.simaht.login.view" />
     </key>
@@ -473,11 +422,11 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="2560" height="1337" extended-state="0" />
+    <frame x="0" y="0" width="1274" height="1440" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Captures" order="0" side_tool="true" weight="0.25" />
-      <window_info active="true" content_ui="combo" id="Project" order="1" sideWeight="0.49892008" visible="true" weight="0.1310564" />
+      <window_info content_ui="combo" id="Project" order="1" sideWeight="0.49892008" visible="true" weight="0.18912338" />
       <window_info id="Structure" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info id="Build Variants" order="4" sideWeight="0.5010799" side_tool="true" weight="0.15592106" />
@@ -490,45 +439,18 @@
       <window_info anchor="bottom" id="TODO" order="2" weight="0.329927" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.21526104" />
       <window_info anchor="bottom" id="Terminal" order="4" />
-      <window_info anchor="bottom" id="Event Log" order="5" side_tool="true" />
+      <window_info anchor="bottom" id="Event Log" order="5" sideWeight="0.2508117" side_tool="true" weight="0.2540146" />
       <window_info anchor="bottom" id="Version Control" order="6" />
-      <window_info anchor="bottom" id="Build" order="7" visible="true" weight="0.25461847" />
+      <window_info anchor="bottom" id="Build" order="7" sideWeight="0.7491883" visible="true" weight="0.2540146" />
       <window_info anchor="bottom" id="Android Profiler" order="8" />
       <window_info anchor="bottom" id="Find" order="9" weight="0.329927" />
-      <window_info anchor="right" id="Device File Explorer" order="0" side_tool="true" />
+      <window_info anchor="right" id="Device File Explorer" order="0" sideWeight="0.50489235" side_tool="true" weight="0.024350649" />
       <window_info anchor="right" id="Capture Analysis" order="1" />
       <window_info anchor="right" id="Gradle" order="2" weight="0.32962668" />
       <window_info anchor="right" id="Theme Preview" order="3" />
       <window_info anchor="right" id="Palette&#9;" order="4" />
-      <window_info active="true" anchor="right" id="Preview" order="5" visible="true" weight="0.29428118" />
+      <window_info anchor="right" id="Preview" order="5" sideWeight="0.49510762" weight="0.29383117" />
     </layout>
-    <layout-to-restore>
-      <window_info id="Captures" order="0" side_tool="true" weight="0.25" />
-      <window_info active="true" content_ui="combo" id="Project" order="1" sideWeight="0.49892008" visible="true" weight="0.1310564" />
-      <window_info id="Structure" order="2" side_tool="true" />
-      <window_info id="Favorites" order="3" side_tool="true" />
-      <window_info id="Build Variants" order="4" sideWeight="0.5010799" side_tool="true" weight="0.15592106" />
-      <window_info id="Image Layers" order="5" />
-      <window_info id="Designer" order="6" />
-      <window_info id="Resources Explorer" order="7" />
-      <window_info id="Capture Tool" order="8" />
-      <window_info anchor="bottom" id="Run" order="0" weight="0.32931727" />
-      <window_info anchor="bottom" id="Logcat" order="1" weight="0.329927" />
-      <window_info anchor="bottom" id="TODO" order="2" weight="0.329927" />
-      <window_info anchor="bottom" id="Debug" order="3" visible="true" weight="0.21526104" />
-      <window_info anchor="bottom" id="Terminal" order="4" />
-      <window_info anchor="bottom" id="Event Log" order="5" side_tool="true" />
-      <window_info anchor="bottom" id="Version Control" order="6" />
-      <window_info anchor="bottom" id="Build" order="7" weight="0.25461847" />
-      <window_info anchor="bottom" id="Android Profiler" order="8" />
-      <window_info anchor="bottom" id="Find" order="9" weight="0.329927" />
-      <window_info anchor="right" id="Device File Explorer" order="0" side_tool="true" />
-      <window_info anchor="right" id="Capture Analysis" order="1" />
-      <window_info anchor="right" id="Gradle" order="2" weight="0.32962668" />
-      <window_info anchor="right" id="Theme Preview" order="3" />
-      <window_info anchor="right" id="Palette&#9;" order="4" />
-      <window_info anchor="right" id="Preview" order="5" weight="0.29428118" />
-    </layout-to-restore>
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -547,7 +469,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/continuidadoperativaletterassignment/src/main/java/com/baz/continuidadoperativaletterassignment/alutils/PaintView.kt</url>
-          <line>87</line>
+          <line>84</line>
           <properties />
           <option name="timeStamp" value="23" />
         </line-breakpoint>
@@ -555,159 +477,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/simaht/modules/dashboard_mh/AssignTool/view/AssignToolAdapter.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="41">
-          <caret line="17" column="83" lean-forward="true" selection-start-line="17" selection-start-column="83" selection-end-line="17" selection-end-column="83" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/continuidadoperativaletterassignment/src/main/res/layout/fragment_alletter_asignament_successfull.xml">
-      <provider selected="true" editor-type-id="android-designer2" />
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="414">
-          <caret line="23" column="36" selection-start-line="23" selection-start-column="36" selection-end-line="23" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/simaht/modules/dashboard_mh/AssignTool/view/AssignToolChildFragment.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="282">
-          <caret line="44" column="47" lean-forward="true" selection-start-line="44" selection-start-column="47" selection-end-line="44" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/item_assign_tool_confirmation.xml">
-      <provider editor-type-id="android-designer2" />
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_assign_tool_child.xml">
-      <provider editor-type-id="android-designer2" />
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="730">
-          <caret line="76" column="52" lean-forward="true" selection-start-line="76" selection-start-column="52" selection-end-line="76" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/simaht/modules/dashboard_mh/AssignTool/AssignationTool.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="36">
-          <caret line="2" column="6" selection-start-line="2" selection-start-column="6" selection-end-line="2" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/simaht/modules/dashboard_mh/AssignTool/view/AssignToolManagerFragment.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="666">
-          <caret line="57" column="54" lean-forward="true" selection-start-line="57" selection-start-column="54" selection-end-line="57" selection-end-column="54" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/continuidadoperativaletterassignment/src/main/res/drawable/shape_disable_btn_la.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="4" column="47" selection-start-line="4" selection-start-column="47" selection-end-line="4" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/styles.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="597">
-          <caret line="422" column="62" selection-start-line="422" selection-start-column="62" selection-end-line="422" selection-end-column="62" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/continuidadoperativaletterassignment/src/main/res/drawable/shape_button_delete_paint.xml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/btn_rect_border_line.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="5" column="11" lean-forward="true" selection-start-line="5" selection-start-column="11" selection-end-line="5" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/selector_tool_function.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="4" column="51" lean-forward="true" selection-start-line="4" selection-start-column="51" selection-end-line="4" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/shape_button_comfirm_tool.xml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/continuidadoperativaletterassignment/src/main/java/com/baz/continuidadoperativaletterassignment/almenu/interfaces/IALetterPresenter.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="8" column="12" selection-start-line="8" selection-start-column="12" selection-end-line="8" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/continuidadoperativaletterassignment/src/main/java/com/baz/continuidadoperativaletterassignment/almenu/view/ui/ALetterActivity.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="403">
-          <caret line="36" column="56" selection-start-line="36" selection-start-column="56" selection-end-line="36" selection-end-column="56" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/continuidadoperativaletterassignment/src/main/java/com/baz/continuidadoperativaletterassignment/almenu/presenter/ALetterPresenter.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="396">
-          <caret line="28" selection-start-line="28" selection-end-line="30" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/../../AndroidStudio/sdk/platforms/android-29/android.jar!/android/view/View.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="317">
-          <caret line="1936" column="16" selection-start-line="1936" selection-start-column="16" selection-end-line="1936" selection-end-column="16" />
-          <folding>
-            <element signature="e#57013#57014#0" expanded="true" />
-            <element signature="e#57064#57065#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/continuidadoperativaletterassignment/src/main/java/com/baz/continuidadoperativaletterassignment/alutils/PaintView.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="151">
-          <caret line="125" column="38" lean-forward="true" selection-start-line="125" selection-start-column="38" selection-end-line="125" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/continuidadoperativaletterassignment/src/main/java/com/baz/continuidadoperativaletterassignment/alutils/FingerPath.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
-          <caret line="13" column="26" lean-forward="true" selection-start-line="13" selection-start-column="26" selection-end-line="13" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/continuidadoperativaletterassignment/src/main/res/values/styles.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="792">
-          <caret line="44" column="58" lean-forward="true" selection-start-line="44" selection-start-column="58" selection-end-line="44" selection-end-column="58" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/continuidadoperativaletterassignment/src/main/java/com/baz/continuidadoperativaletterassignment/almenu/view/ui/fragments/ALAsignatureAcceptedFragment.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="30" lean-forward="true" selection-start-line="30" selection-end-line="30" />
-          <folding>
-            <element signature="e#1423#1468#0" expanded="true" />
-            <element signature="e#1513#1564#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/continuidadoperativaletterassignment/src/main/res/drawable/shape_button_confirm_terms.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="36">
-          <caret line="2" column="41" lean-forward="true" selection-start-line="2" selection-start-column="41" selection-end-line="2" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_assign_tool_manager.xml">
       <provider editor-type-id="android-designer2" />
       <provider selected="true" editor-type-id="text-editor">
@@ -751,14 +520,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="108">
           <caret line="6" column="12" lean-forward="true" selection-start-line="6" selection-start-column="12" selection-end-line="6" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/continuidadoperativaletterassignment/src/main/res/layout/fragment_asignature_accepted.xml">
-      <provider editor-type-id="android-designer2" />
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1458">
-          <caret line="81" column="42" selection-start-line="81" selection-start-column="42" selection-end-line="81" selection-end-column="42" />
         </state>
       </provider>
     </entry>
@@ -826,13 +587,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/simaht/network/remote/services/LoginEndPoint.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="10" column="10" selection-start-line="10" selection-start-column="10" selection-end-line="10" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/simaht/network/remote/ModelTest.kt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="72">
@@ -873,9 +627,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/simaht/network/data/LoginResponseModel.kt">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/simaht/network/data/LoginRequestModel.kt">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -900,10 +651,181 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/continuidadoperativaletterassignment/src/main/java/com/baz/continuidadoperativaletterassignment/almenu/interface/IALetterView.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="4" column="10" selection-start-line="4" selection-start-column="10" selection-end-line="4" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/continuidadoperativaletterassignment/src/main/java/com/baz/continuidadoperativaletterassignment/almenu/interface/IALetterPresenter.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="8" column="12" selection-start-line="8" selection-start-column="12" selection-end-line="8" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/continuidadoperativaletterassignment/src/main/java/com/baz/continuidadoperativaletterassignment/alasignature/view/ui/fragments/ALLetterAsignmentSuccessful.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="12" column="6" selection-start-line="12" selection-start-column="6" selection-end-line="12" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/continuidadoperativaletterassignment/src/main/java/com/baz/continuidadoperativaletterassignment/alasignature/view/ui/fragments/ALContractFragment.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="738">
+          <caret line="50" column="14" selection-start-line="50" selection-start-column="14" selection-end-line="50" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/continuidadoperativaletterassignment/src/main/java/com/baz/continuidadoperativaletterassignment/almenu/view/ui/ALetterActivity.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="17" column="47" selection-start-line="17" selection-start-column="47" selection-end-line="17" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.reactivex.rxjava2/rxjava/2.0.0/2a12207db845a9f2008c90b6d179ed93b9becfc5/rxjava-2.0.0-sources.jar!/io/reactivex/Single.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-25">
+          <caret line="58" column="22" selection-start-line="58" selection-start-column="22" selection-end-line="58" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/continuidadoperativaletterassignment/src/main/java/com/baz/continuidadoperativaletterassignment/alasignature/interface/IAsignatureContractView.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="6" selection-start-line="6" selection-end-line="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/continuidadoperativaletterassignment/src/main/java/com/baz/continuidadoperativaletterassignment/alasignature/interface/IAsignatureContractPresenter.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="4" column="18" lean-forward="true" selection-start-line="4" selection-start-column="18" selection-end-line="4" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/simaht/network/remote/RestAPI.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="417">
-          <caret line="115" column="19" selection-start-line="115" selection-start-column="19" selection-end-line="115" selection-end-column="19" />
+        <state relative-caret-position="329">
+          <caret line="62" column="43" lean-forward="true" selection-start-line="62" selection-start-column="43" selection-end-line="62" selection-end-column="43" />
+          <folding>
+            <element signature="e#35#874#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/continuidadoperativaletterassignment/src/main/java/com/baz/continuidadoperativaletterassignment/alasignature/view/ui/fragments/ALAsignatureAcceptedFragment.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="475">
+          <caret line="74" selection-start-line="74" selection-end-line="74" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/simaht/network/data/LoginResponseModel.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="4" column="11" selection-start-line="4" selection-start-column="11" selection-end-line="4" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/simaht/network/remote/services/LoginEndPoint.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="10" column="25" lean-forward="true" selection-start-line="10" selection-start-column="25" selection-end-line="10" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.reactivex.rxjava2/rxjava/2.0.0/2a12207db845a9f2008c90b6d179ed93b9becfc5/rxjava-2.0.0-sources.jar!/io/reactivex/Observable.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="297">
+          <caret line="10222" column="31" selection-start-line="10222" selection-start-column="31" selection-end-line="10222" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/continuidadoperativaletterassignment/src/main/java/com/baz/continuidadoperativaletterassignment/alasignature/model/api/ApiServiceInterfaceAL.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="16" column="8" selection-start-line="16" selection-start-column="8" selection-end-line="16" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/continuidadoperativaletterassignment/src/main/java/com/baz/continuidadoperativaletterassignment/alasignature/model/models/DetailViewModel.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="4" column="11" selection-start-line="4" selection-start-column="11" selection-end-line="4" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib-common/1.3.40/682cd7821872d1a3c1e8a3e6bdaabd17f2b71004/kotlin-stdlib-common-1.3.40-sources.jar!/generated/_Collections.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="297">
+          <caret line="777" column="27" selection-start-line="777" selection-start-column="27" selection-end-line="777" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/continuidadoperativaletterassignment/src/main/res/layout/fragment_asignature_accepted.xml">
+      <provider editor-type-id="android-designer2" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="707">
+          <caret line="81" column="42" selection-start-line="81" selection-start-column="42" selection-end-line="81" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/continuidadoperativaletterassignment/src/main/res/layout/fragment_alletter_asignament_successfull.xml">
+      <provider selected="true" editor-type-id="android-designer2" />
+      <provider editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/continuidadoperativaletterassignment/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="597">
+          <caret line="44" column="79" selection-start-line="44" selection-start-column="79" selection-end-line="44" selection-end-column="79" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="371">
+          <caret line="58" selection-start-line="58" selection-end-line="61" selection-end-column="79" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/continuidadoperativaletterassignment/src/main/res/layout/fragment_contract.xml">
+      <provider editor-type-id="android-designer2" />
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_c4_help.xml">
+      <provider selected="true" editor-type-id="android-designer2" />
+      <provider editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml">
+      <provider selected="true" editor-type-id="android-designer2" />
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="-323">
+          <caret line="19" column="8" selection-start-line="19" selection-start-column="8" selection-end-line="19" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/continuidadoperativaletterassignment/src/main/res/layout/activity_coletter.xml">
+      <provider selected="true" editor-type-id="android-designer2" />
+      <provider editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/simaht/modules/login/presenter/LoginPresenterImpl.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="297">
+          <caret line="295" column="13" selection-start-line="295" selection-start-column="13" selection-end-line="295" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/continuidadoperativaletterassignment/src/main/java/com/baz/continuidadoperativaletterassignment/alasignature/presenter/ALAsignaturePresenter.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="20" column="28" lean-forward="true" selection-start-line="20" selection-start-column="28" selection-end-line="20" selection-end-column="28" />
+          <folding>
+            <element signature="e#77#627#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

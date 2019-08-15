@@ -4,7 +4,7 @@
              xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools"
              android:layout_width="match_parent"
              android:layout_height="match_parent"
-             tools:context=".almenu.view.ui.fragments.ALLetterAsignmentSuccessful">
+             tools:context=".alasignature.view.ui.fragments.ALLetterAsignmentSuccessful">
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/appCompatImageView"
@@ -44,5 +44,13 @@
             android:layout_marginBottom="52dp"
             android:layout_marginEnd="8dp"
             app:layout_constraintEnd_toEndOf="parent"/>
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Button"
+        tools:layout_editor_absoluteX="161dp"
+        tools:layout_editor_absoluteY="445dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

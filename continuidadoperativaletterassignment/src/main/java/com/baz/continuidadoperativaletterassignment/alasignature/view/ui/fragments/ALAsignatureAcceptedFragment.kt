@@ -1,4 +1,4 @@
-package com.baz.continuidadoperativaletterassignment.almenu.view.ui.fragments
+package com.baz.continuidadoperativaletterassignment.alasignature.view.ui.fragments
 
 import android.os.Bundle
 import android.text.Html
@@ -9,21 +9,17 @@ import android.view.View
 import android.view.ViewGroup
 
 import com.baz.continuidadoperativaletterassignment.R
+import com.baz.continuidadoperativaletterassignment.alasignature.`interface`.IAsignatureContractPresenter
+import com.baz.continuidadoperativaletterassignment.alasignature.`interface`.IAsignatureContractView
+import com.baz.continuidadoperativaletterassignment.alasignature.model.models.AssignationToolLA
+import com.baz.continuidadoperativaletterassignment.alasignature.model.models.DetailViewModel
 import com.baz.continuidadoperativaletterassignment.almenu.view.ui.ALetterActivity
-import kotlinx.android.synthetic.main.activity_coletter.*
 import kotlinx.android.synthetic.main.fragment_asignature_accepted.*
-import kotlinx.android.synthetic.main.fragment_asignature_accepted.view.*
 
-class ALAsignatureAcceptedFragment : Fragment() {
+class ALAsignatureAcceptedFragment : Fragment(), IAsignatureContractView {
 
-    companion object {
-        fun newInstance(): ALAsignatureAcceptedFragment {
-            val fragment = ALAsignatureAcceptedFragment()
-            val arg = Bundle()
-            //arg.putBoolean(true)
-            return fragment
-        }
-    }
+    private lateinit var  presenter: IAsignatureContractPresenter
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -72,6 +68,18 @@ class ALAsignatureAcceptedFragment : Fragment() {
             }
 
             true
+        }
+    }
+
+
+
+
+    companion object {
+        fun newInstance(): ALAsignatureAcceptedFragment {
+            val fragment = ALAsignatureAcceptedFragment()
+            val arg = Bundle()
+            //arg.putBoolean(true)
+            return fragment
         }
     }
 

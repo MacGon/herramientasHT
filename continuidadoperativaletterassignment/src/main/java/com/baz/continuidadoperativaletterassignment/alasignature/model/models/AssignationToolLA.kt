@@ -1,4 +1,4 @@
-package com.baz.continuidadoperativaletterassignment.almenu.model.models
+package com.baz.continuidadoperativaletterassignment.alasignature.model.models
 
 data class AssignationToolLA(val id: Int, val categoria: String, val codigoControl: String, val jefeHTA: String, val numEmpleadoDestino: String, val numeroPlaca: String, val numeroSerie: String, val sim: String, val tipoAF: String, val body: String)
 
