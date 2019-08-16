@@ -24,6 +24,7 @@
     <color name="blocked">#d2d1d1</color>
     <color name="battleship_grey">#75787b</color>
     <color name="textColor">#040506</color>
+    <color name="textcolorTitleTool">#000000</color>
 
     <color name="unavailable">#e8e8e8</color>
     <color name="available">#efa140</color>
