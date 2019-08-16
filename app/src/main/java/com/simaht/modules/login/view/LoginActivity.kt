@@ -121,7 +121,6 @@ open class LoginActivity: BaseActivity(), LoginView {
         if (requestCode == codeScanner) {
             if (resultCode == Activity.RESULT_OK) {
                 val code: String = data?.extras!!.getString(KEY_DATA, "")
-                println("HOLAAAAA $code")
                 try {
                     val obj: JsonObject = gson.fromJson(code, JsonObject::class.java)
                     presenter.getUserInfo(obj.get("numSerie").asString,obj.get("numEmpleado").asString)

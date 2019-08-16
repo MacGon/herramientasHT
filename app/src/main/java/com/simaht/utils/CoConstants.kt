@@ -12,10 +12,16 @@ class CoConstants {
     //-------------Tools Assignation -------------
     enum class ASSIGN {
         ASSIGMENT,
-        COMFIRMATION
+        SET_ACTION
     }
     companion object {
         val COME_FROM_CAMERA = "COMEFROMCAMERA"
+        val SCANNER = "FRAGMENT_SCANNER"
+        val ADDING_TOOLS = "ADDING_TOOLS"
+        val SEARCHING_EMPLOYEE = "ADDING_TOOLS"
+        val EMPLOYEE_FOUND = "ADDING_TOOLS"
+        val ADDING_ACTIONS = "ADDING_TOOLS"
+        val PROCESS_DONE = "ADDING_TOOLS"
     }
 
     enum class STEP {

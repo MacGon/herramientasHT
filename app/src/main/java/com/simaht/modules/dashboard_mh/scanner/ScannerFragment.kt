@@ -1,15 +1,12 @@
 package com.simaht.modules.dashboard_mh.scanner
 
 import android.Manifest
-import android.app.Activity
-import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.RelativeLayout
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
@@ -17,9 +14,9 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import com.example.dashboard_mh.R
 import com.google.gson.Gson
-import com.google.gson.JsonObject
 import com.google.zxing.Result
-import com.simaht.modules.dashboard_mh.tools.employeefound.assignment.contracts.AssignToolContractI
+import com.simaht.dashboard_mh.AssignTool.contracts.AssignToolContractI
+import kotlinx.android.synthetic.main.fragment_camara_asign.*
 import me.dm7.barcodescanner.zxing.ZXingScannerView
 
 class ScannerFragment: Fragment(), ZXingScannerView.ResultHandler {
@@ -57,6 +54,7 @@ class ScannerFragment: Fragment(), ZXingScannerView.ResultHandler {
         if((ContextCompat.checkSelfPermission(activity, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED)){
             ActivityCompat.requestPermissions(activity, arrayOf(Manifest.permission.CAMERA), 101)
         }
+        tvLeyend.visibility = View.VISIBLE
         mScannerView = activity.findViewById(R.id.scanner)
         mScannerView.setResultHandler(this)
         mScannerView.startCamera()
@@ -65,14 +63,10 @@ class ScannerFragment: Fragment(), ZXingScannerView.ResultHandler {
     }
 
     override fun handleResult(rawResult: Result?) {
-        //println(rawResult!!.text)
-        //forResult.returnValue(rawResult)
-        Toast.makeText(activity, rawResult?.text, Toast.LENGTH_LONG).show()
-        println("Resultado raw: $rawResult")
+        forResult.returnValue(rawResult)
         //mScannerView.setResultHandler(this)
         //mScannerView.startCamera()
         //TODO put Result on his Context
-        activity.onBackPressed()
-
+        activity.supportFragmentManager.popBackStack()
     }
 }

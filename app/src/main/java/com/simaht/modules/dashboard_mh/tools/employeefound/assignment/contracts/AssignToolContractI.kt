@@ -1,6 +1,5 @@
 package com.simaht.modules.dashboard_mh.tools.employeefound.assignment.contracts
 
-import android.content.Intent
 import com.simaht.dashboard_mh.AssignTool.Tool
 import com.simaht.utils.SelectableItem
 
@@ -27,7 +26,6 @@ interface AssignToolContractI {
         fun openScanner()
         fun assignTools()
         fun changeView()
-        fun getToolInfo(controlNum: String)
 
         //TODO FAKE functions
         fun addTool(): Tool

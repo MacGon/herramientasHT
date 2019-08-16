@@ -13,11 +13,9 @@ import com.baz.simaht.login.extensions.addFragment
 import com.baz.simaht.login.extensions.replaceFragment
 import com.example.dashboard_mh.R
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import com.simaht.modules.dashboard_mh.tools.employeefound.assignment.view.AssignToolManagerFragment2
+import com.simaht.modules.dashboard_mh.tools.employeefound.assignment.view.ToolTransferManagerFragment
 import kotlinx.android.synthetic.main.activity_detail.*
 import kotlinx.android.synthetic.main.app_bar_main.*
-
-
 
 class DetailActivity : AppCompatActivity() {
 
@@ -33,12 +31,12 @@ class DetailActivity : AppCompatActivity() {
         //val toolbar: Toolbar = findViewById(R.id.toolbar)
         //setSupportActionBar(toolbar)
 
-        replaceFragment(AssignToolManagerFragment2.getInstance(true), detailContainer.id, "AddTools")
+        replaceFragment(ToolTransferManagerFragment.newInstance(true), detailContainer.id, "AddTools")
     }
 
      private fun listenerMeu() = BottomNavigationView.OnNavigationItemSelectedListener { item ->
          return@OnNavigationItemSelectedListener when (item.itemId) {
-             R.id.navigationSearchDetail -> {
+             R.id.navigationSubMenu -> {
 
                  true
              }
@@ -47,7 +45,7 @@ class DetailActivity : AppCompatActivity() {
                  true
              }
              R.id.navigationBackDetail -> {
-
+                 goBack()
                  true
              }
              else -> false
@@ -57,7 +55,7 @@ class DetailActivity : AppCompatActivity() {
     override fun onBackPressed() {
         when {
             supportFragmentManager.backStackEntryCount > 0 -> {
-                supportFragmentManager.popBackStack()
+                goBack()
             }
             else -> {
                 super.onBackPressed()
@@ -90,6 +88,16 @@ class DetailActivity : AppCompatActivity() {
 
     fun addToBackStack(fragment: Fragment) {
         addToBackStack(fragment, null)
+    }
+
+    fun goBack(){
+        if(supportFragmentManager.backStackEntryCount > 0){
+            if (supportFragmentManager.fragments.contains(ToolTransferManagerFragment.getInstance())) {
+                ToolTransferManagerFragment.getInstance().goBack()
+            }
+        } else {
+
+        }
     }
 
     fun proceesDone() {

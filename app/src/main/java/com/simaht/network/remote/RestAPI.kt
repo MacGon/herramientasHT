@@ -4,12 +4,14 @@ import android.util.Log
 import com.example.dashboard_mh.BuildConfig
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
+import com.simaht.modules.model.BaseResponse
 import com.google.gson.JsonObject
 import com.simaht.network.data.LoginRequestModel
 import com.simaht.network.data.LoginResponseModel
 import com.simaht.network.data.ModelTest
 import com.simaht.network.data.ToolAssignmentResponseModel
 import com.simaht.network.remote.services.IAccount
+import com.simaht.network.remote.services.ITools
 import com.simaht.network.remote.services.IAssigment
 import com.simaht.network.remote.services.LoginEndPoint
 import com.simaht.network.remote.services.ToolEndPoint
@@ -32,40 +34,36 @@ import java.util.concurrent.TimeUnit
 class RestAPI {
 
     companion object {
-        private lateinit var instance: RestAPI
+        private lateinit var instance : RestAPI
         fun getInstance() = instance
     }
 
-    private val CONNECT_TIMEOUT_MILLIS = 10000L
-    private val READ_TIMEOUT_MILLIS = 10000L
+    private val CONNECT_TIMEOUT_MILLIS = 35000L
+    private val READ_TIMEOUT_MILLIS = 35000L
     private val JSON = MediaType.parse("application/json; charset=utf-8")
-    private var retrorfit: Retrofit
+    private var retrorfit : Retrofit
     private val gson: Gson
 
     /***********************************
      * INTERFACE ENDPOINTS DECLARATION *
      ***********************************/
     private var iAccount: IAccount
-    private var iAssigment: IAssigment
     private var iLogin: LoginEndPoint
     private var iToolAssignment: ToolEndPoint
+    private val iAssigment: IAssigment
+    private val iTools : ITools
 
     init {
         this.gson = GsonBuilder()
             .setDateFormat("yyyy-MM-dd'T'HH:mm:ssZ")
             .create()
 
-        //instance = RestAPI()
-
-        retrorfit = retrofitBuilder(BuildConfig.URL_BASE+"/")
-
+        retrorfit = retrofitBuilder()
         iAccount = retrorfit.create(IAccount::class.java)
         iAssigment = retrorfit.create(IAssigment::class.java)
-
-        retrorfit = retrofitBuilder("http://10.50.109.13:8080/WSNPCobranzHDT/")
+        iTools = retrorfit.create(ITools::class.java)
         iLogin = retrorfit.create(LoginEndPoint::class.java)
         iToolAssignment = retrorfit.create(ToolEndPoint::class.java)
-
         //Add new Interface
 
     }
@@ -73,22 +71,21 @@ class RestAPI {
     /**
      * This method creates retrofit instance and configures the interceptors.
      */
-    fun retrofitBuilder(BASE_URL: String): Retrofit {
+    fun retrofitBuilder() : Retrofit {
         val clientBuilder = OkHttpClient.Builder()
         val logginInterceptor = HttpLoggingInterceptor()
-        logginInterceptor.level =
-            if (BuildConfig.DEBUG) HttpLoggingInterceptor.Level.BODY else HttpLoggingInterceptor.Level.NONE
+        logginInterceptor.level = if(BuildConfig.DEBUG) HttpLoggingInterceptor.Level.BODY else HttpLoggingInterceptor.Level.NONE
 
         clientBuilder.connectTimeout(CONNECT_TIMEOUT_MILLIS, TimeUnit.MILLISECONDS)
         clientBuilder.readTimeout(READ_TIMEOUT_MILLIS, TimeUnit.MILLISECONDS)
         clientBuilder.addInterceptor(logginInterceptor)
 
         return Retrofit.Builder()
-            .baseUrl(BASE_URL)
-            .addConverterFactory(GsonConverterFactory.create(gson))
-            .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
-            .client(clientBuilder.build())
-            .build()
+                .baseUrl(BuildConfig.URL_BASE)
+                .addConverterFactory(GsonConverterFactory.create(gson))
+                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+                .client(clientBuilder.build())
+                .build()
     }
 
     /*************** LOGGIN SERVICE ******************/
@@ -141,5 +138,28 @@ class RestAPI {
         }
     }
 
+
+
+
+    /*************** Tools INQUIRY SERVICE ******************/
+
+    fun consultTools(employeeNum : Int, callResult: (BaseResponse) -> Unit) {
+        iTools.consultToolsByEmployee(employeeNum).apply {
+            enqueue(object : Callback<BaseResponse> {
+
+                override fun onResponse(call: Call<BaseResponse>, response: Response<BaseResponse>) {
+                    Log.i("TEST", response.let { it.body().toString() })
+                    if (response.code() == 200 && response.body()?.code == 200 ) {
+                        callResult(response.body()!!)
+                    }
+                }
+
+                override fun onFailure(call: Call<BaseResponse>, t: Throwable) {
+                    Log.e("REST_API", "an error has occurred at : ", t)
+                    //callResult(kkdkdkd)
+                }
+            })
+        }
+    }
 
 }

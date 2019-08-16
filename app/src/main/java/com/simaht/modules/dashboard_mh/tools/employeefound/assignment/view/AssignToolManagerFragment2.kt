@@ -3,31 +3,25 @@ package com.simaht.modules.dashboard_mh.tools.employeefound.assignment.view
 import android.annotation.SuppressLint
 import android.app.Activity
 import android.app.AlertDialog
-import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.util.Log
 import android.view.*
 import android.view.inputmethod.InputMethodManager
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.baz.simaht.login.extensions.addChildFragment
 import com.baz.simaht.login.extensions.toast
 import com.baz.simaht.utils.CoConstants.Companion.COME_FROM_CAMERA
 import com.baz.simaht.utils.CoConstants.STEP.*
 import com.example.dashboard_mh.R
-import com.google.gson.Gson
-import com.google.gson.JsonObject
 import com.google.zxing.Result
 import com.simaht.dashboard_mh.AssignTool.Tool
 import com.simaht.dashboard_mh.AssignTool.presenter.AssignToolPresenter2
-import com.simaht.modules.camara.view.FunCamaraView
 import com.simaht.modules.dashboard_mh.scanner.IScanner
 import com.simaht.modules.dashboard_mh.scanner.ScannerFragment
 import com.simaht.modules.dashboard_mh.tools.DetailActivity
 import com.simaht.modules.dashboard_mh.tools.employeefound.assignment.contracts.AssignToolContractI
-import com.simaht.modules.test_camera.view.TestCamera
 import com.simaht.utils.SelectableItem
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_detail.*
@@ -43,7 +37,6 @@ import kotlinx.android.synthetic.main.fragment_search_employee.*
 class AssignToolManagerFragment2 : Fragment(), AssignToolContractI.View, AddChildCommunication2, IScanner {
 
     private lateinit var presenter: AssignToolContractI.Presenter
-    private lateinit var presenter2: AssignToolPresenter2
     private var fromCamera: Boolean = false
     private var assignTool: Boolean = true
     private lateinit var childFragment: AssignToolChildFragment2
@@ -54,10 +47,6 @@ class AssignToolManagerFragment2 : Fragment(), AssignToolContractI.View, AddChil
     lateinit var viewAlert: View
     lateinit var alertDialog: AlertDialog
     lateinit var dialogView: View
-    private val codeScanner: Int = 1
-    private val KEY_DATA: String = "DATA"
-    private lateinit var gson: Gson
-    private var flagScaner: Boolean = false
 
     companion object {
         fun getInstance(comeFromCamera: Boolean): AssignToolManagerFragment2 {
@@ -74,7 +63,6 @@ class AssignToolManagerFragment2 : Fragment(), AssignToolContractI.View, AddChil
         if (arguments != null) {
             fromCamera = arguments?.getBoolean(COME_FROM_CAMERA) ?: false
         }
-        gson = Gson()
         presenter = AssignToolPresenter2(this)
 
         (activity as DetailActivity).addTitle(resources.getString(R.string.title_tools_flow))
@@ -149,34 +137,9 @@ class AssignToolManagerFragment2 : Fragment(), AssignToolContractI.View, AddChil
     }
 
     override fun readQR() {
-        val intent = Intent(activity, TestCamera::class.java)
-        startActivityForResult(intent, codeScanner)
-        //(activity as DetailActivity).addToBackStack(ScannerFragment.newIntance(this), "FragmentScanner")
-    }
-
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        Log.e("Shuy","code :"+requestCode+" scanerr:"+codeScanner)
-        if (requestCode == codeScanner) {
-            Log.e("Shuy","code :"+resultCode+" ok:"+Activity.RESULT_OK)
-            if (resultCode == Activity.RESULT_OK) {
-                Log.e("Shuy","extras :"+data?.extras!!.getString(KEY_DATA, ""))
-                val code: String = data?.extras!!.getString(KEY_DATA, "")
-                println("PERRITOOOO $code")
-                //presenter.getToolInfo("0104000000274")
-                try {
-                    val obj: JsonObject = gson.fromJson(code, JsonObject::class.java)
-                    Log.e("El SHUY",obj.toString())
-                    presenter.getToolInfo(obj.get("numControl").asString)
-                    flagScaner = true
-                } catch (e: java.lang.Exception) {
-                    flagScaner = false
-                    Toast.makeText(activity, "Error al obtener información del servicio", Toast.LENGTH_LONG).show()
-                    println("Error al obtener información del servicio")
-                }
-            } else {
-                //presenter.onBackPressed()
-            }
-        }
+        //val intent = Intent(activity, FunCamaraView::class.java)
+        //startActivity(intent)
+        (activity as DetailActivity).addToBackStack(ScannerFragment.newIntance(this), "FragmentScanner")
     }
 
     override fun enableAssignationBtn(enable: Boolean) {
@@ -292,9 +255,7 @@ class AssignToolManagerFragment2 : Fragment(), AssignToolContractI.View, AddChil
      * @param rawResult QR Object result
      */
     override fun returnValue(rawResult: Result?) {
-        println("ADIOS $rawResult")
-        presenter.getToolInfo(rawResult?.text!!)
-        //presenter.addScanedElement(presenter.addTool())
+        presenter.addScanedElement(presenter.addTool())
     }
 
     fun setOnclickListeners() {

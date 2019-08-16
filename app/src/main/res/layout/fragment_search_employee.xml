@@ -16,7 +16,7 @@
         android:lineSpacingExtra="3.2sp"
         android:textColor="@color/colorAccent"
         android:textSize="16sp"
-        android:text="@string/msg_assigment_instruction"
+        android:text="@string/msg_scann_instruction"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
