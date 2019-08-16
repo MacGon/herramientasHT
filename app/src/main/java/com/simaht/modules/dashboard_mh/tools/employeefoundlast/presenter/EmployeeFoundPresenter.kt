@@ -1,11 +1,14 @@
 package com.simaht.modules.dashboard_mh.tools.employeefoundlast.presenter
 
 import com.baz.simaht.login.extensions.postDelayed
+import com.baz.simaht.utils.CoConstants
 import com.simaht.dashboard_mh.AssignTool.Tool
 import com.simaht.modules.dashboard_mh.tools.employeefoundlast.contract.IEmployeeFoundContract
 import com.simaht.utils.SelectableItem
 
 class EmployeeFoundPresenter(val view : IEmployeeFoundContract.View): IEmployeeFoundContract.Presenter {
+
+    private var toolCustody = arrayListOf<Tool>()
 
     override fun employee() {
         //create employee from singleton
@@ -14,14 +17,25 @@ class EmployeeFoundPresenter(val view : IEmployeeFoundContract.View): IEmployeeF
 
     }
 
+    override fun addToolToCustody(tool: Tool) {
+        toolCustody.add(tool)
+    }
+
+    override fun removeFromCystody(tool: Tool) {
+        toolCustody.remove(tool)
+    }
+
     override fun searchTools() {
         view.showLoader()
-        postDelayed(2000) {
-            val rnd: Int = (1..2).random()
+        postDelayed(500) {
+            //val rnd: Int = (1..2).random()
             val toolsfound = arrayListOf<SelectableItem<Tool>>()
-            for (i in 0..rnd) {
-                toolsfound.add(SelectableItem(addTool()))
-            }
+            //for (i in 0..rnd) {
+                toolsfound.add(SelectableItem(Tool("Ipad", "Apple", "16/03/15", 8435, 9431242, "873.43", true, "www.google.com")))
+                toolsfound.add(SelectableItem(Tool("Impresora", "Apple", "16/03/15", 8435, 9431242, "873.43", true, "www.google.com")))
+                toolsfound.add(SelectableItem(Tool("Casco", "Apple", "16/03/15", 8435, 9431242, "873.43", true, "www.google.com")))
+            //}
+
             view.addItemFound(toolsfound)
             view.hideLoader()
         }
@@ -48,5 +62,20 @@ class EmployeeFoundPresenter(val view : IEmployeeFoundContract.View): IEmployeeF
         return Tool("Ipad", "Apple", "16/03/15", 8435, 9431242, "873.43", true, "www.google.com")
 
     }
+
+    override fun applyCustody() {
+        view.showLoader()
+
+        if (haveItemsToCustody()) {
+            //Rest API
+            //TODO send toolList
+            view.hideLoader()
+            view.custodyDone()
+        } else {
+            //TODO -- Could I need this validation??
+        }
+    }
+
+    override fun haveItemsToCustody() = toolCustody.isNotEmpty()
 
 }

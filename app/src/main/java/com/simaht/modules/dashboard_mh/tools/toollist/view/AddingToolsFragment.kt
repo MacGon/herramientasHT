@@ -52,7 +52,7 @@ class AddingToolsFragment : Fragment(), AddingToolContract.View, IScanner {
         rvContentTool.addItemDecoration(DividerItemDecoration(activity, DividerItemDecoration.VERTICAL))
 
         toolListAdapter = ToolListAdapter(arrayListOf()) {
-            btnContinue.isEnabled = it  //have elements
+            btnContinue.isEnabled = if(it) it else true  //is selected
         }
 
         rvContentTool.adapter = toolListAdapter
@@ -105,8 +105,10 @@ class AddingToolsFragment : Fragment(), AddingToolContract.View, IScanner {
 
     private fun setListeners() {
         btnContinue.setOnClickListener {
-            parentView.putScannedTools(toolListAdapter.tools)
-            parentView.nextFragment()
+            if (toolListAdapter.itemCount > 0) {
+                parentView.putScannedTools(toolListAdapter.tools)
+                parentView.nextFragment()
+            }
         }
 
         btnAddTool.setOnClickListener {

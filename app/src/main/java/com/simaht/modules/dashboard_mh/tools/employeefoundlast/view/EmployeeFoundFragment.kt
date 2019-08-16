@@ -62,8 +62,14 @@ class EmployeeFoundFragment : Fragment(), IEmployeeFoundContract.View {
         rvContentTool.layoutManager = LinearLayoutManager(activity)
         rvContentTool.addItemDecoration(DividerItemDecoration(activity, DividerItemDecoration.VERTICAL))
 
-        adapter = ToolListFoundAdapter(toolListFound, true) {
-            btnContinue.isEnabled = it
+        adapter = ToolListFoundAdapter(toolListFound, true) {selected, item ->
+
+            btnContinue.isEnabled = adapter.haveCustody()
+
+            if (selected)
+                presenter.addToolToCustody(item)
+            else
+                presenter.removeFromCystody(item)
         }
 
         rvContentTool.adapter = adapter
@@ -75,8 +81,11 @@ class EmployeeFoundFragment : Fragment(), IEmployeeFoundContract.View {
                 .into(employeeFace)
 
         btnContinue.setOnClickListener {
-            parentView.putScannedTools(adapter.listToCustody())
-            parentView.nextFragment()
+            //parentView.putScannedTools(adapter.listToCustody())
+
+            notifyAction()
+
+            //parentView.nextFragment()
         }
         presenter.employee()
         presenter.searchTools()
@@ -120,6 +129,10 @@ class EmployeeFoundFragment : Fragment(), IEmployeeFoundContract.View {
             adapter.addToolsFound(toolsFound)
             notifyHaveTools()
         }
+    }
+
+    override fun custodyDone() {
+        parentView.nextFragment()
     }
 
 
@@ -167,4 +180,44 @@ class EmployeeFoundFragment : Fragment(), IEmployeeFoundContract.View {
         adapter.removeTemporalTools()
         parentView.removeFragment()
     }
+
+
+    private fun notifyAction() {
+
+        val dialogBuilder = AlertDialog.Builder(activity!!)
+        dialogView = layoutInflater.inflate(R.layout.dialog_notification, null)
+        dialogView.ivImageAlert.visibility = View.VISIBLE
+        dialogView.tvNormalDialog.text = String.format(resources.getString(R.string.msg_custody_tool), employeeName.text.toString())
+        dialogBuilder.setView(dialogView)
+                .setCancelable(false)
+        alertDialog = dialogBuilder.create()
+        alertDialog.show()
+
+        /*val builder = AlertDialog.Builder(context, R.style.DialogStyle)//Context is activity context
+        viewAlert = activity!!.layoutInflater.inflate(R.layout.dialog_notification, null, false)*/
+        /*
+        builder.setView(viewAlert)
+                .setCancelable(false)
+                .setMessage("")
+                .setTitle(null)
+                .setMessage(null)
+        val lp = /*LinearLayout.LayoutParams(500,
+                LinearLayout.LayoutParams.MATCH_PARENT)*/
+        ConstraintLayout.LayoutParams(ConstraintLayout.LayoutParams.MATCH_PARENT,ConstraintLayout.LayoutParams.WRAP_CONTENT)
+        viewAlert.layoutParams = lp
+        builder.setView(viewAlert)
+        dialog = builder.create()
+        setDimentionsDialog()*/
+        //dialog.show()
+
+        dialogView.btnDialogOK.setOnClickListener {
+            alertDialog.dismiss()
+            presenter.applyCustody()
+        }
+        dialogView.btnDialogCancel.setOnClickListener {
+            alertDialog.dismiss()
+            goBack()
+        }
+    }
+
 }

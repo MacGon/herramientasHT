@@ -18,6 +18,7 @@
         android:drawableStart="@drawable/ic_done"
         android:drawableTint="@color/colorWhite"
         android:gravity="center_vertical"
+        android:layout_marginStart="8dp"
         android:padding="4dp"
         android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"

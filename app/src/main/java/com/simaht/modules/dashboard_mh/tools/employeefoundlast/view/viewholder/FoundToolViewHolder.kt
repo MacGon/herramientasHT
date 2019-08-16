@@ -17,7 +17,7 @@ import com.baz.simaht.utils.CoConstants.ACTIONS.*
 @SuppressLint("RestrictedApi")
 class FoundToolViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
-    fun bind(selecTool: SelectableItem<Tool>, haveAction: Boolean, position: Int , actionSelected: (Boolean, Int) -> Unit) {
+    fun bind(selecTool: SelectableItem<Tool>, haveAction: Boolean, position: Int , actionSelected: (item: Tool, selected: Boolean, position: Int) -> Unit) {
         with(selecTool) {
             itemView.tvToolMainName.text = item.name
             itemView.tvToolSerianlNumber.text = item.serialNumber.toString()
@@ -28,9 +28,21 @@ class FoundToolViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
                 itemView.tvToolStatus.text = itemView.resources.getString(R.string.msg_operational)
                 itemView.tvToolStatus.setTextColor(itemView.resources.getColor(R.color.grass))
             } else {
-                itemView.tvToolStatus.text = "Robada" //fixme define my status plox jajaja
+                itemView.tvToolStatus.text = "Deteriorada" //fixme define my status plox jajaja
                 itemView.tvToolStatus.setTextColor(itemView.resources.getColor(R.color.colorRed))
             }
+
+            if (action == CUSTODY ) {
+                itemView.setOnLongClickListener {
+                    selecTool.selected = !selected
+                    selecTool.action = null
+                    actionSelected(selecTool.item, false, position)
+                    true
+                }
+            }
+
+            itemView.viewSelectec1.visibility = if(selected) View.VISIBLE else View.GONE //Change the background when it's scrolling
+            itemView.viewSelectec2.visibility = if(selected) View.VISIBLE else View.GONE
 
             itemView.ivToolMoreOptions.setOnClickListener {
 
@@ -42,24 +54,25 @@ class FoundToolViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
                         when (item?.itemId) {
                             R.id.actionCustody -> {
                                 selecTool.action = CUSTODY
-                                actionSelected(true, position)
+                                selecTool.selected = true
+                                actionSelected(selecTool.item, true, position)
                             }
                             R.id.actionDamageCharge -> {
                                 selecTool.action = DAMAGE_CHARGE
                                 //TODO aply another logic for the next ACTIONS
-                                actionSelected(true, position)
+                                actionSelected(selecTool.item, true, position)
                             }
                             R.id.actionIncident -> {
                                 selecTool.action = INCIDENT
-                                actionSelected(true, position)
+                                actionSelected(selecTool.item, true, position)
                             }
                             R.id.actionFactoryDefect -> {
                                 selecTool.action = FACTORY_DEFECT
-                                actionSelected(true, position)
+                                actionSelected(selecTool.item, true, position)
                             }
                             R.id.actionEndOfUseFulLife -> {
                                 selecTool.action = END_OF_USEFUL_LIFE
-                                actionSelected(true, position)
+                                actionSelected(selecTool.item, true, position)
                             }
                         }
                         return false

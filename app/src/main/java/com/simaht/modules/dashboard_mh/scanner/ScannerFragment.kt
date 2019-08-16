@@ -15,6 +15,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import com.example.dashboard_mh.R
 import com.google.zxing.Result
+import kotlinx.android.synthetic.main.fragment_camara_asign.*
 import me.dm7.barcodescanner.zxing.ZXingScannerView
 
 class ScannerFragment: Fragment(), ZXingScannerView.ResultHandler {
@@ -47,6 +48,7 @@ class ScannerFragment: Fragment(), ZXingScannerView.ResultHandler {
         if((ContextCompat.checkSelfPermission(activity, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED)){
             ActivityCompat.requestPermissions(activity, arrayOf(Manifest.permission.CAMERA), 101)
         }
+        tvLeyend.visibility = View.VISIBLE
         mScannerView = activity.findViewById(R.id.scanner)
         mScannerView.setResultHandler(this)
         mScannerView.startCamera()

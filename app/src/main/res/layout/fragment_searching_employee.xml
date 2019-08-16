@@ -10,22 +10,43 @@
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/tvInstructions"
         android:layout_width="0dp"
-        android:layout_height="70dp"
+        android:layout_height="88dp"
         android:lineSpacingExtra="3.2sp"
         android:textColor="@color/colorAccent"
         android:textSize="16sp"
-        android:padding="12dp"
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp"
+        android:paddingTop="18dp"
+        android:layout_marginBottom="18dp"
         android:background="@color/colorWhite"
-        android:text="@string/msg_scann_instruction"
+        android:text="@string/msg_search_employee_instruction"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <View
+        android:id="@+id/view"
         android:layout_width="match_parent"
         android:layout_height="2dp"
         android:background="@color/transparentGray"
         app:layout_constraintBottom_toBottomOf="@id/tvInstructions" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tvInstructions">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </com.google.android.material.textfield.TextInputLayout>
 
     <androidx.appcompat.widget.AppCompatEditText
         android:id="@+id/svEmployeeNumber"
@@ -34,10 +55,10 @@
         android:paddingStart="4dp"
         android:paddingEnd="4dp"
         android:textAlignment="textStart"
-        android:layout_marginTop="8dp"
-        android:layout_marginStart="8dp"
+        android:layout_marginTop="35dp"
+        android:layout_marginStart="24dp"
         android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
+        android:layout_marginEnd="24dp"
         android:layoutDirection="ltr"
         android:hint="@string/msg_search_employee"
         android:maxLength="8"
@@ -83,7 +104,7 @@
         android:textSize="17sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/linearLayout"
+        app:layout_constraintStart_toStartOf="@id/linearLayout"
         app:layout_goneMarginStart="16dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -17,7 +17,7 @@ class AddToolViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
     //TODO REfact
     @SuppressLint("RestrictedApi")
-    fun bind(selecTool: SelectableItem<Tool>, options:(delete : Boolean) -> Unit) {
+    fun bind(selecTool: SelectableItem<Tool>, options:(itemToDelete : SelectableItem<Tool>?, selected: Boolean?) -> Unit) {
         with(selecTool) {
             itemView.tvToolMainName.text = item.name
             itemView.tvToolSerianlNumber.text = item.serialNumber.toString()
@@ -26,12 +26,11 @@ class AddToolViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
                 itemView.tvToolStatus.text = itemView.resources.getString(R.string.msg_operational)
                 itemView.tvToolStatus.setTextColor(itemView.resources.getColor(R.color.grass))
             } else {
-                itemView.tvToolStatus.text = "Robada" //fixme define my status plox jajaja
+                itemView.tvToolStatus.text = "Defecto" //fixme define my status plox jajaja
                 itemView.tvToolStatus.setTextColor(itemView.resources.getColor(R.color.colorRed))
             }
 
             itemView.ivToolMoreOptions.setOnClickListener {
-
                 val myContext = itemView.context
                 val menuBuilder = MenuBuilder(myContext)
                 MenuInflater(myContext).inflate(R.menu.basic_options, menuBuilder)
@@ -39,7 +38,7 @@ class AddToolViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
                     override fun onMenuItemSelected(menu: MenuBuilder?, item: MenuItem?): Boolean {
                         when  (item?.itemId) {
                             R.id.optionDelete -> {
-                                options(true)
+                                options(selecTool, null)
                             }
                         }
                         return false
@@ -51,10 +50,16 @@ class AddToolViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
                 menuHelper.setForceShowIcon(true)
                 menuHelper.show()
             }
+
+            /*itemView.clItemAssignTool.setOnLongClickListener {
+                selected = !selected
+                options(null, selected)
+                true
+            }*/
+
+            itemView.viewSelectec1.visibility = if(selected) View.VISIBLE else View.GONE //Change the background when it's scrolling
+            itemView.viewSelectec2.visibility = if(selected) View.VISIBLE else View.GONE
+
         }
-
     }
-
-
-
 }

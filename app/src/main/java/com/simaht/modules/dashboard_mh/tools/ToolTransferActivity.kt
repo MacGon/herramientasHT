@@ -43,7 +43,7 @@ class ToolTransferActivity : AppCompatActivity(), FragmentCommunication {
 
         nextFragment()
 
-        setTitle(R.string.title_tools_flow)
+        addTitle(resources.getString(R.string.title_tools_flow))
     }
 
     private fun listenerMeu() = BottomNavigationView.OnNavigationItemSelectedListener { item ->
@@ -126,12 +126,12 @@ class ToolTransferActivity : AppCompatActivity(), FragmentCommunication {
                 addToBackStack(SearchEmployeeFragment.newInstance(this), SEARCHING_EMPLOYEE)
             }
             3 -> {
-                addToBackStack(EmployeeFoundFragment.newInstance(newEmpl ?: false, haveToolsFound ?: false, toolsFound, this), EMPLOYEE_FOUND)
+                addToBackStack(EmployeeFoundFragment.newInstance(newEmpl ?: false, haveToolsFound ?: false, arrayListOf(), this), EMPLOYEE_FOUND)
             }
-            4 -> {
+            /*4 -> {
                 addToBackStack(ToolCustodyFragment.newInstance( toolsToCustody,this), ADDING_ACTIONS)
-            }
-            5 -> {
+            }*/
+            4 -> {
                 addToBackStack(TransferToolDoneFragment.newInstance(true,this), PROCESS_DONE)
             }
             else -> { }

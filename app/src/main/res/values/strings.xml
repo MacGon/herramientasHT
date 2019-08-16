@@ -73,7 +73,7 @@
 
     <!-- SearchView -->
     <string name="msg_search_view_respuesta">Escribe tu búsqueda aquí</string>
-    <string name="msg_step_search_employee">Escribe el número de socio a quien desees transferir la herramienta</string>
+    <string name="msg_search_employee_instruction">Escribe el número de socio a quien desees transferir la herramienta</string>
     <plurals name="msg_step_search_employee">
         <item quantity="one">Escribe el número de socio a quien desees transferir la herramienta</item>
         <item quantity="other">Escribe el número de socio a quien desees transferir las herramientas</item>

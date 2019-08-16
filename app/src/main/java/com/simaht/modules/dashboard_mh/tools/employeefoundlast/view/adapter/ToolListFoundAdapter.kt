@@ -9,7 +9,7 @@ import com.simaht.dashboard_mh.AssignTool.Tool
 import com.simaht.modules.dashboard_mh.tools.employeefoundlast.view.viewholder.FoundToolViewHolder
 import com.simaht.utils.SelectableItem
 
-class ToolListFoundAdapter(private var tools: ArrayList<SelectableItem<Tool>>, var haveAction: Boolean, val haveSomeSelection: (Boolean) -> Unit) : RecyclerView.Adapter<FoundToolViewHolder>() {
+class ToolListFoundAdapter(private var tools: ArrayList<SelectableItem<Tool>>, var haveAction: Boolean, val haveSomeSelection: (Boolean, item: Tool) -> Unit) : RecyclerView.Adapter<FoundToolViewHolder>() {
 
     private var temporalTools: ArrayList<SelectableItem<Tool>> = arrayListOf()
 
@@ -22,11 +22,12 @@ class ToolListFoundAdapter(private var tools: ArrayList<SelectableItem<Tool>>, v
 
 
     override fun onBindViewHolder(holder: FoundToolViewHolder, position: Int) {
-        holder.bind(tools.get(position), haveAction, position) { anActionSelected, pos ->
+        val tool = tools.get(position)
+        holder.bind( tool, haveAction, position) { item, anActionSelected, pos ->
             anActionSelected.apply {
-                haveSomeSelection(anActionSelected)
                 notifyItemChanged(pos)
             }
+            haveSomeSelection(anActionSelected, item)
         }
     }
 
@@ -53,17 +54,7 @@ class ToolListFoundAdapter(private var tools: ArrayList<SelectableItem<Tool>>, v
         return custodyList
     }
 
-    fun haveCustody(): Boolean {
-        var needCustody = false
-        val ipad = "Ipad"
-        tools.forEach {
-            if (it.item.name.equals(ipad)) {
-                needCustody = true
-                //it.selected = needCustody
-            }
-        }
-        return needCustody
-    }
+    fun haveCustody() = tools.any{it.selected}
 
     fun setAction(action: CoConstants.ACTIONS) {
         tools.filter { it.selected }.forEach { it.action = action }
