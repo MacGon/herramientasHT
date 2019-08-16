@@ -121,21 +121,35 @@ open class LoginActivity: BaseActivity(), LoginView {
         if (requestCode == codeScanner) {
             if (resultCode == Activity.RESULT_OK) {
                 val code: String = data?.extras!!.getString(KEY_DATA, "")
-                println("HOLAAAAA $code")
-                try {
-                    val obj: JsonObject = gson.fromJson(code, JsonObject::class.java)
-                    presenter.getUserInfo(obj.get("numSerie").asString,obj.get("numEmpleado").asString)
-                    flagScaner = true
-                } catch (e:Exception) {
-                    flagScaner = false
-                    onMessageError("Error al obtener información del servicio")
-                    presenter.onBackPressed()
-                }
+                flagScaner = true
+                presenter.getUserInfo("821087867","65327")
             } else {
                 presenter.onBackPressed()
             }
         }
     }
+
+
+
+    //override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+    //    if (requestCode == codeScanner) {
+    //        if (resultCode == Activity.RESULT_OK) {
+    //            val code: String = data?.extras!!.getString(KEY_DATA, "")
+    //            println("HOLAAAAA $code")
+    //            try {
+    //                val obj: JsonObject = gson.fromJson(code, JsonObject::class.java)
+    //                presenter.getUserInfo(obj.get("numSerie").asString,obj.get("numEmpleado").asString)
+    //                flagScaner = true
+    //            } catch (e:Exception) {
+    //                flagScaner = false
+    //                onMessageError("Error al obtener información del servicio")
+    //                presenter.onBackPressed()
+    //            }
+    //        } else {
+    //            presenter.onBackPressed()
+    //        }
+    //    }
+    //}
 
     @SuppressLint("SetTextI18n")
     override fun showNameFragment() {
@@ -200,6 +214,7 @@ open class LoginActivity: BaseActivity(), LoginView {
     }
 
     private lateinit var presenter: LoginPresenterImpl
+    private lateinit var interactor: LogInInteractor
     val fm = supportFragmentManager
     lateinit var container: FrameLayout
 
