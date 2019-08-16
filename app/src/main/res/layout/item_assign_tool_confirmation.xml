@@ -61,12 +61,14 @@
         android:id="@+id/tvToolSerianlNumber"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="180dp"
         android:fontFamily="@font/montserrat_regular"
         android:textColor="@color/textcolorTitleTool"
         android:textSize="13sp"
         app:layout_constraintEnd_toStartOf="@+id/ivToolMoreOptions"
+        app:layout_constraintStart_toEndOf="@+id/tvToolMainName"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="(1234569244)" />
 
