@@ -9,7 +9,6 @@ import com.simaht.network.data.LoginRequestModel
 import com.simaht.network.data.LoginResponseModel
 import com.simaht.network.data.ModelTest
 import com.simaht.network.remote.services.IAccount
-import com.simaht.network.remote.services.ITools
 import com.simaht.network.remote.services.IAssigment
 import com.simaht.network.remote.services.LoginEndPoint
 import io.reactivex.Single
@@ -48,14 +47,12 @@ class RestAPI {
     private var iAssigment: IAssigment
     private var iLogin: LoginEndPoint
 
-    private val iTools : ITools
-
     init {
         this.gson = GsonBuilder()
-            .setDateFormat("yyyy-MM-dd'T'HH:mm:ssZ")
-            .create()
+                .setDateFormat("yyyy-MM-dd'T'HH:mm:ssZ")
+                .create()
 
-        instance = RestAPI()
+        //instance = RestAPI()
 
         retrorfit = retrofitBuilder(BuildConfig.URL_BASE+"/")
 
@@ -76,18 +73,18 @@ class RestAPI {
         val clientBuilder = OkHttpClient.Builder()
         val logginInterceptor = HttpLoggingInterceptor()
         logginInterceptor.level =
-            if (BuildConfig.DEBUG) HttpLoggingInterceptor.Level.BODY else HttpLoggingInterceptor.Level.NONE
+                if (BuildConfig.DEBUG) HttpLoggingInterceptor.Level.BODY else HttpLoggingInterceptor.Level.NONE
 
         clientBuilder.connectTimeout(CONNECT_TIMEOUT_MILLIS, TimeUnit.MILLISECONDS)
         clientBuilder.readTimeout(READ_TIMEOUT_MILLIS, TimeUnit.MILLISECONDS)
         clientBuilder.addInterceptor(logginInterceptor)
 
         return Retrofit.Builder()
-            .baseUrl(BASE_URL)
-            .addConverterFactory(GsonConverterFactory.create(gson))
-            .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
-            .client(clientBuilder.build())
-            .build()
+                .baseUrl(BASE_URL)
+                .addConverterFactory(GsonConverterFactory.create(gson))
+                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+                .client(clientBuilder.build())
+                .build()
     }
 
     /*************** LOGGIN SERVICE ******************/
@@ -136,28 +133,5 @@ class RestAPI {
         }
     }
 
-
-
-
-    /*************** Tools INQUIRY SERVICE ******************/
-
-    fun consultTools(employeeNum : Int, callResult: (BaseResponse) -> Unit) {
-        iTools.consultToolsByEmployee(employeeNum).apply {
-            enqueue(object : Callback<BaseResponse> {
-
-                override fun onResponse(call: Call<BaseResponse>, response: Response<BaseResponse>) {
-                    Log.i("TEST", response.let { it.body().toString() })
-                    if (response.code() == 200 && response.body()?.code == 200 ) {
-                        callResult(response.body()!!)
-                    }
-                }
-
-                override fun onFailure(call: Call<BaseResponse>, t: Throwable) {
-                    Log.e("REST_API", "an error has occurred at : ", t)
-                    //callResult(kkdkdkd)
-                }
-            })
-        }
-    }
 
 }
