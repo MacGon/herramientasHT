@@ -1,13 +1,51 @@
 package com.simaht.dashboard_mh.AssignTool.presenter
 
+import android.util.Log
+import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import com.baz.simaht.login.extensions.postDelayed
 import com.example.dashboard_mh.BuildConfig
 import com.example.dashboard_mh.R
 import com.simaht.dashboard_mh.AssignTool.Tool
 import com.simaht.modules.dashboard_mh.tools.employeefound.assignment.contracts.AssignToolContractI
+import com.simaht.modules.dashboard_mh.tools.employeefound.assignment.presenter.ToolAssign
+import com.simaht.modules.login.presenter.Employee
+import com.simaht.network.data.OutModelTool
+import com.simaht.network.remote.RestAPI
 import com.simaht.utils.SelectableItem
+import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.disposables.Disposable
+import io.reactivex.schedulers.Schedulers
 
 class AssignToolPresenter2(val view: AssignToolContractI.View) : AssignToolContractI.Presenter {
+
+
+    private val TAG: String = "AssignToolPresenter2"
+    private lateinit var activity: AppCompatActivity
+
+    override fun getToolInfo(controlNum: String) {
+        val api = RestAPI()
+        val disposable: Disposable = api.consultTool(controlNum).subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe({ response ->
+                Log.e(TAG, response.message!!)
+                println("PERRRROOOOOOOTE $controlNum")
+                if (response.code != 200) {
+                    //Toast.makeText(activity, "Error: ${response.message}", Toast.LENGTH_LONG).show()
+                    Log.e(TAG, "Error: " + response.message)
+                } else {
+                    addScanedElement(addTool())
+                    val tool = ToolAssign()
+                    tool.toolsArray.add(response.info)
+                    tool.update()
+
+                }
+            }, { error ->
+                //Toast.makeText(activity, "Error: ${error.message}", Toast.LENGTH_LONG).show()
+                Log.e(TAG, "Error del servidor: " + error.message)
+            })
+    }
+
 
 
     override fun setEmployeeNumber() {
@@ -60,6 +98,7 @@ class AssignToolPresenter2(val view: AssignToolContractI.View) : AssignToolContr
     }
 
     override fun addTool(): Tool {
+        val tool = ToolAssign()
         //TODO this is a fake function
         /*val rnds = (0..4).random()
         return when (rnds) {
@@ -77,7 +116,7 @@ class AssignToolPresenter2(val view: AssignToolContractI.View) : AssignToolContr
             }
         }*/
 
-        return Tool("Ipad", "Apple", "16/03/15", 8435, 9431242, "873.43", true, "www.google.com")
+        return Tool(tool.toolsArray, "Apple", "16/03/15", 8435, 9431242, "873.43", true, "www.google.com")
 
     }
 

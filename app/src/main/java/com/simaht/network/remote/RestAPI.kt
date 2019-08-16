@@ -8,9 +8,11 @@ import com.google.gson.JsonObject
 import com.simaht.network.data.LoginRequestModel
 import com.simaht.network.data.LoginResponseModel
 import com.simaht.network.data.ModelTest
+import com.simaht.network.data.ToolAssignmentResponseModel
 import com.simaht.network.remote.services.IAccount
 import com.simaht.network.remote.services.IAssigment
 import com.simaht.network.remote.services.LoginEndPoint
+import com.simaht.network.remote.services.ToolEndPoint
 import io.reactivex.Single
 import okhttp3.MediaType
 import okhttp3.OkHttpClient
@@ -46,6 +48,7 @@ class RestAPI {
     private var iAccount: IAccount
     private var iAssigment: IAssigment
     private var iLogin: LoginEndPoint
+    private var iToolAssignment: ToolEndPoint
 
     init {
         this.gson = GsonBuilder()
@@ -61,6 +64,7 @@ class RestAPI {
 
         retrorfit = retrofitBuilder("http://10.50.109.13:8080/WSNPCobranzHDT/")
         iLogin = retrorfit.create(LoginEndPoint::class.java)
+        iToolAssignment = retrorfit.create(ToolEndPoint::class.java)
 
         //Add new Interface
 
@@ -106,6 +110,10 @@ class RestAPI {
 
 
     /*************** ASSIGMENT TOOL SERVICE ******************/
+
+    fun consultTool(controlNum: String): Single<ToolAssignmentResponseModel> {
+        return iToolAssignment.getToolInfo(controlNum)
+    }
 
     /**
      * This is a working test using "dummy" values

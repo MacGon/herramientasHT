@@ -1,6 +1,8 @@
 package com.simaht.modules.dashboard_mh.scanner
 
 import android.Manifest
+import android.app.Activity
+import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -14,7 +16,10 @@ import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import com.example.dashboard_mh.R
+import com.google.gson.Gson
+import com.google.gson.JsonObject
 import com.google.zxing.Result
+import com.simaht.modules.dashboard_mh.tools.employeefound.assignment.contracts.AssignToolContractI
 import me.dm7.barcodescanner.zxing.ZXingScannerView
 
 class ScannerFragment: Fragment(), ZXingScannerView.ResultHandler {
@@ -23,6 +28,11 @@ class ScannerFragment: Fragment(), ZXingScannerView.ResultHandler {
     private lateinit var activity: AppCompatActivity
     lateinit var container: RelativeLayout
     private lateinit var fm: FragmentManager
+    private val codeScanner: Int = 1
+    private val KEY_DATA: String = "DATA"
+    private lateinit var gson: Gson
+    private lateinit var presenter: AssignToolContractI.Presenter
+    private var flagScaner: Boolean = false
 
     companion object {
         private lateinit var forResult: IScanner
@@ -56,8 +66,9 @@ class ScannerFragment: Fragment(), ZXingScannerView.ResultHandler {
 
     override fun handleResult(rawResult: Result?) {
         //println(rawResult!!.text)
-        forResult.returnValue(rawResult)
-        //Toast.makeText(activity, rawResult?.text, Toast.LENGTH_LONG).show()
+        //forResult.returnValue(rawResult)
+        Toast.makeText(activity, rawResult?.text, Toast.LENGTH_LONG).show()
+        println("Resultado raw: $rawResult")
         //mScannerView.setResultHandler(this)
         //mScannerView.startCamera()
         //TODO put Result on his Context
