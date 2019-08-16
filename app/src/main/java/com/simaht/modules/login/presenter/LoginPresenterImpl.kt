@@ -16,6 +16,7 @@ import io.reactivex.schedulers.Schedulers
 class LoginPresenterImpl(var loginView: LoginView?, val logInInteractor: LogInInteractor) :
     LogInInteractor.OnLoginFinishedListener {
 
+
     private val TAG: String = "LoginPresenterImpl"
     private lateinit var gson: Gson
     private lateinit var context: Context
@@ -57,57 +58,57 @@ class LoginPresenterImpl(var loginView: LoginView?, val logInInteractor: LogInIn
             loginView?.enabledEtRepeatFalse()
             paso--
         }
-            /* 2 */ password.length in 1..7 -> {
-            loginView?.onMessageError("Tu contraseña debe contener 8 caracteres")
-            loginView?.errorTextInputLayoutCreatePass()
-            loginView?.enabledEtRepeatFalse()
-            paso--
-        }
-            /* 3 */ password.toUpperCase().contains("AZTECA") -> {
-            loginView?.messageErrorLetter()
-            loginView?.errorTextInputLayoutCreatePass()
-            loginView?.enabledEtRepeatFalse()
-            paso--
-        }
-            /* 4 */ password.toUpperCase().contains("BANCO") -> {
-            loginView?.messageErrorBank()
-            loginView?.errorTextInputLayoutCreatePass()
-            loginView?.enabledEtRepeatFalse()
-            paso--
-        }
-            /* 5 */ password.toUpperCase().contains("SALINAS") -> {
-            loginView?.messageErrorSal()
-            loginView?.errorTextInputLayoutCreatePass()
-            loginView?.enabledEtRepeatFalse()
-            paso--
-        }
-            /* 6 */ password.contains(" ") -> {
-            loginView?.messageErrorSpace()
-            loginView?.errorTextInputLayoutCreatePass()
-            loginView?.enabledEtRepeatFalse()
-            paso--
-        }
+        //    /* 2 */ password.length in 1..7 -> {
+        //    loginView?.onMessageError("Tu contraseña debe contener 8 caracteres")
+        //    loginView?.errorTextInputLayoutCreatePass()
+        //    loginView?.enabledEtRepeatFalse()
+        //    paso--
+        //}
+        //    /* 3 */ password.toUpperCase().contains("AZTECA") -> {
+        //    loginView?.messageErrorLetter()
+        //    loginView?.errorTextInputLayoutCreatePass()
+        //    loginView?.enabledEtRepeatFalse()
+        //    paso--
+        //}
+        //    /* 4 */ password.toUpperCase().contains("BANCO") -> {
+        //    loginView?.messageErrorBank()
+        //    loginView?.errorTextInputLayoutCreatePass()
+        //    loginView?.enabledEtRepeatFalse()
+        //    paso--
+        //}
+        //    /* 5 */ password.toUpperCase().contains("SALINAS") -> {
+        //    loginView?.messageErrorSal()
+        //    loginView?.errorTextInputLayoutCreatePass()
+        //    loginView?.enabledEtRepeatFalse()
+        //    paso--
+        //}
+        //    /* 6 */ password.contains(" ") -> {
+        //    loginView?.messageErrorSpace()
+        //    loginView?.errorTextInputLayoutCreatePass()
+        //    loginView?.enabledEtRepeatFalse()
+        //    paso--
+        //}
 
-            /* 7 */ !password.matches(passwordMatcherNumber) -> {
-            loginView?.onMessageError("Tu contraseña debe contener al menos un número")
-            loginView?.errorTextInputLayoutCreatePass()
-            loginView?.enabledEtRepeatFalse()
-            paso--
-        }
+        //    /* 7 */ !password.matches(passwordMatcherNumber) -> {
+        //    loginView?.onMessageError("Tu contraseña debe contener al menos un número")
+        //    loginView?.errorTextInputLayoutCreatePass()
+        //    loginView?.enabledEtRepeatFalse()
+        //    paso--
+        //}
 
-            /* 8 */ !password.matches(passwordMatcherLowerCase) -> {
-            loginView?.onMessageError("Tu contraseña debe contener al menos una letra minúscula")
-            loginView?.errorTextInputLayoutCreatePass()
-            loginView?.enabledEtRepeatFalse()
-            paso--
-        }
+        //    /* 8 */ !password.matches(passwordMatcherLowerCase) -> {
+        //    loginView?.onMessageError("Tu contraseña debe contener al menos una letra minúscula")
+        //    loginView?.errorTextInputLayoutCreatePass()
+        //    loginView?.enabledEtRepeatFalse()
+        //    paso--
+        //}
 
-            /* 9 */ !password.matches(passwordMatcherUpperCase) -> {
-            loginView?.onMessageError("Tu contraseña debe contener al menos una letra mayúscula")
-            loginView?.errorTextInputLayoutCreatePass()
-            loginView?.enabledEtRepeatFalse()
-            paso--
-        }
+        //    /* 9 */ !password.matches(passwordMatcherUpperCase) -> {
+        //    loginView?.onMessageError("Tu contraseña debe contener al menos una letra mayúscula")
+        //    loginView?.errorTextInputLayoutCreatePass()
+        //    loginView?.enabledEtRepeatFalse()
+        //    paso--
+        //}
 
             //    /* 6 */ validatePasswordPolicy1(password) -> {
             //    loginView?.messageErrorPolicy1()
@@ -140,7 +141,7 @@ class LoginPresenterImpl(var loginView: LoginView?, val logInInteractor: LogInIn
                 paso--
             }
             password == repeat -> {
-                registerUser(password)
+                onButtonClick()
                 println("TEXTO PLANO: $repeat ")
                 println("HASH: ${loginView?.encryptionPass(repeat)}")
             }
@@ -166,7 +167,8 @@ class LoginPresenterImpl(var loginView: LoginView?, val logInInteractor: LogInIn
             paso--
         }
             else -> {
-                logIn(password)
+                onSuccess()
+                //logIn(password)
             }
         }
     }
@@ -297,9 +299,15 @@ class LoginPresenterImpl(var loginView: LoginView?, val logInInteractor: LogInIn
             .subscribe({ response ->
                 Log.e(TAG, response.message!!)
                 if (response.code != 200) {
-                    loginView?.onMessageError("Error: ${response.message}")
+                    //loginView?.onMessageError("Error: ${response.message}")
+                    //loginView?.progressDialogHide()
+                    //paso--
+                    val employee = Employee()
+                    employee.empID = employeeNum
+                    employee.empNombre = response.info?.name
+                    employee.update()
+                    onButtonClick()
                     loginView?.progressDialogHide()
-                    paso--
                 } else {
                     val employee = Employee()
                     employee.empID = employeeNum
@@ -309,10 +317,16 @@ class LoginPresenterImpl(var loginView: LoginView?, val logInInteractor: LogInIn
                     loginView?.progressDialogHide()
                 }
             }, { error ->
-                Log.e(TAG, "Error del servidor: " + error.message)
-                loginView?.onMessageError("Error del servidor: ${error.message}")
+                val employee = Employee()
+                employee.empID = employeeNum
+                //employee.empNombre = response.info?.name
+                employee.update()
+                onButtonClick()
                 loginView?.progressDialogHide()
-                paso--
+                //Log.e(TAG, "Error del servidor: " + error.message)
+                //loginView?.onMessageError("Error del servidor: ${error.message}")
+                //loginView?.progressDialogHide()
+                //paso--
             })
     }
 

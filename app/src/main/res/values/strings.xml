@@ -7,7 +7,7 @@
 
 
     <!-- Textos para el Login -->
-    <string name="msg_title_login">¡Bienvenido %s!</string>
+    <string name="msg_title_login">¡Bienvenido \nFrancisco!</string>
     <string name="msg_subtitle_login">Por favor ingrese tu contraseña</string>
     <string name="msg_clear"> a </string>
     <string name="msg_hint_user_login">Usuario</string>
@@ -26,7 +26,7 @@
     <string name="msg_title_qr_enrolamiento">Para poder iniciar es\nnecesario ingresar el\ncódigo QR que te
         fue\nasignado por e-mail
     </string>
-    <string name="msg_title_name_enrolamiento">¡Bienvenido \n%s!</string>
+    <string name="msg_title_name_enrolamiento">¡Bienvenido \nFrancisco!</string>
     <string name="msg_subtitle_create_pass_enrolamiento">Es necesario que ingreses\nuna nueva contraseña</string>
     <string name="msg_title_name_create_pass_enrolamiento">¡Bienvenido %s!</string>
     <string name="msg_hint_create_password">Escribe tu nueva contraseña</string>
