@@ -1,11 +1,13 @@
 package com.simaht.modules.dashboard_mh.tools.done
 
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.baz.continuidadoperativaletterassignment.almenu.view.ui.ALetterActivity
 import com.example.dashboard_mh.R
 import com.simaht.modules.dashboard_mh.tools.FragmentCommunication
 import kotlinx.android.synthetic.main.fragment_transfer_tool_done.*
@@ -35,6 +37,8 @@ class TransferToolDoneFragment : Fragment() {
         btnContinue.setOnClickListener {
             parentView.processDone()
             parentView.nextFragment()
+
+            startActivity(Intent(context, ALetterActivity::class.java))
         }
     }
 
