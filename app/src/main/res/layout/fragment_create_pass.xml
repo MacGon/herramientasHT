@@ -7,77 +7,74 @@
         tools:context="com.simaht.modules.dashboard_mh.CreatePassFragment">
 
     <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/tvTitleEnrollCreatePass"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center_horizontal"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginStart="8dp"
-            style="@style/TitleCreatePassStyle"
-            tools:text="@string/msg_title_login"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"/>
-
-    <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tvSubtitleEnrollCreatePass"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
             android:layout_marginStart="8dp"
             android:layout_marginEnd="8dp"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="30dp"
             style="@style/SubTitleCreatePassStyle"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvTitleEnrollCreatePass"/>
+            app:layout_constraintTop_toTopOf="parent"/>
 
-    <androidx.appcompat.widget.AppCompatEditText
-            android:id="@+id/etCreatePass"
-            android:layout_width="295dp"
-            android:layout_height="56dp"
-            android:paddingStart="12dp"
-            android:paddingEnd="12dp"
-            android:background="@drawable/shape_text_edit_create_pass"
-            android:inputType="textPassword"
-            android:ellipsize="start"
-            android:drawableStart="@drawable/ic_locked"
-            android:drawablePadding="16dp"
-            android:maxLength="8"
+    <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tilCreatePassword"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
             android:layout_marginEnd="8dp"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="60dp"
             android:layout_marginStart="8dp"
-            android:digits="ABCDEFGHIJKLMNÑOPQRSTUVWXYZabcdefghijklmnñopqrstuvwxyz1234567890"
-            android:textCursorDrawable="@drawable/cursor_color"
-            style="@style/CreatePasswordStyle"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+            app:boxStrokeColor="@color/colorWhite"
+            app:boxBackgroundColor="@color/colorWhite"
             app:layout_constraintTop_toBottomOf="@+id/tvSubtitleEnrollCreatePass"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            tools:ignore="RtlSymmetry"/>
+            app:layout_constraintEnd_toEndOf="parent">
 
-    <androidx.appcompat.widget.AppCompatEditText
-            android:id="@+id/etRepeatPass"
-            android:layout_width="295dp"
-            android:layout_height="56dp"
-            android:paddingStart="12dp"
-            android:paddingEnd="12dp"
-            android:background="@drawable/shape_text_edit_create_pass"
-            android:inputType="textPassword"
-            android:ellipsize="start"
-            android:drawableStart="@drawable/ic_locked"
-            android:drawablePadding="16dp"
-            android:maxLength="8"
+        <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/etCreatePass"
+                android:layout_width="295dp"
+                android:layout_height="56dp"
+                android:paddingStart="12dp"
+                android:paddingEnd="12dp"
+                android:inputType="textPassword"
+                android:ellipsize="start"
+                android:drawableStart="@drawable/ic_locked"
+                android:drawablePadding="16dp"
+                android:textCursorDrawable="@drawable/cursor_color"
+                style="@style/CreatePasswordStyle"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tilRepeatPassword"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
             android:layout_marginEnd="8dp"
             android:layout_marginTop="25dp"
             android:layout_marginStart="8dp"
-            android:enabled="true"
-            android:digits="ABCDEFGHIJKLMNÑOPQRSTUVWXYZabcdefghijklmnñopqrstuvwxyz1234567890"
-            android:textCursorDrawable="@drawable/cursor_color"
-            style="@style/RepeatPasswordStyle"
-            app:layout_constraintTop_toBottomOf="@+id/etCreatePass"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+            app:boxStrokeColor="@color/colorWhite"
+            app:boxBackgroundColor="@color/colorWhite"
+            app:layout_constraintTop_toBottomOf="@+id/tilCreatePassword"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            tools:ignore="RtlSymmetry"/>
+            app:layout_constraintEnd_toEndOf="parent">
+
+        <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/etRepeatPass"
+                android:layout_width="295dp"
+                android:layout_height="56dp"
+                android:paddingStart="12dp"
+                android:paddingEnd="12dp"
+                android:inputType="textPassword"
+                android:ellipsize="start"
+                android:drawableStart="@drawable/ic_locked"
+                android:drawablePadding="16dp"
+                android:textCursorDrawable="@drawable/cursor_color"
+                style="@style/RepeatPasswordStyle"/>
+    </com.google.android.material.textfield.TextInputLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

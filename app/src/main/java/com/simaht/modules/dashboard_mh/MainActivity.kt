@@ -14,6 +14,7 @@ import androidx.core.content.ContextCompat
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.Fragment
+import com.baz.continuidadoperativaletterassignment.almenu.view.ui.ALetterActivity
 import com.baz.simaht.login.extensions.addFragment
 import com.baz.simaht.login.extensions.replaceFragment
 import com.example.dashboard_mh.R
@@ -102,17 +103,15 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         drawerLayout.addDrawerListener(toggle)
         toggle.syncState()
         navViewTwo.setNavigationItemSelectedListener(this)
-//////////////Revisar BaseActivity
-        window.decorView.apply {
-            // Hide both the navigation bar and the status bar.
-            // SYSTEM_UI_FLAG_FULLSCREEN is only available on Android 4.1 and higher, but as
-            // a general rule, you should design your app to hide the status bar whenever you
-            // hide the navigation bar.
-            systemUiVisibility = View.SYSTEM_UI_FLAG_HIDE_NAVIGATION or View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
-        }
-///////////
+        /////////Revisar BaseActivity
+        hideBottomBar()
+            ////////
     }
 
+    override fun onResume() {
+        super.onResume()
+        hideBottomBar()
+    }
 //    override fun onBackPressed() {
 //        val drawerLayout: DrawerLayout = findViewById(R.id.drawer_container)
 //        if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
@@ -132,6 +131,15 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 //        }, 2000)
 //    }
 
+    fun hideBottomBar(){
+        window.decorView.apply {
+            // Hide both the navigation bar and the status bar.
+            // SYSTEM_UI_FLAG_FULLSCREEN is only available on Android 4.1 and higher, but as
+            // a general rule, you should design your app to hide the status bar whenever you
+            // hide the navigation bar.
+            systemUiVisibility = View.SYSTEM_UI_FLAG_HIDE_NAVIGATION or View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
+        }
+    }
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         // Inflate the menu; this adds items to the action bar if it is present.
         menuInflater.inflate(R.menu.toolbar_menu, menu)
@@ -249,7 +257,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
     override fun showCartaAsignacion() {
         val fragmentCartaAsignacion = CartaFragment()
-        val transactionCartaAsignacion = fm.beginTransaction();
+        val transactionCartaAsignacion = fm.beginTransaction()
         transactionCartaAsignacion.replace(container.id, fragmentCartaAsignacion)
         transactionCartaAsignacion.commit()
     }

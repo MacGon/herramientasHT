@@ -55,6 +55,13 @@ abstract class BaseActivity : AppCompatActivity() {
         editText.inputType = InputType.TYPE_CLASS_TEXT
     }
 
+    fun clearStack(){
+        val fm = this.getSupportFragmentManager()
+        for (i in 0 until fm.getBackStackEntryCount()) {
+            fm.popBackStack()
+        }
+    }
+
     override fun onBackPressed() {
         when {
             supportFragmentManager.backStackEntryCount > 0 -> {
@@ -65,5 +72,4 @@ abstract class BaseActivity : AppCompatActivity() {
             }
         }
     }
-
 }

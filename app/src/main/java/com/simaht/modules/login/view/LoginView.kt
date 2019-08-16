@@ -2,9 +2,6 @@ package com.simaht.modules.login.view
 
 interface LoginView {
 
-    fun showProgress()
-    fun hideProgress()
-
     fun setPasswordCreatePass()
     fun setRepeatPass()
 
@@ -15,6 +12,14 @@ interface LoginView {
     fun encryptionPass(s: String): String
     fun nextStepKeyboardCreate()
     fun nextStepKeyboardLogin()
+    fun progressDialogShow()
+    fun progressDialogHide()
+    fun enabledButtonTrue()
+    fun enabledButtonFalse()
+
+    fun errorTextInputLayoutLogin()
+    fun errorTextInputLayoutCreatePass()
+    fun errorTextInputLayoutRepeatPass()
 
     fun navigateToHome()
     fun setWelcomeMessage(message:String)
@@ -30,13 +35,14 @@ interface LoginView {
     fun showSuccessFragment()
     fun showLoginFragment()
     fun loginCheck()
-    fun messageError()
-    fun messageErrorCreatePass()
     fun messageErrorLetter()
     fun messageErrorBank()
     fun messageErrorSal()
     fun messageErrorPolicy1()
     fun messageErrorPolicy2()
     fun errorPass()
+    fun onMessageError(error:String)
+    fun messageErrorSpace()
+    fun messageErrorLogin()
 }
 

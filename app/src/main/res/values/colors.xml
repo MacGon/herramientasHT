@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <color name="colorPrimary">#008577</color>
     <color name="colorPrimaryDark">#00574B</color>
-    <color name="colorAccent">#EEB042</color>
+    <color name="colorAccent">#EFA140</color>
     <color name="colorWhite">#FFFFFFFF</color>
-    <color name="colorOrange">#EEB042</color>
+    <color name="colorOrange">#EFA140</color>
     <color name="colorGray">#6A6A6A</color>
     <color name="colorGreen">#1DC256</color>
     <color name="colorLightGray">#E4E4E4</color>
@@ -38,5 +38,7 @@
     <color name="incident">#af272f</color>
     <color name="factory_defect">#6c69ff</color>
     <color name="end_of_useful_life">#662d91</color>
+
+    <color name="mtrl_textinput_default_box_stroke_color" tools:override="true">#fff</color>
 
 </resources>

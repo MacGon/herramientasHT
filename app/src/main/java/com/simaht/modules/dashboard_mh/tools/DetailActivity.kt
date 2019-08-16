@@ -1,12 +1,14 @@
 package com.simaht.modules.dashboard_mh.tools
 
 import android.app.Activity
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.view.inputmethod.InputMethodManager
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
+import com.baz.continuidadoperativaletterassignment.almenu.view.ui.ALetterActivity
 import com.baz.simaht.login.extensions.addFragment
 import com.baz.simaht.login.extensions.replaceFragment
 import com.example.dashboard_mh.R
@@ -101,7 +103,9 @@ class DetailActivity : AppCompatActivity() {
     fun proceesDone() {
         supportFragmentManager.popBackStack()
         //TODO add contract fragment
-        this@DetailActivity.finish() //FlowCompleted 100%
+        //this@DetailActivity.finish() //FlowCompleted 100%
+
+        startActivity(Intent(this, ALetterActivity::class.java))
     }
 
 }
