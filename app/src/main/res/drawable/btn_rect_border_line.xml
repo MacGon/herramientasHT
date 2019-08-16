@@ -6,6 +6,10 @@
     <stroke
         android:color="@color/not_available"
         android:width="3dp" />
+    <padding android:left="1dp"
+        android:top="1dp"
+        android:right="1dp"
+        android:bottom="1dp"/>
     <!-- corner roundness -->
-    <corners android:radius="10dp" />
+    <corners android:radius="20px" />
 </shape>

@@ -14,7 +14,7 @@
         android:layout_height="88dp"
         android:lineSpacingExtra="3.2sp"
         android:textColor="@color/colorAccent"
-        android:textSize="16sp"
+        android:textSize="17sp"
         android:paddingStart="20dp"
         android:paddingEnd="20dp"
         android:paddingTop="18dp"
@@ -22,6 +22,7 @@
         android:text="@string/msg_gestion_tool"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        android:fontFamily="@font/montserrat_regular"
         app:layout_constraintTop_toTopOf="parent" />
 
     <View
@@ -184,7 +185,7 @@
         android:foreground="?android:attr/selectableItemBackground"
         android:shadowRadius="5.0"
         android:text="@string/msg_continue"
-        android:textColor="@color/blocked"
+        android:textColor="@color/colorWhite"
         android:textAllCaps="false"
         android:textSize="17sp"
         app:layout_constraintBottom_toBottomOf="parent"

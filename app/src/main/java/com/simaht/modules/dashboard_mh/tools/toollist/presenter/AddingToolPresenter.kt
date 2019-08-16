@@ -36,7 +36,7 @@ class AddingToolPresenter(val view: AddingToolContract.View):AddingToolContract.
             }
         }*/
 
-        return Tool("Ipad", "Apple", "16/03/15", 8435, 9431242, "873.43", true, "www.google.com")
+        return Tool("IPAD", "Apple", "16/03/15", 8435, 9431242, "873.43", true, "www.google.com")
 
     }
 

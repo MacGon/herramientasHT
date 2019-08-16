@@ -20,7 +20,7 @@ class AddToolViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
     fun bind(selecTool: SelectableItem<Tool>, options:(itemToDelete : SelectableItem<Tool>?, selected: Boolean?) -> Unit) {
         with(selecTool) {
             itemView.tvToolMainName.text = item.name
-            itemView.tvToolSerianlNumber.text = item.serialNumber.toString()
+            itemView.tvToolSerianlNumber.text = "( " + item.serialNumber.toString() + " )"
 
             if (item.status) {
                 itemView.tvToolStatus.text = itemView.resources.getString(R.string.msg_operational)
