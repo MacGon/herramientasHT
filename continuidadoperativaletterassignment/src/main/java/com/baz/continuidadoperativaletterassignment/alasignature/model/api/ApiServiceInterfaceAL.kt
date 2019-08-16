@@ -1,4 +1,5 @@
 package com.baz.continuidadoperativaletterassignment.alasignature.model.api
+import com.baz.continuidadoperativaletterassignment.alasignature.view.ui.fragments.ALLetterAsignmentSuccessful
 import com.baz.continuidadoperativaletterassignment.alcommon.ALConstants
 import com.google.gson.JsonObject
 import io.reactivex.Observable
@@ -14,8 +15,11 @@ interface ApiServiceInterfaceAL {
 
 
     @POST("herramientasMoviles/transferenciaActivos/asignaPax?")
-    fun createAsignment(@Body json: JsonObject) : Observable<ApiServiceInterfaceAL>
+    fun createAsignment(@Body json: JsonObject) : Single<ApiServiceInterfaceAL>
 
+
+    @GET("herramientasMoviles/transferenciaActivos/asignaPax?")
+    fun getPostList(): Observable<List<ALLetterAsignmentSuccessful>>
 
     companion object Factory {
         fun create(): ApiServiceInterfaceAL {

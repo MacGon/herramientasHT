@@ -16,18 +16,14 @@ class ALAsignaturePresenter(val view : IAsignatureContractView) : IAsignatureCon
     private val subscriptions = CompositeDisposable()
 
     override fun loadData() {
-       /* var subscribe = Observable.zip(api.createAsignment(),
-                Function3<List<AssignationToolLA>, DetailViewModel> {
-                    posts ->
-                    createDetailViewModel(posts)
-                }).subscribeOn(Schedulers.io())
+/*        var subscribe = api.getPostList().subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe({ model: DetailViewModel? ->
-                    //view.showProgress(false)
-                    //view.loadDataAllSuccess(model!!)
-                },{ error ->
-                    //view.showProgress(false)
-                    //view.showErrorMessage(error.localizedMessage)
+                .subscribe({ list: List<AssignationToolLA>? ->
+                    view.showProgress(false)
+                    view.loadDataSuccess(list!!.take(10))
+                }, { error ->
+                    view.showProgress(false)
+                    view.showErrorMessage(error.localizedMessage)
                 })
 
         subscriptions.add(subscribe)*/

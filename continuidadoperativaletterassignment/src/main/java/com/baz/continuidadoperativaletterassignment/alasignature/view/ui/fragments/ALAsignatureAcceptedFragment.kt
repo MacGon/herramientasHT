@@ -2,6 +2,7 @@ package com.baz.continuidadoperativaletterassignment.alasignature.view.ui.fragme
 
 import android.os.Bundle
 import android.text.Html
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.MotionEvent
@@ -17,6 +18,18 @@ import com.baz.continuidadoperativaletterassignment.almenu.view.ui.ALetterActivi
 import kotlinx.android.synthetic.main.fragment_asignature_accepted.*
 
 class ALAsignatureAcceptedFragment : Fragment(), IAsignatureContractView {
+    override fun loadDataSuccess(list: List<AssignationToolLA>) {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
+    override fun showProgress(show: Boolean) {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
+    override fun showErrorMessage(error: String) {
+        Log.e("Error", error)
+    }
+
 
     private lateinit var  presenter: IAsignatureContractPresenter
 
