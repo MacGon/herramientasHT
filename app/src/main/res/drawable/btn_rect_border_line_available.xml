@@ -6,7 +6,7 @@
             <solid android:color="@color/available" />        <!-- border -->
             <stroke android:width="3dp" android:color="@color/available" />
             <!-- corner roundness -->
-            <corners android:radius="3dp" />
+            <corners android:radius="20px" />
         </shape>
     </item>
 </selector>

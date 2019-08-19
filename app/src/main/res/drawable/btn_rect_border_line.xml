@@ -7,5 +7,5 @@
         android:color="@color/not_available"
         android:width="3dp" />
     <!-- corner roundness -->
-    <corners android:radius="10dp" />
+    <corners android:radius="20px" />
 </shape>
