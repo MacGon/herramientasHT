@@ -1,97 +1,90 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/clSearching"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/clSearching"
-    android:background="@color/colorWhite"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:background="@color/colorWhite">
 
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/tvInstructions"
-        android:layout_width="0dp"
-        android:layout_height="88dp"
-        android:lineSpacingExtra="3.2sp"
-        android:textColor="@color/colorAccent"
-        android:textSize="16sp"
-        android:paddingStart="20dp"
-        android:paddingEnd="20dp"
-        android:paddingTop="18dp"
-        android:layout_marginBottom="18dp"
-        android:background="@color/colorWhite"
-        android:text="@string/msg_search_employee_instruction"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <View
-        android:id="@+id/view"
-        android:layout_width="match_parent"
-        android:layout_height="2dp"
-        android:background="@color/transparentGray"
-        app:layout_constraintBottom_toBottomOf="@id/tvInstructions" />
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView3"
+        android:layout_width="413dp"
+        android:layout_height="94dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
-        android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.444"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/tvInstructions">
+        app:layout_constraintTop_toTopOf="parent">
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-    </com.google.android.material.textfield.TextInputLayout>
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvInstructions"
+                android:layout_width="376dp"
+                android:layout_height="83dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="8dp"
+                android:background="@color/colorWhite"
+                android:fontFamily="@font/montserrat_regular"
+                android:lineSpacingExtra="3.2sp"
+                android:paddingStart="20dp"
+                android:paddingTop="18dp"
+                android:paddingEnd="20dp"
+                android:text="@string/msg_search_employee_instruction"
+                android:textColor="@color/colorAccent"
+                android:textSize="17sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
 
     <androidx.appcompat.widget.AppCompatEditText
         android:id="@+id/svEmployeeNumber"
-        android:layout_width="0dp"
+        android:layout_width="331dp"
         android:layout_height="40dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="44dp"
+        android:layout_marginEnd="8dp"
+        android:alwaysDrawnWithCache="true"
+        android:background="@drawable/shape_line"
+        android:digits="1234567890"
+        android:drawableStart="@drawable/ic_search"
+        android:drawableTint="@color/colorAccent"
+        android:ellipsize="start"
+        android:textColor="@color/textcolorTitleTool"
+        android:textSize="16sp"
+        android:hint="@string/msg_search_employee"
+        android:inputType="number"
+        android:layoutDirection="rtl"
+        android:maxLength="8"
         android:paddingStart="4dp"
         android:paddingEnd="4dp"
         android:textAlignment="textStart"
-        android:layout_marginTop="35dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="24dp"
-        android:layoutDirection="ltr"
-        android:hint="@string/msg_search_employee"
-        android:maxLength="8"
-        android:background="@drawable/shape_line"
-        android:alwaysDrawnWithCache="true"
-        android:drawableStart="@drawable/ic_search"
-        android:drawableTint="@color/colorAccent"
-        android:inputType="number"
-        android:digits="1234567890"
-        android:ellipsize="start"
-        android:windowSoftInputMode="stateAlwaysHidden"
         android:textCursorDrawable="@drawable/cursor_color"
-        app:layout_constraintEnd_toEndOf="@id/tvInstructions"
-        app:layout_constraintStart_toStartOf="@id/tvInstructions"
-        app:layout_constraintTop_toBottomOf="@id/tvInstructions" />
-
-    <LinearLayout
-        android:id="@+id/linearLayout"
-        android:layout_width="match_parent"
-        android:layout_height="90dp"
-        android:background="@color/colorWhite"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:textDirection="ltr"
+        android:windowSoftInputMode="stateAlwaysHidden"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardView3" />
+
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btnContinue"
         style="@style/ButtonComfirmToolDisable"
-        android:layout_width="0dp"
+        android:layout_width="331dp"
         android:layout_height="57dp"
-        android:layout_marginStart="40dp"
-        android:layout_marginEnd="40dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
         android:layout_marginBottom="16dp"
         android:background="@drawable/selector_tool_function"
         android:enabled="false"
@@ -100,11 +93,10 @@
         android:shadowRadius="5.0"
         android:text="@string/msg_search"
         android:textAllCaps="false"
-        android:textColor="@color/blocked"
+        android:textColor="@color/colorWhite"
         android:textSize="17sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@id/linearLayout"
-        app:layout_goneMarginStart="16dp" />
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
