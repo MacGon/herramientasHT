@@ -17,6 +17,7 @@ interface AssignToolContractI {
         fun addItemFound(toolFound: List<SelectableItem<Tool>>)
         fun showMessage(msgInt: Int? = null, msgStr: String? = null)
         fun enableAssignationBtn(enable: Boolean)
+        fun onMessageError(error: String)
     }
 
     interface Presenter{

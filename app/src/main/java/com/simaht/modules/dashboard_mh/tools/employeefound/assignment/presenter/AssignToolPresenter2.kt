@@ -29,24 +29,20 @@ class AssignToolPresenter2(val view: AssignToolContractI.View) : AssignToolContr
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe({ response ->
                 Log.e(TAG, response.message!!)
-                println("PERRRROOOOOOOTE $controlNum")
                 if (response.code != 200) {
-                    //Toast.makeText(activity, "Error: ${response.message}", Toast.LENGTH_LONG).show()
+                    view.onMessageError("Error: ${response.message}")
                     Log.e(TAG, "Error: " + response.message)
                 } else {
                     addScanedElement(addTool())
                     val tool = ToolAssign()
                     tool.toolsArray.add(response.info)
                     tool.update()
-
                 }
             }, { error ->
-                //Toast.makeText(activity, "Error: ${error.message}", Toast.LENGTH_LONG).show()
                 Log.e(TAG, "Error del servidor: " + error.message)
+                view.onMessageError("Error del servidor: ${error.message}")
             })
     }
-
-
 
     override fun setEmployeeNumber() {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
@@ -116,7 +112,7 @@ class AssignToolPresenter2(val view: AssignToolContractI.View) : AssignToolContr
             }
         }*/
 
-        return Tool(tool.toolsArray, "Apple", "16/03/15", 8435, 9431242, "873.43", true, "www.google.com")
+        return Tool("iPad", "Apple", "16/03/15", 8435, 9431242, "873.43", true, "www.google.com")
 
     }
 

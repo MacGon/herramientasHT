@@ -155,28 +155,27 @@ class AssignToolManagerFragment2 : Fragment(), AssignToolContractI.View, AddChil
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        Log.e("Shuy","code :"+requestCode+" scanerr:"+codeScanner)
         if (requestCode == codeScanner) {
-            Log.e("Shuy","code :"+resultCode+" ok:"+Activity.RESULT_OK)
             if (resultCode == Activity.RESULT_OK) {
-                Log.e("Shuy","extras :"+data?.extras!!.getString(KEY_DATA, ""))
                 val code: String = data?.extras!!.getString(KEY_DATA, "")
-                println("PERRITOOOO $code")
-                //presenter.getToolInfo("0104000000274")
+                println("HOLAAAAA $code")
                 try {
                     val obj: JsonObject = gson.fromJson(code, JsonObject::class.java)
-                    Log.e("El SHUY",obj.toString())
                     presenter.getToolInfo(obj.get("numControl").asString)
                     flagScaner = true
                 } catch (e: java.lang.Exception) {
                     flagScaner = false
-                    Toast.makeText(activity, "Error al obtener información del servicio", Toast.LENGTH_LONG).show()
+                    onMessageError("Error al obtener información del servicio")
                     println("Error al obtener información del servicio")
                 }
             } else {
                 //presenter.onBackPressed()
             }
         }
+    }
+
+    override fun onMessageError(error: String) {
+        Toast.makeText(activity, error, Toast.LENGTH_SHORT).show()
     }
 
     override fun enableAssignationBtn(enable: Boolean) {
