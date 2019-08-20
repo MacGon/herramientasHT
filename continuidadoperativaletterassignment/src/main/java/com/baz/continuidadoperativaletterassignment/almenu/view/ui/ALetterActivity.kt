@@ -6,12 +6,12 @@ import android.os.Bundle
 import androidx.fragment.app.Fragment
 import com.baz.continuidadoperativaletterassignment.R
 import com.baz.continuidadoperativaletterassignment.alutils.hideBottomBar
-import com.baz.continuidadoperativaletterassignment.almenu.interfaces.IALetterPresenter
+import com.baz.continuidadoperativaletterassignment.almenu.`interface`.IALetterPresenter
 import com.baz.continuidadoperativaletterassignment.almenu.presenter.ALetterPresenter
-import com.baz.continuidadoperativaletterassignment.almenu.interfaces.IALetterView
-import com.baz.continuidadoperativaletterassignment.almenu.view.ui.fragments.ALAsignatureAcceptedFragment
-import com.baz.continuidadoperativaletterassignment.almenu.view.ui.fragments.ALContractFragment
-import com.baz.continuidadoperativaletterassignment.almenu.view.ui.fragments.ALLetterAsignmentSuccessful
+import com.baz.continuidadoperativaletterassignment.almenu.`interface`.IALetterView
+import com.baz.continuidadoperativaletterassignment.alasignature.view.ui.fragments.ALAsignatureAcceptedFragment
+import com.baz.continuidadoperativaletterassignment.alasignature.view.ui.fragments.ALContractFragment
+import com.baz.continuidadoperativaletterassignment.alasignature.view.ui.fragments.ALLetterAsignmentSuccessful
 import kotlinx.android.synthetic.main.activity_coletter.*
 
 class ALetterActivity : AppCompatActivity(),

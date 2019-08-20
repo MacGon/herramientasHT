@@ -6,7 +6,7 @@
         android:layout_height="match_parent"
         xmlns:app="http://schemas.android.com/apk/res-auto"
 
-    tools:context=".almenu.view.ui.fragments.ALAsignatureAcceptedFragment">
+    tools:context=".alasignature.view.ui.fragments.ALAsignatureAcceptedFragment">
 
     <androidx.cardview.widget.CardView
             android:layout_width="407dp"

@@ -68,4 +68,7 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
+
+    <string name="msg_loading_server_la">Espera un momento\nProcesando información</string>
+
 </resources>

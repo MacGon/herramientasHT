@@ -1,7 +1,12 @@
 package com.baz.continuidadoperativaletterassignment.alutils
 
+import android.app.ProgressDialog
+import android.content.Context
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.view.View
 import android.view.Window
+import com.baz.continuidadoperativaletterassignment.R
 
 
 fun hideBottomBar(window: Window){
@@ -13,3 +18,4 @@ fun hideBottomBar(window: Window){
         systemUiVisibility = View.SYSTEM_UI_FLAG_HIDE_NAVIGATION or View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
     }
 }
+
