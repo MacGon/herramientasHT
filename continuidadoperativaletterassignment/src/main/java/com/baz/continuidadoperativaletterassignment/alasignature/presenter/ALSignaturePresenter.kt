@@ -6,11 +6,10 @@ import android.view.View
 import com.baz.continuidadoperativaletterassignment.alasignature.`interface`.ISignatureContractPresenter
 import com.baz.continuidadoperativaletterassignment.alasignature.`interface`.IAsignatureContractView
 import com.baz.continuidadoperativaletterassignment.alasignature.model.api.ApiServiceInterfaceAL
-import com.baz.continuidadoperativaletterassignment.alasignature.model.models.RequestAssignationToolLA
+import com.baz.continuidadoperativaletterassignment.alasignature.model.models.RequestAssignmentToolLA
 import com.baz.continuidadoperativaletterassignment.alcommon.ALConstants
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
-import io.reactivex.disposables.Disposable
 import io.reactivex.schedulers.Schedulers
 
 class ALSignaturePresenter(val view : IAsignatureContractView) : ISignatureContractPresenter {
@@ -19,20 +18,7 @@ class ALSignaturePresenter(val view : IAsignatureContractView) : ISignatureContr
 
     override fun sendDataAssignment() {
         view.showProgress()
-        val request = RequestAssignationToolLA(1, "", "0104000000391", "", "", 0, "", "919610", "", 0, "149766", "GS1301870", "F9FNR528FLMJ", 0, "0000000000000000000F", "", 4)
-        val disposable: Disposable = api.getPostList(request).subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe({ response ->
-                    if (response.code == 200) {
-                        view.showSuccessFullAsignment()
-                        view.hideProgress()
-                    } else if (response.code == 500) {
-                        cleanSignatureError(ALConstants.MSG_ERROR_SIGNATURE)
-                    }
-                }, { error ->
-                    Log.d("TAG", "Error Service Signature:" + error.message)
-                    cleanSignatureError(ALConstants.MSG_ERROR_SERVICE)
-                })
+        dataAssignament()
     }
 
     override fun goActionButtonDeletePaint() {
@@ -51,7 +37,25 @@ class ALSignaturePresenter(val view : IAsignatureContractView) : ISignatureContr
         view.hideBottomBar()
         view.hideProgress()
         view.actionButtonDraw(false)
+    }
 
+    private fun dataAssignament(){
+        val request = RequestAssignmentToolLA(1, "", "0104000000391", "", "", 0, "", "919610", "", 0, "149766", "GS1301870", "F9FNR528FLMJ", 0, "0000000000000000000F", "", 4)
+        val subscribe = api.getPostList(request).subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe({ response ->
+                    if (response.code == 200) {
+                        view.showSuccessFullAsignment()
+                        view.hideProgress()
+                    } else if (response.code == 500) {
+                        cleanSignatureError(ALConstants.MSG_ERROR_SIGNATURE)
+                    }
+                }, { error ->
+                    Log.d("TAG", "Error Service Signature:" + error.message)
+                    cleanSignatureError(ALConstants.MSG_ERROR_SERVICE)
+                })
+
+        subscriptions.add(subscribe)
     }
 
 

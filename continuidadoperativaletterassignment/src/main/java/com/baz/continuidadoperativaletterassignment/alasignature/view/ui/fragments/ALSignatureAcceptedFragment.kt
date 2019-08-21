@@ -108,7 +108,7 @@ class ALSignatureAcceptedFragment : Fragment(), IAsignatureContractView {
         tvDescriptionAsignatureAccepted.setText(Html.fromHtml(employeeNameJH + (getString(R.string.description_signature_accepted)) , 2))
     }
 
-    fun progressDialogShow(context: Context) {
+    private fun progressDialogShow(context: Context) {
         progressDialog = Dialog(context)
         progressDialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
         progressDialog.show()

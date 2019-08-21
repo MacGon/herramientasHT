@@ -11,11 +11,11 @@ import com.baz.continuidadoperativaletterassignment.almenu.presenter.ALetterPres
 import com.baz.continuidadoperativaletterassignment.almenu.`interface`.IALetterView
 import com.baz.continuidadoperativaletterassignment.alasignature.view.ui.fragments.ALSignatureAcceptedFragment
 import com.baz.continuidadoperativaletterassignment.alasignature.view.ui.fragments.ALContractFragment
-import com.baz.continuidadoperativaletterassignment.alasignature.view.ui.fragments.ALLetterAsignmentSuccessful
+import com.baz.continuidadoperativaletterassignment.alasignature.view.ui.fragments.ALLetterAssignmentSuccessful
 import kotlinx.android.synthetic.main.activity_coletter.*
 
 class ALetterActivity : AppCompatActivity(),
-    IALetterView, ALContractFragment.showAsignatureAcceptedFragment, ALSignatureAcceptedFragment.showSuccessfulAsignmentFragment , ALLetterAsignmentSuccessful.goInitialView{
+    IALetterView, ALContractFragment.showAsignatureAcceptedFragment, ALSignatureAcceptedFragment.showSuccessfulAsignmentFragment , ALLetterAssignmentSuccessful.goInitialView{
     val manager = supportFragmentManager
     private var mIALetterPresenter : IALetterPresenter.Presenter? = null
 

@@ -1,5 +1,5 @@
 package com.baz.continuidadoperativaletterassignment.alasignature.model.api
-import com.baz.continuidadoperativaletterassignment.alasignature.model.models.RequestAssignationToolLA
+import com.baz.continuidadoperativaletterassignment.alasignature.model.models.RequestAssignmentToolLA
 import com.baz.continuidadoperativaletterassignment.alasignature.model.models.ResponseAssignationLA
 import com.baz.continuidadoperativaletterassignment.alcommon.ALConstants
 import io.reactivex.Observable
@@ -12,7 +12,7 @@ import retrofit2.http.POST
 interface ApiServiceInterfaceAL {
 
     @POST("herramientasMoviles/transferenciaActivos/asignaPax?")
-    fun getPostList(@Body json: RequestAssignationToolLA): Observable<ResponseAssignationLA>
+    fun getPostList(@Body json: RequestAssignmentToolLA): Observable<ResponseAssignationLA>
 
 
     companion object Factory {

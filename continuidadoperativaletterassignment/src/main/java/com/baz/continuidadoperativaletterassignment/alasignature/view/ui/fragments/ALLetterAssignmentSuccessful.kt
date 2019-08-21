@@ -10,12 +10,12 @@ import com.baz.continuidadoperativaletterassignment.R
 import com.baz.continuidadoperativaletterassignment.almenu.view.ui.ALetterActivity
 import kotlinx.android.synthetic.main.fragment_alletter_asignament_successfull.*
 
-class ALLetterAsignmentSuccessful : Fragment() {
+class ALLetterAssignmentSuccessful : Fragment() {
 
 
     companion object {
-        fun newInstance(): ALLetterAsignmentSuccessful {
-            val fragment = ALLetterAsignmentSuccessful()
+        fun newInstance(): ALLetterAssignmentSuccessful {
+            val fragment = ALLetterAssignmentSuccessful()
             val arg = Bundle()
             //arg.putBoolean(true)
             return fragment
