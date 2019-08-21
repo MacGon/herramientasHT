@@ -20,11 +20,15 @@ class Employee {
 
     var empID: String? = null
     var empNombre: String? = null
+    var empApellidoPat: String? = null
+    var empApellidoMat: String? = null
     var registerFinished: Boolean
 
     init {
         empID = ""
         empNombre = ""
+        empApellidoPat = ""
+        empApellidoMat = ""
         registerFinished = false
         gson = Gson()
         loadInfoEmployee()

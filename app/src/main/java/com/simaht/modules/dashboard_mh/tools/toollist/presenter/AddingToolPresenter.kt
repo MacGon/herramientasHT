@@ -1,10 +1,50 @@
 package com.simaht.modules.dashboard_mh.tools.toollist.presenter
 
+import android.util.Log
 import com.simaht.dashboard_mh.AssignTool.Tool
+import com.simaht.modules.dashboard_mh.tools.employeefound.assignment.presenter.ToolAssign
 import com.simaht.modules.dashboard_mh.tools.toollist.contract.AddingToolContract
+import com.simaht.network.remote.RestAPI
+import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.disposables.Disposable
+import io.reactivex.schedulers.Schedulers
 
 class AddingToolPresenter(val view: AddingToolContract.View):AddingToolContract.Presenter {
 
+    private val TAG: String = "AssignToolPresenter2"
+
+    override fun getToolInfo(controlNum: String) {
+        view.progressDialogShow()
+        val api = RestAPI()
+        val disposable: Disposable = api.consultTool(controlNum).subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe({ response ->
+                    Log.e(TAG, response.message!!)
+                    if (response.code != 200) {
+                        view.onMessageError("Error: ${response.message}")
+                        Log.e(TAG, "Error: " + response.message)
+                        view.progressDialogHide()
+                    }
+                    else {
+                        val toolAssign = ToolAssign()
+                        for (tool in response.info) {
+                            if (toolAssign.validateControlId(tool)) {
+                                view.onMessageError("Error: Código escaneado anteriormente")
+                                view.progressDialogHide()
+                            } else {
+                                toolAssign.toolsArray.add(tool)
+                                toolAssign.update()
+                                addScanedElement(Tool(tool.controlID!!, "(${tool.numSerie!!})", tool.numPlaca!!, tool.idCategoria!!, tool.descCategoria!!, tool.idTipo!!, tool.descTipo!!, tool.numSim!!))
+                                view.progressDialogHide()
+                            }
+                        }
+                    }
+                }, { error ->
+                    Log.e(TAG, "Error del servidor: " + error.message)
+                    view.onMessageError("Error del servidor: ${error.message}")
+                    view.progressDialogHide()
+                })
+    }
 
     override fun addElement() {
         view.readQR()
@@ -36,7 +76,7 @@ class AddingToolPresenter(val view: AddingToolContract.View):AddingToolContract.
             }
         }*/
 
-        return Tool("Ipad", "Apple", "16/03/15", 8435, 9431242, "873.43", true, "www.google.com")
+        return Tool("0104000000274", "0821086542", "GS1613202", 1, "MOVILES", 4, "PAX SIM", "0000000000000000000F")
 
     }
 

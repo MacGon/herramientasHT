@@ -19,8 +19,8 @@ class ToolCustodyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) 
     @SuppressLint("RestrictedApi")
     fun bind(selecTool: SelectableItem<Tool>, position: Int, onView: CoConstants.ASSIGN, haveAction: Boolean, notifyItemSelected:(position: Int, element: Tool, selected: Boolean) -> Unit) {
         with(selecTool) {
-            itemView.tvToolMainName.text = item.name
-            itemView.tvToolSerianlNumber.text = item.serialNumber.toString()
+            itemView.tvToolMainName.text = item.descTipo
+            itemView.tvToolSerianlNumber.text = item.numSerie
 
             if (action != null && haveAction && onView == CoConstants.ASSIGN.SET_ACTION) {
                 showActionToDo(this)

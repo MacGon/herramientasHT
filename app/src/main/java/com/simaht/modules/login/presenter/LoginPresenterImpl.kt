@@ -304,6 +304,8 @@ class LoginPresenterImpl(var loginView: LoginView?, val logInInteractor: LogInIn
                     val employee = Employee()
                     employee.empID = employeeNum
                     employee.empNombre = response.info?.name
+                    employee.empApellidoPat = response.info?.lastName
+                    employee.empApellidoMat = response.info?.msLastname
                     employee.update()
                     onButtonClick()
                     loginView?.progressDialogHide()

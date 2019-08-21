@@ -2,6 +2,7 @@ package com.simaht.modules.dashboard_mh.tools.employeefound.assignment.presenter
 
 import com.google.gson.Gson
 import com.google.gson.JsonArray
+import com.simaht.dashboard_mh.AssignTool.Tool
 import com.simaht.network.data.OutModelTool
 import com.simaht.utils.JsonFile
 
@@ -17,7 +18,6 @@ class ToolAssign {
     private val TAG: String = ToolAssign::class.java.name
 
     var toolsArray:ArrayList<OutModelTool>
-
 
     init {
         toolsArray = ArrayList()
@@ -41,5 +41,9 @@ class ToolAssign {
 
     fun update() {
         JsonFile.guardarArchivo(FILENAMETOOL, gson.toJson(toolsArray))
+    }
+
+    fun validateControlId(tool :OutModelTool):Boolean {
+        return toolsArray.contains(tool)
     }
 }

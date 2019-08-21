@@ -42,15 +42,16 @@ class AssignToolAdapter(private var tools: ArrayList<SelectableItem<Tool>>, var 
 
         fun bind(selecTool: SelectableItem<Tool>, position: Int, callBack: (Tool?) -> Unit) {
             with(selecTool) {
-                itemView.tvToolMainName.text = item.name
-                itemView.tvToolSerianlNumber.text = item.serialNumber.toString()
-                if (item.status) {
+                itemView.tvToolMainName.text = item.descTipo
+                itemView.tvToolSerianlNumber.text = item.numSerie
+
                     itemView.tvToolStatus.text = "Disponible" //TODO refact this source
                     itemView.tvToolStatus.setTextColor(itemView.resources.getColor(R.color.grass))
-                } else {
+
+                /*else {
                     itemView.tvToolStatus.text = "Agotado"
                     itemView.tvToolStatus.setTextColor(itemView.resources.getColor(R.color.colorRed))
-                }
+                }*/
 
                 itemView.clItemAssignTool.setOnLongClickListener {
                     selected = !selected

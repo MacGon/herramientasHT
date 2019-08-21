@@ -38,8 +38,8 @@ class RestAPI {
         fun getInstance() = instance
     }
 
-    private val CONNECT_TIMEOUT_MILLIS = 35000L
-    private val READ_TIMEOUT_MILLIS = 35000L
+    private val CONNECT_TIMEOUT_MILLIS = 10000L
+    private val READ_TIMEOUT_MILLIS = 10000L
     private val JSON = MediaType.parse("application/json; charset=utf-8")
     private var retrorfit : Retrofit
     private val gson: Gson
