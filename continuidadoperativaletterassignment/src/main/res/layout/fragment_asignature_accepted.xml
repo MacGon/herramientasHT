@@ -54,7 +54,7 @@
     </View>
 
     <com.baz.continuidadoperativaletterassignment.alutils.PaintView
-            android:id="@+id/firmaView"
+            android:id="@+id/signatureView"
             android:layout_width="310dp"
             android:layout_height="342dp"
             app:layout_constraintTop_toTopOf="@+id/vBackgroundAssignTool"
@@ -79,7 +79,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.906"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/firmaView" />
+        app:layout_constraintTop_toBottomOf="@+id/signatureView" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btnDeletePaint"
@@ -98,6 +98,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.085"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/firmaView" />
+        app:layout_constraintTop_toBottomOf="@+id/signatureView" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

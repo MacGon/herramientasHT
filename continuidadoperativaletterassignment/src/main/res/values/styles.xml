@@ -37,7 +37,7 @@
         <item name="android:textColor">@color/battleship_grey</item>
         <item name="android:textSize">13sp</item>
         <item name="android:lineSpacingExtra">6.2sp</item>
-        <item name="android:text">@string/description_asignature_accepted</item>
+        <item name="android:text">@string/description_signature_accepted</item>
     </style>
 
     <style name="btnComfirmTool">

@@ -25,6 +25,14 @@ class ALSignatureAcceptedFragment : Fragment(), IAsignatureContractView {
     private lateinit var presenter: ISignatureContractPresenter
     private lateinit var progressDialog: Dialog
 
+    companion object {
+        fun newInstance(): ALSignatureAcceptedFragment {
+            val fragment = ALSignatureAcceptedFragment()
+            val arg = Bundle()
+            return fragment
+        }
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         presenter = ALSignaturePresenter(this)
@@ -32,87 +40,74 @@ class ALSignatureAcceptedFragment : Fragment(), IAsignatureContractView {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
+        savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.fragment_asignature_accepted, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-
-        val title: String = getString(R.string.title_asignature_accepted)
-        val descriptionAsignature: String = getString(R.string.description_asignature_accepted)
-        tvTitleLetterAsignature.setText(Html.fromHtml(title, 1))
-        tvDescriptionAsignatureAccepted.setText(Html.fromHtml(descriptionAsignature, 2))
         super.onViewCreated(view, savedInstanceState)
+        headerDescriptionSignature()
 
-        btnSuccefullAsignature.setOnClickListener { presenter.loadData() }
+        btnSuccefullAsignature.setOnClickListener { presenter.sendDataAssignment() }
 
-        btnDeletePaint.setOnClickListener {
-            actionButtonDraw(false)
-            cleanSignature()
-        }
+        btnDeletePaint.setOnClickListener { presenter.goActionButtonDeletePaint() }
 
-        firmaView.setOnTouchListener { view : View, motionEvent: MotionEvent ->  actionButtonDraw(true)
-
-            val x: Float = motionEvent!!.x
-            val y: Float = motionEvent.y
-
-            when(motionEvent!!.action){
-                MotionEvent.ACTION_DOWN -> {firmaView.touchStar(x, y); view.invalidate()}
-                MotionEvent.ACTION_MOVE -> {firmaView.touchMove(x, y); view.invalidate()}
-                MotionEvent.ACTION_UP -> {firmaView.touchUp(); view.invalidate()}
-            }
-
+        signatureView.setOnTouchListener { view : View, motionEvent: MotionEvent -> presenter.goDrawSignatureView(view, motionEvent)
             true
         }
     }
 
     override fun showErrorMessage(error: String) {
         Toast.makeText(context, error, Toast.LENGTH_LONG).show()
-        hideBottomBar()
-        cleanSignature()
-        actionButtonDraw(false)
     }
 
-    override fun showProgress(show: Boolean) {
-        if (show){
-            progressDialogShow(requireContext())
-        }else{
-            progressDialog.dismiss()
-        }
+    override fun showProgress() {
+        progressDialogShow(requireContext())
     }
 
-    fun hideBottomBar() {
-        hideBottomBar(activity!!.window)
+    override fun hideProgress() {
+        progressDialog.dismiss()
     }
 
-    fun cleanSignature() {
-        firmaView.clear()
-    }
-
-    fun actionButtonDraw(enabled: Boolean){
-        btnDeletePaint.isEnabled = enabled
-        btnSuccefullAsignature.isEnabled = enabled
-    }
-
-    companion object {
-        fun newInstance(): ALSignatureAcceptedFragment {
-            val fragment = ALSignatureAcceptedFragment()
-            val arg = Bundle()
-            //arg.putBoolean(true)
-            return fragment
-        }
-    }
-
-    override fun showSuccessfullSignmentFragment(){
+    override fun showSuccessFullAsignment(){
         val showSuccessfullSignmentFragment: showSuccessfulAsignmentFragment = activity as ALetterActivity
         showSuccessfullSignmentFragment.showSuccessfullAsignment()
     }
 
+    override fun cleanSignature() {
+        signatureView.clear()
+    }
+
+    override fun hideBottomBar() {
+        hideBottomBar(activity!!.window)
+    }
+
+    override fun actionButtonDraw(enabled: Boolean){
+        btnDeletePaint.isEnabled = enabled
+        btnSuccefullAsignature.isEnabled = enabled
+    }
+
+   override fun drawSignatureView(view: View, motionEvent: MotionEvent){
+        val x: Float = motionEvent!!.x
+        val y: Float = motionEvent.y
+
+        when(motionEvent!!.action){
+            MotionEvent.ACTION_DOWN -> {signatureView.touchStar(x, y); view.invalidate()}
+            MotionEvent.ACTION_MOVE -> {signatureView.touchMove(x, y); view.invalidate()}
+            MotionEvent.ACTION_UP -> {signatureView.touchUp(); view.invalidate()}
+        }
+    }
 
     interface showSuccessfulAsignmentFragment {
         fun showSuccessfullAsignment()
+    }
+
+    private fun headerDescriptionSignature(){
+        val nombre: String  = "Manuel Cardenas Gonzalez"
+        val employeeNameJH:String = String.format(resources.getString(R.string.name_signature_accepted), nombre)
+
+        tvTitleLetterAsignature.setText(Html.fromHtml(getString(R.string.title_signature_accepted), 1))
+        tvDescriptionAsignatureAccepted.setText(Html.fromHtml(employeeNameJH + (getString(R.string.description_signature_accepted)) , 2))
     }
 
     fun progressDialogShow(context: Context) {

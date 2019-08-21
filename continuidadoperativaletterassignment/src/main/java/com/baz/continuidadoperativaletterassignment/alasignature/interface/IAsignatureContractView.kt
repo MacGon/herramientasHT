@@ -1,9 +1,19 @@
 package com.baz.continuidadoperativaletterassignment.alasignature.`interface`
 
-interface IAsignatureContractView {
+import android.view.MotionEvent
+import android.view.View
 
-   fun showProgress(show: Boolean)fun showErrorMessage(error: String)
-   fun showSuccessfullSignmentFragment()
+interface IAsignatureContractView {
+   fun cleanSignature()
+   fun hideBottomBar()
+   fun showSuccessFullAsignment()
+   fun showProgress()
+   fun hideProgress()
+   fun showErrorMessage(error: String)
+   fun actionButtonDraw(enabled: Boolean)
+   fun drawSignatureView(view: View, motionEvent: MotionEvent)
+
+
    /*fun loadDataSuccess(list: List<ResponseAssignationToolLA>)*/
 
 }

@@ -7,17 +7,21 @@
         <b>Asignación - </b> Términos y disposiciones de la asignación de herramientas (extracto)
         ]]>
     </string>
-    <string name="title_asignature_accepted">
+    <string name="title_signature_accepted">
         <![CDATA[
         <b>Firma - </b> Solicita &nbsp;&nbsp;&nbsp;la&nbsp;&nbsp;&nbsp; firma del&nbsp;&nbsp;&nbsp; GCR para aceptar la  nueva asignación de herramientas
         ]]>
     </string>
-    <string name="description_asignature_accepted">
+    <string name="name_signature_accepted">
+        <![CDATA[Con esta firma yo, <b>%1$s</b> ]]>
+    </string>
+
+    <string name="description_signature_accepted">
         <![CDATA[
-            Con esta firma yo, <b> Mario Fernando
-            Galindo Escamilla  </b> acepto los términos y disposiciones, así como la recepción de herramientas en buen estado
+            acepto los términos y disposiciones, así como la recepción de herramientas en buen estado.
         ]]>
     </string>
+
     <string name="description_assignment">
         <![CDATA[
             <b>Primera.- Depósito y Conservación.- </b><br/>
