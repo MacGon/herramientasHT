@@ -21,8 +21,8 @@ import com.example.dashboard_mh.R
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.navigation.NavigationView
 import com.simaht.dashboard_mh.AssignTool.view.AssignToolManagerFragment
-import com.simaht.modules.dashboard_mh.tools.DetailActivity
 import com.simaht.modules.dashboard_mh.tools.ToolTransferActivity
+import com.simaht.modules.login.presenter.Employee
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener, DashBoardFragment.resultInterface,
@@ -240,7 +240,14 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         transactionLiftInventory.replace(container.id,fragmentLiftInventory)
         transactionLiftInventory.commit()*/
 
-        startActivity(Intent(this, ALetterActivity::class.java))
+        //val employee = Employee()
+        val employee = "Jose Perez Leon"
+
+        val intent = Intent(this, ALetterActivity::class.java)
+        intent.putExtra("empNameJH",employee)
+        startActivity(intent)
+
+        //startActivity(Intent(this, ALetterActivity::class.java))
     }
 
     override fun showUnsubscribeToolFragment() {

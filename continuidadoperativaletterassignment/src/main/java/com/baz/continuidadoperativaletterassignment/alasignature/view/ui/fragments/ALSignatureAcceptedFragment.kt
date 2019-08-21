@@ -24,10 +24,11 @@ class ALSignatureAcceptedFragment : Fragment(), IAsignatureContractView {
 
     private lateinit var presenter: ISignatureContractPresenter
     private lateinit var progressDialog: Dialog
+    private lateinit var employeeName: String
 
     companion object {
-        fun newInstance(): ALSignatureAcceptedFragment {
-            return ALSignatureAcceptedFragment()
+        fun newInstance(empNameJH :String)  = ALSignatureAcceptedFragment().apply{
+            employeeName = empNameJH
         }
     }
 
@@ -35,6 +36,7 @@ class ALSignatureAcceptedFragment : Fragment(), IAsignatureContractView {
         super.onCreate(savedInstanceState)
         presenter = ALSignaturePresenter(this)
     }
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -101,8 +103,7 @@ class ALSignatureAcceptedFragment : Fragment(), IAsignatureContractView {
     }
 
     private fun headerDescriptionSignature(){
-
-        val employeeNameJH:String = String.format(resources.getString(R.string.name_signature_accepted), "Manuel Cardenas Gonzalez")
+        val employeeNameJH:String = String.format(resources.getString(R.string.name_signature_accepted), employeeName)
 
         tvTitleLetterAsignature.setText(Html.fromHtml(getString(R.string.title_signature_accepted), 1))
         tvDescriptionAsignatureAccepted.setText(Html.fromHtml(employeeNameJH + (getString(R.string.description_signature_accepted)) , 2))

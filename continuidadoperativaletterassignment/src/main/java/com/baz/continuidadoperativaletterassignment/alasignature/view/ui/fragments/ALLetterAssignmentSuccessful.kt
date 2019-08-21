@@ -12,12 +12,10 @@ import kotlinx.android.synthetic.main.fragment_alletter_asignament_successfull.*
 
 class ALLetterAssignmentSuccessful : Fragment() {
 
-
     companion object {
         fun newInstance(): ALLetterAssignmentSuccessful {
             val fragment = ALLetterAssignmentSuccessful()
-            val arg = Bundle()
-            //arg.putBoolean(true)
+            //val arg = Bundle().apply { putString("empNameJH", empNameJH)  }
             return fragment
         }
     }
@@ -26,6 +24,8 @@ class ALLetterAssignmentSuccessful : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
+            val param1 = it.getString("empNameJH")
+            val param2 = it.getString("empNameJH")
            /* param1 = it.getString(ARG_PARAM1)
             param2 = it.getString(ARG_PARAM2)*/
         }
@@ -35,6 +35,7 @@ class ALLetterAssignmentSuccessful : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        val empNameJH: String = arguments?.get("empNameJH").toString()
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_alletter_asignament_successfull, container, false)
     }

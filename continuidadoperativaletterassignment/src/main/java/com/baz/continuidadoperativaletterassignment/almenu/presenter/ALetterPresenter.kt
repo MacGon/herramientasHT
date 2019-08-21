@@ -4,7 +4,6 @@ import androidx.fragment.app.Fragment
 import com.baz.continuidadoperativaletterassignment.R
 import com.baz.continuidadoperativaletterassignment.almenu.`interface`.IALetterPresenter
 import com.baz.continuidadoperativaletterassignment.almenu.`interface`.IALetterView
-import com.baz.continuidadoperativaletterassignment.alasignature.view.ui.fragments.ALSignatureAcceptedFragment
 import com.baz.continuidadoperativaletterassignment.alasignature.view.ui.fragments.ALLetterAssignmentSuccessful
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
@@ -26,9 +25,7 @@ class ALetterPresenter(private val iaLetterView: IALetterView): IALetterPresente
     }
 
     override fun goAssignatureAccepted() {
-        val selectedFragment: Fragment
-        selectedFragment = ALSignatureAcceptedFragment()
-        iaLetterView.goToFragment(selectedFragment)
+        iaLetterView.goToFragmentSignature()
     }
 
     override fun goSuccessfulAsignment() {

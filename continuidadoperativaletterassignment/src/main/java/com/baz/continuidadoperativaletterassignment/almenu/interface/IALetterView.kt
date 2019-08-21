@@ -2,8 +2,10 @@ package com.baz.continuidadoperativaletterassignment.almenu.`interface`
 
 import androidx.fragment.app.Fragment
 
+
 interface IALetterView {
-    fun goToFragment(selectedFragment: Fragment)
+    fun goToFragmentSignature()
+    fun goToFragment(fragment: Fragment)
     fun showDashboard()
     fun backPressed()
 }

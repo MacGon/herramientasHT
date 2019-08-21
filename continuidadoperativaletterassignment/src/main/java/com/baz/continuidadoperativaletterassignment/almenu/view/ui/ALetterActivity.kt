@@ -16,8 +16,10 @@ import kotlinx.android.synthetic.main.activity_coletter.*
 
 class ALetterActivity : AppCompatActivity(),
     IALetterView, ALContractFragment.showAsignatureAcceptedFragment, ALSignatureAcceptedFragment.showSuccessfulAsignmentFragment , ALLetterAssignmentSuccessful.goInitialView{
+
     val manager = supportFragmentManager
     private var mIALetterPresenter : IALetterPresenter.Presenter? = null
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,9 +34,16 @@ class ALetterActivity : AppCompatActivity(),
         }
     }
 
-    override fun goToFragment(selectedFragment: Fragment) {
+    override fun goToFragmentSignature() {
         val transaction = manager.beginTransaction()
-        transaction.replace(frameContainer.id,selectedFragment)
+        transaction.replace(frameContainer.id, ALSignatureAcceptedFragment.newInstance(intent?.getStringExtra("empNameJH").toString()))
+        transaction.addToBackStack(null)
+        transaction.commit()
+    }
+
+    override fun goToFragment(fragment: Fragment) {
+        val transaction = manager.beginTransaction()
+        transaction.replace(frameContainer.id, fragment)
         transaction.addToBackStack(null)
         transaction.commit()
     }

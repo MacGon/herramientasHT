@@ -12,8 +12,4 @@ interface IAsignatureContractView {
    fun showErrorMessage(error: String)
    fun actionButtonDraw(enabled: Boolean)
    fun drawSignatureView(view: View, motionEvent: MotionEvent)
-
-
-   /*fun loadDataSuccess(list: List<ResponseAssignationToolLA>)*/
-
 }
