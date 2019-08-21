@@ -129,7 +129,7 @@ class AssignToolManagerFragment : Fragment(), AssignToolContractI.View, AddChild
     }
 
     override fun returnValue(rawResult: Result?) {
-        val scannedTool = Tool("Italika Test", "PAX 4000", "TODAY", 124, 4213, "$$36", true, "www.myBill.com")
+        val scannedTool = Tool("0104000000274", "0821086542", "GS1613202", 1, "MOVILES", 4, "PAX SIM", "0000000000000000000F")
         presenter.addScanedElement(scannedTool)
     }
 

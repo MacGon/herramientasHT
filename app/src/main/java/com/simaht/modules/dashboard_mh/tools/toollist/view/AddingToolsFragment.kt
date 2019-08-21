@@ -1,26 +1,32 @@
 package com.simaht.modules.dashboard_mh.tools.toollist.view
 
+import android.app.Activity
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.baz.simaht.login.extensions.toast
 import com.baz.simaht.utils.CoConstants.Companion.COME_FROM_CAMERA
-import com.baz.simaht.utils.CoConstants.Companion.SCANNER
 import com.example.dashboard_mh.R
+import com.google.gson.Gson
+import com.google.gson.JsonObject
 import com.google.zxing.Result
 import com.simaht.dashboard_mh.AssignTool.Tool
 import com.simaht.modules.dashboard_mh.scanner.IScanner
-import com.simaht.modules.dashboard_mh.scanner.ScannerFragment
 import com.simaht.modules.dashboard_mh.tools.FragmentCommunication
 import com.simaht.modules.dashboard_mh.tools.ToolTransferActivity
+import com.simaht.modules.dashboard_mh.tools.employeefound.assignment.presenter.ToolAssign
 import com.simaht.modules.dashboard_mh.tools.toollist.contract.AddingToolContract
 import com.simaht.modules.dashboard_mh.tools.toollist.presenter.AddingToolPresenter
 import com.simaht.modules.dashboard_mh.tools.toollist.view.adapters.ToolListAdapter
+import com.simaht.modules.test_camera.view.TestCamera
 import com.simaht.utils.SelectableItem
+import com.simaht.utils.Utils
 import kotlinx.android.synthetic.main.activity_tool_transfer.*
 import kotlinx.android.synthetic.main.fragment_addig_tools.*
 
@@ -31,9 +37,14 @@ class AddingToolsFragment : Fragment(), AddingToolContract.View, IScanner {
     private lateinit var toolListAdapter: ToolListAdapter
     private lateinit var presenter: AddingToolContract.Presenter
     private lateinit var parentView: FragmentCommunication
+    private val codeScanner: Int = 1
+    private val KEY_DATA: String = "DATA"
+    private lateinit var gson: Gson
+    private var flagScaner: Boolean = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        gson = Gson()
         arguments?.let {
             openCamera = it.getBoolean(COME_FROM_CAMERA)
         }
@@ -50,9 +61,10 @@ class AddingToolsFragment : Fragment(), AddingToolContract.View, IScanner {
 
         rvContentTool.layoutManager = LinearLayoutManager(activity)
         rvContentTool.addItemDecoration(DividerItemDecoration(activity, DividerItemDecoration.VERTICAL))
+        val toolsAssign = ToolAssign()
 
         toolListAdapter = ToolListAdapter(arrayListOf()) {
-            btnContinue.isEnabled = if(it) it else true  //is selected
+            btnContinue.isEnabled = if (it) it else true  //is selected
         }
 
         rvContentTool.adapter = toolListAdapter
@@ -63,6 +75,9 @@ class AddingToolsFragment : Fragment(), AddingToolContract.View, IScanner {
         }
 
         setListeners()
+        for (tool in toolsAssign.toolsArray) {
+            addItem(Tool(tool.controlID!!, tool.numSerie!!, tool.numPlaca!!, tool.idCategoria!!, tool.descCategoria!!, tool.idTipo!!, tool.descTipo!!, tool.numSim!!))
+        }
     }
 
     companion object {
@@ -77,7 +92,41 @@ class AddingToolsFragment : Fragment(), AddingToolContract.View, IScanner {
     }
 
     override fun readQR() {
-        parentView.addFragment(ScannerFragment.newIntance(this), SCANNER)
+        val intent = Intent(activity, TestCamera::class.java)
+        startActivityForResult(intent, codeScanner)
+        //parentView.addFragment(ScannerFragment.newIntance(this), SCANNER)
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        if (requestCode == codeScanner) {
+            if (resultCode == Activity.RESULT_OK) {
+                val code: String = data?.extras!!.getString(KEY_DATA, "")
+                println("HOLAAAAA $code")
+                try {
+                    val obj: JsonObject = gson.fromJson(code, JsonObject::class.java)
+                    presenter.getToolInfo(obj.get("numControl").asString)
+                    flagScaner = true
+                } catch (e: java.lang.Exception) {
+                    flagScaner = false
+                    onMessageError("Error al obtener información del servicio")
+                    println("Error al obtener información del servicio")
+                }
+            } else {
+                //presenter.onBackPressed()
+            }
+        }
+    }
+
+    override fun onMessageError(error: String) {
+        Toast.makeText(activity, error, Toast.LENGTH_SHORT).show()
+    }
+
+    override fun progressDialogShow() {
+        Utils.progressDialogShow(context!!)
+    }
+
+    override fun progressDialogHide() {
+        Utils.progressDialogDismiss()
     }
 
     override fun addItem(scannedTool: Tool) {
@@ -99,8 +148,10 @@ class AddingToolsFragment : Fragment(), AddingToolContract.View, IScanner {
     }
 
     override fun returnValue(rawResult: Result?) {
-        (activity as ToolTransferActivity).nav_view.visibility = View.VISIBLE
-        presenter.addScanedElement(presenter.addTool())
+        println("PRUEBA: $rawResult")
+        presenter.getToolInfo(rawResult?.text!!)
+        //(activity as ToolTransferActivity).nav_view.visibility = View.VISIBLE
+        //presenter.addScanedElement(presenter.addTool())
     }
 
     private fun setListeners() {

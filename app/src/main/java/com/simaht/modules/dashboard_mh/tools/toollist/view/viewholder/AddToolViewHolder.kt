@@ -6,12 +6,12 @@ import android.view.MenuItem
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
 import com.example.dashboard_mh.R
-import com.simaht.dashboard_mh.AssignTool.Tool
 import com.simaht.utils.SelectableItem
 import kotlinx.android.synthetic.main.item_assign_tool_confirmation.view.*
 import androidx.appcompat.view.menu.MenuBuilder
 import androidx.appcompat.view.menu.MenuBuilder.*
 import androidx.appcompat.view.menu.MenuPopupHelper
+import com.simaht.dashboard_mh.AssignTool.Tool
 
 class AddToolViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
@@ -19,16 +19,16 @@ class AddToolViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
     @SuppressLint("RestrictedApi")
     fun bind(selecTool: SelectableItem<Tool>, options:(itemToDelete : SelectableItem<Tool>?, selected: Boolean?) -> Unit) {
         with(selecTool) {
-            itemView.tvToolMainName.text = item.name
-            itemView.tvToolSerianlNumber.text = "( " + item.serialNumber.toString() + " )"
+            itemView.tvToolMainName.text = item.descTipo
+            itemView.tvToolSerianlNumber.text = item.numSerie
 
-            if (item.status) {
-                itemView.tvToolStatus.text = itemView.resources.getString(R.string.msg_operational)
-                itemView.tvToolStatus.setTextColor(itemView.resources.getColor(R.color.grass))
-            } else {
+            itemView.tvToolStatus.text = itemView.resources.getString(R.string.msg_available)
+            itemView.tvToolStatus.setTextColor(itemView.resources.getColor(R.color.grass))
+
+            /*else {
                 itemView.tvToolStatus.text = "Defecto" //fixme define my status plox jajaja
                 itemView.tvToolStatus.setTextColor(itemView.resources.getColor(R.color.colorRed))
-            }
+            }*/
 
             itemView.ivToolMoreOptions.setOnClickListener {
                 val myContext = itemView.context

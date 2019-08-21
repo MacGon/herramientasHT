@@ -91,7 +91,7 @@ class AssignToolAdapter(private var tools: ArrayList<SelectableItem<Tool>>, var 
         var needCustody = false
         val ipad = "Ipad"
         tools.forEach {
-            if (it.item.name.equals(ipad)) {
+            if (it.item.descTipo == ipad) {
                 needCustody = true
                 //it.selected = needCustody
             }
@@ -110,19 +110,20 @@ class AssignToolAdapter(private var tools: ArrayList<SelectableItem<Tool>>, var 
         @SuppressLint("RestrictedApi")
         fun bind(selecTool: SelectableItem<Tool>, position: Int, onView: CoConstants.ASSIGN, callBack: (Boolean) -> Unit) {
             with(selecTool) {
-                itemView.tvToolMainName.text = item.name
-                itemView.tvToolSerianlNumber.text = item.serialNumber.toString()
+                itemView.tvToolMainName.text = item.descTipo
+                itemView.tvToolSerianlNumber.text = item.numSerie
 
                 if (action != null && haveAction && onView == CoConstants.ASSIGN.SET_ACTION) {
                     showActionToDo(this)
                 } else {
-                    if (item.status) {
+
                         itemView.tvToolStatus.text = itemView.resources.getString(R.string.msg_operational)
                         itemView.tvToolStatus.setTextColor(itemView.resources.getColor(R.color.grass))
-                    } else {
+
+                    /*else {
                         itemView.tvToolStatus.text = "Robada" //fixme define my status plox jajaja
                         itemView.tvToolStatus.setTextColor(itemView.resources.getColor(R.color.colorRed))
-                    }
+                    }*/
                 }
                 itemView.clItemAssignTool.setOnLongClickListener {
                     selected = !selected

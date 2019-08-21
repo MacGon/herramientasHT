@@ -9,6 +9,9 @@ interface AddingToolContract {
         fun addItem(scannedTool: Tool)
         fun showMessage(msgInt: Int? = null, msgStr: String? = null)
         fun enableAssignationBtn(enable: Boolean)
+        fun onMessageError(error: String)
+        fun progressDialogShow()
+        fun progressDialogHide()
     }
 
     interface Presenter{
@@ -17,5 +20,6 @@ interface AddingToolContract {
         fun openScanner()
         fun assignTools()
         fun addTool(): Tool
+        fun getToolInfo(controlNum: String)
     }
 }

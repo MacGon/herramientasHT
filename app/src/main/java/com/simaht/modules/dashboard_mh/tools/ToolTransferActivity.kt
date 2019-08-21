@@ -2,14 +2,12 @@ package com.simaht.modules.dashboard_mh.tools
 
 import android.app.Activity
 import android.os.Bundle
-import android.view.MenuItem
 import android.view.View
 import android.view.inputmethod.InputMethodManager
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import com.baz.simaht.login.extensions.addFragment
-import com.baz.simaht.utils.CoConstants.Companion.ADDING_ACTIONS
 import com.baz.simaht.utils.CoConstants.Companion.ADDING_TOOLS
 import com.baz.simaht.utils.CoConstants.Companion.EMPLOYEE_FOUND
 import com.baz.simaht.utils.CoConstants.Companion.PROCESS_DONE
@@ -17,7 +15,6 @@ import com.baz.simaht.utils.CoConstants.Companion.SEARCHING_EMPLOYEE
 import com.example.dashboard_mh.R
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.simaht.dashboard_mh.AssignTool.Tool
-import com.simaht.modules.dashboard_mh.tools.custody.view.ToolCustodyFragment
 import com.simaht.modules.dashboard_mh.tools.done.TransferToolDoneFragment
 import com.simaht.modules.dashboard_mh.tools.employeefoundlast.view.EmployeeFoundFragment
 import com.simaht.modules.dashboard_mh.tools.searchemployee.view.SearchEmployeeFragment

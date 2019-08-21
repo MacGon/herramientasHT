@@ -126,6 +126,7 @@
     <string name="msg_custody_tool">Estas recibiendo las herramientas de %s, con ello aceptas que recibes funcionando y en buenas condiciones las herramientas con todos sus accesorios</string>
     <string name="msg_success_custody">Custodia exitosa</string>
     <string name="msg_operational">Operativa</string>
+    <string name="msg_available">Disponible</string>
 
     <!-- TOOLS ACTION -->
     <string name="msg_custody">Custodia</string>
