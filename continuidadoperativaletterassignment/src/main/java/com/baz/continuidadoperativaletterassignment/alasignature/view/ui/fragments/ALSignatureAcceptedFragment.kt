@@ -1,40 +1,33 @@
 package com.baz.continuidadoperativaletterassignment.alasignature.view.ui.fragments
 
-import android.app.ProgressDialog
+import android.app.Dialog
 import android.content.Context
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.text.Html
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-
 import com.baz.continuidadoperativaletterassignment.R
-import com.baz.continuidadoperativaletterassignment.alasignature.`interface`.IAsignatureContractPresenter
+import com.baz.continuidadoperativaletterassignment.alasignature.`interface`.ISignatureContractPresenter
 import com.baz.continuidadoperativaletterassignment.alasignature.`interface`.IAsignatureContractView
-import com.baz.continuidadoperativaletterassignment.alasignature.model.models.RequestAssignationToolLA
-import com.baz.continuidadoperativaletterassignment.alasignature.model.models.ResponseAssignationToolLA
-import com.baz.continuidadoperativaletterassignment.alasignature.presenter.ALAsignaturePresenter
+import com.baz.continuidadoperativaletterassignment.alasignature.presenter.ALSignaturePresenter
 import com.baz.continuidadoperativaletterassignment.almenu.view.ui.ALetterActivity
-import com.jakewharton.rxbinding3.material.dismisses
+import com.baz.continuidadoperativaletterassignment.alutils.hideBottomBar
 import kotlinx.android.synthetic.main.fragment_asignature_accepted.*
-import kotlinx.android.synthetic.main.progress_dialog_la.*
 
-class ALAsignatureAcceptedFragment : Fragment(), IAsignatureContractView {
+class ALSignatureAcceptedFragment : Fragment(), IAsignatureContractView {
 
-
-    private lateinit var  presenter: IAsignatureContractPresenter
-    private lateinit var progressDialog: ProgressDialog
+    private lateinit var presenter: ISignatureContractPresenter
+    private lateinit var progressDialog: Dialog
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-        presenter = ALAsignaturePresenter(this)
+        presenter = ALSignaturePresenter(this)
     }
 
     override fun onCreateView(
@@ -53,27 +46,18 @@ class ALAsignatureAcceptedFragment : Fragment(), IAsignatureContractView {
         tvDescriptionAsignatureAccepted.setText(Html.fromHtml(descriptionAsignature, 2))
         super.onViewCreated(view, savedInstanceState)
 
-        val showSuccessfulAsignmentFragment: showSuccessfulAsignmentFragment = activity as ALetterActivity
-
-        btnSuccefullAsignature.setOnClickListener {
-            presenter.loadData()
-            //showSuccessfulAsignmentFragment.showSuccessfullAsignment()
-        }
+        btnSuccefullAsignature.setOnClickListener { presenter.loadData() }
 
         btnDeletePaint.setOnClickListener {
-            btnDeletePaint.isEnabled = false
-            btnSuccefullAsignature.isEnabled = false
-            actionButtonDraw(true)
-
-            firmaView.clear()
+            actionButtonDraw(false)
+            cleanSignature()
         }
 
-        firmaView.setOnTouchListener { view : View, motionEvent: MotionEvent ->
+        firmaView.setOnTouchListener { view : View, motionEvent: MotionEvent ->  actionButtonDraw(true)
 
             val x: Float = motionEvent!!.x
             val y: Float = motionEvent.y
 
-            actionButtonDraw(true)
             when(motionEvent!!.action){
                 MotionEvent.ACTION_DOWN -> {firmaView.touchStar(x, y); view.invalidate()}
                 MotionEvent.ACTION_MOVE -> {firmaView.touchMove(x, y); view.invalidate()}
@@ -84,15 +68,11 @@ class ALAsignatureAcceptedFragment : Fragment(), IAsignatureContractView {
         }
     }
 
-    fun actionButtonDraw(enabled: Boolean){
-        btnDeletePaint.isEnabled = enabled
-        btnSuccefullAsignature.isEnabled = enabled
-    }
-
-
     override fun showErrorMessage(error: String) {
         Toast.makeText(context, error, Toast.LENGTH_LONG).show()
-
+        hideBottomBar()
+        cleanSignature()
+        actionButtonDraw(false)
     }
 
     override fun showProgress(show: Boolean) {
@@ -103,27 +83,46 @@ class ALAsignatureAcceptedFragment : Fragment(), IAsignatureContractView {
         }
     }
 
+    fun hideBottomBar() {
+        hideBottomBar(activity!!.window)
+    }
+
+    fun cleanSignature() {
+        firmaView.clear()
+    }
+
+    fun actionButtonDraw(enabled: Boolean){
+        btnDeletePaint.isEnabled = enabled
+        btnSuccefullAsignature.isEnabled = enabled
+    }
+
     companion object {
-        fun newInstance(): ALAsignatureAcceptedFragment {
-            val fragment = ALAsignatureAcceptedFragment()
+        fun newInstance(): ALSignatureAcceptedFragment {
+            val fragment = ALSignatureAcceptedFragment()
             val arg = Bundle()
             //arg.putBoolean(true)
             return fragment
         }
     }
 
+    override fun showSuccessfullSignmentFragment(){
+        val showSuccessfullSignmentFragment: showSuccessfulAsignmentFragment = activity as ALetterActivity
+        showSuccessfullSignmentFragment.showSuccessfullAsignment()
+    }
+
+
     interface showSuccessfulAsignmentFragment {
         fun showSuccessfullAsignment()
     }
 
     fun progressDialogShow(context: Context) {
-        progressDialog = ProgressDialog(context)
+        progressDialog = Dialog(context)
         progressDialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
         progressDialog.show()
         progressDialog.setContentView(R.layout.progress_dialog_la)
         progressDialog.setCancelable(false)
+        progressDialog.window?.let { hideBottomBar(it) }
     }
-
 
 
 }

@@ -9,13 +9,13 @@ import com.baz.continuidadoperativaletterassignment.alutils.hideBottomBar
 import com.baz.continuidadoperativaletterassignment.almenu.`interface`.IALetterPresenter
 import com.baz.continuidadoperativaletterassignment.almenu.presenter.ALetterPresenter
 import com.baz.continuidadoperativaletterassignment.almenu.`interface`.IALetterView
-import com.baz.continuidadoperativaletterassignment.alasignature.view.ui.fragments.ALAsignatureAcceptedFragment
+import com.baz.continuidadoperativaletterassignment.alasignature.view.ui.fragments.ALSignatureAcceptedFragment
 import com.baz.continuidadoperativaletterassignment.alasignature.view.ui.fragments.ALContractFragment
 import com.baz.continuidadoperativaletterassignment.alasignature.view.ui.fragments.ALLetterAsignmentSuccessful
 import kotlinx.android.synthetic.main.activity_coletter.*
 
 class ALetterActivity : AppCompatActivity(),
-    IALetterView, ALContractFragment.showAsignatureAcceptedFragment, ALAsignatureAcceptedFragment.showSuccessfulAsignmentFragment , ALLetterAsignmentSuccessful.goInitialView{
+    IALetterView, ALContractFragment.showAsignatureAcceptedFragment, ALSignatureAcceptedFragment.showSuccessfulAsignmentFragment , ALLetterAsignmentSuccessful.goInitialView{
     val manager = supportFragmentManager
     private var mIALetterPresenter : IALetterPresenter.Presenter? = null
 

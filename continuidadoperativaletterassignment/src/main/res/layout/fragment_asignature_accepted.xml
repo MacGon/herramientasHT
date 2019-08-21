@@ -6,7 +6,7 @@
         android:layout_height="match_parent"
         xmlns:app="http://schemas.android.com/apk/res-auto"
 
-    tools:context=".alasignature.view.ui.fragments.ALAsignatureAcceptedFragment">
+    tools:context=".alasignature.view.ui.fragments.ALSignatureAcceptedFragment">
 
     <androidx.cardview.widget.CardView
             android:layout_width="407dp"
@@ -63,36 +63,41 @@
             app:layout_constraintStart_toStartOf="@+id/vBackgroundAssignTool"/>
 
     <androidx.appcompat.widget.AppCompatButton
-        style="@style/btnComfirmTool"
-        android:text="@string/aceptar"
         android:id="@+id/btnSuccefullAsignature"
-        android:background="@drawable/selector_btn_confirm_function"
-        android:foreground="?android:attr/selectableItemBackground"
-        android:enabled="false"
+        style="@style/btnComfirmTool"
         android:layout_width="150dp"
         android:layout_height="50dp"
-        app:layout_constraintStart_toStartOf="parent"
         android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:background="@drawable/selector_btn_confirm_function"
+        android:enabled="false"
+        android:foreground="?android:attr/selectableItemBackground"
+        android:text="@string/aceptar"
         app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_marginBottom="52dp"
-        android:layout_marginEnd="8dp" app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.906"/>
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.906"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/firmaView" />
 
     <androidx.appcompat.widget.AppCompatButton
-            style="@style/btnDisablePaint" 
-            android:text="Borrar"
-            android:id="@+id/btnDeletePaint"
-            android:background="@drawable/selector_btn_function"
-            android:foreground="?android:attr/selectableItemBackground"
-            android:enabled="false"
-            android:layout_width="150dp"
-            android:layout_height="50dp"
-            app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginStart="8dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            android:layout_marginBottom="52dp"
-            android:layout_marginEnd="8dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.085"/>
+        android:id="@+id/btnDeletePaint"
+        style="@style/btnDisablePaint"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:background="@drawable/selector_btn_function"
+        android:enabled="false"
+        android:foreground="?android:attr/selectableItemBackground"
+        android:text="Borrar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.085"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/firmaView" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

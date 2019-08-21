@@ -8,7 +8,9 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
 
     <application>
-        <activity android:name=".almenu.view.ui.ALetterActivity" android:label="Transferencia\nde herramientas">
+        <activity android:name=".almenu.view.ui.ALetterActivity"
+            android:label="Transferencia\nde herramientas"
+            android:screenOrientation="portrait">
         </activity>
     </application>
 

@@ -11,7 +11,8 @@ class ALConstants {
 
     companion object {
         const val URL_SPRING_DESARROLLO = "http://10.50.109.13:8080/WSNPCobranzHDT/"
-        const val MSG_ERROR_ASIGNATURE :String  = "El codigo QR ya esta asignado, no se puede volver a asignar."
+        const val MSG_ERROR_ASIGNATURE :String  = "La herramienta ya fue asignada, no se puede volver a ingresar."
+        const val MSG_ERROR_SERVICE: String = "Por el momento, el servicio no está disponible. Favor de intentarlo más tarde."
 
     }
 

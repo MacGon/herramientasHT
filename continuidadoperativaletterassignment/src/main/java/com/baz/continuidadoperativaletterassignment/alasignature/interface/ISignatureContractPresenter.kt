@@ -1,6 +1,6 @@
 package com.baz.continuidadoperativaletterassignment.alasignature.`interface`
 
-interface IAsignatureContractPresenter {
+interface ISignatureContractPresenter {
 
     fun loadData()
 }

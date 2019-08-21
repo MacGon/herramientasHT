@@ -1,20 +1,16 @@
 package com.baz.continuidadoperativaletterassignment.alasignature.presenter
 
-import android.content.ContentValues.TAG
-import android.util.Log
-import com.baz.continuidadoperativaletterassignment.alasignature.`interface`.IAsignatureContractPresenter
+import com.baz.continuidadoperativaletterassignment.alasignature.`interface`.ISignatureContractPresenter
 import com.baz.continuidadoperativaletterassignment.alasignature.`interface`.IAsignatureContractView
 import com.baz.continuidadoperativaletterassignment.alasignature.model.api.ApiServiceInterfaceAL
 import com.baz.continuidadoperativaletterassignment.alasignature.model.models.RequestAssignationToolLA
 import com.baz.continuidadoperativaletterassignment.alcommon.ALConstants
-import io.reactivex.Observable
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.disposables.Disposable
 import io.reactivex.schedulers.Schedulers
-import java.util.concurrent.TimeUnit
 
-class ALAsignaturePresenter(val view : IAsignatureContractView) : IAsignatureContractPresenter {
+class ALSignaturePresenter(val view : IAsignatureContractView) : ISignatureContractPresenter {
 
 
     private val api: ApiServiceInterfaceAL = ApiServiceInterfaceAL.create()
@@ -31,12 +27,12 @@ class ALAsignaturePresenter(val view : IAsignatureContractView) : IAsignatureCon
                     } else if (response.code == 500) {
                         view.showErrorMessage(ALConstants.MSG_ERROR_ASIGNATURE)
                         view.showProgress(false)
-
                     }
 
                 }, { error ->
+                    view.showErrorMessage(ALConstants.MSG_ERROR_SERVICE)
+                    view.showProgress(false)
 
-                    view.showErrorMessage(error.message.toString())
                 })
     }
 
