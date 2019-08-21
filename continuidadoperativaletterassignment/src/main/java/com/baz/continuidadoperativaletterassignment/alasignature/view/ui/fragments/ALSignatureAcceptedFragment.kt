@@ -27,9 +27,7 @@ class ALSignatureAcceptedFragment : Fragment(), IAsignatureContractView {
 
     companion object {
         fun newInstance(): ALSignatureAcceptedFragment {
-            val fragment = ALSignatureAcceptedFragment()
-            val arg = Bundle()
-            return fragment
+            return ALSignatureAcceptedFragment()
         }
     }
 
@@ -103,8 +101,8 @@ class ALSignatureAcceptedFragment : Fragment(), IAsignatureContractView {
     }
 
     private fun headerDescriptionSignature(){
-        val nombre: String  = "Manuel Cardenas Gonzalez"
-        val employeeNameJH:String = String.format(resources.getString(R.string.name_signature_accepted), nombre)
+
+        val employeeNameJH:String = String.format(resources.getString(R.string.name_signature_accepted), "Manuel Cardenas Gonzalez")
 
         tvTitleLetterAsignature.setText(Html.fromHtml(getString(R.string.title_signature_accepted), 1))
         tvDescriptionAsignatureAccepted.setText(Html.fromHtml(employeeNameJH + (getString(R.string.description_signature_accepted)) , 2))

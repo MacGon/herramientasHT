@@ -93,7 +93,7 @@
         android:background="@drawable/selector_btn_function"
         android:enabled="false"
         android:foreground="?android:attr/selectableItemBackground"
-        android:text="Borrar"
+        android:text="@string/deleteSignature"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.085"

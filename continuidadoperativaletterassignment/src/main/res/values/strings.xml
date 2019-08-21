@@ -74,5 +74,6 @@
 
 
     <string name="msg_loading_server_la">Espera un momento\nProcesando información</string>
+    <string name="deleteSignature">Borrar</string>
 
 </resources>
