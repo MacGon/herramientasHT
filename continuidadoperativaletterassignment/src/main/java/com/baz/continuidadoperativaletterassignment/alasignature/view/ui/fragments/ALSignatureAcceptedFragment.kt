@@ -15,6 +15,7 @@ import android.widget.Toast
 import com.baz.continuidadoperativaletterassignment.R
 import com.baz.continuidadoperativaletterassignment.alasignature.`interface`.ISignatureContractPresenter
 import com.baz.continuidadoperativaletterassignment.alasignature.`interface`.IAsignatureContractView
+import com.baz.continuidadoperativaletterassignment.alasignature.model.models.ALToolAssignment
 import com.baz.continuidadoperativaletterassignment.alasignature.presenter.ALSignaturePresenter
 import com.baz.continuidadoperativaletterassignment.almenu.view.ui.ALetterActivity
 import com.baz.continuidadoperativaletterassignment.alutils.hideBottomBar
@@ -25,10 +26,13 @@ class ALSignatureAcceptedFragment : Fragment(), IAsignatureContractView {
     private lateinit var presenter: ISignatureContractPresenter
     private lateinit var progressDialog: Dialog
     private lateinit var employeeName: String
+    private lateinit var employeeNumber: String
 
     companion object {
-        fun newInstance(empNameJH :String)  = ALSignatureAcceptedFragment().apply{
+        fun newInstance(empNameJH:String, numEmpJH: String)  = ALSignatureAcceptedFragment().apply{
             employeeName = empNameJH
+            employeeNumber = numEmpJH
+
         }
     }
 

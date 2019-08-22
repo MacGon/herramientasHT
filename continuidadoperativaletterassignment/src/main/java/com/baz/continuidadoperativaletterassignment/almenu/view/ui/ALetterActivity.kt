@@ -36,7 +36,9 @@ class ALetterActivity : AppCompatActivity(),
 
     override fun goToFragmentSignature() {
         val transaction = manager.beginTransaction()
-        transaction.replace(frameContainer.id, ALSignatureAcceptedFragment.newInstance(intent?.getStringExtra("empNameJH").toString()))
+        transaction.replace(frameContainer.id,
+                ALSignatureAcceptedFragment.newInstance(intent?.getStringExtra("empNameJH").toString(),
+                        intent?.getStringExtra("numEmpJH").toString() ))
         transaction.addToBackStack(null)
         transaction.commit()
     }

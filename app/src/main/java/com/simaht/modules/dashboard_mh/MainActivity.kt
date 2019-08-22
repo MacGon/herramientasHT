@@ -22,6 +22,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.navigation.NavigationView
 import com.simaht.dashboard_mh.AssignTool.view.AssignToolManagerFragment
 import com.simaht.modules.dashboard_mh.tools.ToolTransferActivity
+import com.simaht.modules.dashboard_mh.tools.employeefound.assignment.presenter.ToolAssign
 import com.simaht.modules.login.presenter.Employee
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -241,10 +242,14 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         transactionLiftInventory.commit()*/
 
         //val employee = Employee()
+        val toolAssign = ToolAssign()
         val employee = "Jose Perez Leon"
+        val numEmpJH  = "919464"
 
         val intent = Intent(this, ALetterActivity::class.java)
         intent.putExtra("empNameJH",employee)
+        intent.putExtra("numEmpJH", numEmpJH)
+        //intent.putExtra("tools", toolAssign.toolsArray)
         startActivity(intent)
 
         //startActivity(Intent(this, ALetterActivity::class.java))
