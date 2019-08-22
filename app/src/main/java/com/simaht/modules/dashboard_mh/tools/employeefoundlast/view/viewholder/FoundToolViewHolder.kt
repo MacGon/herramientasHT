@@ -19,18 +19,18 @@ class FoundToolViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
     fun bind(selecTool: SelectableItem<Tool>, haveAction: Boolean, position: Int , actionSelected: (item: Tool, selected: Boolean, position: Int) -> Unit) {
         with(selecTool) {
-            itemView.tvToolMainName.text = item.name
-            itemView.tvToolSerianlNumber.text = item.serialNumber.toString()
+            itemView.tvToolMainName.text = item.descTipo
+            itemView.tvToolSerianlNumber.text = item.numSerie
 
             if (action != null && haveAction) {
                 showActionToDo(this)
-            } else if (item.status) {
+            } else
                 itemView.tvToolStatus.text = itemView.resources.getString(R.string.msg_operational)
                 itemView.tvToolStatus.setTextColor(itemView.resources.getColor(R.color.grass))
-            } else {
+             /*else {
                 itemView.tvToolStatus.text = "Deteriorada" //fixme define my status plox jajaja
                 itemView.tvToolStatus.setTextColor(itemView.resources.getColor(R.color.colorRed))
-            }
+            }*/
 
             if (action == CUSTODY ) {
                 itemView.setOnLongClickListener {

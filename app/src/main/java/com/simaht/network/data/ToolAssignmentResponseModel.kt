@@ -5,11 +5,11 @@ import com.google.gson.annotations.SerializedName
 data class ToolAssignmentResponseModel(
     @SerializedName("codigo") val code: Int? = -1,
     @SerializedName("mensaje") val message: String? = "",
-    @SerializedName("salida")private  val _info: ArrayList<OutModelTool> = ArrayList(),
+    @SerializedName("salida")  val info: ArrayList<OutModelTool> = ArrayList(),
     @SerializedName("errores") val errors: String? = ""
 ){
-    val info:OutModelTool
-    get()= _info[0]
+    //val info:OutModelTool
+    //get()= _info[0]
 }
 
 

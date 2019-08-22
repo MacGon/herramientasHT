@@ -19,8 +19,8 @@ class AssignToolPresenter2(val view: AssignToolContractI.View) : AssignToolContr
         if (BuildConfig.DEBUG) {
             postDelayed(2000) {
                 view.putEmployeeData("$employeeNumber - Test Employee")
-                view.putToolsFound(arrayListOf(SelectableItem(Tool("PAX Test", "PAX 4000", "TODAY", 124, 4213, "$$36", false, "www.myBill.com")),
-                        SelectableItem(Tool("Italika Test", "Moto Italika 220", "TODAY", 421, 21423, "$$2624", true, "www.myITALIK.com"))))
+                view.putToolsFound(arrayListOf(SelectableItem(Tool("0104000000274", "0821086542", "GS1613202", 1, "MOVILES", 4, "PAX SIM", "0000000000000000000F")),
+                        SelectableItem(Tool("0104000000274", "0821086542", "GS1613202", 1, "MOVILES", 4, "PAX SIM", "0000000000000000000F"))))
             }
         } else {
             //TODO Implement the service response
@@ -77,7 +77,7 @@ class AssignToolPresenter2(val view: AssignToolContractI.View) : AssignToolContr
             }
         }*/
 
-        return Tool("Ipad", "Apple", "16/03/15", 8435, 9431242, "873.43", true, "www.google.com")
+        return Tool("0104000000274", "0821086542", "GS1613202", 1, "MOVILES", 4, "PAX SIM", "0000000000000000000F")
 
     }
 

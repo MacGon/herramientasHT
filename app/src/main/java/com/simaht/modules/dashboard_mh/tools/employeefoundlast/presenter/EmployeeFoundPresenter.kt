@@ -1,7 +1,6 @@
 package com.simaht.modules.dashboard_mh.tools.employeefoundlast.presenter
 
 import com.baz.simaht.login.extensions.postDelayed
-import com.baz.simaht.utils.CoConstants
 import com.simaht.dashboard_mh.AssignTool.Tool
 import com.simaht.modules.dashboard_mh.tools.employeefoundlast.contract.IEmployeeFoundContract
 import com.simaht.utils.SelectableItem
@@ -31,9 +30,9 @@ class EmployeeFoundPresenter(val view : IEmployeeFoundContract.View): IEmployeeF
             //val rnd: Int = (1..2).random()
             val toolsfound = arrayListOf<SelectableItem<Tool>>()
             //for (i in 0..rnd) {
-                toolsfound.add(SelectableItem(Tool("Ipad", "Apple", "16/03/15", 8435, 9431242, "873.43", true, "www.google.com")))
-                toolsfound.add(SelectableItem(Tool("Impresora", "Apple", "16/03/15", 8435, 9431242, "873.43", true, "www.google.com")))
-                toolsfound.add(SelectableItem(Tool("Casco", "Apple", "16/03/15", 8435, 9431242, "873.43", true, "www.google.com")))
+                toolsfound.add(SelectableItem(Tool("0104000000274", "0821086542", "GS1613202", 1, "MOVILES", 4, "PAX SIM", "0000000000000000000F")))
+                toolsfound.add(SelectableItem(Tool("0104000000274", "0821086542", "GS1613202", 1, "MOVILES", 4, "PAX SIM", "0000000000000000000F")))
+                toolsfound.add(SelectableItem(Tool("0104000000274", "0821086542", "GS1613202", 1, "MOVILES", 4, "PAX SIM", "0000000000000000000F")))
             //}
 
             view.addItemFound(toolsfound)
@@ -59,7 +58,7 @@ class EmployeeFoundPresenter(val view : IEmployeeFoundContract.View): IEmployeeF
             }
         }*/
 
-        return Tool("Ipad", "Apple", "16/03/15", 8435, 9431242, "873.43", true, "www.google.com")
+        return Tool("0104000000274", "0821086542", "GS1613202", 1, "MOVILES", 4, "PAX SIM", "0000000000000000000F")
 
     }
 

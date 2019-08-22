@@ -1,10 +1,10 @@
 package com.simaht.dashboard_mh.AssignTool
 
-class Tool(var name : String,
-           var brand : String,
-           var activedOn : String,
-           var seguro : Int,
-           var serialNumber: Long,
-           var price : String,
-           var status : Boolean,
-           var bill: String)
+class Tool(var controlId : String,
+           var numSerie : String,
+           var numPlaca : String,
+           var idCategoria : Int,
+           var descCategoria: String,
+           var idTipo : Int,
+           var descTipo : String,
+           var numSim: String)
