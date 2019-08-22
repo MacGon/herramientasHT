@@ -8,7 +8,7 @@ import com.simaht.utils.SelectableItem
 interface FragmentCommunication {
     fun addFragment(fragment: Fragment, fragmentTAG : String? = null)
     fun removeFragment()
-    fun nextFragment(newEmpl: Boolean? = null, toolsFound: Boolean? = null)
+    fun nextFragment(newEmpl: Boolean? = null, haveToolsFound: Boolean? = null, emploeeNum: Int? = null)
     fun hideKeyboardEvent(view: View)
     fun processDone()
     fun putScannedTools(tools: ArrayList<SelectableItem<Tool>>)

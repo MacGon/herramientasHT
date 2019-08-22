@@ -5,22 +5,18 @@ import com.simaht.modules.dashboard_mh.tools.searchemployee.contract.ISearchingE
 
 class SearchingEmployeePresenter(val view : ISearchingEmployeeContract.View): ISearchingEmployeeContract.Presenter {
 
-    override fun getInfoEmployee(employeeNum: Int) {
+    override fun getInfoEmployee(employeeNum: Int) { //FIXME what happen when Int vlaue is 004235
 
         if (BuildConfig.DEBUG){
             //TODO a fake response
-            view.changeView(false, true)
+            view.changeView(false, true, employeeNum)
         } else {
             if (employeeNum.toString().length > 6 || employeeNum.toString().length < 8) { //increese the employee number
                 //TODO Consume API
-                view.changeView(true, false)
+                view.changeView(true, false, employeeNum)
             } else {
-                view.showMessage("R.string.badBalidation")
+                view.showMessage("Número de usuario Invaludo") //FIXME add inside strings
             }
         }
-    }
-
-    override fun putEmployeeInfo() {
-        view.changeView(false, true)
     }
 }

@@ -127,6 +127,7 @@
     <string name="msg_success_custody">Custodia exitosa</string>
     <string name="msg_operational">Operativa</string>
     <string name="msg_available">Disponible</string>
+    <string name="msg_serial_number">(%s)</string>
 
     <!-- TOOLS ACTION -->
     <string name="msg_custody">Custodia</string>

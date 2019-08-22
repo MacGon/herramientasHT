@@ -7,11 +7,13 @@ import com.baz.simaht.utils.CoConstants
 import com.example.dashboard_mh.R
 import com.simaht.dashboard_mh.AssignTool.Tool
 import com.simaht.modules.dashboard_mh.tools.employeefoundlast.view.viewholder.FoundToolViewHolder
+import com.simaht.modules.model.ActivoFijo
 import com.simaht.utils.SelectableItem
 
 class ToolListFoundAdapter(private var tools: ArrayList<SelectableItem<Tool>>, var haveAction: Boolean, val haveSomeSelection: (Boolean, item: Tool) -> Unit) : RecyclerView.Adapter<FoundToolViewHolder>() {
 
     private var temporalTools: ArrayList<SelectableItem<Tool>> = arrayListOf()
+    private var temporalActives: ArrayList<SelectableItem<ActivoFijo>> = arrayListOf()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FoundToolViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.item_assign_tool_confirmation, parent, false)
@@ -40,11 +42,14 @@ class ToolListFoundAdapter(private var tools: ArrayList<SelectableItem<Tool>>, v
     }
 
     fun removeTemporalTools() {
-        if (!temporalTools.isEmpty()) {
+        if (temporalTools.isNotEmpty()) {
             temporalTools.forEach {
                 tools.remove(it)
             }
             temporalTools = arrayListOf()
+        }
+        if(!temporalActives.isNotEmpty()){
+
         }
     }
 

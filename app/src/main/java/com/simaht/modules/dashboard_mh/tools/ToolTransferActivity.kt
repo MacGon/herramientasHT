@@ -113,7 +113,7 @@ class ToolTransferActivity : AppCompatActivity(), FragmentCommunication {
         goBack()
     }
 
-    override fun nextFragment(newEmpl: Boolean?, haveToolsFound: Boolean?) {
+    override fun nextFragment(newEmpl: Boolean?, haveToolsFound: Boolean?, employeeNum: Int?) {
         counter++
         when (counter) {
             1 -> {
@@ -123,7 +123,7 @@ class ToolTransferActivity : AppCompatActivity(), FragmentCommunication {
                 addToBackStack(SearchEmployeeFragment.newInstance(this), SEARCHING_EMPLOYEE)
             }
             3 -> {
-                addToBackStack(EmployeeFoundFragment.newInstance(newEmpl ?: false, haveToolsFound ?: false, arrayListOf(), this), EMPLOYEE_FOUND)
+                addToBackStack(EmployeeFoundFragment.newInstance(employeeNum!!,newEmpl ?: false, haveToolsFound ?: false, arrayListOf(), this), EMPLOYEE_FOUND)
             }
             /*4 -> {
                 addToBackStack(ToolCustodyFragment.newInstance( toolsToCustody,this), ADDING_ACTIONS)

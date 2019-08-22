@@ -1,42 +1,82 @@
 package com.simaht.modules.dashboard_mh.tools.employeefoundlast.presenter
 
 import com.baz.simaht.login.extensions.postDelayed
+import com.example.dashboard_mh.BuildConfig
+import com.simaht.SIMAHTSingleton
 import com.simaht.dashboard_mh.AssignTool.Tool
 import com.simaht.modules.dashboard_mh.tools.employeefoundlast.contract.IEmployeeFoundContract
+import com.simaht.modules.model.ActivoFijo
+import com.simaht.modules.model.Custody
+import com.simaht.network.remote.RestAPI
 import com.simaht.utils.SelectableItem
 
-class EmployeeFoundPresenter(val view : IEmployeeFoundContract.View): IEmployeeFoundContract.Presenter {
+class EmployeeFoundPresenter(val view: IEmployeeFoundContract.View) : IEmployeeFoundContract.Presenter {
 
-    private var toolCustody = arrayListOf<Tool>()
+    //ID GENERICO to Apply Custody
+    private val IPAD = "116"
+    private val IMPRESORA_A = "060"
+    private val IMPRESORA_B = "061"
+    private val PAX = "124"
+    private var toolCustodyTest = arrayListOf<Tool>()
+    private var toolCustody = arrayListOf<ActivoFijo>()
+    private var employeeNumber: Int = 0
 
-    override fun employee() {
-        //create employee from singleton
-
-        view.setEmployee(/*Employee*/)
-
+    override fun addToolToCustodyTest(tool: Tool) {
+        toolCustodyTest.add(tool)
     }
 
-    override fun addToolToCustody(tool: Tool) {
+    override fun addToolToCustody(tool: ActivoFijo) {
         toolCustody.add(tool)
     }
 
-    override fun removeFromCystody(tool: Tool) {
+    override fun removeFromCystodyTest(tool: Tool) {
+        toolCustodyTest.remove(tool)
+    }
+
+    override fun removeFromCystody(tool: ActivoFijo) {
         toolCustody.remove(tool)
     }
 
-    override fun searchTools() {
+    override fun searchTools(employee: Int) {
+        employeeNumber = employee
         view.showLoader()
-        postDelayed(500) {
-            //val rnd: Int = (1..2).random()
-            val toolsfound = arrayListOf<SelectableItem<Tool>>()
-            //for (i in 0..rnd) {
-                toolsfound.add(SelectableItem(Tool("0104000000274", "0821086542", "GS1613202", 1, "MOVILES", 4, "PAX SIM", "0000000000000000000F")))
-                toolsfound.add(SelectableItem(Tool("0104000000274", "0821086542", "GS1613202", 1, "MOVILES", 4, "PAX SIM", "0000000000000000000F")))
-                toolsfound.add(SelectableItem(Tool("0104000000274", "0821086542", "GS1613202", 1, "MOVILES", 4, "PAX SIM", "0000000000000000000F")))
-            //}
+        if (!BuildConfig.DEBUG) { //FIXME Remove this NEGATION Value
+            postDelayed(500) {
+                val toolsfound = arrayListOf<SelectableItem<Tool>>()
+/*                toolsfound.add(SelectableItem(Tool("Ipad", "Apple", "16/03/15", 8435, 2431242, "873.43", true, "www.google.com")))
+                toolsfound.add(SelectableItem(Tool("Impresora", "Apple", "16/03/15", 8435, 9431242, "873.43", true, "www.google.com")))
+                toolsfound.add(SelectableItem(Tool("Casco", "Apple", "16/03/15", 8435, 9431242, "873.43", true, "www.google.com")))*/
+                view.addItemFound(toolsfound)
+                view.hideLoader()
+            }
+        } else {
+            //FIXME made It like a singleton instance
+            val api = RestAPI()
+            api.consultTools(employee) { resp, stauts ->
+                if (stauts) {
+                    resp?.let {
+                        val itemsFound = ArrayList<SelectableItem<ActivoFijo>>()
+                        it.forEach {
+                            itemsFound.add(SelectableItem(it))
+                        }
 
-            view.addItemFound(toolsfound)
-            view.hideLoader()
+                        if (BuildConfig.DEBUG) { //FIXME remove this part
+                            val custodyArray : ArrayList<SelectableItem<ActivoFijo>> = arrayListOf()
+                            applyFilter(itemsFound).forEach { custodyArray.add(it) }
+                            val employeeName = itemsFound.first().item.nombreEmpleado
+
+                            if (custodyArray.isNotEmpty()) {
+                                view.setEmployee(true, employeeName)
+                                view.addItemFound(devicesFound = custodyArray)
+                            } else
+                                view.setEmployee(false, employeeName)
+                        }
+                    }
+                } else {
+                    view.showMessage("Somethin was wrong OMG!")
+                }
+                view.hideLoader()
+            }
         }
     }
 
@@ -63,18 +103,37 @@ class EmployeeFoundPresenter(val view : IEmployeeFoundContract.View): IEmployeeF
     }
 
     override fun applyCustody() {
-        view.showLoader()
 
         if (haveItemsToCustody()) {
+            view.showLoader()
+            val api = RestAPI() //FIXME
+            toolCustody.forEach {
+                it.numEmpleadoDestino = "919464" //FIXME /get my UserID usign Singleton
+                it.numEmpleadoOrigen = "$employeeNumber"
+            }
+            val custody = Custody(toolCustody, "5356") //FIXME my UserID too!
             //Rest API
-            //TODO send toolList
-            view.hideLoader()
-            view.custodyDone()
+            api.doCustody(custody) {
+                if (it)
+                    view.custodyDone()
+                else
+                    view.wrongCustody()
+
+                view.hideLoader()
+            }
         } else {
             //TODO -- Could I need this validation??
         }
     }
 
-    override fun haveItemsToCustody() = toolCustody.isNotEmpty()
+    override fun haveItemsToCustody(): Boolean {
+        return if (SIMAHTSingleton.isDebug())
+            toolCustodyTest.isNotEmpty()
+        else
+            toolCustody.isNotEmpty()
+    }
+
+    private fun applyFilter(itemsFound: ArrayList<SelectableItem<ActivoFijo>>) = itemsFound.filter {
+        it.item.idGenerico == IPAD || it.item.idGenerico == IMPRESORA_A || it.item.idGenerico == IMPRESORA_B || it.item.idGenerico == PAX }
 
 }

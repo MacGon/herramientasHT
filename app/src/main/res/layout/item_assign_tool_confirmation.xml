@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:clickable="true"
+    android:background="@drawable/item_touch_riple"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
@@ -50,24 +51,25 @@
         android:layout_marginStart="20dp"
         android:layout_marginTop="10dp"
         android:textSize="18sp"
-        android:fontFamily="@font/montserrat_semibold"
-        android:textColor="@android:color/black"
-        app:layout_constraintStart_toEndOf="@+id/viewSelectec1"
+        app:layout_constraintEnd_toStartOf="@id/tvToolSerianlNumber"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@id/viewSelectec1"
         app:layout_constraintTop_toTopOf="parent"
-        tools:text="%s" />
+        app:layout_goneMarginStart="40dp"
+        tools:text="PAX" />
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/tvToolSerianlNumber"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:textSize="13sp"
+        android:layout_height="0dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="16dp"
         android:fontFamily="@font/montserrat_regular"
-        android:textColor="@android:color/black"
+        android:textColor="@color/textcolorTitleTool"
+        android:textSize="13sp"
         app:layout_constraintStart_toEndOf="@id/tvToolMainName"
-        app:layout_constraintTop_toTopOf="@+id/tvToolMainName"
-        tools:text="%s" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="(1234569244)" />
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/tvToolStatus"
@@ -76,9 +78,9 @@
         android:layout_marginBottom="8dp"
         android:fontFamily="@font/montserrat_bold"
         android:textSize="14sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/tvToolMainName"
-        tools:text="%s" />
+        app:layout_constraintStart_toStartOf="@id/tvToolMainName"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Disponible" />
 
     <ImageView
         android:id="@+id/ivToolMoreOptions"

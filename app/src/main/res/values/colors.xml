@@ -27,6 +27,7 @@
 
     <color name="unavailable">#e8e8e8</color>
     <color name="available">#efa140</color>
+    <color name="vanished">#85EB9840</color>
 
 
     <color name="newEmployee">#3fc2d8</color>

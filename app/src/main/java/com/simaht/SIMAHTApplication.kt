@@ -8,6 +8,10 @@ class SIMAHTApplication: Application() {
     override fun onCreate() {
         super.onCreate()
         JsonFile.PATH = this.applicationContext.applicationInfo.dataDir + JsonFile.pathDocuments
+
+        //RetroFitTest.inctance()
+        SIMAHTSingleton.instance()
+
     }
 
 }

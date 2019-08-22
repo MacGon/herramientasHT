@@ -1,5 +1,6 @@
 package com.simaht.modules.dashboard_mh
 
+import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
@@ -32,6 +33,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     lateinit var container: FrameLayout
     val fm = supportFragmentManager
     private var doubleBackPressed: Boolean = false
+    private val TOOL_ASSIGMENT = 5635
     private val onNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
 
 
@@ -93,7 +95,6 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         //MH
         val toolbar: Toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
-
 
         val drawerLayout: DrawerLayout = findViewById(R.id.drawer_container)
         val navViewTwo: NavigationView = findViewById(R.id.nav_view_MH)
@@ -231,7 +232,8 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
     override fun showAssignToolFragment() {
         //addFragment(AssignToolManagerFragment.newInstance(false), container.id, "AssignToolFlow")
-        startActivity(Intent(this@MainActivity, ToolTransferActivity::class.java))
+        //startActivity(Intent(this@MainActivity, ToolTransferActivity::class.java))
+        startActivityForResult(Intent(this@MainActivity, ToolTransferActivity::class.java), TOOL_ASSIGMENT)
     }
 
     override fun showLiftInventoryFragment() {
@@ -284,6 +286,12 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
     fun addToBackStack(fragment: Fragment) {
         addToBackStack(fragment, null)
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        if (requestCode == TOOL_ASSIGMENT)
+            if (resultCode == Activity.RESULT_OK) {
+            }
     }
 }
 

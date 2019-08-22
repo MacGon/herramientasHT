@@ -24,13 +24,16 @@ android {
             applicationIdSuffix '.dbg'
             versionNameSuffix '.dbg'
             resValue "string", "app_name", "Almacen HT"
-            buildConfigField("String", "URL_BASE", "\"http://10.50.109.13:8080/WSNPCobranzHDT/\"")
+            buildConfigField 'String', 'URL_BASE', '"http://10.50.109.13:8080/WSNPCobranzHDT/"'
+            buildConfigField 'Boolean', 'IS_DEBUD', 'false' //true for Dummie / false for prerealease
         }
 
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-            buildConfigField("String", "URL_BASE", "\"https://google.com/\"")
+            //buildConfigField("String", "URL_BASE", "\"http://10.50.109.13:8080/WSNPCobranzHDT/\"")
+            buildConfigField 'String', 'URL_BASE', '"http://10.50.109.13:8080/WSNPCobranzHDT/"'
+            buildConfigField 'Boolean', 'IS_DEBUD', 'false'
         }
     }
 }

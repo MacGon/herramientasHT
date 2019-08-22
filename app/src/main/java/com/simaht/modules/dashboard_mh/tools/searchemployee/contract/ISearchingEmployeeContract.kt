@@ -7,11 +7,10 @@ interface ISearchingEmployeeContract {
         fun hideLoader()
         fun showMessage(msg: String)
         fun validateEmployeeNumber()
-        fun changeView(newEmployee: Boolean, toolsFound: Boolean)
+        fun changeView(newEmployee: Boolean, toolsFound: Boolean, employeeNum: Int)
     }
 
     interface Presenter{
         fun getInfoEmployee(employeeNum : Int)
-        fun putEmployeeInfo()
     }
 }
