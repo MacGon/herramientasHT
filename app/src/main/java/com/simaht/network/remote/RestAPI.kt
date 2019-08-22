@@ -4,17 +4,16 @@ import android.util.Log
 import com.example.dashboard_mh.BuildConfig
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
-import com.simaht.modules.model.BaseResponse
 import com.google.gson.JsonObject
+import com.simaht.modules.model.ActivoFijo
+import com.simaht.modules.model.BaseResponse
+import com.simaht.modules.model.BaseResponseCustody
+import com.simaht.modules.model.Custody
 import com.simaht.network.data.LoginRequestModel
 import com.simaht.network.data.LoginResponseModel
 import com.simaht.network.data.ModelTest
 import com.simaht.network.data.ToolAssignmentResponseModel
-import com.simaht.network.remote.services.IAccount
-import com.simaht.network.remote.services.ITools
-import com.simaht.network.remote.services.IAssigment
-import com.simaht.network.remote.services.LoginEndPoint
-import com.simaht.network.remote.services.ToolEndPoint
+import com.simaht.network.remote.services.*
 import io.reactivex.Single
 import okhttp3.MediaType
 import okhttp3.OkHttpClient
@@ -34,14 +33,14 @@ import java.util.concurrent.TimeUnit
 class RestAPI {
 
     companion object {
-        private lateinit var instance : RestAPI
+        private lateinit var instance: RestAPI
         fun getInstance() = instance
     }
 
-    private val CONNECT_TIMEOUT_MILLIS = 35000L
-    private val READ_TIMEOUT_MILLIS = 35000L
+    private val CONNECT_TIMEOUT_MILLIS = 15000L
+    private val READ_TIMEOUT_MILLIS = 15000L
     private val JSON = MediaType.parse("application/json; charset=utf-8")
-    private var retrorfit : Retrofit
+    private var retrorfit: Retrofit
     private val gson: Gson
 
     /***********************************
@@ -51,14 +50,15 @@ class RestAPI {
     private var iLogin: LoginEndPoint
     private var iToolAssignment: ToolEndPoint
     private val iAssigment: IAssigment
-    private val iTools : ITools
+    private val iTools: ITools
 
     init {
         this.gson = GsonBuilder()
-            .setDateFormat("yyyy-MM-dd'T'HH:mm:ssZ")
-            .create()
+                .setDateFormat("yyyy-MM-dd'T'HH:mm:ssZ")
+                .create()
 
         retrorfit = retrofitBuilder()
+
         iAccount = retrorfit.create(IAccount::class.java)
         iAssigment = retrorfit.create(IAssigment::class.java)
         iTools = retrorfit.create(ITools::class.java)
@@ -71,10 +71,10 @@ class RestAPI {
     /**
      * This method creates retrofit instance and configures the interceptors.
      */
-    fun retrofitBuilder() : Retrofit {
+    fun retrofitBuilder(): Retrofit {
         val clientBuilder = OkHttpClient.Builder()
         val logginInterceptor = HttpLoggingInterceptor()
-        logginInterceptor.level = if(BuildConfig.DEBUG) HttpLoggingInterceptor.Level.BODY else HttpLoggingInterceptor.Level.NONE
+        logginInterceptor.level = if (BuildConfig.DEBUG) HttpLoggingInterceptor.Level.BODY else HttpLoggingInterceptor.Level.NONE
 
         clientBuilder.connectTimeout(CONNECT_TIMEOUT_MILLIS, TimeUnit.MILLISECONDS)
         clientBuilder.readTimeout(READ_TIMEOUT_MILLIS, TimeUnit.MILLISECONDS)
@@ -93,16 +93,16 @@ class RestAPI {
     /**
      * This is a test!!
      */
-    fun login(request:LoginRequestModel):Single<LoginResponseModel> {
-        return iLogin.logIn(gson.fromJson(gson.toJson(request),JsonObject::class.java))
+    fun login(request: LoginRequestModel): Single<LoginResponseModel> {
+        return iLogin.logIn(gson.fromJson(gson.toJson(request), JsonObject::class.java))
     }
 
-    fun enrollment(serialNum: String, employeeNum: String):Single<LoginResponseModel> {
+    fun enrollment(serialNum: String, employeeNum: String): Single<LoginResponseModel> {
         return iLogin.getUserInfo(serialNum, employeeNum)
     }
 
-    fun registerUser(request:LoginRequestModel):Single<LoginResponseModel>{
-        return iLogin.registerUser(gson.fromJson(gson.toJson(request),JsonObject::class.java))
+    fun registerUser(request: LoginRequestModel): Single<LoginResponseModel> {
+        return iLogin.registerUser(gson.fromJson(gson.toJson(request), JsonObject::class.java))
     }
 
 
@@ -139,24 +139,42 @@ class RestAPI {
     }
 
 
+    /*************** Tools INQUIRY SERVICE  **************/
 
-
-    /*************** Tools INQUIRY SERVICE ******************/
-
-    fun consultTools(employeeNum : Int, callResult: (BaseResponse) -> Unit) {
+    fun consultTools(employeeNum: Int, callResult: (response: List<ActivoFijo>?, complete: Boolean) -> Unit) {
         iTools.consultToolsByEmployee(employeeNum).apply {
             enqueue(object : Callback<BaseResponse> {
 
                 override fun onResponse(call: Call<BaseResponse>, response: Response<BaseResponse>) {
-                    Log.i("TEST", response.let { it.body().toString() })
-                    if (response.code() == 200 && response.body()?.code == 200 ) {
-                        callResult(response.body()!!)
+                    Log.i("TEST", response.body().toString())
+                    val resp = response.body()
+                    if (response.code() == 200) {
+                        resp?.let {
+                            if (it.code == 200) {
+                                callResult(it.output, true)
+                            }
+                        }
                     }
                 }
 
                 override fun onFailure(call: Call<BaseResponse>, t: Throwable) {
                     Log.e("REST_API", "an error has occurred at : ", t)
-                    //callResult(kkdkdkd)
+                    callResult(null, false)
+                }
+            })
+        }
+    }
+
+    fun doCustody(custody: Custody, response:(Boolean)-> Unit){
+        iTools.toolsToCustody(custody).apply {
+            enqueue(object : Callback<BaseResponseCustody> {
+                override fun onResponse(call: Call<BaseResponseCustody>, response: Response<BaseResponseCustody>) {
+                    if (response.code() == 200)
+                        response(true)
+                }
+
+                override fun onFailure(call: Call<BaseResponseCustody>, t: Throwable) {
+                    response(true) //FIXME this is a wrong answer!!
                 }
             })
         }

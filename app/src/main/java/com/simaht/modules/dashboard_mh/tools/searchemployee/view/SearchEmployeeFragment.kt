@@ -94,8 +94,8 @@ class SearchEmployeeFragment : Fragment(), ISearchingEmployeeContract.View {
         presenter.getInfoEmployee(svEmployeeNumber.text.toString().toInt())
     }
 
-    override fun changeView(newEmployee: Boolean, toolsFound: Boolean) {
-        parentView.nextFragment(newEmployee, toolsFound)
+    override fun changeView(newEmployee: Boolean, toolsFound: Boolean, employeeNum: Int) {
+        parentView.nextFragment(newEmployee, toolsFound, employeeNum)
     }
 
 

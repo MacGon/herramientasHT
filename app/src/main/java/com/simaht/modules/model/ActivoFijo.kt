@@ -2,7 +2,10 @@ package com.simaht.modules.model
 
 import com.google.gson.annotations.SerializedName
 
-class ActivoFijo(
+data class ActivoFijo(
+        @SerializedName("codigo")val code: Int,
+        @SerializedName("mensaje")val message: String,
+        @SerializedName("errores")val errors: String?,
         @SerializedName("sociedad") val sociedad: String,
         @SerializedName("datoMaestro") val datoMaestro: String,
         @SerializedName("subDatoMaestro") val subDatoMaestro: String,
@@ -30,4 +33,15 @@ class ActivoFijo(
         @SerializedName("fechaFactura") val fechaFactura: String,
         @SerializedName("fechaInstalacion") val fechaInstalacion: String,
         @SerializedName("fechaEntraMerca") val fechaEntraMerca: String,
-        @SerializedName("cecoOperativo") val cecoOperativo: String)
+        @SerializedName("cecoOperativo") val cecoOperativo: String,
+
+        /**parameters to resturn a custody**/
+        var numEmpleadoDestino: String,
+        var numEmpleadoOrigen: String,
+
+        /** Parameters not neccesary at the moment of custody**/
+        val cecoDestino: String,
+        val comentario: String,
+
+
+        val activo: Boolean = true)
