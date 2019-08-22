@@ -200,6 +200,10 @@ class EmployeeFoundFragment : Fragment(), IEmployeeFoundContract.View {
         toast(msg)
     }
 
+    override fun inespectedError() {
+        parentView.removeFragment()
+    }
+
 
     private fun notifyHaveTools() {
 

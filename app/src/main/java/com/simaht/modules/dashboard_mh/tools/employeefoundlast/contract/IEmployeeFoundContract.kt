@@ -15,6 +15,7 @@ interface IEmployeeFoundContract {
         fun custodyDone()
         fun wrongCustody()
         fun showMessage(msg: String)
+        fun inespectedError()
     }
 
     interface Presenter {

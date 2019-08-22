@@ -150,9 +150,10 @@ class RestAPI {
                     val resp = response.body()
                     if (response.code() == 200) {
                         resp?.let {
-                            if (it.code == 200) {
+                            if (it.code == 200)
                                 callResult(it.output, true)
-                            }
+                            else
+                                callResult(null, false)
                         }
                     }
                 }
