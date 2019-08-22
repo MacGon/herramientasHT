@@ -73,7 +73,8 @@ class EmployeeFoundPresenter(val view: IEmployeeFoundContract.View) : IEmployeeF
                         }
                     }
                 } else {
-                    view.showMessage("Somethin was wrong OMG!")
+                    view.showMessage("¡Empleado no encontrado!")
+                    view.inespectedError()
                 }
                 view.hideLoader()
             }
