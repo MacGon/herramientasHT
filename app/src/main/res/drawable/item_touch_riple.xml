@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<ripple xmlns:android="http://schemas.android.com/apk/res/android" android:color="@color/vanished" >
-    <item android:drawable="@drawable/ripple_item_click"  android:state_checked="true" />
-</ripple>
-
