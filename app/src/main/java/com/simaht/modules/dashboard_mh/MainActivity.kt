@@ -15,6 +15,8 @@ import androidx.core.content.ContextCompat
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.Fragment
+import com.baz.continuidadoperativaletterassignment.alasignature.model.models.ALToolAssignment
+import com.baz.continuidadoperativaletterassignment.alasignature.model.models.WrappToolsLA
 import com.baz.continuidadoperativaletterassignment.almenu.view.ui.ALetterActivity
 import com.baz.simaht.login.extensions.addFragment
 import com.baz.simaht.login.extensions.replaceFragment
@@ -22,8 +24,8 @@ import com.example.dashboard_mh.R
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.navigation.NavigationView
 import com.simaht.dashboard_mh.AssignTool.view.AssignToolManagerFragment
-import com.simaht.modules.dashboard_mh.tools.DetailActivity
 import com.simaht.modules.dashboard_mh.tools.ToolTransferActivity
+import com.simaht.modules.dashboard_mh.tools.employeefound.assignment.presenter.ToolAssign
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener, DashBoardFragment.resultInterface,
@@ -237,10 +239,32 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     }
 
     override fun showLiftInventoryFragment() {
-        val fragmentLiftInventory = LiftInventoryFragment()
+/*      val fragmentLiftInventory = LiftInventoryFragment()
         val transactionLiftInventory = fm.beginTransaction()
         transactionLiftInventory.replace(container.id,fragmentLiftInventory)
-        transactionLiftInventory.commit()
+        transactionLiftInventory.commit()*/
+
+        //val employee = Employee()
+        val toolAssign = ToolAssign()
+        val employee = "Jose Perez Leon"
+        val numEmpJH  = "919464"
+        val numEmpJC  = "919490"
+
+        val alToolList : ArrayList<ALToolAssignment> = arrayListOf()
+
+        toolAssign.toolsArray.forEach {
+            alToolList.add(ALToolAssignment(it.controlID, it.numSerie, it.numPlaca, it.idCategoria, it.descCategoria, it.idTipo, it.descTipo, it.numSim))
+        }
+
+        val intent = Intent(this, ALetterActivity::class.java)
+        intent.putExtra("empNameJH",employee)
+        intent.putExtra("numEmpJH", numEmpJH)
+        intent.putExtra("numEmpDes", numEmpJC)
+        intent.putExtra("tools", WrappToolsLA(alToolList))
+
+        startActivity(intent)
+
+        //startActivity(Intent(this, ALetterActivity::class.java))
     }
 
     override fun showUnsubscribeToolFragment() {

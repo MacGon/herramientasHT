@@ -1,19 +1,9 @@
-package com.simaht.network.data
+package com.baz.continuidadoperativaletterassignment.alasignature.model.models
 
 import com.google.gson.annotations.SerializedName
 import java.io.Serializable
 
-data class ToolAssignmentResponseModel(
-    @SerializedName("codigo") val code: Int? = -1,
-    @SerializedName("mensaje") val message: String? = "",
-    @SerializedName("salida")  val info: ArrayList<OutModelTool> = ArrayList(),
-    @SerializedName("errores") val errors: String? = ""
-){
-    //val info:OutModelTool
-    //get()= _info[0]
-}
-
-data class OutModelTool(
+data class ALToolAssignment (
     @SerializedName("controlId") val controlID: String? = "",
     @SerializedName("numSerie") val numSerie: String? = "",
     @SerializedName("numPlaca") val numPlaca: String? = "",

@@ -1,12 +1,16 @@
 package com.simaht.modules.dashboard_mh.tools
 
 import android.app.Activity
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.view.inputmethod.InputMethodManager
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
+import com.baz.continuidadoperativaletterassignment.alasignature.model.models.ALToolAssignment
+import com.baz.continuidadoperativaletterassignment.alasignature.model.models.WrappToolsLA
+import com.baz.continuidadoperativaletterassignment.almenu.view.ui.ALetterActivity
 import com.baz.simaht.login.extensions.addFragment
 import com.baz.simaht.utils.CoConstants.Companion.ADDING_TOOLS
 import com.baz.simaht.utils.CoConstants.Companion.EMPLOYEE_FOUND
@@ -16,9 +20,11 @@ import com.example.dashboard_mh.R
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.simaht.dashboard_mh.AssignTool.Tool
 import com.simaht.modules.dashboard_mh.tools.done.TransferToolDoneFragment
+import com.simaht.modules.dashboard_mh.tools.employeefound.assignment.presenter.ToolAssign
 import com.simaht.modules.dashboard_mh.tools.employeefoundlast.view.EmployeeFoundFragment
 import com.simaht.modules.dashboard_mh.tools.searchemployee.view.SearchEmployeeFragment
 import com.simaht.modules.dashboard_mh.tools.toollist.view.AddingToolsFragment
+import com.simaht.modules.login.presenter.Employee
 import com.simaht.utils.SelectableItem
 import kotlinx.android.synthetic.main.activity_tool_transfer.*
 import kotlinx.android.synthetic.main.app_bar_main.*
@@ -29,6 +35,7 @@ class ToolTransferActivity : AppCompatActivity(), FragmentCommunication {
     private lateinit var toolsFound: ArrayList<SelectableItem<Tool>>
     private lateinit var toolsToCustody: ArrayList<SelectableItem<Tool>>
     private var firstTools: Boolean = true
+    private lateinit var empIdDestination : String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -115,6 +122,7 @@ class ToolTransferActivity : AppCompatActivity(), FragmentCommunication {
 
     override fun nextFragment(newEmpl: Boolean?, haveToolsFound: Boolean?, employeeNum: Int?) {
         counter++
+        employeeNum?.let { empIdDestination = it.toString() }
         when (counter) {
             1 -> {
                 addToBackStack(AddingToolsFragment.newInstance(true, this), ADDING_TOOLS)
@@ -142,6 +150,7 @@ class ToolTransferActivity : AppCompatActivity(), FragmentCommunication {
 
     override fun processDone() {
         this@ToolTransferActivity.finish()
+        initializeLetterAssignment()
     }
 
     override fun putScannedTools(tools: ArrayList<SelectableItem<Tool>>) {
@@ -151,6 +160,25 @@ class ToolTransferActivity : AppCompatActivity(), FragmentCommunication {
         } else {
             this.toolsToCustody = tools
         }
+    }
+
+    private fun initializeLetterAssignment(){
+        val employee = Employee()
+        val toolAssign = ToolAssign()
+        val employeeName: String = employee.empNombre +" "+ employee.empApellidoMat +" "+ employee.empApellidoPat
+        val alToolList : ArrayList<ALToolAssignment> = arrayListOf()
+
+        toolAssign.toolsArray.forEach {
+            alToolList.add(ALToolAssignment(it.controlID, it.numSerie, it.numPlaca, it.idCategoria, it.descCategoria, it.idTipo, it.descTipo, it.numSim))
+        }
+
+        val intent = Intent(this, ALetterActivity::class.java)
+        intent.putExtra("empNameJH",employeeName)
+        intent.putExtra("numEmpJH", employee.empID)
+        intent.putExtra("numEmpDes", empIdDestination)
+        intent.putExtra("tools", WrappToolsLA(alToolList))
+
+        startActivity(intent)
     }
 
 }

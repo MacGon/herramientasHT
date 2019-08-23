@@ -1,4 +1,4 @@
-package com.baz.continuidadoperativaletterassignment.almenu.interfaces
+package com.baz.continuidadoperativaletterassignment.almenu.`interface`
 
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
