@@ -12,6 +12,7 @@ import com.baz.simaht.utils.CoConstants.Companion.COME_FROM_CAMERA
 import com.baz.simaht.utils.CoConstants.Companion.SCANNER
 import com.example.dashboard_mh.R
 import com.google.zxing.Result
+import com.jakewharton.rxbinding3.material.select
 import com.simaht.dashboard_mh.AssignTool.Tool
 import com.simaht.modules.dashboard_mh.scanner.IScanner
 import com.simaht.modules.dashboard_mh.scanner.ScannerFragment
@@ -51,8 +52,11 @@ class AddingToolsFragment : Fragment(), AddingToolContract.View, IScanner {
         rvContentTool.layoutManager = LinearLayoutManager(activity)
         rvContentTool.addItemDecoration(DividerItemDecoration(activity, DividerItemDecoration.VERTICAL))
 
-        toolListAdapter = ToolListAdapter(arrayListOf()) {
-            btnContinue.isEnabled = if(it) it else true  //is selected
+        toolListAdapter = ToolListAdapter(arrayListOf()) { select, emptyList ->
+            btnContinue.isEnabled = if (select) select else true  //is selected
+            if (emptyList) {
+                btnContinue.isEnabled = false
+            }
         }
 
         rvContentTool.adapter = toolListAdapter
@@ -81,6 +85,7 @@ class AddingToolsFragment : Fragment(), AddingToolContract.View, IScanner {
     }
 
     override fun addItem(scannedTool: Tool) {
+        btnContinue.isEnabled = true
         toolListAdapter.addNuewTool(SelectableItem(scannedTool))
     }
 

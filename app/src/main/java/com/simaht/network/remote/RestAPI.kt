@@ -170,12 +170,16 @@ class RestAPI {
         iTools.toolsToCustody(custody).apply {
             enqueue(object : Callback<BaseResponseCustody> {
                 override fun onResponse(call: Call<BaseResponseCustody>, response: Response<BaseResponseCustody>) {
-                    if (response.code() == 200)
-                        response(true)
+                    if (response.code() == 200) {
+                        if (response.body()?.code == 200)
+                            response(true)
+                        else
+                            response(false)
+                    }
                 }
 
                 override fun onFailure(call: Call<BaseResponseCustody>, t: Throwable) {
-                    response(true) //FIXME this is a wrong answer!!
+                    response(false) //FIXME this is a wrong answer!!
                 }
             })
         }

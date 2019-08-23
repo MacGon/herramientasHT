@@ -4,19 +4,21 @@ import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.KeyEvent
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.baz.simaht.login.extensions.toast
 import com.example.dashboard_mh.R
+import com.jakewharton.rxbinding.view.RxView
 import com.simaht.modules.dashboard_mh.tools.FragmentCommunication
+import com.simaht.modules.dashboard_mh.tools.base.BaseFragment
 import com.simaht.modules.dashboard_mh.tools.searchemployee.contract.ISearchingEmployeeContract
 import com.simaht.modules.dashboard_mh.tools.searchemployee.presenter.SearchingEmployeePresenter
 import kotlinx.android.synthetic.main.fragment_searching_employee.*
+import java.util.concurrent.TimeUnit
 
 
-class SearchEmployeeFragment : Fragment(), ISearchingEmployeeContract.View {
+class SearchEmployeeFragment : BaseFragment(), ISearchingEmployeeContract.View {
 
     private lateinit var parentView : FragmentCommunication
     private lateinit var presenter: ISearchingEmployeeContract.Presenter
@@ -41,7 +43,10 @@ class SearchEmployeeFragment : Fragment(), ISearchingEmployeeContract.View {
             if (event.action == KeyEvent.ACTION_DOWN && keyCode == KeyEvent.KEYCODE_ENTER) {
 
                 parentView.hideKeyboardEvent(svEmployeeNumber)
-                presenter.getInfoEmployee(svEmployeeNumber.text.toString().toInt())
+                if (svEmployeeNumber.text.toString().isNotEmpty())
+                    presenter.getInfoEmployee(svEmployeeNumber.text.toString().toInt())
+                else
+                    showMessage("¡Agrega un número de socio para continuar!")
                 //employeeAbstract.text = "4253 - JCR"
                 //employeeName.text = "Armando de los Santos"
                 return@OnKeyListener true

@@ -5,6 +5,7 @@ import com.example.dashboard_mh.BuildConfig
 import com.simaht.SIMAHTSingleton
 import com.simaht.dashboard_mh.AssignTool.Tool
 import com.simaht.modules.dashboard_mh.tools.employeefoundlast.contract.IEmployeeFoundContract
+import com.simaht.modules.login.presenter.Employee
 import com.simaht.modules.model.ActivoFijo
 import com.simaht.modules.model.Custody
 import com.simaht.network.remote.RestAPI
@@ -106,11 +107,14 @@ class EmployeeFoundPresenter(val view: IEmployeeFoundContract.View) : IEmployeeF
     override fun applyCustody() {
 
         if (haveItemsToCustody()) {
+            val employee = Employee()
+
             view.showLoader()
             val api = RestAPI() //FIXME
             toolCustody.forEach {
-                it.numEmpleadoDestino = "919464" //FIXME /get my UserID usign Singleton
+                it.numEmpleadoDestino = employee.empID ?: "0" // /get my UserID usign Singleton
                 it.numEmpleadoOrigen = "$employeeNumber"
+                it.estatus = -1
             }
             val custody = Custody(toolCustody, "5356") //FIXME my UserID too!
             //Rest API

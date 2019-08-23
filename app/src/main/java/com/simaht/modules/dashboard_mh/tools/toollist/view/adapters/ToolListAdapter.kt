@@ -8,7 +8,7 @@ import com.simaht.dashboard_mh.AssignTool.Tool
 import com.simaht.modules.dashboard_mh.tools.toollist.view.viewholder.AddToolViewHolder
 import com.simaht.utils.SelectableItem
 
-class ToolListAdapter(var tools: ArrayList<SelectableItem<Tool>>, val selected: (Boolean) -> Unit) : RecyclerView.Adapter<AddToolViewHolder>() {
+class ToolListAdapter(var tools: ArrayList<SelectableItem<Tool>>, val selected: (select: Boolean, emptyList: Boolean) -> Unit) : RecyclerView.Adapter<AddToolViewHolder>() {
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AddToolViewHolder {
@@ -24,6 +24,9 @@ class ToolListAdapter(var tools: ArrayList<SelectableItem<Tool>>, val selected: 
         holder.bind(tool) { itemDelete, selected ->
             itemDelete?.let {
                 tools.remove(it)
+                if (tools.isEmpty()){
+                    selected(false, true)
+                }
                 notifyDataSetChanged()
             }
             selected?.let {
@@ -32,9 +35,9 @@ class ToolListAdapter(var tools: ArrayList<SelectableItem<Tool>>, val selected: 
             }
 
             if (tools.size > 0)
-                selected(tools.any { it.selected })
+                selected(tools.any { it.selected }, false)
             else
-                selected(false)
+                selected(false, true)
         }
     }
 

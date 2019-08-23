@@ -68,7 +68,7 @@
         android:layout_marginTop="16dp"
         android:fontFamily="@font/montserrat_regular"
         android:textColor="@color/textcolorTitleTool"
-        android:textSize="13sp"
+        android:textSize="12sp"
         app:layout_constraintStart_toEndOf="@id/tvToolMainName"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="(1234569244)" />

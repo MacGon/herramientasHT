@@ -8,27 +8,43 @@
     android:windowSoftInputMode="adjustPan"
     tools:context="com.simaht.modules.dashboard_mh.tools.toollist.view.AddingToolsFragment">
 
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/tvInstructions"
-        android:layout_width="0dp"
-        android:layout_height="88dp"
-        android:lineSpacingExtra="3.2sp"
-        android:textColor="@color/colorAccent"
-        android:textSize="16sp"
-        android:paddingStart="20dp"
-        android:paddingEnd="20dp"
-        android:paddingTop="18dp"
-        android:layout_marginBottom="18dp"
-        android:text="@string/msg_gestion_tool"
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView2"
+        android:layout_width="413dp"
+        android:layout_height="94dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent">
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="2dp"
-        android:background="@color/transparentGray"
-        app:layout_constraintBottom_toBottomOf="@id/tvInstructions" />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvInstructions"
+                android:layout_width="0dp"
+                android:layout_height="83dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="8dp"
+                android:background="@color/colorWhite"
+                android:fontFamily="@font/montserrat_regular"
+                android:lineSpacingExtra="3.2sp"
+                android:paddingStart="20dp"
+                android:paddingTop="18dp"
+                android:paddingEnd="20dp"
+                android:text="@string/msg_assigment_instruction"
+                android:textColor="@color/colorAccent"
+                android:textSize="17sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.4" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
 
     <RelativeLayout
         android:id="@+id/rlEmployeeInfo"
@@ -38,7 +54,7 @@
         android:background="@color/colorWhite"
         android:paddingTop="16dp"
         android:paddingBottom="16dp"
-        app:layout_constraintTop_toBottomOf="@id/tvInstructions"
+        app:layout_constraintTop_toBottomOf="@id/cardView2"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
 
@@ -184,7 +200,7 @@
         android:foreground="?android:attr/selectableItemBackground"
         android:shadowRadius="5.0"
         android:text="@string/msg_continue"
-        android:textColor="@color/blocked"
+        android:textColor="@color/colorWhite"
         android:textAllCaps="false"
         android:textSize="17sp"
         app:layout_constraintBottom_toBottomOf="parent"
