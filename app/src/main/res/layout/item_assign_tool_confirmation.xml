@@ -66,7 +66,7 @@
         android:layout_marginTop="16dp"
         android:fontFamily="@font/montserrat_regular"
         android:textColor="@color/textcolorTitleTool"
-        android:textSize="13sp"
+        android:textSize="12sp"
         app:layout_constraintStart_toEndOf="@id/tvToolMainName"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="(1234569244)" />
@@ -75,11 +75,11 @@
         android:id="@+id/tvToolStatus"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
+        android:layout_marginTop="1dp"
         android:fontFamily="@font/montserrat_bold"
         android:textSize="14sp"
         app:layout_constraintStart_toStartOf="@id/tvToolMainName"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvToolMainName"
         tools:text="Disponible" />
 
     <ImageView

@@ -18,12 +18,12 @@ class FoundDeviceViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) 
     fun bind(selecTool: SelectableItem<ActivoFijo>, haveAction: Boolean, position: Int, actionSelected: (item: ActivoFijo, selected: Boolean, position: Int) -> Unit) {
         val res = itemView.resources
         with(selecTool) {
-            itemView.tvToolMainName.text = item.denominacion //FIXME review wichone is the correct parameter : descMarca
+            itemView.tvToolMainName.text = item.denominacion.split(" ").first() //FIXME review wichone is the correct parameter : descMarca
             itemView.tvToolSerianlNumber.text = String.format(res.getString(R.string.msg_serial_number), item.serie)
 
             if (action != null && haveAction) {
                 showActionToDo(this)
-            } else if (item.activo) {
+            } else if (!item.activo) { //FIXME this is fake
                 itemView.tvToolStatus.text = itemView.resources.getString(R.string.msg_operational)
                 itemView.tvToolStatus.setTextColor(itemView.resources.getColor(R.color.grass))
             } else {

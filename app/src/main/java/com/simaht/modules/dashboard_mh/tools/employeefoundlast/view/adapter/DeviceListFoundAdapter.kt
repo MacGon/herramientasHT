@@ -56,11 +56,12 @@ class DeviceListFoundAdapter(private var tools: ArrayList<SelectableItem<ActivoF
 
     fun haveCustody() = tools.any{it.selected}
 
-    fun setAction(action: CoConstants.ACTIONS) {
-        tools.filter { it.selected }.forEach { it.action = action }
-        haveAction = true
+    fun errorCustody() {
+        temporalTools.forEach {
+            it.action = null
+            it.selected = false
+        }
         notifyDataSetChanged()
-
     }
 
 }

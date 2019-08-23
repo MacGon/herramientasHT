@@ -150,7 +150,7 @@ class ToolTransferActivity : AppCompatActivity(), FragmentCommunication {
 
     override fun processDone() {
         this@ToolTransferActivity.finish()
-        initializeLetterAssignment()
+        //initializeLetterAssignment()
     }
 
     override fun putScannedTools(tools: ArrayList<SelectableItem<Tool>>) {

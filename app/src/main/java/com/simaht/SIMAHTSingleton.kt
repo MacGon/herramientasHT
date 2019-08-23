@@ -5,6 +5,9 @@ import com.example.dashboard_mh.BuildConfig
 object SIMAHTSingleton {
 
     private var statusCompile: Boolean? = null
+    @Volatile
+    var numJH: Int = 0
+        set(value) { field = value }
 
     fun instance(): Boolean? {
 

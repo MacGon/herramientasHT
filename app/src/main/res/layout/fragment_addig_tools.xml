@@ -52,9 +52,29 @@
         android:layout_marginEnd="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cardView2"
+        app:layout_constraintTop_toBottomOf="@id/cardView2"
         tools:listitem="@layout/item_assign_tool_confirmation" />
 
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnContinue"
+        style="@style/ButtonComfirmToolDisable"
+        android:layout_width="184dp"
+        android:layout_height="57dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:background="@drawable/selector_tool_function"
+        android:enabled="true"
+        android:fontFamily="@font/montserrat_regular"
+        android:foreground="?android:attr/selectableItemBackground"
+        android:shadowRadius="5.0"
+        android:text="@string/msg_continue"
+        android:textAllCaps="false"
+        android:textColor="@color/colorWhite"
+        android:textSize="17sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rvContentTool" />
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/btnAddTool"
@@ -80,26 +100,5 @@
         app:layout_constraintTop_toBottomOf="@+id/rvContentTool"
         app:srcCompat="@drawable/ic_sign_to_add_2"
         app:tint="@color/available" />
-
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btnContinue"
-        style="@style/ButtonComfirmToolDisable"
-        android:layout_width="184dp"
-        android:layout_height="57dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
-        android:background="@drawable/selector_tool_function"
-        android:enabled="true"
-        android:fontFamily="@font/montserrat_regular"
-        android:foreground="?android:attr/selectableItemBackground"
-        android:shadowRadius="5.0"
-        android:text="@string/msg_continue"
-        android:textAllCaps="false"
-        android:textColor="@color/colorWhite"
-        android:textSize="17sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/rvContentTool" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

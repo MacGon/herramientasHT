@@ -194,6 +194,7 @@ class EmployeeFoundFragment : Fragment(), IEmployeeFoundContract.View {
 
     override fun wrongCustody() {
         showMessage("Un error inesperado ha ocurrido, intente nuevamente")
+        adapterDevices.errorCustody()
     }
 
     override fun showMessage(msg: String) {

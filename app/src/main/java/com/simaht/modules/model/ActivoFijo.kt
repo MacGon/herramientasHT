@@ -44,4 +44,5 @@ data class ActivoFijo(
         val comentario: String,
 
 
-        val activo: Boolean = true)
+        val activo: Boolean = true,
+        var estatus: Int = -1)
