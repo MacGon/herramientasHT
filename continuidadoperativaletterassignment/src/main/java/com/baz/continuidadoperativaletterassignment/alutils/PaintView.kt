@@ -2,13 +2,10 @@ package com.baz.continuidadoperativaletterassignment.alutils
 
 import android.content.Context
 import android.graphics.*
-import android.text.BoringLayout
 import android.util.AttributeSet
 import android.util.DisplayMetrics
 import android.view.MotionEvent
 import android.view.View
-import com.baz.continuidadoperativaletterassignment.almenu.view.ui.fragments.ALAsignatureAcceptedFragment
-import kotlinx.android.synthetic.main.fragment_asignature_accepted.*
 
 class PaintView (context: Context, attrs: AttributeSet): View(context, attrs) {
 

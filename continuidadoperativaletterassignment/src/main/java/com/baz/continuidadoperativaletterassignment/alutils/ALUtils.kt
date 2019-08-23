@@ -1,7 +1,17 @@
 package com.baz.continuidadoperativaletterassignment.alutils
 
+
 import android.view.View
 import android.view.Window
+
+
+open class ALUtils {
+
+    companion object{
+
+    }
+
+}
 
 
 fun hideBottomBar(window: Window){
@@ -13,3 +23,4 @@ fun hideBottomBar(window: Window){
         systemUiVisibility = View.SYSTEM_UI_FLAG_HIDE_NAVIGATION or View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
     }
 }
+
