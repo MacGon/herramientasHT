@@ -6,6 +6,7 @@ import android.view.View
 import com.baz.continuidadoperativaletterassignment.alasignature.`interface`.ISignatureContractPresenter
 import com.baz.continuidadoperativaletterassignment.alasignature.`interface`.IAsignatureContractView
 import com.baz.continuidadoperativaletterassignment.alasignature.model.api.ApiServiceInterfaceAL
+import com.baz.continuidadoperativaletterassignment.alasignature.model.models.ALToolAssignment
 import com.baz.continuidadoperativaletterassignment.alasignature.model.models.RequestAssignmentToolLA
 import com.baz.continuidadoperativaletterassignment.alcommon.ALConstants
 import io.reactivex.android.schedulers.AndroidSchedulers
@@ -16,9 +17,14 @@ class ALSignaturePresenter(val view : IAsignatureContractView) : ISignatureContr
     private val api: ApiServiceInterfaceAL = ApiServiceInterfaceAL.create()
     private val subscriptions = CompositeDisposable()
 
-    override fun sendDataAssignment() {
+    override fun sendDataAssignment(employeeName:String, employeeNumber:String, employeeDestination:String, tools: ArrayList<ALToolAssignment>) {
         view.showProgress()
-        dataAssignament()
+
+        tools.forEach {
+            val request = RequestAssignmentToolLA(it.idCategoria, "", it.controlID, "", "", 0, "", employeeNumber, "", 0, employeeDestination, it.numPlaca, it.numSerie, 0, "0000000000000000000F", "", 4)
+            if(!dataAssignament(request)) return@forEach
+        }
+
     }
 
     override fun goActionButtonDeletePaint() {
@@ -39,8 +45,9 @@ class ALSignaturePresenter(val view : IAsignatureContractView) : ISignatureContr
         view.actionButtonDraw(false)
     }
 
-    private fun dataAssignament(){
-        val request = RequestAssignmentToolLA(1, "", "0104000000391", "", "", 0, "", "919610", "", 0, "149766", "GS1301870", "F9FNR528FLMJ", 0, "0000000000000000000F", "", 4)
+    private fun dataAssignament(request: RequestAssignmentToolLA): Boolean {
+        var lboolContinue: Boolean = true
+
         val subscribe = api.getPostList(request).subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({ response ->
@@ -49,6 +56,7 @@ class ALSignaturePresenter(val view : IAsignatureContractView) : ISignatureContr
                         view.hideProgress()
                     } else if (response.code == 500) {
                         cleanSignatureError(ALConstants.MSG_ERROR_SIGNATURE)
+                        lboolContinue = false
                     }
                 }, { error ->
                     Log.d("TAG", "Error Service Signature:" + error.message)
@@ -56,6 +64,8 @@ class ALSignaturePresenter(val view : IAsignatureContractView) : ISignatureContr
                 })
 
         subscriptions.add(subscribe)
+
+        return lboolContinue
     }
 
 

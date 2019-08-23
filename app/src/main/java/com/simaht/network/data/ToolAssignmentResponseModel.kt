@@ -1,6 +1,7 @@
 package com.simaht.network.data
 
 import com.google.gson.annotations.SerializedName
+import java.io.Serializable
 
 data class ToolAssignmentResponseModel(
     @SerializedName("codigo") val code: Int? = -1,
@@ -12,7 +13,6 @@ data class ToolAssignmentResponseModel(
     //get()= _info[0]
 }
 
-
 data class OutModelTool(
     @SerializedName("controlId") val controlID: String? = "",
     @SerializedName("numSerie") val numSerie: String? = "",
@@ -22,4 +22,4 @@ data class OutModelTool(
     @SerializedName("idTipo") val idTipo: Int? = -1,
     @SerializedName("descTipo") val descTipo: String? = "",
     @SerializedName("numSim") val numSim: String? = ""
-)
+): Serializable

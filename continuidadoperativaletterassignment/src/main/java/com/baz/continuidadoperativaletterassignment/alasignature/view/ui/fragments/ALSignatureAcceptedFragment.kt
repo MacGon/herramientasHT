@@ -27,12 +27,15 @@ class ALSignatureAcceptedFragment : Fragment(), IAsignatureContractView {
     private lateinit var progressDialog: Dialog
     private lateinit var employeeName: String
     private lateinit var employeeNumber: String
+    private lateinit var employeeNumberDestination: String
+    private lateinit var toolsAssign: ArrayList<ALToolAssignment>
 
     companion object {
-        fun newInstance(empNameJH:String, numEmpJH: String)  = ALSignatureAcceptedFragment().apply{
+        fun newInstance(empNameJH:String, numEmpJH: String, numempDestination : String, tools: ArrayList<ALToolAssignment>)  = ALSignatureAcceptedFragment().apply{
             employeeName = empNameJH
             employeeNumber = numEmpJH
-
+            employeeNumberDestination = numempDestination
+            toolsAssign = tools
         }
     }
 
@@ -52,7 +55,7 @@ class ALSignatureAcceptedFragment : Fragment(), IAsignatureContractView {
         super.onViewCreated(view, savedInstanceState)
         headerDescriptionSignature()
 
-        btnSuccefullAsignature.setOnClickListener { presenter.sendDataAssignment() }
+        btnSuccefullAsignature.setOnClickListener { presenter.sendDataAssignment(employeeName, employeeNumber,employeeNumberDestination, toolsAssign) }
 
         btnDeletePaint.setOnClickListener { presenter.goActionButtonDeletePaint() }
 
@@ -92,10 +95,10 @@ class ALSignatureAcceptedFragment : Fragment(), IAsignatureContractView {
     }
 
    override fun drawSignatureView(view: View, motionEvent: MotionEvent){
-        val x: Float = motionEvent!!.x
+        val x: Float = motionEvent.x
         val y: Float = motionEvent.y
 
-        when(motionEvent!!.action){
+        when(motionEvent.action){
             MotionEvent.ACTION_DOWN -> {signatureView.touchStar(x, y); view.invalidate()}
             MotionEvent.ACTION_MOVE -> {signatureView.touchMove(x, y); view.invalidate()}
             MotionEvent.ACTION_UP -> {signatureView.touchUp(); view.invalidate()}

@@ -1,6 +1,7 @@
 package com.baz.continuidadoperativaletterassignment.alasignature.model.models
 
 import com.google.gson.annotations.SerializedName
+import java.io.Serializable
 
 data class ALToolAssignment (
     @SerializedName("controlId") val controlID: String? = "",
@@ -11,4 +12,4 @@ data class ALToolAssignment (
     @SerializedName("idTipo") val idTipo: Int? = -1,
     @SerializedName("descTipo") val descTipo: String? = "",
     @SerializedName("numSim") val numSim: String? = ""
-)
+): Serializable
