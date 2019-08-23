@@ -43,7 +43,6 @@
                 android:theme="@style/SplashStyle"
                 android:screenOrientation="portrait">
 
-
         </activity>
         <activity
             android:name="com.simaht.modules.login.view.LoginActivity"

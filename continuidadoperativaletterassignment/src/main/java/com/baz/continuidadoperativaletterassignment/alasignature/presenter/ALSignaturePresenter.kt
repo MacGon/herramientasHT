@@ -54,8 +54,8 @@ class ALSignaturePresenter(val view : IAsignatureContractView) : ISignatureContr
                     if (response.code == 200) {
                         view.showSuccessFullAsignment()
                         view.hideProgress()
-                    } else if (response.code == 500) {
-                        cleanSignatureError(ALConstants.MSG_ERROR_SIGNATURE)
+                    } else {
+                        cleanSignatureError(ALConstants.MSG_ERROR_SERVICE)
                         lboolContinue = false
                     }
                 }, { error ->
