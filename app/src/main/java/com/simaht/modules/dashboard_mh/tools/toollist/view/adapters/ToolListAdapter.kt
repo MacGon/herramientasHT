@@ -5,6 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.dashboard_mh.R
 import com.simaht.dashboard_mh.AssignTool.Tool
+import com.simaht.modules.dashboard_mh.tools.employeefound.assignment.presenter.ToolAssign
 import com.simaht.modules.dashboard_mh.tools.toollist.view.viewholder.AddToolViewHolder
 import com.simaht.utils.SelectableItem
 
@@ -24,6 +25,8 @@ class ToolListAdapter(var tools: ArrayList<SelectableItem<Tool>>, val selected: 
         holder.bind(tool) { itemDelete, selected ->
             itemDelete?.let {
                 tools.remove(it)
+                val fileTools = ToolAssign()
+                fileTools.deleteTool(position)
                 if (tools.isEmpty()){
                     selected(false, true)
                 }

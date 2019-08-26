@@ -172,4 +172,10 @@ class AddingToolsFragment : Fragment(), AddingToolContract.View, IScanner {
         }
     }
 
+    override fun onDestroy() {
+        super.onDestroy()
+        val toolsAssign = ToolAssign()
+        toolsAssign.clearFile()
+    }
+
 }

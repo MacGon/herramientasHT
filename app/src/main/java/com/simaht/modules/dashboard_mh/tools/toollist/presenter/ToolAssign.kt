@@ -46,4 +46,14 @@ class ToolAssign {
     fun validateControlId(tool :OutModelTool):Boolean {
         return toolsArray.contains(tool)
     }
+
+    fun deleteTool(pos: Int){
+        toolsArray.removeAt(pos)
+        update()
+    }
+
+    fun clearFile(){
+        toolsArray.clear()
+        update()
+    }
 }
