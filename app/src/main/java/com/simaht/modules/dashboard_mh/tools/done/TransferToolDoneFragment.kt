@@ -33,8 +33,9 @@ class TransferToolDoneFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         btnContinue.setOnClickListener {
-            parentView.processDone()
-            parentView.nextFragment()
+            //parentView.processDone()
+            //parentView.nextFragment()
+            parentView.initializeLetterAssignment()
         }
     }
 

@@ -13,5 +13,6 @@ interface FragmentCommunication {
     fun processDone()
     fun putScannedTools(tools: ArrayList<SelectableItem<Tool>>)
     fun showEmployeeFound(name: String)
+    fun initializeLetterAssignment()
 
 }

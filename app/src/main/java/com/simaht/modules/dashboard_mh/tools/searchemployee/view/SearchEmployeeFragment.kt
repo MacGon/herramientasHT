@@ -136,7 +136,8 @@ class SearchEmployeeFragment : BaseFragment(), ISearchingEmployeeContract.View {
 
         dialogView.btnDialogOK.setOnClickListener {
             alertDialog.dismiss()
-            parentView.processDone()
+            parentView.initializeLetterAssignment()
+            //parentView.processDone()
         }
         dialogView.btnDialogCancel.setOnClickListener {
             alertDialog.dismiss()

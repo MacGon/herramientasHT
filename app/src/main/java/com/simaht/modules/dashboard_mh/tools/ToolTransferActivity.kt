@@ -150,7 +150,7 @@ class ToolTransferActivity : AppCompatActivity(), FragmentCommunication {
 
     override fun processDone() {
         this@ToolTransferActivity.finish()
-        initializeLetterAssignment()
+        //initializeLetterAssignment()
     }
 
     override fun putScannedTools(tools: ArrayList<SelectableItem<Tool>>) {
@@ -169,7 +169,7 @@ class ToolTransferActivity : AppCompatActivity(), FragmentCommunication {
             currentFragment.putEmployeeFound(name)
     }
 
-    private fun initializeLetterAssignment(){
+    override fun initializeLetterAssignment(){
         val employee = Employee()
         val toolAssign = ToolAssign()
         val employeeName: String = employee.empNombre +" "+ employee.empApellidoMat +" "+ employee.empApellidoPat
