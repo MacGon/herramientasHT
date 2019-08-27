@@ -69,7 +69,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@id/btnDialogOK"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvNormalDialog"
+        app:layout_constraintTop_toBottomOf="@id/tvNormalDialog"
         tools:visibility="visible" />
 
     <androidx.appcompat.widget.AppCompatButton
@@ -91,7 +91,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/btnDialogCancel"
-        app:layout_constraintTop_toBottomOf="@+id/tvNormalDialog"
+        app:layout_constraintTop_toBottomOf="@id/tvNormalDialog"
         app:layout_goneMarginStart="16dp" />
 
 

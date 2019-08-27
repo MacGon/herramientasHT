@@ -48,6 +48,7 @@ class ToolTransferActivity : AppCompatActivity(), FragmentCommunication {
         nextFragment()
 
         addTitle(resources.getString(R.string.title_tools_flow))
+        hideBottomBar()
     }
 
     private fun listenerMeu() = BottomNavigationView.OnNavigationItemSelectedListener { item ->
@@ -74,9 +75,8 @@ class ToolTransferActivity : AppCompatActivity(), FragmentCommunication {
 
     override fun onResume() {
         super.onResume()
-        window.decorView.apply {
-            systemUiVisibility = View.SYSTEM_UI_FLAG_HIDE_NAVIGATION or View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
-        }
+        hideBottomBar()
+
     }
 
     private fun hideKeyboard(view: View) {
@@ -150,7 +150,7 @@ class ToolTransferActivity : AppCompatActivity(), FragmentCommunication {
 
     override fun processDone() {
         this@ToolTransferActivity.finish()
-        //initializeLetterAssignment()
+        initializeLetterAssignment()
     }
 
     override fun putScannedTools(tools: ArrayList<SelectableItem<Tool>>) {
@@ -160,6 +160,13 @@ class ToolTransferActivity : AppCompatActivity(), FragmentCommunication {
         } else {
             this.toolsToCustody = tools
         }
+    }
+
+    override fun showEmployeeFound(name: String) {
+        removeFragment()
+        val currentFragment = supportFragmentManager.fragments.get(counter-1)
+        if (counter == 2 && currentFragment is SearchEmployeeFragment)
+            currentFragment.putEmployeeFound(name)
     }
 
     private fun initializeLetterAssignment(){
@@ -179,6 +186,17 @@ class ToolTransferActivity : AppCompatActivity(), FragmentCommunication {
         intent.putExtra("tools", WrappToolsLA(alToolList))
 
         startActivity(intent)
+    }
+
+
+    private fun hideBottomBar(){
+        window.decorView.apply {
+            // Hide both the navigation bar and the status bar.
+            // SYSTEM_UI_FLAG_FULLSCREEN is only available on Android 4.1 and higher, but as
+            // a general rule, you should design your app to hide the status bar whenever you
+            // hide the navigation bar.
+            systemUiVisibility = View.SYSTEM_UI_FLAG_HIDE_NAVIGATION or View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
+        }
     }
 
 }

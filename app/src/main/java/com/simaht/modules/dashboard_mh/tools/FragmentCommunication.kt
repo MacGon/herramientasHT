@@ -12,4 +12,6 @@ interface FragmentCommunication {
     fun hideKeyboardEvent(view: View)
     fun processDone()
     fun putScannedTools(tools: ArrayList<SelectableItem<Tool>>)
+    fun showEmployeeFound(name: String)
+
 }

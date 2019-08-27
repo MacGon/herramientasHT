@@ -144,11 +144,15 @@ class EmployeeFoundFragment : Fragment(), IEmployeeFoundContract.View {
     }
 
     override fun setEmployee(haveCustody: Boolean, name: String) {
-        employeeAbstract.text = "${employeeNumber} - GCR"//FIXME set It from resourses using %s
-        employeeName.text = name
-        if (!haveCustody){
-            btnContinue.isEnabled = true
-            custodyFlow = haveCustody
+        if (haveCustody) {
+            employeeAbstract.text = "${employeeNumber} - GCR"//FIXME set It from resourses using %s
+            employeeName.text = name
+            if (!haveCustody) {
+                btnContinue.isEnabled = true
+                custodyFlow = haveCustody
+            }
+        } else {
+            parentView.showEmployeeFound(name)
         }
     }
 

@@ -105,7 +105,6 @@ class AddingToolsFragment : Fragment(), AddingToolContract.View, IScanner {
         if (requestCode == codeScanner) {
             if (resultCode == Activity.RESULT_OK) {
                 val code: String = data?.extras!!.getString(KEY_DATA, "")
-                println("HOLAAAAA $code")
                 try {
                     val obj: JsonObject = gson.fromJson(code, JsonObject::class.java)
                     presenter.getToolInfo(obj.get("numControl").asString)
@@ -113,12 +112,12 @@ class AddingToolsFragment : Fragment(), AddingToolContract.View, IScanner {
                 } catch (e: java.lang.Exception) {
                     flagScaner = false
                     onMessageError("Error al obtener información del servicio")
-                    println("Error al obtener información del servicio")
                 }
             } else {
                 //presenter.onBackPressed()
             }
         }
+        (activity as ToolTransferActivity).nav_view.visibility = View.VISIBLE
     }
 
     override fun onMessageError(error: String) {
@@ -155,7 +154,7 @@ class AddingToolsFragment : Fragment(), AddingToolContract.View, IScanner {
     override fun returnValue(rawResult: Result?) {
         println("PRUEBA: $rawResult")
         presenter.getToolInfo(rawResult?.text!!)
-        //(activity as ToolTransferActivity).nav_view.visibility = View.VISIBLE
+        (activity as ToolTransferActivity).nav_view.visibility = View.VISIBLE
         //presenter.addScanedElement(presenter.addTool())
     }
 

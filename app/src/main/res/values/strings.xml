@@ -82,6 +82,7 @@
     <string name="msg_search_employee">Socio</string>
     <string name="msg_employee_with_tools">El socio actualmente ya cuenta con herramientas operativas necesitas gestionarlas para continuar</string>
     <string name="msg_manage_tools_instrunction">Gestiona las herramientas operativas del GCR</string>
+    <string name="msg_employee_found_as">El socio encontrado es: %s\n¿Deseas continuar con la asignación?</string>
     <!-- Fin SearchView -->
 
 

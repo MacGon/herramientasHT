@@ -7,19 +7,36 @@ import android.view.KeyEvent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AlertDialog
+import com.baz.simaht.login.extensions.postDelayed
 import com.baz.simaht.login.extensions.toast
 import com.example.dashboard_mh.R
 import com.simaht.modules.dashboard_mh.tools.FragmentCommunication
 import com.simaht.modules.dashboard_mh.tools.base.BaseFragment
 import com.simaht.modules.dashboard_mh.tools.searchemployee.contract.ISearchingEmployeeContract
 import com.simaht.modules.dashboard_mh.tools.searchemployee.presenter.SearchingEmployeePresenter
+import kotlinx.android.synthetic.main.dialog_notification.view.*
 import kotlinx.android.synthetic.main.fragment_searching_employee.*
+import kotlinx.android.synthetic.main.fragment_searching_employee.btnContinue
 
 
 class SearchEmployeeFragment : BaseFragment(), ISearchingEmployeeContract.View {
 
     private lateinit var parentView : FragmentCommunication
     private lateinit var presenter: ISearchingEmployeeContract.Presenter
+    private lateinit var alertDialog: AlertDialog
+    private lateinit var dialogView: View
+    private var employeeFound = false
+    private var employeeName: String = ""
+        set(value) {
+            if (value.isNotEmpty()) {
+                field = value
+                //employeeFound = true
+                postDelayed(10){
+                    showEmployee(field)
+                }
+            }
+        }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -41,12 +58,11 @@ class SearchEmployeeFragment : BaseFragment(), ISearchingEmployeeContract.View {
             if (event.action == KeyEvent.ACTION_DOWN && keyCode == KeyEvent.KEYCODE_ENTER) {
 
                 parentView.hideKeyboardEvent(svEmployeeNumber)
-                if (svEmployeeNumber.text.toString().isNotEmpty())
+                if (svEmployeeNumber.text.toString().isNotEmpty()) {
                     presenter.getInfoEmployee(svEmployeeNumber.text.toString().toInt())
-                else
+                    svEmployeeNumber.setText("")
+                } else
                     showMessage("¡Agrega un número de socio para continuar!")
-                //employeeAbstract.text = "4253 - JCR"
-                //employeeName.text = "Armando de los Santos"
                 return@OnKeyListener true
             }
             false
@@ -101,5 +117,30 @@ class SearchEmployeeFragment : BaseFragment(), ISearchingEmployeeContract.View {
         parentView.nextFragment(newEmployee, toolsFound, employeeNum)
     }
 
+    fun putEmployeeFound(employeeName: String) {
+        this.employeeName = employeeName
+    }
+
+    private fun showEmployee(employee: String) {
+
+        val dialogBuilder = AlertDialog.Builder(activity!!)
+        dialogView = layoutInflater.inflate(R.layout.dialog_notification, null)
+        dialogView.ivImageAlert.visibility = View.VISIBLE
+        dialogView.tvNormalDialog.text = String.format(resources.getString(R.string.msg_employee_found_as), employee)
+        dialogView.btnDialogOK.text = "SI"
+        dialogView.btnDialogCancel.text = "NO"
+        dialogBuilder.setView(dialogView)
+                .setCancelable(false)
+        alertDialog = dialogBuilder.create()
+        alertDialog.show()
+
+        dialogView.btnDialogOK.setOnClickListener {
+            alertDialog.dismiss()
+            parentView.processDone()
+        }
+        dialogView.btnDialogCancel.setOnClickListener {
+            alertDialog.dismiss()
+        }
+    }
 
 }

@@ -64,7 +64,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
         android:background="@drawable/selector_tool_function"
-        android:enabled="true"
+        android:enabled="false"
         android:fontFamily="@font/montserrat_regular"
         android:foreground="?android:attr/selectableItemBackground"
         android:shadowRadius="5.0"
